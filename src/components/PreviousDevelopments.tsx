@@ -23,7 +23,7 @@ const previousProjects = [
     href: "/portfolio",
   },
   {
-    name: "Kivu Villas",
+    name: "Kivu Portfolio",
     image: "/images/portfolio/villa-dining-rattan-interior.webp",
     href: "/portfolio",
   },
