@@ -35,7 +35,7 @@ export default function Home() {
         {/* 1. Hero Section */}
         <Hero />
 
-        {/* 2. Stats Bar - WRAPPED IN ANIMATED SECTION so it sits cleanly below */}
+        {/* 2. Stats Bar */}
         <AnimatedSection animation="fadeIn">
           <StatsBar />
         </AnimatedSection>
@@ -60,14 +60,14 @@ export default function Home() {
         <AnimatedSection animation="fadeIn">
           <BringVillaToLifeCTA />
         </AnimatedSection>
+        
+        {/* REMOVED DUPLICATE HERE */}
         <AnimatedSection animation="fadeInUp" delay={100}>
           <WhyRwanda />
         </AnimatedSection>
+        
         <AnimatedSection animation="fadeInUp" delay={200}>
           <Awards />
-        </AnimatedSection>
-        <AnimatedSection animation="fadeInUp" delay={100}>
-          <WhyRwanda />
         </AnimatedSection>
         <AnimatedSection animation="fadeIn">
           <InvestmentMarket />
