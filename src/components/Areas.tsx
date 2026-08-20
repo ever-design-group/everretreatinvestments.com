@@ -22,7 +22,7 @@ const areas = [
     name: "Rubavu",
     description:
       "Lake Kivu waterfront — premium holiday rentals and luxury lakeside villas with high nightly rates.",
-    image: "/images/areas/rubavu-area.webp",
+    image: "/images/areas/villa-photos.jpeg",
     imageAlt: "Rubavu - Rwanda property investment area",
     href: "/areas/rubavu",
   },

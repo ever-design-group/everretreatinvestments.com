@@ -32,10 +32,15 @@ export default function Home() {
     <>
       <Header />
       <main>
+        {/* 1. Hero Section */}
         <Hero />
+
+        {/* 2. Stats Bar - WRAPPED IN ANIMATED SECTION so it sits cleanly below */}
         <AnimatedSection animation="fadeIn">
           <StatsBar />
         </AnimatedSection>
+
+        {/* 3. Rest of the page */}
         <AnimatedSection animation="fadeInUp" delay={100}>
           <About />
         </AnimatedSection>
@@ -69,9 +74,9 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection animation="fadeIn">
           <InvestInRwandaCTA />
-      </AnimatedSection>
-      <AnimatedSection animation="fadeInUp" delay={100}>
-        <SocialFollowing />
+        </AnimatedSection>
+        <AnimatedSection animation="fadeInUp" delay={100}>
+          <SocialFollowing />
         </AnimatedSection>
         <AnimatedSection animation="fadeInUp" delay={200}>
           <HowItWorks />

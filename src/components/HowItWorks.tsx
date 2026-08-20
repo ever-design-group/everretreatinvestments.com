@@ -1,102 +1,224 @@
-﻿import Link from "next/link";
+﻿"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+import { useRef } from "react";
 
 const steps = [
   {
     number: "01",
-    timeline: "Week 1",
-    title: "Discovery Call",
+    timeline: "WEEK 1",
+    title: "Pick Your Development",
     description:
-      "Every project starts with a conversation. We learn about your goals, your budget, your preferred timeline, and whether the villa is a personal retreat, an investment property, or both.",
+      "Browse our developments and find the one that fits your goals and budget.",
   },
   {
     number: "02",
-    timeline: "2-6 Weeks",
-    title: "Land Sourcing",
+    timeline: "WEEK 2-4",
+    title: "Reserve With $5,000 USD",
     description:
-      "Finding the right plot is the foundation of a profitable build. Our land team searches across Rwanda for sites that match your criteria.",
+      "A $5,000 USD deposit holds your villa. The rest comes in stages tied to construction.",
   },
   {
     number: "03",
-    timeline: "3-5 Months",
-    title: "Architectural Design",
+    timeline: "MONTH 3-18",
+    title: "Pay As It's Built",
     description:
-      "This is where your villa takes shape. Our architects design from the ground up, tailored to your site, your style, and your investment strategy.",
+      "Four payments tied to real construction milestones. No surprises.",
   },
   {
     number: "04",
-    timeline: "4-8 Weeks",
-    title: "Permits & Legal",
+    timeline: "MONTH 18+",
+    title: "Start Earning",
     description:
-      "Building in Rwanda requires specific permits and legal documentation. Our legal team handles the entire process.",
-  },
-  {
-    number: "05",
-    timeline: "8-14 Months",
-    title: "Construction",
-    description:
-      "This is the longest phase. Our construction team builds from the same documentation our architects produced.",
+      "Villa goes under management and starts generating rental income.",
   },
 ];
 
 export function HowItWorks() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 0.3, 1], ["0%", "50%", "100%"]);
+
   return (
-    <section className="bg-brand-black py-16 md:py-32">
+    <section ref={sectionRef} className="bg-brand-black py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6">
+        {/* Header */}
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-            How It Works
+            HOW IT WORKS
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-            From Vision to Villa
+          <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl lg:text-6xl">
+            How Does Investing <br className="hidden sm:block" />
+            In An Ever Retreat Villa Work?
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-            One team handles everything - land, architecture, permits,
-            construction, interiors, and rental management. Here is how it works.
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/70">
+            From first enquiry to rental income in four straightforward steps. No
+            hidden stages, no complexity.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {steps.map((step) => (
-            <div key={step.number} className="rounded-lg bg-white/5 p-6">
-              <div className="flex items-center justify-between">
-                <span className="text-lg font-bold text-white/40">{step.number}</span>
-                <span className="text-xs font-medium text-white/60">{step.timeline}</span>
+        {/* Desktop: Horizontal Line with Points */}
+        <div className="relative mb-16 hidden md:block">
+          <div className="relative h-[2px] w-full bg-white/10">
+            <motion.div
+              className="h-full bg-white"
+              initial={{ width: "0%" }}
+              whileInView={{ width: "100%" }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+            />
+            <div className="absolute inset-0 flex justify-between px-0">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  className="relative -mt-1.5 flex items-center"
+                  style={{
+                    left: index === 0 ? "0%" : index === steps.length - 1 ? "100%" : `${(index / (steps.length - 1)) * 100}%`,
+                    transform: index === 0 ? "translateX(0)" : index === steps.length - 1 ? "translateX(-100%)" : "translateX(-50%)",
+                    position: "absolute",
+                  }}
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ delay: index * 0.2, duration: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="h-3 w-3 rounded-full bg-white" />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile & Tablet: Vertical Timeline - CLEAN & PROFESSIONAL */}
+        <div className="relative mb-8 md:hidden">
+          {/* Vertical Line - Centered and Thin */}
+          <div className="absolute left-1/2 top-0 h-full w-[1px] -translate-x-1/2 bg-white/20">
+            <motion.div
+              className="w-full bg-white"
+              style={{
+                height: lineHeight,
+                transformOrigin: "top",
+              }}
+            />
+          </div>
+
+          {/* Steps */}
+          <div className="relative space-y-16">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                className="relative flex items-start justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: false, amount: 0.3 }}
+              >
+                {/* LEFT SIDE: Timeline Badge */}
+                <div className="flex w-[45%] items-center justify-end pr-5 text-right">
+                  <div className="inline-block rounded-full border border-white/20 px-3 py-1">
+                    <span className="text-[10px] font-medium uppercase tracking-wider text-white/60">
+                      {step.timeline}
+                    </span>
+                  </div>
+                </div>
+
+                {/* CENTER: The Bullseye Dot */}
+                <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+                  <motion.div
+                    className="relative h-3.5 w-3.5 flex-shrink-0 rounded-full border-[1.5px] border-white bg-brand-black"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: index * 0.2, duration: 0.3 }}
+                    viewport={{ once: false, amount: 0.3 }}
+                  >
+                    <div className="absolute inset-[3px] rounded-full bg-white" />
+                  </motion.div>
+                </div>
+
+                {/* RIGHT SIDE: Step Content */}
+                <div className="w-[45%] pl-5 text-left">
+                  {/* Number */}
+                  <div className="mb-1 text-2xl font-bold text-white/20">
+                    {step.number}
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="mb-1.5 text-base font-semibold text-white leading-tight">
+                    {step.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-sm leading-relaxed text-white/60">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Steps Grid - Desktop */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.number}
+              className="group relative rounded-lg p-6 transition-all duration-500 hover:bg-white/5"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <div className="mb-4 inline-block rounded-full border border-white/20 px-3 py-1">
+                <span className="text-xs font-medium text-white/60">
+                  {step.timeline}
+                </span>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-white">
+
+              <div className="mb-3 text-4xl font-bold text-white/20 transition-colors group-hover:text-white/40">
+                {step.number}
+              </div>
+
+              <h3 className="mb-3 text-lg font-semibold text-white">
                 {step.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">
+
+              <p className="text-sm leading-relaxed text-white/60">
                 {step.description}
               </p>
-            </div>
+
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
+            </motion.div>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        {/* Buttons */}
+        <motion.div 
+          className="mt-12 md:mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <Link
+            href="/journey"
+            className="group relative overflow-hidden rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
+          >
+            <span className="relative z-10">START YOUR JOURNEY →</span>
+            <div className="absolute inset-0 bg-white/90 transition-transform duration-300 group-hover:translate-x-full" />
+          </Link>
           <Link
             href="/process"
-            className="rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90"
+            className="rounded border border-white/20 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:scale-105"
           >
-            See Full Process &rarr;
+            SEE FULL PROCESS
           </Link>
-          <Link
-            href="https://wa.me/250788000000"
-            aria-label="Chat on WhatsApp"
-            className="inline-flex items-center justify-center rounded bg-white px-4 py-3 text-black transition-colors hover:bg-white/90"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-          </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-

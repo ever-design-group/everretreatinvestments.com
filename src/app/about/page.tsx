@@ -14,7 +14,7 @@ import Image from "next/image";
 export const metadata = {
   title: "About Ever Retreat - Rwanda Property Investment | Ever Retreat",
   description:
-    "Australian-owned, Rwanda-based property company with 160+ in-house professionals. Architecture, construction, villa management, and real estate - all under one roof.",
+    "Ever retreat-owned, Rwanda-based property company with 160+ in-house professionals. Architecture, construction, villa management, and real estate - all under one roof.",
 };
 
 export default function AboutPage() {

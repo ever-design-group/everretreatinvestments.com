@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     title: "Luxury Eco-Villa Retreats in Rwanda | Ever Retreat",
     description:
     "Award-winning eco-luxury retreats in Rwanda. Architecture, construction, villa management, and property investment - all under one roof.",
+    icons: {
+        icon: "/seo/favicon.ico",
+        apple: "/seo/apple-icon.png",
+    },
 };
 
 export default function RootLayout({

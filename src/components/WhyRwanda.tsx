@@ -16,7 +16,7 @@ export function WhyRwanda() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div className="relative">
             <Image
-              src="/images/hero/rwanda-landscape.webp"
+              src="/images/hero/villa-photos.jpeg"
               alt="Rwanda landscape with mountains and lakes"
               width={800}
               height={600}
