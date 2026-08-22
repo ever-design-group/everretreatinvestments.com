@@ -36,6 +36,11 @@ const teamMembers = [
     role: "IT",
     initials: "ER",
   },
+  {
+    name: "Rusagara",
+    role: "Procurement Officer",
+    initials: "RU",
+  },
 ];
 
 export function Team() {
