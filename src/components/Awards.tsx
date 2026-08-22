@@ -1,38 +1,38 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const awards = [
+const portfolio = [
   {
     title: "Kivu Villas",
-    subtitle: "International Property Awards 2025",
-    image: "/images/awards/award-16.webp",
-    imageAlt: "Kivu Villas - International Property Awards 2025",
-    href: "/portfolio/kivu-villas-3bdr",
-    linkText: "See the project",
-  },
-  {
-    title: "International Property & Travel",
-    subtitle: "Property Paradise feature, 2025",
-    image: "/images/awards/award-14.webp",
-    imageAlt: "International Property & Travel - Property Paradise feature, 2025",
-    href: "https://issuu.com/intprop/docs/ipt_v31n6",
-    linkText: "Read the article",
-  },
-  {
-    title: "Marie Claire Lifestyle",
-    subtitle: "Creative Retreats feature, 2025",
-    image: "/images/awards/marie-claire-lifestyle.webp",
-    imageAlt: "Marie Claire Lifestyle - Creative Retreats feature, 2025",
-    href: "https://www.marieclaire.com.au/life/home/ever-retreat-rwanda-luxury-villa-feature/",
-    linkText: "Read the article",
+    description: "Luxury villa architecture inspired by the landscape and lifestyle of Lake Kivu.",
+    image: "/images/developments/nara-exterior-1.webp",
+    imageAlt: "Kivu Villas exterior at Lake Kivu",
+    href: "/developments/nara-villas",
+    cta: "Explore project",
   },
   {
     title: "Virunga Villas",
-    subtitle: "International Property Awards 2025",
-    image: "/images/awards/award-15.webp",
-    imageAlt: "Virunga Villas - International Property Awards 2025",
-    href: "/portfolio/virunga-villas-3bdr",
-    linkText: "See the project",
+    description: "Contemporary villas designed for comfort, privacy, and long-term investment value.",
+    image: "/images/developments/suku-4br/suku-4br-1.webp",
+    imageAlt: "Virunga Villas exterior in Musanze",
+    href: "/developments/suku-residences",
+    cta: "Explore project",
+  },
+  {
+    title: "Ever Retreat",
+    description: "A hospitality destination combining architecture, nature, and the unique experience of Lake Kivu.",
+    image: "/images/portfolio/villa-pool-timber-deck.webp",
+    imageAlt: "Ever Retreat villa with pool and timber deck",
+    href: "/about",
+    cta: "Discover Ever Retreat",
+  },
+  {
+    title: "Ever Design",
+    description: "Architecture and construction solutions for clients looking to create their own property in Rwanda.",
+    image: "/images/about/villa-architecture.webp",
+    imageAlt: "Ever Design architectural project",
+    href: "/services/architecture",
+    cta: "Start your project",
   },
 ];
 
@@ -42,42 +42,44 @@ export function Awards() {
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-            Featured In
+            Our Portfolio
           </p>
           <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-            Awards & Achievements
+            Designed for Living. Built for Investment.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-            Two-time International Property Awards winner (2025) and featured
-            in global property publications, Marie Claire, Int&apos;l Property &
-            Travel, and designboom.
+            Explore selected villas, architectural concepts, and development
+            projects that showcase our approach to modern design, quality
+            construction, and investment-focused property development in Rwanda.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {awards.map((award) => (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {portfolio.map((item) => (
             <Link
-              key={award.title}
-              href={award.href}
+              key={item.title}
+              href={item.href}
               className="group overflow-hidden rounded-lg"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={award.image}
-                  alt={award.imageAlt}
+                  src={item.image}
+                  alt={item.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
               <div className="p-4">
                 <h3 className="text-base font-semibold text-white">
-                  {award.title}
+                  {item.title}
                 </h3>
-                <p className="mt-1 text-sm text-white/60">{award.subtitle}</p>
+                <p className="mt-1 text-sm leading-relaxed text-white/60">
+                  {item.description}
+                </p>
                 <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-white/80">
-                  {award.linkText}
+                  {item.cta}
                   <span className="transition-transform group-hover:translate-x-1">
                     →
                   </span>
@@ -90,4 +92,3 @@ export function Awards() {
     </section>
   );
 }
-

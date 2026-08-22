@@ -11,21 +11,34 @@ export const metadata = {
 export default function BestAreaToInvestPage() {
   return (
     <PageLayout
-      title="Best Area to Invest in Rwanda (2026)"
-      subtitle="Comparing land prices, yields, and lifestyle factors across Rwanda&apos;s top investment areas."
-      bg="off-white"
+      hero={
+        <section className="relative h-[600px] w-full overflow-hidden">
+          <Image
+            src="/images/areas/lake-kivu-area.webp"
+            alt="Lake Kivu investment area"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
+            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
+              Ever Retreat Blog
+            </p>
+            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+              Best Area to Invest in Rwanda (2026)
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg">
+              Comparing land prices, yields, and lifestyle factors across Rwanda&apos;s top investment areas.
+            </p>
+          </div>
+        </section>
+      }
     >
-      <section className="px-6 py-12 md:py-24">
+      <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-[1440px]">
           <div className="prose prose-lg mx-auto max-w-4xl">
-            <Image
-              src="/images/areas/lake-kivu-area.webp"
-              alt="Rwanda investment areas comparison"
-              width={1200}
-              height={600}
-              className="w-full rounded-lg object-cover"
-            />
-
             <h2>Kigali</h2>
             <p>
               <strong>Land price:</strong> $300-500/sqm<br />
@@ -100,4 +113,3 @@ export default function BestAreaToInvestPage() {
     </PageLayout>
   );
 }
-

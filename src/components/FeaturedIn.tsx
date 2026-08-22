@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const pressLogos = [
   { 
@@ -26,9 +25,8 @@ export function FeaturedIn() {
         {/* ===== LOGOS ===== */}
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
           {pressLogos.map((logo) => (
-            <Link
+            <div
               key={logo.alt}
-              href="/awards-and-press"
               className="grayscale opacity-60 transition-all duration-300 hover:opacity-100 hover:grayscale-0"
             >
               <Image
@@ -38,7 +36,7 @@ export function FeaturedIn() {
                 height={logo.size === "large" ? 100 : 70}
                 className={logo.size === "large" ? "h-20 w-auto object-contain" : "h-12 w-auto object-contain"}
               />
-            </Link>
+            </div>
           ))}
         </div>
       </div>

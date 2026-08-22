@@ -11,21 +11,34 @@ export const metadata = {
 export default function RentalIncomePage() {
   return (
     <PageLayout
-      title="How Much Rental Income Does a Rwanda Villa Actually Earn?"
-      subtitle="Real nightly rates, occupancy data, and net yield breakdowns by area."
-      bg="off-white"
+      hero={
+        <section className="relative h-[600px] w-full overflow-hidden">
+          <Image
+            src="/images/portfolio/villa-dining-rattan-interior.webp"
+            alt="Luxury villa interior in Rwanda"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
+            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
+              Ever Retreat Blog
+            </p>
+            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
+              How Much Rental Income Does a Rwanda Villa Actually Earn?
+            </h1>
+            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg">
+              Real nightly rates, occupancy data, and net yield breakdowns by area.
+            </p>
+          </div>
+        </section>
+      }
     >
-      <section className="px-6 py-12 md:py-24">
+      <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-[1440px]">
           <div className="prose prose-lg mx-auto max-w-4xl">
-            <Image
-              src="/images/portfolio/villa-dining-rattan-interior.webp"
-              alt="Luxury villa interior in Rwanda"
-              width={1200}
-              height={600}
-              className="w-full rounded-lg object-cover"
-            />
-
             <h2>Yield by Area</h2>
             <p>
               Here&apos;s what Ever Retreat-managed villas achieve as of 2026:
@@ -116,4 +129,3 @@ export default function RentalIncomePage() {
     </PageLayout>
   );
 }
-

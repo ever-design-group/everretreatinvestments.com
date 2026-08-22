@@ -6,7 +6,7 @@ const companyLinks = [
   { label: "How We Work", href: "/process" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Villa Tours", href: "/villa-tours" },
-  { label: "Awards & Press", href: "/awards-and-press" },
+
   { label: "Testimonials", href: "/testimonials" },
   { label: "Blog", href: "/blog" },
   { label: "News", href: "/news" },
@@ -14,7 +14,7 @@ const companyLinks = [
   { label: "Client Forms", href: "/forms" },
   { label: "Pay Villa Deposit", href: "/buy" },
   { label: "Refer a Friend", href: "/refer-a-friend" },
-  { label: "Scholarship", href: "/scholarship" },
+
   { label: "Contact", href: "/contact" },
 ];
 
@@ -179,11 +179,7 @@ export function Footer() {
             <Link href="/terms-and-conditions" className="text-xs text-white/50 hover:text-white">
               Terms
             </Link>
-            <button className="text-xs text-white/50 hover:text-white">
-              Cookie settings
-            </button>
             <span className="text-xs text-white/50">Fully Licensed</span>
-            <span className="text-xs text-white/50">AREBI Member</span>
           </div>
         </div>
       </div>
