@@ -1,45 +1,54 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const teamMembers = [
   {
     name: "Theophile",
     role: "CEO",
-    initials: "TH",
+    image: "/images/team/dan.webp",
+    imageAlt: "Theophile - CEO at Ever Retreat",
   },
   {
     name: "Yvette",
     role: "Architecture Manager",
-    initials: "YV",
+    image: "/images/team/irene.webp",
+    imageAlt: "Yvette - Architecture Manager at Ever Retreat",
   },
   {
     name: "Doris",
     role: "Hospitality Manager",
-    initials: "DO",
+    image: "/images/team/james.webp",
+    imageAlt: "Doris - Hospitality Manager at Ever Retreat",
   },
   {
     name: "Sophie",
     role: "Accountant",
-    initials: "SO",
+    image: "/images/team/agung.webp",
+    imageAlt: "Sophie - Accountant at Ever Retreat",
   },
   {
     name: "Joseph",
     role: "Operations Manager",
-    initials: "JO",
+    image: "/images/team/nyoman.webp",
+    imageAlt: "Joseph - Operations Manager at Ever Retreat",
   },
   {
     name: "Ben",
     role: "Site Engineer",
-    initials: "BE",
+    image: "/images/team/ben.webp",
+    imageAlt: "Ben - Site Engineer at Ever Retreat",
   },
   {
     name: "Eric",
     role: "IT",
-    initials: "ER",
+    image: "/images/team/yogi.webp",
+    imageAlt: "Eric - IT at Ever Retreat",
   },
   {
     name: "Rusagara",
     role: "Procurement Officer",
-    initials: "RU",
+    image: "/images/team/dedi.webp",
+    imageAlt: "Rusagara - Procurement Officer at Ever Retreat",
   },
 ];
 
@@ -72,10 +81,14 @@ export function Team() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <div key={member.name} className="group">
-              <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-gray-100 flex items-center justify-center">
-                <span className="text-3xl font-bold text-brand-gray-400">
-                  {member.initials}
-                </span>
+              <div className="relative aspect-square overflow-hidden rounded-lg">
+                <Image
+                  src={member.image}
+                  alt={member.imageAlt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
               <p className="mt-3 text-sm font-semibold text-black">{member.name}</p>
               <p className="mt-1 text-xs text-brand-gray-500">{member.role}</p>
