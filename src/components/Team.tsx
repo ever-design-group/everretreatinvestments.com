@@ -21,6 +21,21 @@ const teamMembers = [
     role: "Accountant",
     initials: "SO",
   },
+  {
+    name: "Joseph",
+    role: "Operations Manager",
+    initials: "JO",
+  },
+  {
+    name: "Ben",
+    role: "Site Engineer",
+    initials: "BE",
+  },
+  {
+    name: "Eric",
+    role: "IT",
+    initials: "ER",
+  },
 ];
 
 export function Team() {
