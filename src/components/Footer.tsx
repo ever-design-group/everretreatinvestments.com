@@ -55,11 +55,11 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block">
               <Image
-                src="/images/logos/logo-white-full.webp"
+                src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
                 alt="Ever Retreat - Rwanda Property, Architecture & Construction"
-                width={160}
-                height={22}
-                className="h-5 w-auto"
+                width={280}
+                height={40}
+                className="h-10 w-auto"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
