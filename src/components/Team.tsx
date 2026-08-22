@@ -1,54 +1,25 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const teamMembers = [
   {
-    name: "Daniel",
-    role: "Co-Founder & Director",
-    image: "/images/team/dan.webp",
-    imageAlt: "Daniel - Co-Founder & Director at Ever Retreat",
+    name: "Theophile",
+    role: "CEO",
+    initials: "TH",
   },
   {
-    name: "Byron",
-    role: "General Manager",
-    image: "/images/team/byron.webp",
-    imageAlt: "Byron - General Manager at Ever Retreat",
+    name: "Yvette",
+    role: "Architecture Manager",
+    initials: "YV",
   },
   {
-    name: "Dedi",
-    role: "Principal Architect",
-    image: "/images/team/dedi.webp",
-    imageAlt: "Dedi - Principal Architect at Ever Retreat",
+    name: "Doris",
+    role: "Hospitality Manager",
+    initials: "DO",
   },
   {
-    name: "Nyoman",
-    role: "Project Manager",
-    image: "/images/team/nyoman.webp",
-    imageAlt: "Nyoman - Project Manager at Ever Retreat",
-  },
-  {
-    name: "James",
-    role: "Sales Manager",
-    image: "/images/team/james.webp",
-    imageAlt: "James - Sales Manager at Ever Retreat",
-  },
-  {
-    name: "Irene",
-    role: "Head of Villa Management",
-    image: "/images/team/irene.webp",
-    imageAlt: "Irene - Head of Villa Management at Ever Retreat",
-  },
-  {
-    name: "Yogi",
-    role: "Legal Advisor",
-    image: "/images/team/yogi.webp",
-    imageAlt: "Yogi - Legal Advisor at Ever Retreat",
-  },
-  {
-    name: "Agung",
-    role: "Head QS",
-    image: "/images/team/agung.webp",
-    imageAlt: "Agung - Head QS at Ever Retreat",
+    name: "Sophie",
+    role: "Accountant",
+    initials: "SO",
   },
 ];
 
@@ -81,22 +52,21 @@ export function Team() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((member) => (
             <div key={member.name} className="group">
-              <div className="relative aspect-square overflow-hidden rounded-lg">
-                <Image
-                  src={member.image}
-                  alt={member.imageAlt}
-                  fill
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+              <div className="relative aspect-square overflow-hidden rounded-lg bg-brand-gray-100 flex items-center justify-center">
+                <span className="text-3xl font-bold text-brand-gray-400">
+                  {member.initials}
+                </span>
               </div>
               <p className="mt-3 text-sm font-semibold text-black">{member.name}</p>
               <p className="mt-1 text-xs text-brand-gray-500">{member.role}</p>
             </div>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-sm text-brand-gray-500">
+          and 160+ other people work at Ever Retreat
+        </p>
       </div>
     </section>
   );
 }
-
