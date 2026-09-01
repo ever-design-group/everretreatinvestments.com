@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function InterestedInInvesting() {
   return (
@@ -19,25 +19,25 @@ export function InterestedInInvesting() {
             </p>
             <div className="mt-8 space-y-3">
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">✓</span>
+                <span className="mt-1 text-brand-green">?</span>
                 <span className="text-sm text-white/80">Honest advice on locations, budgets, and returns</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">✓</span>
+                <span className="mt-1 text-brand-green">?</span>
                 <span className="text-sm text-white/80">Clear answers on foreign ownership and legal structures</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">✓</span>
+                <span className="mt-1 text-brand-green">?</span>
                 <span className="text-sm text-white/80">No sales pressure - we answer questions, you decide</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">✓</span>
+                <span className="mt-1 text-brand-green">?</span>
                 <span className="text-sm text-white/80">Respond within 24 hours, Mon-Fri 8am-5pm CAT</span>
               </div>
             </div>
             <div className="mt-6 flex gap-4">
               <Link
-                href="https://wa.me/250788000000"
+                href="https://wa.me/250787524298"
                 aria-label="WhatsApp Us"
                 className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
               >

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 const benefits = [
   "Honest advice on locations, budgets, and returns",
@@ -27,13 +27,13 @@ export function FinalCTA() {
             <ul className="mt-8 space-y-3">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-3 text-sm text-white/80">
-                  <span className="mt-1 text-brand-green">✓</span>
+                  <span className="mt-1 text-brand-green">?</span>
                   <span>{benefit}</span>
                 </li>
               ))}
             </ul>
             <Link
-              href="https://wa.me/250788000000"
+              href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
               className="mt-6 inline-flex items-center justify-center rounded bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
             >

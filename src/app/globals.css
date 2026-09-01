@@ -178,3 +178,11 @@
   animation: dev-hero-fade 10s ease-in-out infinite;
   will-change: opacity;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

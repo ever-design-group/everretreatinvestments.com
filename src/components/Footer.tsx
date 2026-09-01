@@ -69,7 +69,7 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-2">
               <p className="text-sm text-white/80">
-              +250785035071
+              +250787524298
               </p>
               <Link
                 href="mailto:hello@everretreat.com"

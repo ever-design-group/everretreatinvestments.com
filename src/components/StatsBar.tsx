@@ -12,9 +12,9 @@ export function StatsBar() {
   ];
 
   return (
-    <section className="bg-brand-white py-10 md:py-16 w-full border-b border-brand-gray-200/50">
-      <div className="mx-auto max-w-[1440px] px-6">
-        <div className="grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-4 sm:gap-8">
+    <section className="bg-brand-white py-8 md:py-16 w-full border-b border-brand-gray-200/50">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
+        <div className="grid grid-cols-2 gap-y-8 gap-x-4 sm:grid-cols-4 sm:gap-8">
           {stats.map((stat, index) => (
             <StatItem 
               key={stat.label} 
@@ -57,7 +57,7 @@ function StatItem({ target, suffix, label, index }: { target: number; suffix: st
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <p className="text-2xl font-bold tracking-tight text-brand-black sm:text-3xl md:text-4xl lg:text-5xl">
+      <p className="text-xl font-bold tracking-tight text-brand-black sm:text-3xl md:text-4xl lg:text-5xl">
         {count}{suffix}
       </p>
       <p className="mt-1 text-[10px] font-medium uppercase tracking-wider text-brand-gray-500 sm:text-xs md:text-sm">

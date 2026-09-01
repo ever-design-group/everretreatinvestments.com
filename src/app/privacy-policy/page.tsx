@@ -1,4 +1,4 @@
-﻿import { PageLayout } from "@/components/PageLayout";
+import { PageLayout } from "@/components/PageLayout";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
@@ -204,7 +204,7 @@ export default function PrivacyPolicyPage() {
                   </a>
                   {" "}or WhatsApp{" "}
                   <a
-                    href="https://wa.me/250788000000"
+                    href="https://wa.me/250787524298"
                     className="font-medium text-gray-900 transition-colors hover:text-gray-600"
                   >
                     +250 788-000-000

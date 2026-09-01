@@ -54,40 +54,42 @@ const areas = [
 
 export function Areas() {
   return (
-    <section className="bg-brand-white py-16 md:py-28">
-      <div className="mx-auto max-w-[1440px] px-6">
-        <div className="mb-12 text-center">
-          <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+    <section className="bg-brand-white py-12 sm:py-16 md:py-28">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
+        <div className="mb-8 text-center sm:mb-12">
+          <p className="text-[10px] font-medium uppercase tracking-widest text-brand-gray-500 sm:text-xs">
             Explore Rwanda
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
+          <h2 className="mt-3 text-2xl font-bold leading-tight text-black sm:mt-4 sm:text-3xl md:text-5xl">
             Where to Invest
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-brand-gray-600 sm:mt-4 sm:text-base">
             Each area of Rwanda has its own character, price point, and
             investment profile. Here is where our clients are building villas.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {areas.map((area) => (
             <Link
               key={area.name}
               href={area.href}
               className="group relative overflow-hidden rounded-lg"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[4/3]">
                 <Image
                   src={area.image}
                   alt={area.imageAlt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-xl font-bold text-white">{area.name}</h3>
-                  <p className="mt-1 text-xs leading-relaxed text-white/80">
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                  <h3 className="text-lg font-bold text-white sm:text-xl">
+                    {area.name}
+                  </h3>
+                  <p className="mt-1 text-xs leading-relaxed text-white/80 sm:text-sm">
                     {area.description}
                   </p>
                 </div>

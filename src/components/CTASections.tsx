@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 function WhatsAppIcon({ className = "h-4 w-4" }) {
   return (
@@ -33,7 +33,7 @@ export function GetPricesCTA() {
               honest yield figures. No sales pressure.
             </p>
             <Link
-              href="https://wa.me/250788000000"
+              href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
               className="mt-8 inline-flex items-center justify-center rounded bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
             >
@@ -103,7 +103,7 @@ export function BringVillaToLifeCTA() {
           </div>
           <div className="flex items-center gap-4">
             <Link
-              href="https://wa.me/250788000000"
+              href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
               className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
             >
@@ -137,7 +137,7 @@ export function InvestInRwandaCTA() {
           </div>
           <div className="flex items-center gap-4">
             <Link
-              href="https://wa.me/250788000000"
+              href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
               className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
             >

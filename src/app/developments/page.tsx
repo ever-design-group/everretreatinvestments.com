@@ -1,4 +1,4 @@
-﻿import { Header } from "@/components/Header";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Developments } from "@/components/Developments";
 import { PricingForm } from "@/components/PricingForm";
@@ -67,7 +67,7 @@ export default function DevelopmentsPage() {
                 Enquire Now
               </Link>
               <Link
-                href="https://wa.me/250788000000"
+                href="https://wa.me/250787524298"
                 className="rounded bg-brand-green px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-brand-green/90"
               >
                 WhatsApp Us

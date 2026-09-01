@@ -1,4 +1,4 @@
-﻿import { Header } from "@/components/Header";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FAQ } from "@/components/FAQ";
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 <h3 className="text-lg font-semibold text-black">WhatsApp</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   <a
-                    href="https://wa.me/250788000000"
+                    href="https://wa.me/250787524298"
                     className="hover:text-black"
                   >
                       +250 788-000-000

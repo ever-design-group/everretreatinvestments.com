@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 export function InvestmentMarket() {
   return (
@@ -83,7 +83,7 @@ export const InvestmentGuide = () => (
           </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row justify-center">
           <Link
-            href="https://wa.me/250788000000"
+            href="https://wa.me/250787524298"
             className="rounded bg-brand-green px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green/90"
           >
             Download the Guide

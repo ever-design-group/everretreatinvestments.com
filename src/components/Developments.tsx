@@ -10,7 +10,7 @@ const developments = [
     tag: "Rubavu / 2-3 Bed",
     badge: "3 of 6 Remaining",
     price: "From $269K USD",
-    image: "/images/developments/nara-exterior-1.webp",
+    image: "/images/developments/villa-photos.jpeg",
     href: "/developments/nara-villas",
     description:
       "Premium 2-3 bedroom lakeside villas at Lake Kivu with private pools and saunas.",
@@ -73,16 +73,16 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
       <section className="bg-brand-gray-300 py-12 md:py-20">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
           {showHeader && (
-            <div className="mb-10 text-center">
-              <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+            <div className="mb-8 text-center sm:mb-10">
+              <p className="text-[10px] font-medium uppercase tracking-widest text-brand-gray-500 sm:text-xs">
                 Current Developments
               </p>
-              <h2 className="mt-2 text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+              <h2 className="mt-2 text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
                 Invest in Our Latest Projects
               </h2>
             </div>
           )}
-          <div className={`grid ${gridCols} gap-6`}>
+          <div className={`grid ${gridCols} gap-4 sm:gap-6`}>
             {visibleDevelopments.map((dev, index) => (
               <Link
                 key={dev.id}
@@ -94,7 +94,7 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
                 }
               >
                 {index < 2 ? (
-                  <div className="relative aspect-[16/10] overflow-hidden">
+                  <div className="relative aspect-[3/4] overflow-hidden sm:aspect-[16/10]">
                     <Image
                       src={dev.image}
                       alt={dev.name}
@@ -102,36 +102,36 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                    <div className="absolute left-5 top-5 flex items-center gap-3">
-                      <span className="rounded-full bg-white/95 px-3.5 py-1.5 text-xs font-semibold text-black backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 sm:from-black/90 sm:via-black/40 sm:to-transparent" />
+                    <div className="absolute left-4 top-4 flex items-center gap-2 sm:left-5 sm:top-5">
+                      <span className="rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-semibold text-black backdrop-blur-sm sm:px-3.5 sm:text-xs">
                         {dev.badge}
                       </span>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-                      <p className="text-[11px] font-medium uppercase tracking-widest text-white/70">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 sm:p-6">
+                      <p className="text-[10px] font-medium uppercase tracking-widest text-white/70 sm:text-[11px]">
                         {dev.tag}
                       </p>
-                      <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
+                      <h3 className="mt-1.5 text-lg font-bold text-white sm:mt-2 sm:text-xl sm:text-2xl">
                         {dev.name}
                       </h3>
-                      <p className="mt-1 text-sm font-semibold text-white">
+                      <p className="mt-1 text-sm font-semibold text-white sm:text-base">
                         {dev.price}
                       </p>
-                      <p className="mt-2 text-sm leading-relaxed text-white/85 line-clamp-2">
+                      <p className="mt-2 text-xs leading-relaxed text-white/85 line-clamp-2 sm:text-sm">
                         {dev.description}
                       </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
                         {dev.features.map((feature, i) => (
                           <span
                             key={i}
-                            className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm"
+                            className="rounded-full border border-white/25 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur-sm sm:px-3 sm:py-1.5 sm:text-xs"
                           >
                             {feature}
                           </span>
                         ))}
                       </div>
-                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-white sm:mt-4 sm:gap-2 sm:text-sm">
                         <span className="group-hover:underline">Explore {dev.name}</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </div>
@@ -148,35 +148,35 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
-                    <div className="p-5 sm:p-6">
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+                    <div className="p-4 sm:p-5 sm:p-6">
+                      <div className="flex items-center justify-between gap-2 sm:gap-3">
+                        <p className="text-[10px] font-medium uppercase tracking-widest text-brand-gray-500 sm:text-xs">
                           {dev.tag}
                         </p>
-                        <span className="shrink-0 rounded-full bg-brand-off-white px-3 py-1 text-xs font-semibold text-black">
+                        <span className="shrink-0 rounded-full bg-brand-off-white px-2.5 py-1 text-[11px] font-semibold text-black sm:px-3 sm:text-xs">
                           {dev.badge}
                         </span>
                       </div>
-                      <h3 className="mt-3 text-lg font-bold text-black sm:text-xl">
+                      <h3 className="mt-2 text-base font-bold text-black sm:mt-3 sm:text-lg sm:text-xl">
                         {dev.name}
                       </h3>
                       <p className="mt-1 text-sm font-semibold text-black">
                         {dev.price}
                       </p>
-                      <p className="mt-2 text-sm leading-relaxed text-brand-gray-600">
+                      <p className="mt-2 text-xs leading-relaxed text-brand-gray-600 sm:text-sm">
                         {dev.description}
                       </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
+                      <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
                         {dev.features.map((feature, i) => (
                           <span
                             key={i}
-                            className="rounded-full border border-brand-gray-200 bg-brand-white px-3 py-1.5 text-xs font-medium text-brand-gray-700"
+                            className="rounded-full border border-brand-gray-200 bg-brand-white px-2.5 py-1 text-[11px] font-medium text-brand-gray-700 sm:px-3 sm:py-1.5 sm:text-xs"
                           >
                             {feature}
                           </span>
                         ))}
                       </div>
-                      <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black">
+                      <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-black sm:mt-4 sm:gap-2 sm:text-sm">
                         <span className="group-hover:underline">Explore {dev.name}</span>
                         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                       </div>
@@ -187,7 +187,7 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
             ))}
           </div>
           {!showAll && (
-            <div className="mt-12 text-center">
+            <div className="mt-8 text-center sm:mt-12">
               <Link
                 href="/developments"
                 className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
@@ -205,16 +205,16 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
     <section className="bg-brand-gray-300 py-12 md:py-20">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
         {showHeader && (
-          <div className="mb-10 text-center">
-            <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+          <div className="mb-8 text-center sm:mb-10">
+            <p className="text-[10px] font-medium uppercase tracking-widest text-brand-gray-500 sm:text-xs">
               Current Developments
             </p>
-            <h2 className="mt-2 text-3xl font-bold text-black md:text-4xl lg:text-5xl">
+            <h2 className="mt-2 text-2xl font-bold leading-tight text-black sm:text-3xl md:text-4xl lg:text-5xl">
               Invest in Our Latest Projects
             </h2>
           </div>
         )}
-        <div className={`grid ${gridCols} gap-6`}>
+        <div className={`grid ${gridCols} gap-4 sm:gap-6`}>
           {visibleDevelopments.map((dev) => (
             <Link
               key={dev.id}
@@ -230,35 +230,35 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+              <div className="p-4 sm:p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-2 sm:gap-3">
+                  <p className="text-[10px] font-medium uppercase tracking-widest text-brand-gray-500 sm:text-xs">
                     {dev.tag}
                   </p>
-                  <span className="shrink-0 rounded-full bg-brand-off-white px-3 py-1 text-xs font-semibold text-black">
+                  <span className="shrink-0 rounded-full bg-brand-off-white px-2.5 py-1 text-[11px] font-semibold text-black sm:px-3 sm:text-xs">
                     {dev.badge}
                   </span>
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-black sm:text-xl">
+                <h3 className="mt-2 text-base font-bold text-black sm:mt-3 sm:text-lg sm:text-xl">
                   {dev.name}
                 </h3>
                 <p className="mt-1 text-sm font-semibold text-black">
                   {dev.price}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-brand-gray-600">
+                <p className="mt-2 text-xs leading-relaxed text-brand-gray-600 sm:text-sm">
                   {dev.description}
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 sm:gap-2">
                   {dev.features.map((feature, i) => (
                     <span
                       key={i}
-                      className="rounded-full border border-brand-gray-200 bg-brand-white px-3 py-1.5 text-xs font-medium text-brand-gray-700"
+                      className="rounded-full border border-brand-gray-200 bg-brand-white px-2.5 py-1 text-[11px] font-medium text-brand-gray-700 sm:px-3 sm:py-1.5 sm:text-xs"
                     >
                       {feature}
                     </span>
                   ))}
                 </div>
-                <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-black">
+                <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-black sm:mt-4 sm:gap-2 sm:text-sm">
                   <span className="group-hover:underline">Explore {dev.name}</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </div>
@@ -267,7 +267,7 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
           ))}
         </div>
         {!showAll && (
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center sm:mt-12">
             <Link
               href="/developments"
               className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
