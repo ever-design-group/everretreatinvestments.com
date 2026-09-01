@@ -5,25 +5,25 @@ const teamMembers = [
   {
     name: "Theophile",
     role: "CEO",
-    image: "/images/team/dan.webp",
+    image: "/images/team/theophier.jpeg",
     imageAlt: "Theophile - CEO at Ever Retreat",
   },
   {
     name: "Yvette",
     role: "Architecture Manager",
-    image: "/images/team/irene.webp",
+    image: "/images/team/yvetter.jpeg",
     imageAlt: "Yvette - Architecture Manager at Ever Retreat",
   },
   {
     name: "Doris",
     role: "Hospitality Manager",
-    image: "/images/team/james.webp",
+    image: "/images/team/doris.jpeg",
     imageAlt: "Doris - Hospitality Manager at Ever Retreat",
   },
   {
     name: "Sophie",
     role: "Accountant",
-    image: "/images/team/agung.webp",
+    image: "/images/team/sophie.jpeg",
     imageAlt: "Sophie - Accountant at Ever Retreat",
   },
   {
@@ -47,7 +47,7 @@ const teamMembers = [
   {
     name: "Rusagara",
     role: "Procurement Officer",
-    image: "/images/team/dedi.webp",
+    image: "/images/team/rusagara.jpeg",
     imageAlt: "Rusagara - Procurement Officer at Ever Retreat",
   },
 ];
