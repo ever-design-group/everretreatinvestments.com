@@ -20,7 +20,7 @@ export default function FormsPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
               Ever Retreat Rwanda
@@ -54,7 +54,7 @@ export default function FormsPage() {
                 <h3 className="font-semibold text-black">Property Purchase Agreement</h3>
                 <p className="mt-1 text-sm text-brand-gray-600">PDF, 2.1 MB</p>
               </div>
-              <button className="rounded bg-black px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+              <button className="rounded bg-brand-teal px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
                 Download
               </button>
             </div>
@@ -63,7 +63,7 @@ export default function FormsPage() {
                 <h3 className="font-semibold text-black">Build Management Agreement</h3>
                 <p className="mt-1 text-sm text-brand-gray-600">PDF, 1.5 MB</p>
               </div>
-              <button className="rounded bg-black px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+              <button className="rounded bg-brand-teal px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
                 Download
               </button>
             </div>
@@ -72,7 +72,7 @@ export default function FormsPage() {
                 <h3 className="font-semibold text-black">Villa Management Agreement</h3>
                 <p className="mt-1 text-sm text-brand-gray-600">PDF, 1.8 MB</p>
               </div>
-              <button className="rounded bg-black px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+              <button className="rounded bg-brand-teal px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
                 Download
               </button>
             </div>
@@ -81,7 +81,7 @@ export default function FormsPage() {
                 <h3 className="font-semibold text-black">Investment Return Projection Template</h3>
                 <p className="mt-1 text-sm text-brand-gray-600">XLSX, 45 KB</p>
               </div>
-              <button className="rounded bg-black px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+              <button className="rounded bg-brand-teal px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
                 Download
               </button>
             </div>

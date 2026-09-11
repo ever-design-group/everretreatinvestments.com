@@ -152,7 +152,7 @@ export default function SolasUluwutuPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/60 via-brand-teal/20 to-transparent" />
           <div className="absolute inset-0 flex items-end p-8 md:p-14">
             <div className="max-w-lg">
               <p className="text-xs tracking-[0.3em] text-white/50 uppercase mb-3">
@@ -255,7 +255,7 @@ export default function SolasUluwutuPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/70 via-brand-teal/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
                   <span className="inline-block text-xs tracking-[0.25em] text-white/70 uppercase mb-2">
                     Shores of Lake Kivu
@@ -277,7 +277,7 @@ export default function SolasUluwutuPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/70 via-brand-teal/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
                   <span className="inline-block text-xs tracking-[0.25em] text-white/70 uppercase mb-2">
                     10 minutes away
@@ -299,7 +299,7 @@ export default function SolasUluwutuPage() {
 
         <section
           id="enquire"
-          className="relative overflow-hidden bg-brand-black py-20 md:py-28"
+          className="relative overflow-hidden bg-brand-teal py-20 md:py-28"
         >
           <div className="absolute inset-0 opacity-10">
             <Image

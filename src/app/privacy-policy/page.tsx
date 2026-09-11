@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
   return (
     <PageLayout
       hero={
-        <section className="relative h-[280px] w-full overflow-hidden bg-black sm:h-[320px] md:h-[380px] lg:h-[420px]">
+        <section className="relative h-[280px] w-full overflow-hidden bg-brand-teal sm:h-[320px] md:h-[380px] lg:h-[420px]">
           {/* Subtle Pattern Overlay */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{

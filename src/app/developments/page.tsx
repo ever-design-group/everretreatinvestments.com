@@ -32,7 +32,7 @@ export default function DevelopmentsPage() {
               className="object-cover"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-teal/60 via-brand-teal/40 to-brand-teal/80 z-10" />
           <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
             <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-white/80">
               Off-Plan and Ready-to-Buy

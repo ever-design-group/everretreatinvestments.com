@@ -73,7 +73,7 @@ export function Services() {
                   sizes="(max-width: 640px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/60 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-3 rounded bg-white/90 px-2.5 py-1 text-[10px] font-semibold text-black sm:bottom-4 sm:left-4 sm:px-3 sm:text-xs">
                   {service.price}
                 </span>

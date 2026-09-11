@@ -9,7 +9,7 @@ const benefits = [
 
 export function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-brand-black py-20 md:py-28">
+    <section className="relative overflow-hidden bg-brand-teal py-20 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
@@ -27,7 +27,17 @@ export function FinalCTA() {
             <ul className="mt-8 space-y-3">
               {benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-3 text-sm text-white/80">
-                  <span className="mt-1 text-brand-green">?</span>
+                  <svg
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                   <span>{benefit}</span>
                 </li>
               ))}

@@ -24,7 +24,7 @@ export default function PortfolioPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
               Our Work
@@ -59,22 +59,22 @@ export default function PortfolioPage() {
           </div>
 
           <div className="mb-8 flex flex-wrap justify-center gap-3">
-            <button className="rounded-full border-2 border-black px-6 py-2 text-sm font-semibold text-black">
+            <button className="rounded-full border-2 border-brand-teal px-6 py-2 text-sm font-semibold text-black">
               All
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Kigali
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Musanze
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Rubavu
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Nyungwe
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Akagera
             </button>
           </div>

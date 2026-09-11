@@ -104,7 +104,7 @@ export default function ArchitectureServicePage() {
               { step: "5", title: "Construction Docs", desc: "Full working drawings and permit set ready for build." },
             ].map((stage) => (
               <div key={stage.step} className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-black text-xl font-bold text-white">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-teal text-xl font-bold text-white">
                   {stage.step}
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-black">{stage.title}</h3>

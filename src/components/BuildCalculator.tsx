@@ -118,8 +118,8 @@ export function BuildCalculator() {
                     onClick={() => setFinishLevel(opt.value)}
                     className={`rounded border px-4 py-3 text-center text-sm font-semibold ${
                       finishLevel === opt.value
-                        ? "border-black bg-black text-white"
-                        : "border-brand-gray-100 text-brand-gray-600 hover:border-black"
+                        ? "border-brand-teal bg-brand-teal text-white"
+                        : "border-brand-gray-100 text-brand-gray-600 hover:border-brand-teal"
                     }`}
                   >
                     <span className="block">{opt.label}</span>
@@ -136,7 +136,7 @@ export function BuildCalculator() {
               <select
                 value={bedrooms}
                 onChange={(e) => setBedrooms(e.target.value)}
-                className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
               >
                 <option value="2">2 Bedrooms</option>
                 <option value="3">3 Bedrooms</option>
@@ -148,7 +148,7 @@ export function BuildCalculator() {
             <button
               type="button"
               onClick={handleCalculate}
-              className="rounded bg-black px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-black/80"
+              className="rounded bg-brand-teal px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-teal/80"
             >
               Calculate Estimate
             </button>
@@ -197,7 +197,7 @@ export function BuildCalculator() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded bg-black/5 p-6">
+              <div className="mt-8 rounded bg-brand-teal/5 p-6">
                 <h4 className="text-center text-sm font-semibold text-black">
                   Projected Rental Returns (based on {bedrooms}BR villa)
                 </h4>

@@ -228,7 +228,7 @@ export default function SukuResidencesPage() {
         </div>
       </section>
 
-      <section id="enquire" className="relative overflow-hidden bg-brand-black py-20 md:py-28">
+      <section id="enquire" className="relative overflow-hidden bg-brand-teal py-20 md:py-28">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="/images/developments/nara-exterior-1.webp"

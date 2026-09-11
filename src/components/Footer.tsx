@@ -49,7 +49,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-black text-white">
+    <footer className="bg-brand-teal text-white">
       <div className="mx-auto max-w-[1440px] px-6 py-16">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
           <div>
@@ -57,9 +57,9 @@ export function Footer() {
               <Image
                 src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
                 alt="Ever Retreat - Rwanda Property, Architecture & Construction"
-                width={280}
-                height={40}
-                className="h-10 w-auto"
+                width={288}
+                height={96}
+                className="h-20 w-64 object-contain object-left md:h-24 md:w-72"
               />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">

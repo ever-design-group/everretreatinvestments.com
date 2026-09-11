@@ -1,4 +1,4 @@
-﻿import { PageLayout } from "@/components/PageLayout";
+import { PageLayout } from "@/components/PageLayout";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
 import Image from "next/image";
 
@@ -21,7 +21,7 @@ export default function ReferFriendPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
               Ever Retreat Rwanda
@@ -80,7 +80,7 @@ export default function ReferFriendPage() {
                 </label>
                 <input
                   type="text"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   placeholder="Your full name"
                 />
               </div>
@@ -90,7 +90,7 @@ export default function ReferFriendPage() {
                 </label>
                 <input
                   type="text"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   placeholder="Your friend&apos;s full name"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function ReferFriendPage() {
                 </label>
                 <input
                   type="email"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   placeholder="friend@email.com"
                 />
               </div>
@@ -110,7 +110,7 @@ export default function ReferFriendPage() {
                 </label>
                 <input
                   type="tel"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   placeholder="+250 788-000-000"
                 />
               </div>
@@ -120,13 +120,13 @@ export default function ReferFriendPage() {
                 </label>
                 <textarea
                   rows={4}
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   placeholder="What would you like us to know?"
                 />
               </div>
               <button
                 type="button"
-                className="w-full rounded bg-black px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-black/80"
+                className="w-full rounded bg-brand-teal px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-teal/80"
               >
                 Submit Referral
               </button>

@@ -84,7 +84,7 @@ export function Areas() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/80 via-brand-teal/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
                   <h3 className="text-lg font-bold text-white sm:text-xl">
                     {area.name}

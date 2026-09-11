@@ -25,7 +25,7 @@ export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-brand-black py-20 md:py-32">
+    <section className="relative overflow-hidden bg-brand-teal py-20 md:py-32">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mx-auto max-w-3xl text-center">
           <blockquote className="text-lg leading-relaxed text-white md:text-xl">

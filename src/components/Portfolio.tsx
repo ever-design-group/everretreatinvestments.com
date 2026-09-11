@@ -72,7 +72,7 @@ export function Portfolio() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/30" />
+                <div className="absolute inset-0 bg-brand-teal/0 transition-colors duration-300 group-hover:bg-brand-teal/30" />
                 <div className="absolute inset-x-0 bottom-0 p-4">
                   <p className="text-sm font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     {item.title}

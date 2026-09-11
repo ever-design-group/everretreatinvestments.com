@@ -23,7 +23,7 @@ export function ServicesSubNav() {
   return (
     <nav
       aria-label="Services sub-navigation"
-      className="sticky top-24 z-40 border-b border-black/5 bg-brand-white/95 backdrop-blur-sm"
+      className="sticky top-24 z-40 border-b border-brand-teal/5 bg-brand-white/95 backdrop-blur-sm"
     >
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
         <ul className="no-scrollbar -mb-px flex items-center gap-1 overflow-x-auto whitespace-nowrap py-3 sm:gap-2 sm:py-4">
@@ -35,8 +35,8 @@ export function ServicesSubNav() {
                   href={item.href}
                   className={`inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium transition-colors sm:px-4 sm:py-2 sm:text-sm ${
                     active
-                      ? "bg-black text-white"
-                      : "text-brand-gray-600 hover:bg-black/5 hover:text-black"
+                      ? "bg-brand-teal text-white"
+                      : "text-brand-gray-600 hover:bg-brand-teal/5 hover:text-black"
                   }`}
                 >
                   {item.label}

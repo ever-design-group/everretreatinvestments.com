@@ -25,8 +25,8 @@ export function Hero() {
       </motion.div>
 
       {/* 2. Layered gradients for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-teal/60 via-brand-teal/30 to-brand-teal/80" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/90 via-transparent to-transparent" />
 
       {/* 3. Premium Content Container */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 pt-28 pb-6 text-center sm:pt-32 sm:px-6">

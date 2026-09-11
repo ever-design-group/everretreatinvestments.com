@@ -73,7 +73,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/95 backdrop-blur-sm" : "bg-transparent"
+        scrolled ? "bg-brand-teal/95 backdrop-blur-sm shadow-md" : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-[1440px] px-4 xl:px-6">
@@ -126,7 +126,7 @@ export function Header() {
 
                 {item.children && openDropdown === item.label && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
-                    <div className="min-w-[200px] overflow-hidden rounded-lg border border-white/10 bg-black/95 backdrop-blur-sm shadow-xl">
+                    <div className="min-w-[200px] overflow-hidden rounded-lg border border-white/10 bg-brand-teal/95 backdrop-blur-sm shadow-xl">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
@@ -206,7 +206,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-white/10 bg-black/95 backdrop-blur-sm px-6 py-4 xl:hidden">
+        <div className="border-t border-white/10 bg-brand-teal/95 backdrop-blur-sm px-6 py-4 xl:hidden">
           <ul className="flex flex-col gap-1">
             {navItems.map((item) => (
               <li key={item.label}>

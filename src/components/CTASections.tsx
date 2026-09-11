@@ -17,7 +17,7 @@ function WhatsAppIcon({ className = "h-4 w-4" }) {
 
 export function GetPricesCTA() {
   return (
-    <section className="relative overflow-hidden bg-brand-black py-16 md:py-20">
+    <section className="relative overflow-hidden bg-brand-teal py-16 md:py-20">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div>

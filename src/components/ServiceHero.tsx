@@ -45,7 +45,7 @@ export function ServiceHero({
           isZoomed ? "scale-110" : "scale-100"
         }`}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/90 via-brand-teal/50 to-transparent" />
       
       {/* Top bar - tag + badge */}
       {(tag || badge) && (

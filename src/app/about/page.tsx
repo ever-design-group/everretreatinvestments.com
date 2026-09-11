@@ -8,7 +8,6 @@ import { Awards } from "@/components/Awards";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
-import { InterestedInInvesting } from "@/components/InterestedInInvesting";
 import Image from "next/image";
 
 export const metadata = {
@@ -30,7 +29,7 @@ export default function AboutPage() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
               About Ever Retreat
@@ -59,7 +58,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-brand-teal/70" />
           <div className="relative mx-auto max-w-[1440px] px-6 text-center">
             <h2 className="text-3xl font-bold text-white md:text-5xl">
               200+ Villas. Still Counting.
@@ -79,8 +78,6 @@ export default function AboutPage() {
         <Team />
 
         <FAQ />
-
-        <InterestedInInvesting />
       </main>
       <FinalCTA />
       <Footer />

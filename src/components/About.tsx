@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export function About() {
   return (
-    <section className="bg-brand-black py-12 sm:py-16 md:py-24 w-full relative">
+    <section className="bg-brand-teal py-12 sm:py-16 md:py-24 w-full relative">
       {/* Subtle glow effect at the top */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       

@@ -132,7 +132,7 @@ export default function PackagesPage() {
     }
     >
 
-      <section className="bg-brand-black py-8 md:py-12">
+      <section className="bg-brand-teal py-8 md:py-12">
         <div className="mx-auto max-w-[1440px] px-6">
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="text-center">
@@ -190,7 +190,7 @@ export default function PackagesPage() {
               <div
                 key={pkg.id}
                 className={`relative flex flex-col overflow-hidden border ${
-                  pkg.popular ? "border-black" : "border-brand-gray-100"
+                  pkg.popular ? "border-brand-teal" : "border-brand-gray-100"
                 }`}
               >
                 {pkg.popular && (
@@ -223,14 +223,14 @@ export default function PackagesPage() {
                         key={feature}
                         className="flex items-start gap-2 text-sm"
                       >
-                        <span className="mt-[2px] h-1 w-1 rounded-full bg-black" />
+                        <span className="mt-[2px] h-1 w-1 rounded-full bg-brand-teal" />
                         <span className="text-brand-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Link
                     href="/contact"
-                    className="mt-6 block w-full rounded bg-black px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-black/80"
+                    className="mt-6 block w-full rounded bg-brand-teal px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
                   >
                     Enquire Now
                   </Link>

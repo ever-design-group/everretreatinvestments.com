@@ -103,7 +103,7 @@ export default function RealEstatePage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-brand-teal/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/80">
             Real Estate
@@ -137,22 +137,22 @@ export default function RealEstatePage() {
           </div>
 
           <div className="mb-8 flex flex-wrap justify-center gap-3">
-            <button className="rounded-full border-2 border-black px-6 py-2 text-sm font-semibold text-black">
+            <button className="rounded-full border-2 border-brand-teal px-6 py-2 text-sm font-semibold text-black">
               All
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Kigali
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Musanze
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Rubavu
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Nyungwe
             </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-black hover:text-black">
+            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
               Akagera
             </button>
           </div>
@@ -165,7 +165,7 @@ export default function RealEstatePage() {
                 className="group overflow-hidden rounded-lg bg-white"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/60 via-transparent to-transparent" />
                   <Image
                     src={property.image}
                     alt={property.name}

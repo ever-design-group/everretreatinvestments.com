@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
@@ -45,7 +45,7 @@ export function HowItWorks() {
   const lineHeight = useTransform(scrollYProgress, [0, 0.3, 1], ["0%", "50%", "100%"]);
 
   return (
-    <section ref={sectionRef} className="bg-brand-black py-16 md:py-24 overflow-hidden">
+    <section ref={sectionRef} className="bg-brand-teal py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6">
         {/* Header */}
         <div className="mb-12 text-center">
@@ -130,7 +130,7 @@ export function HowItWorks() {
                 {/* CENTER: The Bullseye Dot */}
                 <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
                   <motion.div
-                    className="relative h-3.5 w-3.5 flex-shrink-0 rounded-full border-[1.5px] border-white bg-brand-black"
+                    className="relative h-3.5 w-3.5 flex-shrink-0 rounded-full border-[1.5px] border-white bg-brand-teal"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ delay: index * 0.2, duration: 0.3 }}
@@ -208,7 +208,7 @@ export function HowItWorks() {
             href="/journey"
             className="group relative overflow-hidden rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
           >
-            <span className="relative z-10">START YOUR JOURNEY →</span>
+            <span className="relative z-10">START YOUR JOURNEY ?</span>
             <div className="absolute inset-0 bg-white/90 transition-transform duration-300 group-hover:translate-x-full" />
           </Link>
           <Link

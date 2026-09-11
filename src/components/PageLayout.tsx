@@ -21,7 +21,7 @@ export function PageLayout({
 }: PageLayoutProps) {
   const bgClass =
     bg === "black"
-      ? "bg-brand-black text-white"
+      ? "bg-brand-teal text-white"
       : bg === "off-white"
         ? "bg-brand-off-white"
         : "bg-brand-white";

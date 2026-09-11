@@ -82,7 +82,7 @@ export function HeroSlideshow() {
   const dev = developments[current];
 
   return (
-    <section className="relative w-full overflow-hidden bg-black" style={{ height: "min(800px, 100svh)" }}>
+    <section className="relative w-full overflow-hidden bg-brand-teal" style={{ height: "min(800px, 100svh)" }}>
       {developments.map((item, index) => (
         <div
           key={item.id}
@@ -100,7 +100,7 @@ export function HeroSlideshow() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-brand-teal/50" />
 
       <div className="relative z-20 flex h-full flex-col items-center justify-center px-4 sm:px-6 text-center">
         <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function InterestedInInvesting() {
   return (
-    <section className="bg-brand-black py-16 md:py-20">
+    <section className="bg-brand-teal py-16 md:py-20">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
@@ -19,19 +19,59 @@ export function InterestedInInvesting() {
             </p>
             <div className="mt-8 space-y-3">
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">?</span>
+                <svg
+                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 <span className="text-sm text-white/80">Honest advice on locations, budgets, and returns</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">?</span>
+                <svg
+                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 <span className="text-sm text-white/80">Clear answers on foreign ownership and legal structures</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">?</span>
+                <svg
+                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 <span className="text-sm text-white/80">No sales pressure - we answer questions, you decide</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="mt-1 text-brand-green">?</span>
+                <svg
+                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
                 <span className="text-sm text-white/80">Respond within 24 hours, Mon-Fri 8am-5pm CAT</span>
               </div>
             </div>

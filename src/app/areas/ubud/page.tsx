@@ -25,7 +25,7 @@ export default function UbudAreaPage() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-brand-teal/50" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/80">
             Investment Area

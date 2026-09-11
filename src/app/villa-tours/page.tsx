@@ -21,7 +21,7 @@ export default function VillaToursPage() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
             <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
               Ever Retreat Rwanda
@@ -67,7 +67,7 @@ export default function VillaToursPage() {
               </div>
             </div>
             <div className="mt-12 text-center">
-              <button className="rounded bg-black px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+              <button className="rounded bg-brand-teal px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
                 Book a Villa Tour
               </button>
             </div>

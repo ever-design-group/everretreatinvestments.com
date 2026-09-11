@@ -49,7 +49,7 @@ export function HeroAnimated({
             priority={index === 0}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-brand-teal/40" />
         </div>
       ))}
 

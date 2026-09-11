@@ -102,7 +102,7 @@ export function Developments({ limit, showHeader = true, showAll = false, varian
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10 sm:from-black/90 sm:via-black/40 sm:to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/95 via-brand-teal/55 to-brand-teal/10 sm:from-brand-teal/90 sm:via-brand-teal/40 sm:to-transparent" />
                     <div className="absolute left-4 top-4 flex items-center gap-2 sm:left-5 sm:top-5">
                       <span className="rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-semibold text-black backdrop-blur-sm sm:px-3.5 sm:text-xs">
                         {dev.badge}

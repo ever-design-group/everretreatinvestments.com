@@ -96,7 +96,7 @@ export function ProcessSteps() {
               key={step.step}
               className="flex gap-6 rounded-lg border border-brand-gray-100 bg-brand-white p-6"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-teal text-white">
                 <span className="text-sm font-bold">{step.step}</span>
               </div>
               <div>

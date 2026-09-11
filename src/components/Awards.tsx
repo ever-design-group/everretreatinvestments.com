@@ -38,7 +38,7 @@ const portfolio = [
 
 export function Awards() {
   return (
-    <section className="bg-brand-black py-16 md:py-24">
+    <section className="bg-brand-teal py-16 md:py-24">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
@@ -69,7 +69,7 @@ export function Awards() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/80 via-brand-teal/20 to-transparent" />
               </div>
               <div className="p-4">
                 <h3 className="text-base font-semibold text-white">

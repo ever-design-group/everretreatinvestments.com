@@ -3,7 +3,6 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
-import { InterestedInInvesting } from "@/components/InterestedInInvesting";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,7 +25,7 @@ export default function ContactPage() {
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-brand-teal/50" />
           <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/80">
               Contact Us
@@ -134,7 +133,7 @@ export default function ContactPage() {
                     <input
                       type="text"
                       placeholder="Your name"
-                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                     />
                   </div>
                   <div>
@@ -144,7 +143,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       placeholder="your@email.com"
-                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                     />
                   </div>
                 </div>
@@ -159,7 +158,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       placeholder="788-000-00"
-                      className="w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                      className="w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                     />
                   </div>
                 </div>
@@ -167,7 +166,7 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium text-black">
                     I&apos;m Interested In
                   </label>
-                  <select className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none">
+                  <select className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none">
                     <option>Building a villa in Rwanda</option>
                     <option>Land sourcing</option>
                     <option>Villa investment</option>
@@ -182,12 +181,12 @@ export default function ContactPage() {
                   <textarea
                     rows={6}
                     placeholder="Tell us about your project..."
-                    className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-black focus:outline-none"
+                    className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="rounded bg-black px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-black/80"
+                  className="rounded bg-brand-teal px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
                 >
                   Send Message
                 </button>
@@ -212,7 +211,6 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <InterestedInInvesting />
       </main>
       <FinalCTA />
       <Footer />

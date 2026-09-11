@@ -25,7 +25,7 @@ export default function TermsPage() {
           />
           
           {/* Overlay - Black & White only */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-teal/80 via-brand-teal/60 to-brand-teal/40" />
           
           {/* Subtle Pattern Overlay */}
           <div className="absolute inset-0 opacity-5">

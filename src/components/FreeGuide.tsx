@@ -7,7 +7,7 @@ const guidePoints = [
 
 export function FreeGuide() {
   return (
-    <section className="relative overflow-hidden bg-brand-black py-20 md:py-28">
+    <section className="relative overflow-hidden bg-brand-teal py-20 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <div>

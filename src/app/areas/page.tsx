@@ -134,7 +134,7 @@ export default function AreasPage() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/80 via-brand-teal/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <h3 className="text-xl font-bold text-white">{area.name}</h3>
                     <p className="mt-1 text-xs leading-relaxed text-white/80">

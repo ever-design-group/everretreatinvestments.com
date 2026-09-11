@@ -20,7 +20,7 @@ export function Newsletter() {
               aria-label="Email address for Rwanda property investment newsletter"
               className="w-full rounded border border-brand-gray-100 px-4 py-3 text-sm text-black placeholder:text-brand-gray-400 focus:border-brand-gray-400 focus:outline-none"
             />
-            <button className="rounded bg-black px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-black/80">
+            <button className="rounded bg-brand-teal px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
               Send Me the Reports
             </button>
           </div>

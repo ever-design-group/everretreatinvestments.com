@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function InvestmentMarket() {
   return (
-    <section className="bg-brand-black py-16 md:py-28">
+    <section className="bg-brand-teal py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div>
