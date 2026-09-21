@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Developments } from "@/components/Developments";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
@@ -25,7 +24,6 @@ export default function DevelopmentsPage() {
   ];
   return (
     <>
-      <Header />
       <main className="flex-1">
         <section className="relative min-h-[85vh] w-full overflow-hidden">
           <div className="absolute inset-0">

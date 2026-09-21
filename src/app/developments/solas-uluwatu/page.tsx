@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DevelopmentHero } from "@/components/DevelopmentHero";
 import { ZoneMatters } from "@/components/ZoneMatters";
@@ -43,7 +42,6 @@ export default function SolasUluwatuPage() {
 
   return (
     <>
-      <Header />
       <main className="flex-1">
         <DevelopmentHero
           name={p.heroName}

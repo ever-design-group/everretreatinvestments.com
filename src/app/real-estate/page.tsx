@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { InvestmentGuides } from "@/components/InvestmentGuides";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -54,7 +53,6 @@ export default function RealEstatePage() {
 
   return (
     <>
-      <Header />
 
       {/* 1. Hero */}
       <section className="relative min-h-[85vh] w-full overflow-hidden bg-brand-teal">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DevelopmentHero } from "@/components/DevelopmentHero";
 import { ZoneMatters } from "@/components/ZoneMatters";
@@ -51,7 +50,6 @@ export default function SukuResidencesPage() {
 
   return (
     <>
-      <Header />
       <DevelopmentHero
         name={p.heroName}
         tagline={p.heroTagline}

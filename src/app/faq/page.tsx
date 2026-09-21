@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
@@ -46,7 +45,6 @@ export default function FAQPage() {
 
   return (
     <>
-      <Header />
 
       {/* 1. Hero */}
       <section className="relative min-h-[85vh] w-full overflow-hidden">

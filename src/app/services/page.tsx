@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ServiceHero } from "@/components/ServiceHero";
 import { ServicesSubNav } from "@/components/ServicesSubNav";
@@ -91,7 +90,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      <Header />
       <ServiceHero
         name={s.servicesHeadingLight}
         boldSuffix={s.servicesHeadingBold}

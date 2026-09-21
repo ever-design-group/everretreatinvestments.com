@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
@@ -53,7 +52,6 @@ export default function AreasPage() {
 
   return (
     <>
-      <Header />
       <main className="flex-1">
         {/* Plain text hero on solid brand background — matches balitecture.com/areas,
             which is a text-only intro section, not a full-bleed image carousel. */}

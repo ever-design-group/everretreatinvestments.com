@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { TrustBar } from "@/components/TrustBar";
 import { About } from "@/components/About";
@@ -30,7 +29,6 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 export default function Home() {
   return (
     <>
-      <Header />
       <main>
         {/* 1. Hero Section */}
         <Hero />

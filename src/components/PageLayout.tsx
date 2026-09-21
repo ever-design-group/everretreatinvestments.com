@@ -1,4 +1,3 @@
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 
@@ -28,7 +27,6 @@ export function PageLayout({
 
   return (
     <>
-      <Header />
       <main className={`flex-1 ${bgClass}`}>
         {hero ? (
           hero

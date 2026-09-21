@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FAQ } from "@/components/FAQ";
@@ -26,7 +25,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <Header />
       <main className="flex-1">
         <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image

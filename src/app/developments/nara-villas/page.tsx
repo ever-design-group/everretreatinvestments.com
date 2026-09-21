@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DevelopmentHero } from "@/components/DevelopmentHero";
 import { Team } from "@/components/Team";
@@ -56,7 +55,6 @@ export default function NaraVillasPage() {
 
   return (
     <>
-      <Header />
       <DevelopmentHero
         name={p.heroName}
         tagline={p.heroTagline}
