@@ -74,6 +74,19 @@ export function Header() {
 
   const navItems = buildNavItems(t);
 
+  // Lock background scroll while the mobile overlay is open — prevents the
+  // page underneath from scrolling (and the resulting fixed-position/touch
+  // interaction quirks that causes on iOS Safari specifically).
+  useEffect(() => {
+    if (menuOpen) {
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+  }, [menuOpen]);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -228,7 +241,10 @@ export function Header() {
           logo + close row, centered nav, language/currency pill rows, bordered
           WhatsApp CTA pinned near the bottom. */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-brand-teal xl:hidden">
+        <div
+          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-brand-teal xl:hidden"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {/* Logo — the header's own hamburger button (already animated into an
               X, fixed above this overlay at z-[70]) is the only close control;
               a second close icon here would just duplicate it. */}
