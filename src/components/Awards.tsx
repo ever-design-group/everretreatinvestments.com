@@ -1,56 +1,64 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import type { TranslationShape } from "@/lib/i18n/translations";
 
-const portfolio = [
-  {
-    title: "Kivu Villas",
-    description: "Luxury villa architecture inspired by the landscape and lifestyle of Lake Kivu.",
-    image: "/images/developments/nara-exterior-1.webp",
-    imageAlt: "Kivu Villas exterior at Lake Kivu",
-    href: "/developments/nara-villas",
-    cta: "Explore project",
-  },
-  {
-    title: "Virunga Villas",
-    description: "Contemporary villas designed for comfort, privacy, and long-term investment value.",
-    image: "/images/developments/suku-4br/suku-4br-1.webp",
-    imageAlt: "Virunga Villas exterior in Musanze",
-    href: "/developments/suku-residences",
-    cta: "Explore project",
-  },
-  {
-    title: "Ever Retreat",
-    description: "A hospitality destination combining architecture, nature, and the unique experience of Lake Kivu.",
-    image: "/images/portfolio/villa-pool-timber-deck.webp",
-    imageAlt: "Ever Retreat villa with pool and timber deck",
-    href: "/about",
-    cta: "Discover Ever Retreat",
-  },
-  {
-    title: "Ever Design",
-    description: "Architecture and construction solutions for clients looking to create their own property in Rwanda.",
-    image: "/images/about/villa-architecture.webp",
-    imageAlt: "Ever Design architectural project",
-    href: "/services/architecture",
-    cta: "Start your project",
-  },
-];
+function buildPortfolio(t: TranslationShape) {
+  const items = t.portfolioSection.items;
+  return [
+    {
+      title: items.bp.title,
+      description: items.bp.description,
+      image: "/images/developments/villa-photos.jpeg",
+      imageAlt: "B&P Ever Retreat Villa exterior at Lake Kivu",
+      href: "/developments/nara-villas",
+      cta: items.bp.cta,
+    },
+    {
+      title: items.virunga.title,
+      description: items.virunga.description,
+      image: "/images/developments/suku-4br/suku-4br-1.webp",
+      imageAlt: "Virunga Villas exterior in Musanze",
+      href: "/developments/suku-residences",
+      cta: items.virunga.cta,
+    },
+    {
+      title: items.everRetreat.title,
+      description: items.everRetreat.description,
+      image: "/images/portfolio/villa-pool-timber-deck.webp",
+      imageAlt: "Ever Retreat villa with pool and timber deck",
+      href: "/about",
+      cta: items.everRetreat.cta,
+    },
+    {
+      title: items.everDesign.title,
+      description: items.everDesign.description,
+      image: "/images/about/villa-architecture.webp",
+      imageAlt: "Ever Design architectural project",
+      href: "/services/architecture",
+      cta: items.everDesign.cta,
+    },
+  ];
+}
 
 export function Awards() {
+  const { t } = useLanguage();
+  const portfolio = buildPortfolio(t);
+
   return (
     <section className="bg-brand-teal py-16 md:py-24">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-            Our Portfolio
+            {t.portfolioSection.eyebrow}
           </p>
           <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-            Designed for Living. Built for Investment.
+            {t.portfolioSection.heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70">
-            Explore selected villas, architectural concepts, and development
-            projects that showcase our approach to modern design, quality
-            construction, and investment-focused property development in Rwanda.
+            {t.portfolioSection.paragraph}
           </p>
         </div>
 
@@ -59,7 +67,7 @@ export function Awards() {
             <Link
               key={item.title}
               href={item.href}
-              className="group overflow-hidden rounded-lg"
+              className="group overflow-hidden rounded-sm"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image

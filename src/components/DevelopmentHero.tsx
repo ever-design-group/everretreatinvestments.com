@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface DevelopmentHeroProps {
   name: string;
@@ -13,7 +14,9 @@ interface DevelopmentHeroProps {
   videoSrc?: string;
   ctaHref?: string;
   secondaryCtaHref?: string;
+  secondaryCtaLabel?: string;
   showFacadeToggle?: boolean;
+  statusBadge?: string;
 }
 
 export function DevelopmentHero({
@@ -25,8 +28,14 @@ export function DevelopmentHero({
   videoSrc,
   ctaHref = "#enquire",
   secondaryCtaHref = "#villa-types",
+  secondaryCtaLabel,
   showFacadeToggle = false,
+  statusBadge,
 }: DevelopmentHeroProps) {
+  const { t } = useLanguage();
+  const h = t.heroCommon;
+  const resolvedSecondaryCtaLabel = secondaryCtaLabel ?? h.viewVillaTypes;
+  const resolvedStatusBadge = statusBadge ?? h.salesNowOpen;
   const [facade, setFacade] = useState("both");
   const words = name.split(" ");
   const boldWord = words[0];
@@ -34,7 +43,7 @@ export function DevelopmentHero({
 
   return (
     <section className="relative h-[100svh] w-full overflow-hidden">
-      <div className="dev-hero-bg absolute inset-0">
+      <div className="absolute inset-0">
         {videoSrc ? (
           <video
             autoPlay
@@ -53,11 +62,12 @@ export function DevelopmentHero({
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover hero-bg-image"
           />
         )}
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-teal/40 via-brand-teal/30 to-brand-teal/70 z-10" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/60 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent z-10" />
       <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
         <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-white/80">
           {tagline}
@@ -65,7 +75,7 @@ export function DevelopmentHero({
         <div className="inline-flex items-center gap-2 bg-brand-white/10 border border-brand-white/30 px-4 py-2 mb-6">
           <span className="h-2 w-2 rounded-full bg-white animate-pulse inline-block" />
           <span className="text-xs font-semibold uppercase tracking-widest text-white">
-            Sales Now Open
+            {resolvedStatusBadge}
           </span>
         </div>
         <h1 className="max-w-5xl text-4xl font-bold uppercase tracking-[0.05em] text-white md:text-7xl md:leading-tight">
@@ -78,33 +88,37 @@ export function DevelopmentHero({
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
             href={ctaHref}
-            className="rounded bg-white px-10 py-4 text-sm font-semibold text-black transition-all hover:bg-white/90"
+            className="rounded-sm bg-white px-10 py-4 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
           >
-            Enquire Now
+            {h.enquireNow}
           </Link>
           <Link
             href={secondaryCtaHref}
-            className="rounded border-2 border-white/50 px-10 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10"
+            className="rounded-sm border border-white/40 px-10 py-4 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
           >
-            View Villa Types
+            {resolvedSecondaryCtaLabel}
           </Link>
         </div>
         {showFacadeToggle && (
           <div className="mt-8 inline-flex items-center gap-1 bg-brand-white/10 backdrop-blur-md border border-brand-white/30 p-1">
             <span className="hidden md:inline text-[10px] font-semibold uppercase tracking-wider text-white/70 px-2">
-              Facade
+              {h.facadeLabel}
             </span>
-            {["both", "terracotta", "grey"].map((option) => (
+            {[
+              { key: "both", label: h.bothLabel },
+              { key: "terracotta", label: h.terracottaLabel },
+              { key: "grey", label: h.greyLabel },
+            ].map((option) => (
               <button
-                key={option}
-                onClick={() => setFacade(option)}
+                key={option.key}
+                onClick={() => setFacade(option.key)}
                 className={`rounded-sm px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-all ${
-                  facade === option
+                  facade === option.key
                     ? "bg-white text-black"
                     : "text-white hover:text-white"
                 }`}
               >
-                {option === "both" ? "Both" : option.charAt(0).toUpperCase() + option.slice(1)}
+                {option.label}
               </button>
             ))}
           </div>

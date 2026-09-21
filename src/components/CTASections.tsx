@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { EnquiryForm } from "@/components/EnquiryForm";
 
 function WhatsAppIcon({ className = "h-4 w-4" }) {
   return (
@@ -16,72 +20,35 @@ function WhatsAppIcon({ className = "h-4 w-4" }) {
 }
 
 export function GetPricesCTA() {
+  const { t } = useLanguage();
   return (
     <section className="relative overflow-hidden bg-brand-teal py-16 md:py-20">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-              See a villa you like?
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-white/40">
+              {t.ctaSections.getPrices.eyebrow}
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-              Get prices and availability
+            <h2 className="text-3xl uppercase leading-tight tracking-wide text-white md:text-4xl">
+              <span className="font-light">{t.ctaSections.getPrices.headingLight}</span>{" "}
+              <span className="font-bold">{t.ctaSections.getPrices.headingBold}</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/70">
-              Tell us your budget and timeline. We send back the developments
-              that fit, with current pricing, what is still available, and
-              honest yield figures. No sales pressure.
+              {t.ctaSections.getPrices.paragraph}
             </p>
             <Link
               href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
-              className="mt-8 inline-flex items-center justify-center rounded bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
+              className="mt-8 inline-flex items-center justify-center rounded-sm bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
             >
               <WhatsAppIcon className="h-6 w-6" />
             </Link>
           </div>
-          <div className="rounded-lg bg-white/5 p-8">
-            <div className="space-y-4">
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Full Name *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="Email Address *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  WhatsApp number
-                </label>
-                <div className="flex gap-2">
-                  <button className="rounded border border-white/20 px-3 text-sm text-white/70">
-                    +250
-                  </button>
-                  <input
-                    type="tel"
-                    placeholder="WhatsApp number *"
-                    className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                  />
-                </div>
-              </div>
-              <button className="w-full rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90">
-                Send Enquiry
-              </button>
-            </div>
-          </div>
+          <EnquiryForm
+            context={`${t.ctaSections.getPrices.heading} — Ever Retreat`}
+            showMessage={false}
+            className="rounded-sm bg-white/5 p-8"
+          />
         </div>
       </div>
     </section>
@@ -89,31 +56,35 @@ export function GetPricesCTA() {
 }
 
 export function BringVillaToLifeCTA() {
+  const { t } = useLanguage();
   return (
     <section className="bg-brand-white">
-      <div className="mx-auto max-w-[1440px] px-6 py-8">
-        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+      <div className="mx-auto max-w-[1440px] px-6">
+        <div className="flex flex-col gap-6 border-t border-brand-gray-200 py-12 md:flex-row md:items-center md:justify-between md:py-14">
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-              Design and build
+            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-brand-gray-500">
+              {t.ctaSections.bringToLife.eyebrow}
             </p>
-            <h2 className="mt-2 text-2xl font-bold text-black md:text-3xl">
-              Let&rsquo;s bring your villa to life
+            <h2 className="text-2xl font-semibold uppercase tracking-wide text-black md:text-3xl">
+              {t.ctaSections.bringToLife.heading}
             </h2>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href="https://wa.me/250787524298"
-              aria-label="Chat on WhatsApp"
-              className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:text-brand-gray-500"
             >
-              <WhatsAppIcon className="h-5 w-5" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+              {t.ctaSections.bringToLife.chatWhatsapp}
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
+              className="group inline-flex items-center gap-2 border-b border-black pb-0.5 text-sm font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:border-brand-gray-400 hover:text-brand-gray-500"
             >
-              Enquire &rarr;
+              {t.ctaSections.bringToLife.enquire}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </Link>
           </div>
         </div>
@@ -123,23 +94,24 @@ export function BringVillaToLifeCTA() {
 }
 
 export function InvestInRwandaCTA() {
+  const { t } = useLanguage();
   return (
     <section className="bg-brand-off-white">
       <div className="mx-auto max-w-[1440px] px-6 py-8">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-              Invest in Rwanda
+              {t.ctaSections.investInRwanda.eyebrow}
             </p>
             <h2 className="mt-2 text-2xl font-bold text-black md:text-3xl">
-              Ready to invest in Rwanda?
+              {t.ctaSections.investInRwanda.heading}
             </h2>
           </div>
           <div className="flex items-center gap-4">
             <Link
               href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
-              className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
+              className="inline-flex items-center justify-center rounded-sm bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
             >
               <WhatsAppIcon className="h-5 w-5" />
             </Link>
@@ -147,7 +119,7 @@ export function InvestInRwandaCTA() {
               href="/contact"
               className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
             >
-              Enquire &rarr;
+              {t.ctaSections.investInRwanda.enquire} &rarr;
             </Link>
           </div>
         </div>
@@ -155,7 +127,5 @@ export function InvestInRwandaCTA() {
     </section>
   );
 }
-
-export const InvestInBaliCTA = InvestInRwandaCTA;
 
 

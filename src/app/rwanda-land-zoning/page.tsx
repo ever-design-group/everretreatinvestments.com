@@ -1,4 +1,6 @@
 import { PageLayout } from "@/components/PageLayout";
+import { FreeGuide } from "@/components/FreeGuide";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, MapPin, Building2, Trees, Hotel, ShoppingBag, LandPlot, ShieldCheck, AlertCircle } from "lucide-react";
 
@@ -82,36 +84,50 @@ export default function RwandaLandZoningPage() {
     },
   ];
 
+  // Maps the 8 real investment areas covered on the /areas page to the zone
+  // categories above, based on the characteristics already stated for each
+  // area on that page and in the zone descriptions themselves.
+  const areaZoning = [
+    { name: "Kigali", bestFor: "Capital growth, stable demand", zones: "Residential & Commercial/Mixed-Use" },
+    { name: "Musanze", bestFor: "Tourism, mountain retreats", zones: "Tourism & Hospitality" },
+    { name: "Rubavu", bestFor: "Waterfront, holiday rentals", zones: "Tourism & Hospitality" },
+    { name: "Nyungwe", bestFor: "Eco-tourism, lower entry", zones: "Tourism & Hospitality, Protected & Green" },
+    { name: "Akagera", bestFor: "Safari lodges, exclusivity", zones: "Tourism & Hospitality, Protected & Green" },
+    { name: "Huye", bestFor: "Eco-tourism, student rentals", zones: "Residential, Agricultural" },
+    { name: "Evane", bestFor: "Mountain retreats, hill stations", zones: "Tourism & Hospitality" },
+    { name: "Nyanza", bestFor: "Cultural tourism, gateway location", zones: "Residential, Tourism & Hospitality" },
+  ];
+
   return (
     <PageLayout
       hero={
-        <section className="relative h-[280px] w-full overflow-hidden bg-brand-teal sm:h-[320px] md:h-[380px] lg:h-[420px]">
-          {/* Subtle Pattern Overlay */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)`,
-            }} />
-          </div>
-          
-          {/* Content */}
-          <div className="relative flex h-full flex-col items-center justify-center px-4 text-center sm:px-6">
-            {/* Breadcrumb */}
-            <div className="mb-2 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.15em] text-white/60 sm:mb-3 sm:text-xs">
+        <section className="relative flex min-h-[70vh] w-full flex-col justify-end overflow-hidden bg-brand-teal">
+          <Image
+            src="/images/hero/aerial-rwanda.webp"
+            alt="Aerial view of Rwanda land showing zoning areas"
+            fill
+            priority
+            className="object-cover opacity-40"
+            sizes="100vw"
+          />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
+          <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-16 pt-32 md:px-12 md:pb-24">
+            <div className="mb-4 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.15em] text-white/60 sm:text-xs">
               <Link href="/" className="transition-colors hover:text-white/90">
                 Home
               </Link>
               <ChevronRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
               <span className="text-white/80">Land Zoning Guide</span>
             </div>
-
-            <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
-              Rwanda Land Zoning Guide
+            <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
+              Rwanda Property Investor Guide
+            </p>
+            <h1 className="text-4xl uppercase leading-[0.95] tracking-wide text-white md:text-7xl lg:text-8xl">
+              <span className="font-light">Rwanda Land</span>
+              <br />
+              <span className="font-bold">Zoning Guide</span>
             </h1>
-            
-            {/* Divider - Pure White */}
-            <div className="mt-3 h-0.5 w-12 bg-white/40 sm:w-16" />
-            
-            <p className="mt-3 max-w-2xl text-xs text-white/70 sm:mt-4 sm:text-sm md:text-base">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
               Understanding Rwanda&apos;s land use regulations and zoning classifications.
             </p>
           </div>
@@ -123,9 +139,9 @@ export default function RwandaLandZoningPage() {
         <div className="mx-auto max-w-[1440px]">
           {/* Introduction */}
           <div className="mx-auto max-w-4xl">
-            <div className="mb-10 rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:rounded-2xl md:p-8 lg:p-10">
+            <div className="mb-10 rounded-sm border border-gray-200 bg-white p-6 md:p-8 lg:p-10">
               <div className="flex items-start gap-4">
-                <div className="hidden shrink-0 rounded-lg bg-gray-900 p-3 sm:block">
+                <div className="hidden shrink-0 rounded-sm bg-gray-900 p-3 sm:block">
                   <MapPin className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -163,7 +179,7 @@ export default function RwandaLandZoningPage() {
               {zones.map((zone, index) => (
                 <div
                   key={index}
-                  className="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md sm:p-6 md:rounded-2xl md:p-8"
+                  className="group rounded-sm border border-gray-200 bg-white p-5 transition-all hover:border-gray-400 sm:p-6 md:p-8"
                 >
                   <div className="flex items-start gap-4">
                     <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${zone.iconBg} sm:h-12 sm:w-12`}>
@@ -195,8 +211,49 @@ export default function RwandaLandZoningPage() {
               ))}
             </div>
 
+            {/* Zoning by Location */}
+            <div className="mt-8 sm:mt-10">
+              <h3 className="mb-6 text-lg font-bold text-gray-900 sm:text-xl md:text-2xl">
+                Zoning by Location
+              </h3>
+              <p className="mb-6 text-xs text-gray-600 sm:text-sm md:text-base">
+                How the zoning categories above typically map onto Rwanda&apos;s
+                key investment areas. Always confirm the exact zoning of a
+                specific plot before purchase.
+              </p>
+              <div className="overflow-x-auto rounded-sm border border-gray-200">
+                <table className="w-full border-collapse text-xs sm:text-sm md:text-base">
+                  <thead>
+                    <tr className="border-b border-gray-200 bg-gray-50">
+                      <th className="p-3 text-left font-semibold text-gray-900 sm:p-4">Area</th>
+                      <th className="p-3 text-left font-semibold text-gray-900 sm:p-4">Best For</th>
+                      <th className="p-3 text-left font-semibold text-gray-900 sm:p-4">Typical Zoning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {areaZoning.map((area, index) => (
+                      <tr key={index} className="border-b border-gray-100 last:border-0">
+                        <td className="p-3 font-medium text-gray-800 sm:p-4">{area.name}</td>
+                        <td className="p-3 text-gray-600 sm:p-4">{area.bestFor}</td>
+                        <td className="p-3 text-gray-600 sm:p-4">{area.zones}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="mt-4 text-right">
+                <Link
+                  href="/areas"
+                  className="inline-flex items-center justify-center text-xs font-semibold text-gray-900 underline underline-offset-4 hover:text-gray-600 sm:text-sm"
+                >
+                  View All Area Guides
+                  <ChevronRight className="ml-1 h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+
             {/* Zoning Compliance Section */}
-            <div className="mt-8 rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm sm:mt-10 sm:p-8 md:rounded-2xl md:p-10">
+            <div className="mt-8 rounded-sm border border-gray-200 bg-gray-50 p-6 sm:mt-10 sm:p-8 md:p-10">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-900 sm:h-12 sm:w-12">
                   <ShieldCheck className="h-5 w-5 text-white sm:h-6 sm:w-6" />
@@ -214,14 +271,14 @@ export default function RwandaLandZoningPage() {
                   <div className="mt-4 flex flex-wrap gap-3">
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-gray-800 hover:shadow-lg sm:px-5 sm:py-2.5 sm:text-sm"
+                      className="inline-flex items-center justify-center rounded-sm bg-gray-900 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-gray-800 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       <ShieldCheck className="mr-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       Verify Your Land
                     </Link>
                     <Link
                       href="/services/land"
-                      className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 transition-all hover:bg-gray-100 sm:px-5 sm:py-2.5 sm:text-sm"
+                      className="inline-flex items-center justify-center rounded-sm border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 transition-all hover:bg-gray-100 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                       Land Sourcing Services
                       <ChevronRight className="ml-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />
@@ -232,7 +289,7 @@ export default function RwandaLandZoningPage() {
             </div>
 
             {/* Important Notice */}
-            <div className="mt-6 rounded-xl border-l-4 border-gray-900 bg-gray-50 p-4 sm:mt-8 sm:p-6">
+            <div className="mt-6 rounded-sm border-l-4 border-gray-900 bg-gray-50 p-4 sm:mt-8 sm:p-6">
               <div className="flex items-start gap-3">
                 <AlertCircle className="mt-0.5 h-5 w-5 shrink-0 text-gray-900" />
                 <div>
@@ -249,7 +306,7 @@ export default function RwandaLandZoningPage() {
             </div>
 
             {/* CTA Section */}
-            <div className="mt-8 rounded-xl bg-gray-900 p-6 text-center shadow-xl sm:mt-10 sm:p-8 md:rounded-2xl md:p-10 lg:p-12">
+            <div className="mt-8 rounded-sm border border-white/20 bg-gray-900 p-6 text-center sm:mt-10 sm:p-8 md:p-10 lg:p-12">
               <h3 className="text-lg font-bold text-white sm:text-xl md:text-2xl">
                 Ready to Find Your Perfect Land?
               </h3>
@@ -260,14 +317,14 @@ export default function RwandaLandZoningPage() {
               <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:mt-6 sm:gap-4">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs font-semibold text-gray-900 transition-all hover:bg-gray-100 hover:shadow-lg sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex items-center justify-center rounded-sm bg-white px-5 py-2.5 text-xs font-semibold text-gray-900 transition-all hover:bg-gray-100 sm:px-6 sm:py-3 sm:text-sm"
                 >
                   Contact Our Team
                   <ChevronRight className="ml-1.5 h-3.5 w-3.5 sm:ml-2 sm:h-4 sm:w-4" />
                 </Link>
                 <Link
                   href="/services/land"
-                  className="inline-flex items-center justify-center rounded-lg border border-white/20 px-5 py-2.5 text-xs font-semibold text-white transition-all hover:bg-white/10 sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex items-center justify-center rounded-sm border border-white/20 px-5 py-2.5 text-xs font-semibold text-white transition-all hover:bg-white/10 sm:px-6 sm:py-3 sm:text-sm"
                 >
                   Land Sourcing Services
                 </Link>
@@ -276,6 +333,8 @@ export default function RwandaLandZoningPage() {
           </div>
         </div>
       </section>
+
+      <FreeGuide />
     </PageLayout>
   );
 }

@@ -3,105 +3,76 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function About() {
+  const { t } = useLanguage();
+
   return (
-    <section className="bg-brand-teal py-12 sm:py-16 md:py-24 w-full relative">
-      {/* Subtle glow effect at the top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      
+    <section className="bg-brand-white py-16 md:py-32 w-full">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          
-          {/* LEFT COLUMN: Image (Top on Mobile, Left on Desktop) */}
-          <motion.div 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+          {/* Image (top on mobile, left on desktop) — plain, no border/card chrome */}
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-2xl w-full"
+            className="group relative aspect-[4/3] overflow-hidden"
           >
             <Image
               src="/images/about/Villa 1.jpeg"
               alt="Ever Retreat architectural design in Rwanda"
               fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />
           </motion.div>
 
-          {/* RIGHT COLUMN: Content (Bottom on Mobile, Right on Desktop) */}
-          <motion.div 
+          {/* Content (bottom on mobile, right on desktop) — plain flowing text, no pills/borders */}
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center"
           >
-            {/* Tagline Badge */}
-            <div className="inline-block rounded-full border border-white/10 bg-white/5 px-3 py-1 backdrop-blur-sm w-fit mb-3 sm:mb-4 sm:px-4 sm:py-1.5">
-              <span className="text-[10px] font-medium uppercase tracking-widest text-white/50">
-                About Ever Retreat
-              </span>
-            </div>
+            <p className="text-xs tracking-[0.3em] text-brand-gray-500 uppercase mb-4">
+              {t.about.badge}
+            </p>
 
-            {/* Headline */}
-            <h2 className="text-2xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              Award-Winning Rwanda <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
-                Property Developer
+            <h2 className="text-brand-black uppercase tracking-wide leading-tight">
+              <span className="block font-light text-2xl sm:text-3xl md:text-4xl lg:text-[2.85rem] tracking-normal">
+                {t.about.headingLine1}
+              </span>
+              <span className="block font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                {t.about.headingLine2}
               </span>
             </h2>
 
-            {/* Divider */}
-            <div className="mt-3 h-px w-12 bg-white/20 sm:mt-4 sm:w-16" />
-
-            {/* Paragraph */}
-            <p className="mt-4 text-sm leading-relaxed text-white/70 sm:mt-5 sm:text-base md:text-lg max-w-xl">
-              Ever Retreat is an Rwandan-owned, Rwanda-based property
-              company. 200+ projects completed. 160+ in-house professionals.
-              Architecture, construction, villa management, and real estate -
-              everything under one roof. The most complete property proposition
-              in East Africa.
+            <p className="mt-6 text-sm md:text-base text-brand-gray-700 leading-relaxed max-w-xl">
+              {t.about.paragraph}
             </p>
 
-            {/* STATS - Presented as sleek badges instead of giant numbers */}
-            <div className="mt-5 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
-              {[
-                { value: "200+", label: "Projects Built" },
-                { value: "160+", label: "Team Members" },
-                { value: "10+", label: "Years in Rwanda" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm sm:px-4">
-                  <span className="text-xs font-bold text-white sm:text-sm">{stat.value}</span>
-                  <span className="text-[10px] uppercase tracking-wider text-white/40">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* ACTION BUTTONS */}
-            <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row gap-2 sm:gap-5">
               <Link
                 href="/about"
-                className="group flex items-center gap-2 rounded border border-white/20 bg-white/5 px-5 py-2.5 text-xs font-medium text-white transition-all duration-300 hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] sm:px-6 sm:text-sm"
+                className="group/link inline-flex items-center gap-2 text-sm font-semibold text-brand-black uppercase tracking-[0.12em] py-2"
               >
-                About Us
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+                <span>{t.about.ctaAbout}</span>
+                <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
               </Link>
               <Link
                 href="/contact"
-                className="group flex items-center gap-2 rounded border border-white/10 px-5 py-2.5 text-xs font-medium text-white/70 transition-all duration-300 hover:border-white/40 hover:text-white sm:px-6 sm:text-sm"
+                className="group/link inline-flex items-center gap-2 text-sm text-brand-gray-500 uppercase tracking-[0.12em] hover:text-brand-black transition-colors duration-300 py-2"
               >
-                Talk to Us
-                <span className="transition-transform group-hover:translate-x-1">→</span>
+                <span>{t.about.ctaContact}</span>
+                <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
               </Link>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Subtle glow effect at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </section>
   );
 }

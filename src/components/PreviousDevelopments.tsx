@@ -1,72 +1,72 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import type { TranslationShape } from "@/lib/i18n/translations";
 
-const previousProjects = [
-  {
-    name: "Kivu Villas",
-    image: "/images/portfolio/villa-pool-timber-deck.webp",
-    href: "/portfolio/tukad-huts-3bdr",
-  },
-  {
-    name: "Dasa Musanze",
-    image: "/images/portfolio/gj-villa.webp",
-    href: "/portfolio/dasa-uluwatu-3bdr",
-  },
-  {
-    name: "The Hut",
-    image: "/images/portfolio/the-hut.webp",
-    href: "/portfolio",
-  },
-  {
-    name: "Virunga Villas",
-    image: "/images/portfolio/suku-terrace.webp",
-    href: "/portfolio",
-  },
-  {
-    name: "Kivu Portfolio",
-    image: "/images/portfolio/villa-dining-rattan-interior.webp",
-    href: "/portfolio",
-  },
-  {
-    name: "Completed Villa",
-    image: "/images/portfolio/completed-villa-4.webp",
-    href: "/portfolio",
-  },
-];
+// Only the 2 confirmed real, completed showcase villas — earlier drafts of
+// this component listed "The Hut", "Kivu Portfolio", and even Virunga Villas
+// (which is still "Coming Soon", never built) as if they were finished
+// projects. Fixed to show only what's actually been completed.
+function buildProjects(t: TranslationShape) {
+  const items = t.developmentsSection.items;
+  return [
+    {
+      name: "B&P Ever Retreat Villa",
+      image: "/images/developments/villa-photos.jpeg",
+      href: "/developments/nara-villas",
+      description: items["nara-villas"].description,
+    },
+    {
+      name: "Cottage",
+      image: "/images/developments/villa-photos.jpeg",
+      href: "/developments/solas-uluwatu",
+      description: items["solas-uluwatu"].description,
+    },
+  ];
+}
 
 export function PreviousDevelopments() {
+  const { t } = useLanguage();
+  const projects = buildProjects(t);
+  const p = t.previousDevelopments;
+
   return (
     <section className="py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-            Completed
+            {p.eyebrow}
           </p>
           <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-            Previous Developments
+            {p.heading}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {previousProjects.map((project) => (
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+          {projects.map((project) => (
             <Link
               key={project.name}
               href={project.href}
-              className="group overflow-hidden rounded-lg bg-white"
+              className="group overflow-hidden rounded-sm bg-white"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.name}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-black">{project.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-brand-gray-600 line-clamp-2">
+                  {project.description}
+                </p>
                 <div className="mt-4 flex items-center text-sm font-semibold text-black">
-                  View Project
+                  {p.viewProject}
                   <span className="ml-1 transition-transform group-hover:translate-x-1">
                     →
                   </span>
@@ -76,10 +76,14 @@ export function PreviousDevelopments() {
           ))}
         </div>
 
-        <p className="mt-12 text-center text-sm text-brand-gray-600">
-          Plus many more completed developments across Kigali, Musanze, Rubavu,
-          and the Volcanoes region.
-        </p>
+        <div className="mx-auto mt-12 max-w-5xl border border-brand-gray-200 bg-brand-off-white p-6 md:p-8">
+          <p className="text-sm font-semibold uppercase tracking-wide text-black">
+            {p.calloutTitle}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-brand-gray-600">
+            {p.footnote}
+          </p>
+        </div>
       </div>
     </section>
   );

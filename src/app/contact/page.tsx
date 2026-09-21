@@ -1,48 +1,59 @@
+"use client";
+
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
+import { ContactForm } from "@/components/ContactForm";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Contact Us - Get in Touch | Ever Retreat Rwanda",
-  description:
-    "Contact Ever Retreat for architecture, construction, and property services in Rwanda. Our team is ready to help with your villa project.",
-};
+// Same real, already-published social links used in Footer.tsx — reused here
+// rather than invented, so the handles stay consistent sitewide.
+const socialLinks = [
+  { label: "Instagram", href: "https://instagram.com/everretreatrw" },
+  { label: "Facebook", href: "https://facebook.com/everretreatrw" },
+  { label: "LinkedIn", href: "https://linkedin.com/company/everretreat" },
+  { label: "YouTube", href: "https://youtube.com/@everretreat" },
+  { label: "TikTok", href: "https://tiktok.com/@everretreat" },
+];
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+  const c = t.contactPage;
+
   return (
     <>
       <Header />
       <main className="flex-1">
-        <section className="relative h-[600px] w-full overflow-hidden">
+        <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image
             src="/images/hero/aerial-rwanda.webp"
             alt="Rwanda landscape"
             fill
             priority
-            className="object-cover"
+            className="object-cover hero-bg-image"
           />
-          <div className="absolute inset-0 bg-brand-teal/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/80">
-              Contact Us
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+          <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 md:px-12 md:pb-24">
+            <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
+              {c.heroEyebrow}
             </p>
-            <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl lg:text-7xl tracking-tight">
-               Start Your Rwanda Villa Project
+            <h1 className="max-w-3xl text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white md:text-6xl lg:text-7xl">
+              {c.heroHeading}
             </h1>
-            <p className="mt-6 max-w-2xl text-xl text-white/80">
-              Whether you have a plot or are still exploring options, our team
-              gives you straight answers. No obligation, no pressure.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60 md:mt-8 md:text-lg">
+              {c.heroParagraph}
             </p>
-            <div className="mt-8">
+            <div className="mt-10">
               <Link
                 href="#enquire"
-                className="rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90"
+                className="inline-block rounded-sm bg-white/90 px-8 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-black backdrop-blur-sm transition-all duration-300 hover:bg-white"
               >
-                Enquire Now
+                {c.heroCta}
               </Link>
             </div>
           </div>
@@ -50,60 +61,73 @@ export default function ContactPage() {
 
         <section className="bg-brand-white py-16 md:py-24">
           <div className="mx-auto max-w-[1440px] px-6">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
               <div>
-               <h3 className="text-lg font-semibold text-black">Rwanda HQ</h3>
+               <h3 className="text-lg font-semibold text-black">{c.officeRwandaHqLabel}</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   KG 541 St, Kacyiru, Kigali
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-black">Design Studio</h3>
+                <h3 className="text-lg font-semibold text-black">{c.officeDesignStudioLabel}</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   Kigali, Rwanda
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-black">Hong Kong</h3>
-                <p className="mt-2 text-sm text-brand-gray-600">
-                  Bayfield Building, 99 Hennessy Road, Wan Chai
                 </p>
               </div>
             </div>
 
             <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-3">
               <div>
-                <h3 className="text-lg font-semibold text-black">WhatsApp</h3>
+                <h3 className="text-lg font-semibold text-black">{c.whatsappLabel}</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   <a
                     href="https://wa.me/250787524298"
                     className="hover:text-black"
                   >
-                      +250 788-000-000
+                      +250 787 524 298
                   </a>
                 </p>
                 <p className="mt-1 text-xs text-brand-gray-500">
-                  Mon-Fri 8am-5pm CAT
+                  {c.whatsappHours}
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-black">Email</h3>
+                <h3 className="text-lg font-semibold text-black">{c.emailLabel}</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   <a
-                    href="mailto:hello@everretreat.com"
+                    href="mailto:info@everretreat.com"
                     className="hover:text-black"
                   >
-                    hello@everretreat.com
+                    info@everretreat.com
                   </a>
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-black">Office Hours</h3>
+                <h3 className="text-lg font-semibold text-black">{c.hoursLabel}</h3>
                 <p className="mt-2 text-sm text-brand-gray-600">
                   Monday - Friday
                   <br />
-                  8:00 AM - 5:00 PM (CAT)
+                  {c.hoursValue}
                 </p>
+              </div>
+            </div>
+
+            <div className="mt-12 border-t border-brand-gray-100 pt-8">
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-gray-500">
+                Follow Us
+              </h3>
+              <div className="mt-4 flex flex-wrap gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-brand-gray-100 px-4 py-1.5 text-sm text-brand-gray-600 transition-colors hover:border-brand-teal hover:text-black"
+                  >
+                    {social.label}
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -113,84 +137,18 @@ export default function ContactPage() {
           <div className="mx-auto max-w-[1440px] px-6">
             <div className="mb-12 text-center">
               <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-                Send Us a Message
+                {c.formEyebrow}
               </p>
-              <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-                Tell Us About Your Project
+              <h2 className="mt-4 text-3xl font-bold uppercase tracking-wide text-black md:text-5xl">
+                <span className="font-light">{c.formHeadingLight}</span>{" "}
+                <span className="font-bold">{c.formHeadingBold}</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-                Whether it&apos;s a new villa build, land acquisition, or rental
-                management inquiry, our team will respond within 24 hours.
+                {c.formParagraph}
               </p>
             </div>
             <div className="mx-auto max-w-3xl">
-              <form className="grid grid-cols-1 gap-6">
-                <div className="grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <label className="block text-sm font-medium text-black">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Your name"
-                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-black">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="your@email.com"
-                      className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-black">
-                    WhatsApp Number
-                  </label>
-                  <div className="mt-2 flex gap-2">
-                    <button className="rounded border border-brand-gray-200 px-3 text-sm text-brand-gray-600">
-                      +250
-                    </button>
-                    <input
-                      type="tel"
-                      placeholder="788-000-00"
-                      className="w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-black">
-                    I&apos;m Interested In
-                  </label>
-                  <select className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none">
-                    <option>Building a villa in Rwanda</option>
-                    <option>Land sourcing</option>
-                    <option>Villa investment</option>
-                    <option>Villa management</option>
-                    <option>General enquiry</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-black">
-                    Message
-                  </label>
-                  <textarea
-                    rows={6}
-                    placeholder="Tell us about your project..."
-                    className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="rounded bg-brand-teal px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
-                >
-                  Send Message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>
@@ -199,10 +157,11 @@ export default function ContactPage() {
           <div className="mx-auto max-w-[1440px] px-6">
             <div className="mb-12 text-center">
               <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
-                FAQ
+                {c.faqEyebrow}
               </p>
-              <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-                Need More Help?
+              <h2 className="mt-4 text-3xl font-bold uppercase tracking-wide text-black md:text-5xl">
+                <span className="font-light">{c.faqHeadingLight}</span>{" "}
+                <span className="font-bold">{c.faqHeadingBold}</span>
               </h2>
             </div>
             <div className="mx-auto max-w-3xl">
@@ -218,5 +177,3 @@ export default function ContactPage() {
     </>
   );
 }
-
-

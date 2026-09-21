@@ -2,83 +2,67 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-const faqItems = [
-  {
-    question: "Can foreigners buy property in Rwanda?",
-    answer:
-      "Foreigners cannot hold freehold freehold land title (LCD/SHM) in Rwanda under personal name. However, foreigners can legally secure land in Rwanda through leasehold agreements (up to 99-year leases) or via company structures. Our in-house legal team ensures every acquisition is fully compliant with Rwanda's land laws.",
-  },
-  {
-    question: "What is the difference between freehold and leasehold?",
-    answer:
-      "In Rwanda, foreigners cannot own freehold land under personal name. However, foreigners can legally secure land in Rwanda through leasehold agreements (up to 99-year leases) or via company structures (PT/PMA equivalent). The leasehold route is the standard option for foreign buyers, with extension options available through the Rwanda Land Management and Use Authority (RMLA).",
-  },
-  {
-    question: "What ROI can I expect from a Rwanda villa?",
-    answer:
-      "Ever Retreat-managed villas typically achieve 15-20% gross rental yield annually, depending on location, villa size, and occupancy. Returns vary by area and management quality.",
-  },
-  {
-    question: "How long does it take to build a villa in Rwanda?",
-    answer:
-      "Most villa builds take 12 to 18 months from design approval to handover. All our builds use concrete structures which require proper curing time at each stage.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function FAQ() {
+  const { t } = useLanguage();
+  // Homepage teaser shows only the first 4 questions — matches
+  // balitecture.com's actual homepage FAQ count. The full list lives on /faq.
+  const faqItems = t.faqSection.items.slice(0, 4);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <section className="bg-brand-off-white py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-20">
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-              Common Questions
-            </p>
-            <h2 className="mt-4 text-3xl font-bold leading-tight text-black md:text-5xl md:leading-tight">
-               Investing in Rwanda Real Estate
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-              New to Rwanda real estate? These are the questions our clients ask
-              most.
-            </p>
+            <div className="md:sticky md:top-32">
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-brand-gray-500">
+                {t.faqSection.eyebrow}
+              </p>
+              <h2 className="text-3xl uppercase leading-tight tracking-wide text-black md:text-4xl lg:text-5xl">
+                <span className="font-light">{t.faqSection.headingLight}</span>
+                <br />
+                <span className="font-bold">{t.faqSection.headingBold}</span>
+              </h2>
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-brand-gray-700 md:text-base">
+                {t.faqSection.paragraph}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/faq"
+                  className="group/link inline-flex items-center gap-2 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-black"
+                >
+                  <span>{t.faqSection.viewAll}</span>
+                  <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+                </Link>
+              </div>
+            </div>
           </div>
-          <Link
-            href="/faq"
-            className="shrink-0 text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
-          >
-            View All FAQs &rarr;
-          </Link>
-        </div>
 
-        <div className="mx-auto max-w-3xl space-y-4">
-          {faqItems.map((item, index) => (
-            <div
-              key={item.question}
-              className="overflow-hidden rounded-lg bg-white"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="flex w-full items-center justify-between p-5 text-left"
-              >
-                <h3 className="text-base font-semibold text-black">
-                  {item.question}
-                </h3>
-                <span className="ml-4 text-lg text-brand-gray-500">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-              {openIndex === index && (
-                <div className="border-t border-brand-gray-100 p-5">
-                  <p className="text-sm leading-relaxed text-brand-gray-600">
+          <div>
+            {faqItems.map((item, index) => (
+              <div key={item.question} className="border-b border-brand-gray-200 last:border-0">
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  aria-expanded={openIndex === index}
+                  className="group flex w-full items-center justify-between gap-4 py-5 text-left"
+                >
+                  <h3 className="pr-4 text-sm font-semibold tracking-wide text-black md:text-base">
+                    {item.question}
+                  </h3>
+                  <span className="shrink-0 text-xl text-brand-gray-500 transition-transform duration-300 group-hover:text-black">
+                    {openIndex === index ? "−" : "+"}
+                  </span>
+                </button>
+                {openIndex === index && (
+                  <p className="pb-5 text-sm leading-relaxed text-brand-gray-700">
                     {item.answer}
                   </p>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

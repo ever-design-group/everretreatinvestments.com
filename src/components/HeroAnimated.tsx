@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface HeroAnimatedProps {
   slides: {
@@ -24,6 +25,8 @@ export function HeroAnimated({
   ctaHref = "/contact",
   secondaryCtaHref,
 }: HeroAnimatedProps) {
+  const { t } = useLanguage();
+  const h = t.heroCommon;
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -49,9 +52,11 @@ export function HeroAnimated({
             priority={index === 0}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-brand-teal/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
         </div>
       ))}
+
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
         <div className="space-y-4 sm:space-y-6">
@@ -69,7 +74,7 @@ export function HeroAnimated({
             {slides[current].subtitle}
           </p>
           {badge && (
-            <span className="inline-block rounded bg-white/10 px-4 py-1.5 text-[10px] font-medium text-white sm:px-6 sm:py-2 sm:text-xs">
+            <span className="inline-block rounded-full bg-white/10 px-4 py-1.5 text-[10px] font-medium text-white sm:px-6 sm:py-2 sm:text-xs">
               {badge}
             </span>
           )}
@@ -78,16 +83,16 @@ export function HeroAnimated({
         <div className="mt-8 sm:mt-10 flex flex-col gap-3 sm:flex-row sm:gap-6">
           <Link
             href={ctaHref}
-            className="rounded bg-white px-6 py-2.5 text-xs font-semibold text-black transition-all hover:bg-white/90 sm:px-8 sm:py-3 sm:text-sm"
+            className="rounded-sm bg-white px-6 py-2.5 text-xs font-semibold text-black transition-colors hover:bg-brand-gray-200 sm:px-8 sm:py-3 sm:text-sm"
           >
-            Enquire Now
+            {h.enquireNow}
           </Link>
           {secondaryCtaHref && (
             <Link
               href={secondaryCtaHref}
-              className="rounded border-2 border-white px-6 py-2.5 text-xs font-semibold text-white transition-all hover:bg-white/10 sm:px-8 sm:py-3 sm:text-sm"
+              className="rounded-sm border border-white/40 px-6 py-2.5 text-xs font-semibold text-white transition-colors hover:border-white hover:bg-white/10 sm:px-8 sm:py-3 sm:text-sm"
             >
-              Learn More
+              {h.learnMore}
             </Link>
           )}
         </div>

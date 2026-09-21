@@ -1,5 +1,6 @@
+"use client";
+
 import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
 import { BuildCalculator } from "@/components/BuildCalculator";
 import { BringVillaToLifeCTA } from "@/components/CTASections";
 import { StatsBar } from "@/components/StatsBar";
@@ -8,46 +9,32 @@ import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { FAQ } from "@/components/FAQ";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
 import { WhyEverRetreat } from "@/components/WhyEverRetreat";
-
-export const metadata = {
-  title: "Villa Build Cost Calculator | Ever Retreat Rwanda",
-  description:
-    "Estimate the cost of building your villa in Rwanda with our interactive build calculator. Get instant estimates for construction, land, and projected returns.",
-};
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function BuildCalculatorPage() {
-  const heroSlides = [
-    {
-      image: "/images/services/calculator-lifestyle.webp",
-      imageAlt: "Woman at infinity pool overlooking Rwanda landscape",
-      title: "Build Cost Calculator",
-      subtitle: "Estimate construction costs, land prices, and projected rental returns for your Rwanda villa project.",
-    },
-    {
-      image: "/images/areas/musanze-area.webp",
-      imageAlt: "Musanze mountain landscape",
-      title: "Rwanda Pricing",
-      subtitle: "Accurate cost estimates for building in Kigali, Musanze, Rubavu, and beyond.",
-    },
-    {
-      image: "/images/areas/lake-kivu-area.webp",
-      imageAlt: "Lake Kivu development area",
-      title: "Smart Investment",
-      subtitle: "Built-in yield projections based on real Rwanda market data.",
-    },
-  ];
+  const { t } = useLanguage();
+  const p = t.buildCalculatorPage;
 
   return (
-    <PageLayout
+    <PageLayout showCta={false}
       hero={
-      <HeroAnimated
-        slides={heroSlides}
-        badge="Free Calculator"
-        tag="Ever Retreat"
-        ctaHref="#calculator"
-         secondaryCtaHref="/how-to-buy-property-in-rwanda"
-      />
-    }
+        <section className="bg-brand-teal pb-16 pt-32 md:pb-20 md:pt-40">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-white/50">
+              Free Investment Tool
+            </p>
+            <h1 className="mb-6 max-w-3xl text-4xl uppercase leading-none text-white md:text-6xl lg:text-7xl">
+              {p.heroSlide1Title}
+            </h1>
+            <p className="max-w-2xl text-base leading-relaxed text-brand-gray-200 md:text-lg">
+              {p.heroSlide1Subtitle}
+            </p>
+            <p className="mt-4 text-xs text-white/40">
+              Estimates are indicative only and subject to detailed scope review. Contact us for a precise quote.
+            </p>
+          </div>
+        </section>
+      }
     >
 
       <StatsBar />
@@ -56,33 +43,26 @@ export default function BuildCalculatorPage() {
 
       <section className="bg-brand-white py-16 md:py-24">
         <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Our Build Process in Rwanda</h2>
+          <div className="article-body mx-auto max-w-3xl">
+            <h2>{p.processHeading}</h2>
             <p>
-              Once you have your estimate, our end-to-end service handles
-              everything from land acquisition to villa completion across
-              Rwanda:
+              {p.processIntro}
             </p>
             <ol>
               <li>
-                <strong>Land sourcing</strong> — We find and assess properties
-                in your target area (Kigali, Musanze, Rubavu, Nyungwe, Akagera).
+                <strong>{p.step1Title}</strong> — {p.step1Desc}
               </li>
               <li>
-                <strong>Design & permits</strong> — Architect-designed plans
-                with full RDC permitting and compliance.
+                <strong>{p.step2Title}</strong> — {p.step2Desc}
               </li>
               <li>
-                <strong>Construction</strong> — Managed build with weekly
-                progress updates, built for Rwanda&apos;s climate.
+                <strong>{p.step3Title}</strong> — {p.step3Desc}
               </li>
               <li>
-                <strong>Rental setup</strong> — Furnishing, photos, and listing
-                on all platforms.
+                <strong>{p.step4Title}</strong> — {p.step4Desc}
               </li>
               <li>
-                <strong>Ongoing management</strong> — Full rental management and
-                maintenance.
+                <strong>{p.step5Title}</strong> — {p.step5Desc}
               </li>
             </ol>
           </div>

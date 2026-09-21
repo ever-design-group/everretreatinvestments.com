@@ -1,68 +1,131 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useMemo, useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const portfolioItems = [
+type PortfolioCategory = "exteriors" | "interiors" | "amenities";
+
+const portfolioItems: {
+  title: string;
+  image: string;
+  imageAlt: string;
+  href: string;
+  category: PortfolioCategory;
+}[] = [
   {
-    title: "Nara Render",
+    title: "B&P Ever Retreat Villa",
     image: "/images/portfolio/nara-render.webp",
-    imageAlt: "Nara Villas architectural render",
-    href: "/portfolio",
+    imageAlt: "B&P Ever Retreat Villa architectural render",
+    href: "/developments/nara-villas",
+    category: "exteriors",
   },
   {
-    title: "GJ Villa",
+    title: "Villa Interior",
     image: "/images/portfolio/gj-villa.webp",
-    imageAlt: "GJ Villa interior",
+    imageAlt: "Ever Retreat villa interior",
     href: "/portfolio",
+    category: "interiors",
   },
   {
     title: "Villa Pool & Deck",
     image: "/images/portfolio/villa-pool-timber-deck.webp",
     imageAlt: "Villa with private pool and timber deck",
     href: "/portfolio",
+    category: "amenities",
   },
   {
-    title: "Suku Terrace",
+    title: "Villa Terrace",
     image: "/images/portfolio/suku-terrace.webp",
-    imageAlt: "Suku Residences terrace view",
+    imageAlt: "Ever Retreat villa terrace view",
     href: "/portfolio",
+    category: "amenities",
   },
   {
     title: "Villa Natural",
     image: "/images/portfolio/villa-natural.webp",
     imageAlt: "Villa interior with natural materials",
     href: "/portfolio",
+    category: "interiors",
   },
   {
-    title: "Completed Villa",
+    title: "Cottage",
     image: "/images/portfolio/completed-villa-4.webp",
     imageAlt: "Completed Ever Retreat villa",
-    href: "/portfolio",
+    href: "/developments/solas-uluwatu",
+    category: "exteriors",
   },
 ];
 
-export function Portfolio() {
+interface PortfolioProps {
+  enableFilters?: boolean;
+}
+
+export function Portfolio({ enableFilters = false }: PortfolioProps) {
+  const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState<"all" | PortfolioCategory>("all");
+
+  const filteredItems = useMemo(() => {
+    if (!enableFilters || activeCategory === "all") return portfolioItems;
+    return portfolioItems.filter((item) => item.category === activeCategory);
+  }, [enableFilters, activeCategory]);
+
+  const tabs: { key: "all" | PortfolioCategory; label: string }[] = [
+    { key: "all", label: t.portfolioGallery.filterAllLabel },
+    { key: "exteriors", label: t.portfolioGallery.categoryExteriors },
+    { key: "interiors", label: t.portfolioGallery.categoryInteriors },
+    { key: "amenities", label: t.portfolioGallery.categoryAmenities },
+  ];
+
+  const showingCount = t.portfolioGallery.showingCount
+    .replace("{shown}", String(filteredItems.length))
+    .replace("{total}", String(portfolioItems.length));
+
   return (
-    <section className="bg-brand-off-white py-16 md:py-32">
-      <div className="mx-auto max-w-[1440px] px-6">
+    <section className="bg-brand-off-white py-16 md:py-24">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-6">
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-            Our Work
+            {t.portfolioGallery.eyebrow}
           </p>
           <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-             200+ Projects Built. Still Counting.
+            {t.portfolioGallery.heading}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-             Ten years building across Rwanda - from Rubavu to Musanze, Kigali to
-              Huye.
+            {t.portfolioGallery.paragraph}
           </p>
         </div>
 
+        {enableFilters && (
+          <div className="mb-8 flex flex-col items-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  onClick={() => setActiveCategory(tab.key)}
+                  className={`rounded-full border px-6 py-2 text-sm font-medium transition-colors ${
+                    activeCategory === tab.key
+                      ? "border-brand-teal text-black"
+                      : "border-transparent text-brand-gray-500 hover:border-brand-teal hover:text-black"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
+              {showingCount}
+            </p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {portfolioItems.map((item) => (
+          {filteredItems.map((item) => (
             <Link
               key={item.title}
               href={item.href}
-              className="group relative overflow-hidden rounded-lg"
+              className="group relative overflow-hidden rounded-sm"
             >
               <div className="relative aspect-square overflow-hidden">
                 <Image
@@ -88,11 +151,10 @@ export function Portfolio() {
             href="/portfolio"
             className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
           >
-            View Full Portfolio &rarr;
+            {t.portfolioGallery.viewFull} &rarr;
           </Link>
         </div>
       </div>
     </section>
   );
 }
-

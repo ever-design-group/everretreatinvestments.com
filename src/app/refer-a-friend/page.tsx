@@ -1,36 +1,41 @@
+"use client";
+
 import { PageLayout } from "@/components/PageLayout";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
+import { ReferralForm } from "@/components/ReferralForm";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { useState } from "react";
 import Image from "next/image";
 
-export const metadata = {
-  title: "Refer a Friend | Ever Retreat Rwanda",
-  description:
-    "Refer a friend to Ever Retreat and both receive benefits on your villa project.",
-};
-
 export default function ReferFriendPage() {
+  const { t } = useLanguage();
+  const p = t.referAFriendPage;
+  const steps = [p.step1, p.step2, p.step3];
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
   return (
-    <PageLayout
+    <PageLayout showCta={false}
       hero={
-        <section className="relative h-[600px] w-full overflow-hidden">
+        <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image
             src="/images/hero/hero-2-full.webp"
             alt="Rwanda development landscape"
             fill
             priority
-            className="object-cover"
+            className="object-cover hero-bg-image"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-brand-teal/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
-            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
-              Ever Retreat Rwanda
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+          <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 md:px-12 md:pb-24">
+            <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
+              {p.heroEyebrow}
             </p>
-            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
-              Refer a Friend
+            <h1 className="max-w-3xl text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white md:text-6xl lg:text-7xl">
+              {p.heroTitle}
             </h1>
-            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg">
-              Share the Ever Retreat experience and both benefit.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60 md:mt-8 md:text-lg">
+              {p.heroSubtitle}
             </p>
           </div>
         </section>
@@ -39,98 +44,61 @@ export default function ReferFriendPage() {
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-[1440px]">
           <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Refer a Friend, Get Rewarded</h2>
+            <h2>{p.contentHeading}</h2>
             <p>
-              When your friend builds a villa with Ever Retreat and you refer
-              them, both of you benefit. As a thank you, you receive a USD
-              $5,000 credit towards your construction costs, and your friend
-              receives priority scheduling and a complimentary design consultation.
+              {p.contentParagraph}
             </p>
 
-            <h3>How It Works</h3>
-            <ol>
-              <li>
-                Submit your friend&apos;s details via the form below or contact us
-                directly.
-              </li>
-              <li>
-                Your friend mentions your referral when they enquire about their
-                project.
-              </li>
-              <li>
-                Both credits are applied once your friend&apos;s project commences
-                construction.
-              </li>
-            </ol>
-
-            <h3>Terms</h3>
+            <h3>{p.termsHeading}</h3>
             <ul>
-              <li>The referrer must have an active or completed project with Ever Retreat</li>
-              <li>The referred friend must be new to Ever Retreat</li>
-              <li>Credits are applied at the start of construction phase</li>
-              <li>Program closes when either party reaches final payment</li>
+              <li>{p.term1}</li>
+              <li>{p.term2}</li>
+              <li>{p.term3}</li>
+              <li>{p.term4}</li>
             </ul>
           </div>
 
+          <div className="mx-auto max-w-4xl">
+            <h3 className="text-xl font-bold text-black md:text-2xl">{p.howItWorksHeading}</h3>
+            <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-3">
+              {steps.map((step, index) => (
+                <div key={index}>
+                  <span className="block text-4xl font-light tabular-nums text-brand-gray-300">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 text-sm leading-relaxed text-brand-gray-600">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="mx-auto mt-12 max-w-2xl">
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-black">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-black">
-                  Friend&apos;s Name
-                </label>
-                <input
-                  type="text"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  placeholder="Your friend&apos;s full name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-black">
-                  Friend&apos;s Email
-                </label>
-                <input
-                  type="email"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  placeholder="friend@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-black">
-                  Friend&apos;s WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  placeholder="+250 788-000-000"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-black">
-                  Message (optional)
-                </label>
-                <textarea
-                  rows={4}
-                  className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
-                  placeholder="What would you like us to know?"
-                />
-              </div>
-              <button
-                type="button"
-                className="w-full rounded bg-brand-teal px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-teal/80"
-              >
-                Submit Referral
-              </button>
-            </form>
+            <ReferralForm />
+          </div>
+
+          <div className="mx-auto mt-16 max-w-3xl">
+            <h3 className="text-xl font-bold text-black md:text-2xl">{p.faqHeading}</h3>
+            <div className="mt-6 space-y-4">
+              {p.faqItems.map((item, index) => (
+                <div key={item.question} className="overflow-hidden rounded-sm border border-brand-gray-100 bg-white">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="flex w-full items-center justify-between p-5 text-left"
+                  >
+                    <h4 className="text-base font-semibold text-black">{item.question}</h4>
+                    <span className="ml-4 text-lg text-brand-gray-500">
+                      {openFaqIndex === index ? "−" : "+"}
+                    </span>
+                  </button>
+                  {openFaqIndex === index && (
+                    <div className="border-t border-brand-gray-100 p-5">
+                      <p className="text-sm leading-relaxed text-brand-gray-600">{item.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

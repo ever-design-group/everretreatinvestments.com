@@ -3,39 +3,20 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
-
-const steps = [
-  {
-    number: "01",
-    timeline: "WEEK 1",
-    title: "Pick Your Development",
-    description:
-      "Browse our developments and find the one that fits your goals and budget.",
-  },
-  {
-    number: "02",
-    timeline: "WEEK 2-4",
-    title: "Reserve With $5,000 USD",
-    description:
-      "A $5,000 USD deposit holds your villa. The rest comes in stages tied to construction.",
-  },
-  {
-    number: "03",
-    timeline: "MONTH 3-18",
-    title: "Pay As It's Built",
-    description:
-      "Four payments tied to real construction milestones. No surprises.",
-  },
-  {
-    number: "04",
-    timeline: "MONTH 18+",
-    title: "Start Earning",
-    description:
-      "Villa goes under management and starts generating rental income.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { useCurrency } from "@/lib/currency/CurrencyContext";
 
 export function HowItWorks() {
+  const { t } = useLanguage();
+  const { formatPrice } = useCurrency();
+  const price = formatPrice(5000);
+  const steps = t.howItWorks.steps.map((step, index) => ({
+    number: String(index + 1).padStart(2, "0"),
+    timeline: step.timeline,
+    title: step.title.replace("{price}", price),
+    description: step.description.replace("{price}", price),
+  }));
+
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -50,48 +31,14 @@ export function HowItWorks() {
         {/* Header */}
         <div className="mb-12 text-center">
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-            HOW IT WORKS
+            {t.howItWorks.eyebrow.toUpperCase()}
           </p>
           <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl lg:text-6xl">
-            How Does Investing <br className="hidden sm:block" />
-            In An Ever Retreat Villa Work?
+            {t.howItWorks.heading}
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/70">
-            From first enquiry to rental income in four straightforward steps. No
-            hidden stages, no complexity.
+            {t.howItWorks.paragraph}
           </p>
-        </div>
-
-        {/* Desktop: Horizontal Line with Points */}
-        <div className="relative mb-16 hidden md:block">
-          <div className="relative h-[2px] w-full bg-white/10">
-            <motion.div
-              className="h-full bg-white"
-              initial={{ width: "0%" }}
-              whileInView={{ width: "100%" }}
-              transition={{ duration: 2, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }}
-            />
-            <div className="absolute inset-0 flex justify-between px-0">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.number}
-                  className="relative -mt-1.5 flex items-center"
-                  style={{
-                    left: index === 0 ? "0%" : index === steps.length - 1 ? "100%" : `${(index / (steps.length - 1)) * 100}%`,
-                    transform: index === 0 ? "translateX(0)" : index === steps.length - 1 ? "translateX(-100%)" : "translateX(-50%)",
-                    position: "absolute",
-                  }}
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.2, duration: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="h-3 w-3 rounded-full bg-white" />
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Mobile & Tablet: Vertical Timeline - CLEAN & PROFESSIONAL */}
@@ -162,38 +109,67 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Steps Grid - Desktop */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              className="group relative rounded-lg p-6 transition-all duration-500 hover:bg-white/5"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.15, duration: 0.6, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
-              <div className="mb-4 inline-block rounded-full border border-white/20 px-3 py-1">
-                <span className="text-xs font-medium text-white/60">
-                  {step.timeline}
+        {/* Steps - Desktop: connected timeline strip + flat columns */}
+        <div className="hidden md:block">
+          {/* Timeline strip: single line with a dot + label per step */}
+          <div className="relative mb-10">
+            <div className="absolute left-0 right-0 top-3 h-px overflow-hidden bg-white/10">
+              <motion.div
+                className="h-full w-full origin-left bg-white/30"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 1.8, ease: "easeOut", delay: 0.3 }}
+                viewport={{ once: true }}
+              />
+            </div>
+            <div className="grid grid-cols-4">
+              {steps.map((step, index) => (
+                <div key={step.number} className="flex flex-col items-start">
+                  <motion.div
+                    className="z-10 flex h-6 w-6 items-center justify-center rounded-full bg-white"
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 + index * 0.35 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="h-2 w-2 rounded-full bg-brand-teal" />
+                  </motion.div>
+                  <motion.p
+                    className="mt-2 text-[10px] uppercase tracking-wider text-white/30"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 + index * 0.35 }}
+                    viewport={{ once: true }}
+                  >
+                    {step.timeline}
+                  </motion.p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Step content: flat columns, no card chrome */}
+          <div className="grid grid-cols-4 gap-8">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 + index * 0.35 }}
+                viewport={{ once: true }}
+              >
+                <span className="block text-3xl font-light tabular-nums text-white/15">
+                  {step.number}
                 </span>
-              </div>
-
-              <div className="mb-3 text-4xl font-bold text-white/20 transition-colors group-hover:text-white/40">
-                {step.number}
-              </div>
-
-              <h3 className="mb-3 text-lg font-semibold text-white">
-                {step.title}
-              </h3>
-
-              <p className="text-sm leading-relaxed text-white/60">
-                {step.description}
-              </p>
-
-              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
-            </motion.div>
-          ))}
+                <h3 className="mt-2 text-base font-semibold tracking-wide text-white">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/40">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Buttons */}
@@ -205,17 +181,17 @@ export function HowItWorks() {
           viewport={{ once: true }}
         >
           <Link
-            href="/journey"
-            className="group relative overflow-hidden rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
+            href="/contact"
+            className="group relative overflow-hidden rounded-sm bg-white px-8 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
           >
-            <span className="relative z-10">START YOUR JOURNEY ?</span>
+            <span className="relative z-10">{t.howItWorks.ctaPrimary.toUpperCase()}</span>
             <div className="absolute inset-0 bg-white/90 transition-transform duration-300 group-hover:translate-x-full" />
           </Link>
           <Link
             href="/process"
-            className="rounded border border-white/20 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:scale-105"
+            className="rounded-sm border border-white/40 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10 hover:scale-105"
           >
-            SEE FULL PROCESS
+            {t.howItWorks.ctaSecondary.toUpperCase()}
           </Link>
         </motion.div>
       </div>

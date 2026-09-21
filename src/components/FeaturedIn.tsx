@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const pressLogos = [
   { 
@@ -6,20 +9,21 @@ const pressLogos = [
     alt: "Ever Design Group",
     size: "large"  // ← Mark this one as large
   },
-  { src: "/images/trust/BK+Logo+Portrait(3)_Page_2.webp", alt: "Marie Claire" },
   { src: "/images/trust/rtta.png", alt: "Rwanda Tourism" },
   { src: "/images/trust/rdb.png", alt: "Rwanda Development Board" },
 ];
 
 export function FeaturedIn() {
+  const { t } = useLanguage();
+
   return (
     <section className="border-y border-gray-100 bg-white py-12 md:py-16">
       <div className="container mx-auto px-4">
         <p className="text-center text-sm font-medium uppercase tracking-wider text-gray-500 mb-2">
-          Our Partners
+          {t.featuredIn.title}
         </p>
         <p className="text-center text-xs text-gray-400 mb-10">
-          Trusted by leading organizations across Africa
+          {t.featuredIn.subtitle}
         </p>
         
         {/* ===== LOGOS ===== */}

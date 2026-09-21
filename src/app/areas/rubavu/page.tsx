@@ -1,101 +1,157 @@
+"use client";
+
 import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
+import { AreaHero } from "@/components/AreaHero";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
-import { StatsBar } from "@/components/StatsBar";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ALL_AREAS } from "@/lib/areasList";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Rubavu Property Investment | Ever Retreat",
-  description:
-    "Rubavu property investment guide. Lake Kivu waterfront with premium holiday rentals and high nightly rates. 15-20% gross yields.",
-};
+const AREA_KEY = "rubavu";
 
 export default function RubavuAreaPage() {
-  const heroSlides = [
-    {
-      image: "/images/areas/rubavu-area.webp",
-      imageAlt: "Rubavu Lake Kivu waterfront",
-      title: "Rubavu",
-      subtitle: "Lake Kivu waterfront — premium holiday rentals and luxury lakeside villas.",
-    },
-    {
-      image: "/images/areas/lake-kivu-area.webp",
-      imageAlt: "Lake Kivu sunset from waterfront",
-      title: "Lake Kivu Lifestyle",
-      subtitle: "Home to Kivu Villas and Rubavu Residences — our most successful developments.",
-    },
+  const { t } = useLanguage();
+  const p = t.areaRubavuPage;
+  const m = t.areaMetricLabels;
+  const areaItems = t.areasSection.items;
+  const otherAreas = ALL_AREAS.filter((a) => a.key !== AREA_KEY);
+
+  const metrics = [
+    { value: "$40-80/sqm", label: m.landPrice },
+    { value: "15-20%", label: m.grossYield },
+    { value: "85%", label: m.avgOccupancy },
+    { value: "10-15%", label: m.appreciation },
   ];
 
   return (
     <PageLayout
       hero={
-      <HeroAnimated
-        slides={heroSlides}
-        badge="Lake Kivu"
-        tag="Ever Retreat Areas"
-        ctaHref="/contact"
-        secondaryCtaHref="/areas"
-      />
-    }
+        <AreaHero
+          name="Rubavu"
+          subtitle={areaItems.rubavu.description}
+          image="/images/areas/rubavu-area.webp"
+          imageAlt="Rubavu, Lake Kivu waterfront - Ever Retreat area guide"
+        />
+      }
     >
-
-      <section className="bg-brand-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Rubavu Property Market</h2>
-            <p>
-              Rubavu sits on the shores of Lake Kivu, one of Rwanda&apos;s
-              most scenic and sought-after destinations. The area attracts
-              high-spending tourists year-round for water sports, sunset
-              cruises, and lakeside relaxation. Our Kivu Villas and Rubavu
-              Residences developments here have achieved 95% occupancy with
-              premium nightly rates.
-            </p>
-            <h3>Investment Metrics</h3>
-            <div className="mt-6 grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">$40-80/sqm</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Land Price</p>
+      {/* Stat strip */}
+      <section className="bg-brand-teal">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
+            {metrics.map((stat) => (
+              <div key={stat.label} className="bg-brand-teal px-4 py-6 md:px-6">
+                <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                <p className="mt-1 text-sm font-semibold text-white md:text-base">{stat.value}</p>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">15-20%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Gross Yield</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">85%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Avg Occupancy</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">10-15%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Appreciation</p>
-              </div>
-            </div>
-            <h3>Why Invest in Rubavu</h3>
-            <ul>
-              <li>
-                <strong>Premium rental rates</strong> — Lake Kivu waterfront
-                villas command some of Rwanda&apos;s highest nightly rates.
-              </li>
-              <li>
-                <strong>Consistent demand</strong> — Tourism to Lake Kivu is
-                strong year-round, with peak seasons in December and July.
-              </li>
-              <li>
-                <strong>Luxury segment</strong> — High-net-worth tourists and
-                expats create demand for premium accommodations.
-              </li>
-              <li>
-                <strong>Lifestyle investment</strong> — Beautiful location for
-                personal use and rental income.
-              </li>
-            </ul>
+            ))}
           </div>
         </div>
       </section>
 
-      <StatsBar />
+      {/* Main content + sidebar */}
+      <section className="bg-brand-white py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <div className="space-y-10 lg:col-span-2">
+              <div>
+                <h2 className="text-2xl font-bold uppercase tracking-wide text-black md:text-4xl">
+                  {p.marketHeading}
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-brand-gray-700 md:text-lg">
+                  {p.marketParagraph1Pre}
+                  <Link href="/developments/nara-villas" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
+                    B&amp;P Ever Retreat Villa
+                  </Link>
+                  {p.marketParagraph1Mid}
+                  <Link href="/developments/solas-uluwatu" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
+                    Cottage
+                  </Link>
+                  {p.marketParagraph1Post}
+                </p>
+              </div>
+              <div>
+                <h3 className="mb-4 text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+                  {p.whyInvestHeading}
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    [p.whyInvestItem1Title, p.whyInvestItem1Description],
+                    [p.whyInvestItem2Title, p.whyInvestItem2Description],
+                    [p.whyInvestItem3Title, p.whyInvestItem3Description],
+                    [p.whyInvestItem4Title, p.whyInvestItem4Description],
+                  ].map(([title, desc]) => (
+                    <li key={title} className="flex items-start gap-3 text-sm leading-relaxed text-brand-gray-700 md:text-base">
+                      <span className="mt-0.5 flex-shrink-0 text-xs font-bold text-black">✓</span>
+                      <span>
+                        <strong className="text-black">{title}</strong> — {desc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-5 bg-brand-teal p-8 text-white">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+                  {m.heading}
+                </h3>
+                <div className="space-y-4 divide-y divide-white/10">
+                  {metrics.map((stat, index) => (
+                    <div key={stat.label} className={index === 0 ? "pt-0" : "pt-4"}>
+                      <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                      <p className="mt-1 text-sm font-semibold">{stat.value}</p>
+                    </div>
+                  ))}
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Best For</p>
+                    <p className="mt-1 text-sm font-semibold">{areaItems.rubavu.description}</p>
+                  </div>
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Our Developments</p>
+                    <div className="mt-2 space-y-1">
+                      <Link href="/developments/nara-villas" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
+                        B&amp;P Ever Retreat Villa →
+                      </Link>
+                      <Link href="/developments/solas-uluwatu" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
+                        Cottage →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <InvestmentMarket />
+
+      {/* Explore other areas */}
+      <section className="bg-brand-off-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+              {t.relatedAreasSection.heading}
+            </h2>
+            <Link href="/areas" className="text-sm text-brand-gray-500 transition-colors hover:text-black">
+              {t.areasSection.viewAll} →
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {otherAreas.map((area) => (
+              <Link
+                key={area.key}
+                href={`/areas/${area.key}`}
+                className="rounded-sm border border-brand-gray-200 bg-brand-white px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-black transition-colors hover:border-brand-teal hover:bg-brand-teal hover:text-white"
+              >
+                {area.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <InterestedInInvesting />
     </PageLayout>

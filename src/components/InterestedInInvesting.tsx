@@ -1,85 +1,50 @@
+"use client";
+
 import Link from "next/link";
+import { EnquiryForm } from "@/components/EnquiryForm";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function InterestedInInvesting() {
+  const { t } = useLanguage();
+  const i = t.interestedInInvesting;
+
   return (
     <section className="bg-brand-teal py-16 md:py-20">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-              Free Consultation
+              {i.eyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl md:leading-tight">
-              Interested in Investing?
+              {i.heading}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/70">
-              Whether you have a plot or are still exploring options, our team
-              gives you straight answers. No obligation, no pressure - just real
-              advice from people who have done this 200+ times.
+              {i.paragraph}
             </p>
             <div className="mt-8 space-y-3">
-              <div className="flex items-start gap-3">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="text-sm text-white/80">Honest advice on locations, budgets, and returns</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="text-sm text-white/80">Clear answers on foreign ownership and legal structures</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="text-sm text-white/80">No sales pressure - we answer questions, you decide</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <svg
-                  className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-                <span className="text-sm text-white/80">Respond within 24 hours, Mon-Fri 8am-5pm CAT</span>
-              </div>
+              {[i.feature1, i.feature2, i.feature3, i.feature4].map((feature) => (
+                <div key={feature} className="flex items-start gap-3">
+                  <svg
+                    className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span className="text-sm text-white/80">{feature}</span>
+                </div>
+              ))}
             </div>
             <div className="mt-6 flex gap-4">
               <Link
                 href="https://wa.me/250787524298"
                 aria-label="WhatsApp Us"
-                className="inline-flex items-center justify-center rounded bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
+                className="inline-flex items-center justify-center rounded-sm bg-brand-green px-4 py-3.5 text-white transition-colors hover:bg-brand-green/90"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,69 +58,16 @@ export function InterestedInInvesting() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-block rounded border-2 border-white px-8 py-3 text-xs font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:bg-white/10"
+                className="inline-block rounded-sm border border-white/40 px-8 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                ENQUIRE NOW
+                {i.ctaEnquire.toUpperCase()}
               </Link>
             </div>
           </div>
 
-          <form className="rounded-lg bg-white/5 p-8">
-            <div className="space-y-4">
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Full Name *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="Email Address *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  WhatsApp number
-                </label>
-                <div className="flex gap-2">
-                  <button className="rounded border border-white/20 px-3 text-sm text-white/70">
-                    +250
-                  </button>
-                  <input
-                    type="tel"
-                    placeholder="WhatsApp number *"
-                    className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Tell us more
-                </label>
-                <textarea
-                  placeholder="Tell us more"
-                  rows={3}
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <button className="w-full rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90">
-                SEND ENQUIRY
-              </button>
-            </div>
-          </form>
+          <EnquiryForm context="Interested in Investing — Ever Retreat" className="rounded-sm bg-white/5 p-8" />
         </div>
       </div>
     </section>
   );
 }
-
-

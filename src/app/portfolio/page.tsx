@@ -1,126 +1,192 @@
-import { PageLayout } from "@/components/PageLayout";
-import { Portfolio } from "@/components/Portfolio";
-import { StatsBar } from "@/components/StatsBar";
-import { InterestedInInvesting } from "@/components/InterestedInInvesting";
-import { FAQ } from "@/components/FAQ";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Portfolio - 200+ Rwanda Properties Built | Ever Retreat",
-  description:
-    "Explore our portfolio of 200+ completed villas across Rwanda's most desirable locations. Award-winning architecture and construction.",
-};
+import Link from "next/link";
+import { PageLayout } from "@/components/PageLayout";
+import { ServiceHero } from "@/components/ServiceHero";
+import { Portfolio } from "@/components/Portfolio";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+// Real, already-established next-step destinations — same three the
+// reference page links to ("Our Developments" / "Villa Construction" /
+// "Architecture"), all existing pages on this site.
+const nextSteps = [
+  { eyebrow: "Explore More", title: "Our Developments", href: "/developments" },
+  { eyebrow: "Build Your Own", title: "Villa Construction", href: "/services/construction" },
+  { eyebrow: "Commission a Design", title: "Architecture", href: "/services/architecture" },
+] as const;
 
 export default function PortfolioPage() {
+  const { t } = useLanguage();
+  const p = t.portfolioPage;
+
+  // Real, already-established figures reused for the hero stats row (villas
+  // built / years building / in-house team / developments across Rwanda —
+  // the same sitewide trust stats used on the architecture & construction
+  // pages), replacing the reference's unverifiable "6 Continents" and
+  // "Award-Winning Architecture" claims.
+  const heroStats = [
+    { value: "120+", label: t.statsBarSection.villasBuiltLabel },
+    { value: "10+", label: t.statsBarSection.yearsBuildingLabel },
+    { value: "82+", label: t.servicesPage.trustBar.stat1Label },
+    { value: "8", label: t.servicesPage.trustBar.stat3Label },
+  ];
+
+  // Real, already-established projects (same three used in the architecture
+  // page's "Projects" list) — genuine facts, not invented.
+  const notableProjects = [
+    { name: "B&P Ever Retreat Villa", description: p.notableBpDescription, href: "/developments/nara-villas" },
+    { name: "Cottage", description: p.notableCottageDescription, href: "/developments/solas-uluwatu" },
+    { name: "Virunga Villas", description: p.notableVirungaDescription, href: "/developments/suku-residences" },
+  ];
+
   return (
     <PageLayout
+      showCta={false}
       hero={
-        <section className="relative h-[600px] w-full overflow-hidden">
-          <Image
-            src="/images/portfolio/completed-villa-4.webp"
-            alt="Completed Ever Retreat villa"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-brand-teal/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
-            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
-              Our Work
-            </p>
-            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              200+ Villas Built
-            </h1>
-            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-xl">
-              Ten years building across Rwanda — from Rubavu to Musanze, Kigali to
-              Huye. Each project tells a story of craftsmanship, design, and
-              investment success.
-            </p>
-          </div>
-        </section>
+        <ServiceHero
+          name={p.heroHeadingLight}
+          boldSuffix={p.heroHeadingBold}
+          subtitle={p.heroParagraph}
+          image="/images/portfolio/completed-villa-4.webp"
+          imageAlt="Completed Ever Retreat villa"
+          eyebrow={p.heroEyebrow}
+          twoTone
+          hideCta
+          minHeightClass="min-h-[90vh]"
+          stats={heroStats}
+        />
       }
     >
-      <StatsBar />
-
-      <section className="bg-brand-off-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="mb-12 text-center">
-            <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
-              Featured Projects
-            </p>
-            <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              By Area
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-              Browse our completed villas by location, each selected for its
-              investment performance and architectural distinction.
-            </p>
+      {/* 1. Intro — "The Work" */}
+      <section className="bg-brand-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
+            <div>
+              <h2 className="text-3xl uppercase tracking-wide text-black md:text-5xl">
+                <span className="font-light">{p.theWorkHeadingLight}</span>{" "}
+                <span className="font-bold">{p.theWorkHeadingBold}</span>
+              </h2>
+            </div>
+            <div>
+              <p className="text-base leading-relaxed text-brand-gray-600 md:text-lg">
+                {p.theWorkParagraphPart1}
+                <Link
+                  href="/services/architecture"
+                  className="font-semibold text-black underline underline-offset-4 transition-colors hover:text-brand-gray-500"
+                >
+                  {p.theWorkParagraphLinkLabel}
+                </Link>
+                {p.theWorkParagraphPart2}
+              </p>
+            </div>
           </div>
-
-          <div className="mb-8 flex flex-wrap justify-center gap-3">
-            <button className="rounded-full border-2 border-brand-teal px-6 py-2 text-sm font-semibold text-black">
-              All
-            </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
-              Kigali
-            </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
-              Musanze
-            </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
-              Rubavu
-            </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
-              Nyungwe
-            </button>
-            <button className="rounded-full border-2 border-transparent px-6 py-2 text-sm font-medium text-brand-gray-500 hover:border-brand-teal hover:text-black">
-              Akagera
-            </button>
-          </div>
-
-          <Portfolio />
         </div>
       </section>
 
+      {/* 2. "Featured Projects" divider label + filterable gallery */}
+      <section className="bg-brand-off-white pb-4 md:pb-6">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="flex items-center gap-4">
+            <div className="h-px flex-1 bg-brand-gray-200" />
+            <p className="whitespace-nowrap text-xs font-semibold uppercase tracking-[0.3em] text-black">
+              {p.filterEyebrow}
+            </p>
+            <div className="h-px flex-1 bg-brand-gray-200" />
+          </div>
+        </div>
+      </section>
+
+      <Portfolio enableFilters />
+
+      {/* 3. Investment Results / Notable Projects */}
       <section className="bg-brand-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Investment Results</h2>
-            <p>
-              Every villa in our portfolio is managed under our rental
-              management program, delivering consistent occupancy rates of 75-90%
-              across all locations. Properties are typically held for 3-7 years
-              before sale, with average appreciation of 7-15% annually.
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
+            <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+              {p.resultsHeading}
             </p>
-            <p>
-              Our developments in Rubavu and Musanze have outperformed the
-              broader Rwanda property market by 20-30% in capital growth, while
-              maintaining gross yields of 15-20% through strategic short-term
-              rental positioning.
-            </p>
-            <h3>Notable Projects</h3>
-            <ul>
-              <li>
-                <strong>Kivu Villas</strong> — 8 luxury waterfront villas at Lake Kivu,
-                95% occupancy within first year.
-              </li>
-              <li>
-                <strong>Virunga Villas</strong> — 9 mountain retreats in Musanze,
-                averaging 85% occupancy at premium rates.
-              </li>
-              <li>
-                <strong>Rubavu Residences</strong> — 12 lakeside villas in Rubavu,
-                strong rental demand year-round.
-              </li>
-            </ul>
+            <h2 className="mt-4 text-3xl font-bold uppercase tracking-wide text-black md:text-5xl">
+              {p.notableHeading}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-brand-gray-600">{p.resultsParagraph}</p>
+          </div>
+          <div className="grid grid-cols-1 gap-px bg-brand-gray-200 md:grid-cols-3">
+            {notableProjects.map((project, index) => (
+              <Link
+                key={project.name}
+                href={project.href}
+                className="group flex h-full flex-col bg-brand-off-white p-8 transition-colors hover:bg-brand-white"
+              >
+                <p className="mb-3 text-xs uppercase tracking-[0.3em] text-brand-gray-500">
+                  Project {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mb-3 text-lg font-bold uppercase tracking-wide text-black md:text-xl">
+                  {project.name}
+                </h3>
+                <p className="flex-grow text-sm leading-relaxed text-brand-gray-600">
+                  {project.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-black">
+                  View Development
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <InterestedInInvesting />
+      {/* 4. Next-step quick links */}
+      <section className="bg-brand-off-white py-12 md:py-16">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {nextSteps.map((step) => (
+              <Link
+                key={step.href}
+                href={step.href}
+                className="group block border border-brand-gray-200 bg-brand-white p-6 transition-colors hover:border-brand-gray-500"
+              >
+                <p className="mb-2 text-xs uppercase tracking-widest text-brand-gray-500">
+                  {step.eyebrow}
+                </p>
+                <p className="text-sm font-bold uppercase tracking-wide text-black transition-transform group-hover:translate-x-1">
+                  {step.title} &rarr;
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <FAQ />
+      {/* 5. Closing CTA — compact, centered (matches the reference's
+          smaller, centered closing section rather than the full-bleed
+          two-column teal CTA used on the service pages) */}
+      <section className="bg-brand-off-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6 text-center">
+          <h2 className="text-2xl font-bold uppercase tracking-wide text-black md:text-3xl">
+            {p.closingHeading}
+          </h2>
+          <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-brand-gray-700">
+            {p.closingParagraph}
+          </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className="rounded-sm bg-brand-teal px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-teal/90"
+            >
+              {p.closingCtaPrimary}
+            </Link>
+            <Link
+              href="https://wa.me/250787524298"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm border border-brand-teal px-6 py-3 text-sm font-semibold uppercase tracking-wide text-brand-teal transition-colors hover:bg-brand-teal hover:text-white"
+            >
+              {p.closingCtaSecondary}
+            </Link>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 }

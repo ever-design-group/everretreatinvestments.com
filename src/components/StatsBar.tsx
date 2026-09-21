@@ -2,13 +2,16 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function StatsBar() {
+  const { t } = useLanguage();
+  const s = t.statsBarSection;
   const stats = [
-    { value: 200, suffix: "+", label: "Villas Built" },
-    { value: 160, suffix: "+", label: "Team Members" },
-    { value: 10, suffix: "+", label: "Years Building in Rwanda" },
-    { value: 95, suffix: "%", label: "Avg Occupancy" },
+    { value: 120, suffix: "", label: s.villasBuiltLabel },
+    { value: 82, suffix: "", label: s.teamMembersLabel },
+    { value: 10, suffix: "+", label: s.yearsBuildingLabel },
+    { value: 95, suffix: "%", label: s.avgOccupancyLabel },
   ];
 
   return (

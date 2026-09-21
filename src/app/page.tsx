@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { StatsBar } from "@/components/StatsBar";
+import { TrustBar } from "@/components/TrustBar";
 import { About } from "@/components/About";
 import { FeaturedIn } from "@/components/FeaturedIn";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
@@ -8,6 +8,7 @@ import { Developments } from "@/components/Developments";
 import { GetPricesCTA, BringVillaToLifeCTA, InvestInRwandaCTA } from "@/components/CTASections";
 import { Services } from "@/components/Services";
 import { Awards } from "@/components/Awards";
+import { WhyEverRetreat } from "@/components/WhyEverRetreat";
 import { WhyRwanda } from "@/components/WhyRwanda";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { SocialFollowing } from "@/components/SocialFollowing";
@@ -20,7 +21,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { Team } from "@/components/Team";
 import { FAQ } from "@/components/FAQ";
 import { Blog } from "@/components/Blog";
-import { News } from "@/components/News";
 import { Newsletter } from "@/components/Newsletter";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
@@ -35,9 +35,9 @@ export default function Home() {
         {/* 1. Hero Section */}
         <Hero />
 
-        {/* 2. Stats Bar */}
+        {/* 2. Trust Bar */}
         <AnimatedSection animation="fadeIn">
-          <StatsBar />
+          <TrustBar />
         </AnimatedSection>
 
         {/* 3. Rest of the page */}
@@ -50,7 +50,7 @@ export default function Home() {
         <AnimatedSection animation="fadeInUp" delay={100}>
           <HeroSlideshow />
         </AnimatedSection>
-        <Developments limit={2} showHeader={false} variant="overlay" />
+        <Developments limit={2} variant="overlay" />
         <AnimatedSection animation="fadeIn">
           <GetPricesCTA />
         </AnimatedSection>
@@ -60,14 +60,16 @@ export default function Home() {
         <AnimatedSection animation="fadeIn">
           <BringVillaToLifeCTA />
         </AnimatedSection>
-        
-        {/* REMOVED DUPLICATE HERE */}
+
         <AnimatedSection animation="fadeInUp" delay={100}>
-          <WhyRwanda />
+          <WhyEverRetreat />
         </AnimatedSection>
-        
+
         <AnimatedSection animation="fadeInUp" delay={200}>
           <Awards />
+        </AnimatedSection>
+        <AnimatedSection animation="fadeInUp" delay={100}>
+          <WhyRwanda />
         </AnimatedSection>
         <AnimatedSection animation="fadeIn">
           <InvestmentMarket />
@@ -104,9 +106,6 @@ export default function Home() {
         </AnimatedSection>
         <AnimatedSection animation="fadeInUp" delay={200}>
           <Blog />
-        </AnimatedSection>
-        <AnimatedSection animation="fadeIn">
-          <News />
         </AnimatedSection>
         <AnimatedSection animation="fadeIn">
           <Newsletter />

@@ -1,104 +1,140 @@
+"use client";
+
 import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
+import { AreaHero } from "@/components/AreaHero";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
-import { StatsBar } from "@/components/StatsBar";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ALL_AREAS } from "@/lib/areasList";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Akagera Property Investment | Ever Retreat",
-  description:
-    "Akagera property investment guide. National park proximity with safari lodge opportunities and luxury tourism demand.",
-};
+const AREA_KEY = "akagera";
 
 export default function AkageraAreaPage() {
-  const heroSlides = [
-    {
-      image: "/images/areas/huye-area.webp",
-      imageAlt: "Akagera savannah landscape",
-      title: "Akagera",
-      subtitle: "National park proximity — safari lodges and exclusive eco-retreats.",
-    },
-    {
-      image: "/images/areas/lake-kivu-area.webp",
-      imageAlt: "Eastern Rwanda landscape",
-      title: "Safari Tourism",
-      subtitle: "Growing luxury safari market with high-end accommodation demand.",
-    },
+  const { t } = useLanguage();
+  const p = t.areaAkageraPage;
+  const m = t.areaMetricLabels;
+  const areaItems = t.areasSection.items;
+  const otherAreas = ALL_AREAS.filter((a) => a.key !== AREA_KEY);
+
+  const metrics = [
+    { value: "$10-25/sqm", label: m.landPrice },
+    { value: "12-16%", label: m.grossYield },
+    { value: "65%", label: m.avgOccupancy },
+    { value: "7-12%", label: m.appreciation },
   ];
 
   return (
     <PageLayout
       hero={
-      <HeroAnimated
-        slides={heroSlides}
-        badge="National Park"
-        tag="Ever Retreat Areas"
-        ctaHref="/contact"
-        secondaryCtaHref="/areas"
-      />
-    }
+        <AreaHero
+          name="Akagera"
+          subtitle={areaItems.akagera.description}
+          image="/images/areas/huye-area.webp"
+          imageAlt="Akagera National Park - Ever Retreat area guide"
+        />
+      }
     >
-
-      <section className="bg-brand-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Akagera Property Market</h2>
-            <p>
-              Akagera is centred around Rwanda&apos;s oldest national park, home
-              to lions, elephants, rhinos, and vast savannah landscapes. The
-              area attracts high-spending safari tourists and luxury travelers
-              seeking exclusive, off-the-beaten-path accommodations.
-            </p>
-            <p>
-              Safari lodges here command premium nightly rates due to their
-              exclusivity and unique wildlife experiences. Land is relatively
-              affordable, but the market is niche and specialized.
-            </p>
-            <h3>Investment Metrics</h3>
-            <div className="mt-6 grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">$10-25/sqm</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Land Price</p>
+      <section className="bg-brand-teal">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
+            {metrics.map((stat) => (
+              <div key={stat.label} className="bg-brand-teal px-4 py-6 md:px-6">
+                <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                <p className="mt-1 text-sm font-semibold text-white md:text-base">{stat.value}</p>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">12-16%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Gross Yield</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">65%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Avg Occupancy</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">7-12%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Appreciation</p>
-              </div>
-            </div>
-            <h3>Why Invest in Akagera</h3>
-            <ul>
-              <li>
-                <strong>Exclusive market</strong> — Limited luxury safari
-                accommodation creates scarcity value.
-              </li>
-              <li>
-                <strong>High nightly rates</strong> — Safari lodges command
-                premium rates from international tourists.
-              </li>
-              <li>
-                <strong>Growing tourism</strong> — Rwanda&apos;s tourism sector
-                is expanding, with Akagera seeing increased visitor numbers.
-              </li>
-              <li>
-                <strong>Unique experience</strong> — Wildlife viewing and
-                exclusive retreats command premium pricing.
-              </li>
-            </ul>
+            ))}
           </div>
         </div>
       </section>
 
-      <StatsBar />
+      <section className="bg-brand-white py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <div className="space-y-10 lg:col-span-2">
+              <div>
+                <h2 className="text-2xl font-bold uppercase tracking-wide text-black md:text-4xl">
+                  {p.marketHeading}
+                </h2>
+                <div className="mt-4 space-y-4 text-base leading-relaxed text-brand-gray-700 md:text-lg">
+                  <p>{p.marketParagraph1}</p>
+                  <p>{p.marketParagraph2}</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="mb-4 text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+                  {p.whyInvestHeading}
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    [p.whyInvestItem1Title, p.whyInvestItem1Description],
+                    [p.whyInvestItem2Title, p.whyInvestItem2Description],
+                    [p.whyInvestItem3Title, p.whyInvestItem3Description],
+                    [p.whyInvestItem4Title, p.whyInvestItem4Description],
+                  ].map(([title, desc]) => (
+                    <li key={title} className="flex items-start gap-3 text-sm leading-relaxed text-brand-gray-700 md:text-base">
+                      <span className="mt-0.5 flex-shrink-0 text-xs font-bold text-black">✓</span>
+                      <span>
+                        <strong className="text-black">{title}</strong> — {desc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-5 bg-brand-teal p-8 text-white">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+                  {m.heading}
+                </h3>
+                <div className="space-y-4 divide-y divide-white/10">
+                  {metrics.map((stat, index) => (
+                    <div key={stat.label} className={index === 0 ? "pt-0" : "pt-4"}>
+                      <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                      <p className="mt-1 text-sm font-semibold">{stat.value}</p>
+                    </div>
+                  ))}
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Best For</p>
+                    <p className="mt-1 text-sm font-semibold">{areaItems.akagera.description}</p>
+                  </div>
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Status</p>
+                    <p className="mt-1 text-sm font-semibold">Investment Opportunity</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <InvestmentMarket />
+
+      <section className="bg-brand-off-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+              {t.relatedAreasSection.heading}
+            </h2>
+            <Link href="/areas" className="text-sm text-brand-gray-500 transition-colors hover:text-black">
+              {t.areasSection.viewAll} →
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {otherAreas.map((area) => (
+              <Link
+                key={area.key}
+                href={`/areas/${area.key}`}
+                className="rounded-sm border border-brand-gray-200 bg-brand-white px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-black transition-colors hover:border-brand-teal hover:bg-brand-teal hover:text-white"
+              >
+                {area.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <InterestedInInvesting />
     </PageLayout>

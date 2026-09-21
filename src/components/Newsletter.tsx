@@ -1,29 +1,70 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { FormSuccess } from "@/components/FormSuccess";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { EMAIL_REGEX, buildWhatsAppUrl } from "@/lib/forms";
+
 export function Newsletter() {
+  const { t } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    if (!email.trim() || !EMAIL_REGEX.test(email)) {
+      setError(t.forms.errorEmail);
+      return;
+    }
+    setError("");
+    const url = buildWhatsAppUrl(t.newsletter.heading, {
+      [t.forms.emailAddress]: email,
+    });
+    window.open(url, "_blank", "noopener,noreferrer");
+    setStatus("success");
+  }
+
   return (
-    <section className="bg-brand-white py-16 md:py-28">
+    <section className="bg-brand-teal py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-            Stay Ahead of the Market
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-white/40">
+            {t.newsletter.eyebrow}
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-            Get Exclusive Investment Insights
+          <h2 className="text-2xl uppercase tracking-wide text-white md:text-3xl">
+            <span className="font-light">{t.newsletter.headingLight}</span>{" "}
+            <span className="font-bold">{t.newsletter.headingBold}</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-brand-gray-600">
-            Market reports, new development launches, and ROI data. Delivered
-            monthly to serious investors. No fluff.
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/40">
+            {t.newsletter.paragraph}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <input
-              type="email"
-              placeholder="Your email address"
-              aria-label="Email address for Rwanda property investment newsletter"
-              className="w-full rounded border border-brand-gray-100 px-4 py-3 text-sm text-black placeholder:text-brand-gray-400 focus:border-brand-gray-400 focus:outline-none"
-            />
-            <button className="rounded bg-brand-teal px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80">
-              Send Me the Reports
-            </button>
-          </div>
+          {status === "success" ? (
+            <div className="mt-8">
+              <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate className="mx-auto mt-8 flex w-full max-w-lg flex-col gap-3 md:flex-row">
+              <label htmlFor="newsletter-email" className="sr-only">
+                Email address for Rwanda property investment newsletter
+              </label>
+              <input
+                id="newsletter-email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t.newsletter.placeholder}
+                className="flex-1 rounded-sm border border-white/15 bg-white/10 px-5 py-3.5 text-sm text-white placeholder:text-white/30 transition-colors focus:border-white/40 focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="shrink-0 rounded-sm bg-white px-6 py-3.5 text-sm font-semibold uppercase tracking-[0.12em] text-black transition-all duration-300 hover:bg-brand-gray-200"
+              >
+                {t.newsletter.cta}
+              </button>
+              {error && <p className="mt-2 w-full text-left text-xs text-red-300 md:text-center">{error}</p>}
+            </form>
+          )}
         </div>
       </div>
     </section>

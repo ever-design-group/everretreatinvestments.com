@@ -1,88 +1,67 @@
+"use client";
+
+import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { DevelopmentHero } from "@/components/DevelopmentHero";
+import { ZoneMatters } from "@/components/ZoneMatters";
+import { Team } from "@/components/Team";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Link from "next/link";
 import Image from "next/image";
 
-const sukuBeds = [
-  {
-    label: "2 Bedroom",
-    image: "/images/developments/nara-exterior-1.webp",
-    area: "165 sqm",
-    land: "120 sqm",
-    price: "From $239K USD",
-    href: "/developments/suku-residences/2-bedroom",
-  },
-  {
-    label: "3 Bedroom",
-    image: "/images/developments/nara-exterior-1.webp",
-    area: "210 sqm",
-    land: "160 sqm",
-    price: "From $289K USD",
-    href: "/developments/suku-residences/3-bedroom",
-  },
-  {
-    label: "4 Bedroom",
-    image: "/images/developments/nara-exterior-1.webp",
-    area: "280 sqm",
-    land: "220 sqm",
-    price: "From $359K USD",
-    href: "/developments/suku-residences/4-bedroom",
-  },
+const relatedDevelopments = [
+  { id: "nara-villas", name: "B&P Ever Retreat Villa", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas" },
+  { id: "solas-uluwatu", name: "Cottage", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-uluwatu" },
 ];
-
-const features = [
-  {
-    number: "01",
-    title: "Private Pools",
-    description: "Every villa includes a private pool, sized to match the layout and positioned for privacy and sun.",
-  },
-  {
-    number: "02",
-    title: "Dedicated Butler",
-    description: "On-site butler service handles everything from early morning coffee to late-night requests.",
-  },
-  {
-    number: "03",
-    title: "Airport Transfer",
-    description: "Complimentary transfer service to Kigali International Airport. No parking, no hassle, just a comfortable ride to your flight.",
-  },
-  {
-    number: "04",
-    title: "Round-the-Clock Security",
-    description: "24/7 gated entry and security personnel. Peace of mind for owners and guests alike.",
-  },
-  {
-    number: "05",
-    title: "Additional Features Package",
-    description: "Every villa includes an features package worth up to $25,000 — furniture, appliances, and smart home setup.",
-  },
-  {
-    number: "06",
-    title: "Mountain Community",
-    description: "A deliberately small site with nine villas. The compact plan creates the community feel that lifts nightly rates.",
-  },
-];
-
-export const metadata = {
-  title: "Virunga Villas - Volcanoes Eco-Retreats in Musanze, Rwanda | Ever Retreat",
-  description:
-    "Virunga Villas: 2, 3 & 4 bedroom mountain eco-retreats in Musanze, Rwanda. From $239K USD. Private pools, butler service, airport transfers, freehold & leasehold options. Near Volcanoes National Park and gorilla trekking.",
-};
 
 export default function SukuResidencesPage() {
+  const { t } = useLanguage();
+  const p = t.sukuResidencesPage;
+  const dx = t.devDetailExtras;
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const sukuBeds = [
+    { label: p.bed1Label, image: "/images/developments/villa-photos.jpeg", build: p.bed1Build, land: p.bed1Land, href: "#enquire" },
+    { label: p.bed2Label, image: "/images/developments/villa-photos.jpeg", build: p.bed2Build, land: p.bed2Land, href: "#enquire" },
+    { label: p.bed3Label, image: "/images/developments/villa-photos.jpeg", build: p.bed3Build, land: p.bed3Land, href: "#enquire" },
+  ];
+
+  const features = [
+    { number: "01", title: p.feature1Title, description: p.feature1Desc },
+    { number: "02", title: p.feature2Title, description: p.feature2Desc },
+    { number: "03", title: p.feature3Title, description: p.feature3Desc },
+    { number: "04", title: p.feature4Title, description: p.feature4Desc },
+    { number: "05", title: p.feature5Title, description: p.feature5Desc },
+    { number: "06", title: p.feature6Title, description: p.feature6Desc },
+  ];
+
+  const glanceRows = [
+    { id: "development", label: p.glanceDevelopmentLabel, value: p.glanceDevelopmentValue },
+    { id: "developer", label: p.glanceDeveloperLabel, value: p.glanceDeveloperValue },
+    { id: "location", label: p.glanceLocationLabel, value: p.glanceLocationValue },
+    { id: "zone", label: p.glanceZoneLabel, value: p.glanceZoneValue },
+    { id: "totalVillas", label: p.glanceTotalVillasLabel, value: p.glanceTotalVillasValue },
+    { id: "bedrooms", label: p.glanceBedroomsLabel, value: p.glanceBedroomsValue },
+    { id: "buildArea", label: p.glanceBuildAreaLabel, value: p.glanceBuildAreaValue },
+    { id: "landArea", label: p.glanceLandAreaLabel, value: p.glanceLandAreaValue },
+    { id: "status", label: p.glanceStatusLabel, value: p.glanceStatusValue },
+    { id: "tenure", label: p.glanceTenureLabel, value: p.glanceTenureValue },
+  ];
+
   return (
     <>
       <Header />
       <DevelopmentHero
-        name="Virunga Villas"
-        tagline="New Development | Musanze, Rwanda"
-        subtitle="2, 3 & 4 Bed | Mountain Community | Private Pools | Musanze"
-        image="/images/developments/nara-exterior-1.webp"
-        imageAlt="Virunga Villas Musanze"
+        name={p.heroName}
+        tagline={p.heroTagline}
+        subtitle={p.heroSubtitle}
+        image="/images/developments/villa-photos.jpeg"
+        imageAlt={p.heroImageAlt}
         ctaHref="#enquire"
         secondaryCtaHref="#villa-types"
         showFacadeToggle
+        statusBadge={p.heroStatusBadge}
       />
 
       <section className="bg-brand-white py-16 md:py-24">
@@ -90,66 +69,58 @@ export default function SukuResidencesPage() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
               <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-                The Development
+                {p.developmentEyebrow}
               </p>
               <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl md:leading-tight">
-                Virunga is built deliberately small
+                {p.developmentHeading}
               </h2>
               <div className="mt-8 space-y-6 text-base leading-relaxed text-brand-gray-600">
-                <p>
-                  Nine villas across 2, 3, and 4-bedroom configurations, set on a single boutique site in Musanze&apos;s tourism-designated zone.
-                  The compact site plan creates the community feel that drives repeat bookings and lifts nightly rates above standalone villas.
-                </p>
-                <p>
-                  Designed as both a retreat and a long-term home, Virunga blends nature, design, and livability in a way that feels quietly luxurious and confidently different.
-                  Finished in Terracotta and Grey, every villa comes with a private pool, dedicated butler, airport transfer service, and round-the-clock security.
-                </p>
-                <p>
-                  Virunga Villas offers freehold and leasehold ownership options in a tourism-designated zone, which legally permits tourist accommodation and short-term rentals.
-                  Full eligibility for the required rental licences, alignment with government-approved tourism activities, and long-term security for your investment.
-                </p>
+                <p>{p.developmentParagraph1}</p>
+                <p>{p.developmentParagraph2}</p>
+                <p>{p.developmentParagraph3}</p>
               </div>
               <div className="mt-8 grid grid-cols-2 gap-4">
-                <div className="rounded-lg border border-brand-gray-200 p-4">
-                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">Location</p>
-                  <p className="mt-1 text-lg font-bold text-black">Musanze, Volcanoes Region, Rwanda</p>
+                <div className="rounded-sm border border-brand-gray-200 p-4">
+                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">{p.locationLabel}</p>
+                  <Link
+                    href="/areas/musanze"
+                    className="mt-1 block text-lg font-bold text-black underline-offset-4 hover:underline"
+                  >
+                    {p.locationValue}
+                  </Link>
                 </div>
-                <div className="rounded-lg border border-brand-gray-200 p-4">
-                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">Bedrooms</p>
-                  <p className="mt-1 text-lg font-bold text-black">2, 3 & 4</p>
+                <div className="rounded-sm border border-brand-gray-200 p-4">
+                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">{p.bedroomsLabel}</p>
+                  <p className="mt-1 text-lg font-bold text-black">{p.bedroomsValue}</p>
                 </div>
-                <div className="rounded-lg border border-brand-gray-200 p-4">
-                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">Price From</p>
-                  <p className="mt-1 text-lg font-bold text-black">$239K USD</p>
+                <div className="rounded-sm border border-brand-gray-200 p-4">
+                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">{p.statusLabel}</p>
+                  <p className="mt-1 text-lg font-bold text-black">{p.statusValue}</p>
                 </div>
-                <div className="rounded-lg border border-brand-gray-200 p-4">
-                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">Tenure</p>
-                  <p className="mt-1 text-lg font-bold text-black">Freehold & Leasehold</p>
+                <div className="rounded-sm border border-brand-gray-200 p-4">
+                  <p className="text-xs uppercase tracking-wider text-brand-gray-500">{p.tenureLabel}</p>
+                  <p className="mt-1 text-lg font-bold text-black">{p.tenureValue}</p>
                 </div>
               </div>
             </div>
             <div>
               <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-                At a Glance
+                {p.glanceEyebrow}
               </p>
-              <div className="mt-4 divide-y divide-brand-gray-200 rounded-lg border border-brand-gray-200">
-                {[
-                  ["Development", "Virunga Villas"],
-                  ["Developer", "Ever Retreat"],
-                  ["Location", "Musanze, Volcanoes Region, Rwanda"],
-                  ["Zone", "Residential / Tourism Designated"],
-                  ["Total Villas", "9"],
-                  ["Bedrooms", "2, 3 & 4"],
-                  ["Build Area", "165 - 280 sqm"],
-                  ["Land Area", "120 - 220 sqm"],
-                  ["Price From", "$239K USD"],
-                  ["Tenure", "Freehold & Leasehold Options"],
-                  ["Completion", "Q4 2027"],
-                  ["Rental Licence", "Supported"],
-                ].map(([key, value]) => (
-                  <div key={key} className="flex justify-between px-6 py-3">
-                    <span className="text-sm text-brand-gray-500">{key}</span>
-                    <span className="text-sm font-semibold text-black">{value}</span>
+              <div className="mt-4 divide-y divide-brand-gray-200 rounded-sm border border-brand-gray-200">
+                {glanceRows.map((row) => (
+                  <div key={row.id} className="flex justify-between px-6 py-3">
+                    <span className="text-sm text-brand-gray-500">{row.label}</span>
+                    {row.id === "location" ? (
+                      <Link
+                        href="/areas/musanze"
+                        className="text-sm font-semibold text-black underline-offset-4 hover:underline"
+                      >
+                        {row.value}
+                      </Link>
+                    ) : (
+                      <span className="text-sm font-semibold text-black">{row.value}</span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -158,14 +129,16 @@ export default function SukuResidencesPage() {
         </div>
       </section>
 
+      <ZoneMatters />
+
       <section id="villa-types" className="bg-brand-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[1440px] px-6">
           <div className="mb-12 text-center">
             <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-              Villa Types
+              {p.villaTypesEyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              Three layouts. Each with a private pool.
+              {p.villaTypesHeading}
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -173,7 +146,7 @@ export default function SukuResidencesPage() {
               <Link
                 key={bed.label}
                 href={bed.href}
-                className="group block overflow-hidden rounded-lg bg-white"
+                className="group block overflow-hidden rounded-sm bg-white"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -189,11 +162,11 @@ export default function SukuResidencesPage() {
                     {bed.label}
                   </p>
                   <div className="mt-3 flex items-baseline gap-2">
-                    <p className="text-2xl font-bold text-black">{bed.price}</p>
+                    <p className="text-sm font-semibold text-brand-gray-500">{p.bedCardStatusLabel}</p>
                   </div>
                   <div className="mt-3 space-y-1 text-sm text-brand-gray-600">
-                    <p>{bed.area} build</p>
-                    <p>{bed.land} land</p>
+                    <p>{bed.build}</p>
+                    <p>{bed.land}</p>
                   </div>
                 </div>
               </Link>
@@ -206,10 +179,10 @@ export default function SukuResidencesPage() {
         <div className="mx-auto max-w-[1440px] px-6">
           <div className="mb-12 text-center">
             <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-              Included With Every Villa
+              {p.featuresEyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              Everything. Handled.
+              {p.featuresHeading}
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -228,10 +201,111 @@ export default function SukuResidencesPage() {
         </div>
       </section>
 
+      <section className="bg-brand-teal py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-medium uppercase tracking-widest text-white/70">
+              {dx.sukuRoiEyebrow}
+            </p>
+            <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
+              {dx.sukuRoiHeading}
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-white/70">
+              {dx.sukuRoiParagraph}
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="rounded-sm border border-white/20 p-6">
+                <p className="text-3xl font-bold text-white">{dx.sukuRoiYieldValue}</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-white/60">{dx.sukuRoiYieldLabel}</p>
+              </div>
+              <div className="rounded-sm border border-white/20 p-6">
+                <p className="text-3xl font-bold text-white">{dx.sukuRoiOccupancyValue}</p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-white/60">{dx.sukuRoiOccupancyLabel}</p>
+              </div>
+            </div>
+            <p className="mt-6 text-xs text-white/50">{dx.sukuRoiNote}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-off-white py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6">
+          <div className="mx-auto max-w-3xl">
+            <p className="mb-4 text-center text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+              {dx.faqEyebrow}
+            </p>
+            <h2 className="mb-10 text-center text-3xl font-bold text-black md:text-5xl">
+              {dx.faqHeading}
+            </h2>
+            <div className="divide-y divide-brand-gray-200">
+              {dx.sukuFaq.map((item, index) => (
+                <div key={item.question} className="py-5">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                    className="flex min-h-[44px] w-full items-center justify-between text-left"
+                  >
+                    <span className="pr-8 font-semibold text-black md:text-lg">{item.question}</span>
+                    <span className="flex-shrink-0 text-2xl text-brand-gray-500">
+                      {openFaq === index ? "−" : "+"}
+                    </span>
+                  </button>
+                  {openFaq === index && (
+                    <div className="mt-3">
+                      <p className="leading-relaxed text-brand-gray-700 md:text-base">{item.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-white py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-6">
+          <div className="mb-12 text-center">
+            <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
+              {dx.relatedEyebrow}
+            </p>
+            <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
+              {dx.relatedHeading}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {relatedDevelopments.map((dev) => (
+              <Link
+                key={dev.id}
+                href={dev.href}
+                className="group block overflow-hidden rounded-sm border border-brand-gray-100 bg-white transition-colors duration-300 hover:border-brand-gray-400"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={dev.image}
+                    alt={dev.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">{dev.tag}</p>
+                  <h3 className="mt-2 text-lg font-bold text-black">{dev.name}</h3>
+                  <span className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide text-black">
+                    {dx.relatedViewLabel} &rarr;
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Team />
+
       <section id="enquire" className="relative overflow-hidden bg-brand-teal py-20 md:py-28">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/images/developments/nara-exterior-1.webp"
+            src="/images/developments/villa-photos.jpeg"
             alt=""
             fill
             className="object-cover"
@@ -240,27 +314,26 @@ export default function SukuResidencesPage() {
         <div className="relative mx-auto max-w-[1440px] px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-              Secure Your Virunga Villa
+              {p.ctaEyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl md:leading-tight">
-              3 of 9 villas remaining
+              {p.ctaHeading}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/70">
-              Reserve your unit with a $5,000 deposit. The previous Volcanoes development from Ever Retreat reached full reservation quickly.
-              Don&apos;t miss your chance to own in Rwanda&apos;s most sought-after mountain retreat.
+              {p.ctaParagraph}
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row justify-center">
               <Link
                 href="/contact"
-                className="rounded bg-white px-10 py-4 text-sm font-semibold text-black transition-all hover:bg-white/90"
+                className="rounded-sm bg-white px-10 py-4 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
               >
-                Enquire Now
+                {p.ctaEnquireLabel}
               </Link>
               <Link
                 href="/developments"
-                className="rounded border-2 border-white/50 px-10 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10"
+                className="rounded-sm border border-white/40 px-10 py-4 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                View All Developments
+                {p.ctaViewAllLabel}
               </Link>
             </div>
           </div>

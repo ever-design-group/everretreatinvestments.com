@@ -1,237 +1,183 @@
-import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
+"use client";
+
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { FinalCTA } from "@/components/FinalCTA";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
+import { InvestmentGuides } from "@/components/InvestmentGuides";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Image from "next/image";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Rwanda Areas - Where to Invest in Property | Ever Retreat",
-  description:
-    "Explore Rwanda's top property investment areas: Kigali, Musanze, Rubavu, Nyungwe, Akagera, Huye, Evane, and Nyanza. Find the perfect location for your investment.",
-};
+// Qualitative market-position badges derived from each area's already-published
+// yield range and description (not new/invented figures) — mirrors the
+// "High Growth" / "Proven Market" style badges balitecture.com/areas uses.
+const areaMeta = [
+  { key: "kigali" as const, name: "Kigali", image: "/images/areas/kigali-area.webp", href: "/areas/kigali", bestForKey: "bestForKigali" as const, badge: "Capital Market" },
+  { key: "musanze" as const, name: "Musanze", image: "/images/areas/musanze-area.webp", href: "/areas/musanze", bestForKey: "bestForMusanze" as const, badge: "High Demand" },
+  { key: "rubavu" as const, name: "Rubavu", image: "/images/areas/rubavu-area.webp", href: "/areas/rubavu", bestForKey: "bestForRubavu" as const, badge: "Highest Yield" },
+  { key: "nyungwe" as const, name: "Nyungwe", image: "/images/areas/nyungwe-area.webp", href: "/areas/nyungwe", bestForKey: "bestForNyungwe" as const, badge: "Eco Investment" },
+  { key: "huye" as const, name: "Huye", image: "/images/areas/huye-area.webp", href: "/areas/huye", bestForKey: "bestForHuye" as const, badge: "Affordable Entry" },
+  { key: "evane" as const, name: "Evane", image: "/images/areas/lake-kivu-area.webp", href: "/areas/evane", bestForKey: "bestForEvane" as const, badge: "Scenic Growth" },
+  { key: "nyanza" as const, name: "Nyanza", image: "/images/areas/kigali-area.webp", href: "/areas/nyanza", bestForKey: "bestForNyanza" as const, badge: "Emerging Market" },
+  { key: "akagera" as const, name: "Akagera", image: "/images/areas/huye-area.webp", href: "/areas/akagera", bestForKey: "bestForAkagera" as const, badge: "Exclusive Lodges" },
+];
 
-const areas = [
-  {
-    name: "Kigali",
-    description:
-      "Capital city with the highest land values and consistent rental demand from expats and business travelers.",
-    image: "/images/areas/kigali-area.webp",
-    href: "/areas/kigali",
-  },
-  {
-    name: "Musanze",
-    description:
-      "Volcanoes region — gorilla trekking, luxury lodges, and mountain retreats with strong tourism demand.",
-    image: "/images/areas/musanze-area.webp",
-    href: "/areas/musanze",
-  },
-  {
-    name: "Rubavu",
-    description:
-      "Lake Kivu waterfront — premium holiday rentals and luxury lakeside villas with high nightly rates.",
-    image: "/images/areas/rubavu-area.webp",
-    href: "/areas/rubavu",
-  },
-  {
-    name: "Nyungwe",
-    description:
-      "Forest edge — eco-tourism accommodation and sustainable lodge investments with growing demand.",
-    image: "/images/areas/nyungwe-area.webp",
-    href: "/areas/nyungwe",
-  },
-  {
-    name: "Huye",
-    description:
-      "Southern province cultural hub — university town near Nyungwe and Lake Kivu with affordable land.",
-    image: "/images/areas/huye-area.webp",
-    href: "/areas/huye",
-  },
-  {
-    name: "Evane",
-    description:
-      "Northern highlands hill station between Kigali and Musanze — scenic landscapes at accessible prices.",
-    image: "/images/areas/lake-kivu-area.webp",
-    href: "/areas/evane",
-  },
-  {
-    name: "Nyanza",
-    description:
-      "Southern province former capital near Lake Kivu and Nyungwe — historical hub with growing tourism.",
-    image: "/images/areas/kigali-area.webp",
-    href: "/areas/nyanza",
-  },
-  {
-    name: "Akagera",
-    description:
-      "National park proximity — safari lodges and exclusive eco-retreats with luxury pricing.",
-    image: "/images/areas/huye-area.webp",
-    href: "/areas/akagera",
-  },
+// Pre-existing, unverified per-area figures (land price/yield/occupancy) —
+// translated labels only; the numbers themselves are flagged separately as
+// needing real confirmation, not something to invent fresh values for here.
+const metricsData = [
+  { key: "kigali" as const, landPrice: "$50-120/sqm", yield: "8-12%", occupancy: "75%" },
+  { key: "musanze" as const, landPrice: "$30-60/sqm", yield: "12-18%", occupancy: "80%" },
+  { key: "rubavu" as const, landPrice: "$40-80/sqm", yield: "15-20%", occupancy: "85%" },
+  { key: "nyungwe" as const, landPrice: "$15-30/sqm", yield: "10-15%", occupancy: "70%" },
+  { key: "akagera" as const, landPrice: "$10-25/sqm", yield: "12-16%", occupancy: "65%" },
+  { key: "huye" as const, landPrice: "$15-35/sqm", yield: "10-15%", occupancy: "70%" },
+  { key: "evane" as const, landPrice: "$20-45/sqm", yield: "12-16%", occupancy: "75%" },
+  { key: "nyanza" as const, landPrice: "$20-50/sqm", yield: "13-17%", occupancy: "72%" },
 ];
 
 export default function AreasPage() {
-  const heroSlides = [
-    {
-      image: "/images/hero/aerial-rwanda.webp",
-      imageAlt: "Aerial view of Rwanda landscape",
-      title: "Rwanda Investment Areas",
-      subtitle: "From Kigali&apos;s business district to Akagera&apos;s safari lodges — each area offers distinct investment potential.",
-    },
-    {
-      image: "/images/areas/lake-kivu-area.webp",
-      imageAlt: "Lake Kivu waterfront",
-      title: "Prime Locations",
-      subtitle: "Curated properties across Rwanda&apos;s most desirable areas.",
-    },
-    {
-      image: "/images/areas/musanze-area.webp",
-      imageAlt: "Musanze volcano views",
-      title: "Proven Returns",
-      subtitle: "15-20% gross yields across our developments in Kigali, Musanze, and Rubavu.",
-    },
+  const { t } = useLanguage();
+  const ap = t.areasPage;
+  const areaItems = t.areasSection.items;
+  const hubStats = t.areasHubExtras;
+
+  const hubStatCells = [
+    { value: String(areaMeta.length), label: hubStats.statAreasLabel },
+    { value: "10+", label: hubStats.statYearsLabel },
+    { value: "120+", label: t.statsBarSection.villasBuiltLabel },
+    { value: "8-20%", label: hubStats.statYieldLabel },
   ];
 
   return (
-    <PageLayout
-      hero={
-      <HeroAnimated
-        slides={heroSlides}
-        badge="Investment Areas"
-        tag="Ever Retreat"
-        ctaHref="/contact"
-         secondaryCtaHref="/invest-in-rwanda"
-      />
-    }
-    >
-
-      <section className="bg-brand-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="mb-12 text-center">
-            <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
-              Where We Build
+    <>
+      <Header />
+      <main className="flex-1">
+        {/* Plain text hero on solid brand background — matches balitecture.com/areas,
+            which is a text-only intro section, not a full-bleed image carousel. */}
+        <section className="bg-brand-teal pb-16 pt-32 md:pb-20 md:pt-40">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-brand-gray-400">
+              {ap.sectionEyebrow}
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              Prime Investment Areas
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-              Each area of Rwanda has its own character, price point, and
-              investment profile. Here is where our clients are building villas.
+            <h1 className="font-body text-4xl uppercase text-white md:text-6xl lg:text-7xl">
+              {ap.sectionHeading}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-brand-gray-200 md:text-lg">
+              {ap.sectionParagraph}
             </p>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {areas.map((area) => (
-              <Link
-                key={area.name}
-                href={area.href}
-                className="group relative overflow-hidden rounded-lg"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={area.image}
-                    alt={area.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-teal/80 via-brand-teal/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <h3 className="text-xl font-bold text-white">{area.name}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-white/80">
-                      {area.description}
-                    </p>
-                  </div>
+        <section className="border-b border-brand-gray-100 bg-brand-white">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+            <div className="grid grid-cols-2 gap-px bg-brand-gray-100 md:grid-cols-4">
+              {hubStatCells.map((stat) => (
+                <div key={stat.label} className="bg-brand-white px-6 py-8 text-center">
+                  <p className="font-body text-3xl text-black md:text-4xl">{stat.value}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-brand-gray-500">{stat.label}</p>
                 </div>
-              </Link>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="bg-brand-off-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Investment Metrics by Area</h2>
-            <p>
-              Each Rwanda investment area offers different advantages. Here is
-              a quick comparison to help you decide where to focus:
-            </p>
-            <table>
-              <thead>
-                <tr>
-                  <th>Area</th>
-                  <th>Land Price</th>
-                  <th>Avg Yield</th>
-                  <th>Occupancy</th>
-                  <th>Best For</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Kigali</td>
-                  <td>$50-120/sqm</td>
-                  <td>8-12%</td>
-                  <td>75%</td>
-                  <td>Capital growth, stable demand</td>
-                </tr>
-                <tr>
-                  <td>Musanze</td>
-                  <td>$30-60/sqm</td>
-                  <td>12-18%</td>
-                  <td>80%</td>
-                  <td>Tourism, mountain retreats</td>
-                </tr>
-                <tr>
-                  <td>Rubavu</td>
-                  <td>$40-80/sqm</td>
-                  <td>15-20%</td>
-                  <td>85%</td>
-                  <td>Waterfront, holiday rentals</td>
-                </tr>
-                <tr>
-                  <td>Nyungwe</td>
-                  <td>$15-30/sqm</td>
-                  <td>10-15%</td>
-                  <td>70%</td>
-                  <td>Eco-tourism, lower entry</td>
-                </tr>
-                <tr>
-                  <td>Akagera</td>
-                  <td>$10-25/sqm</td>
-                  <td>12-16%</td>
-                  <td>65%</td>
-                  <td>Safari lodges, exclusivity</td>
-                </tr>
-                <tr>
-                  <td>Huye</td>
-                  <td>$15-35/sqm</td>
-                  <td>10-15%</td>
-                  <td>70%</td>
-                  <td>Eco-tourism, student rentals</td>
-                </tr>
-                <tr>
-                  <td>Evane</td>
-                  <td>$20-45/sqm</td>
-                  <td>12-16%</td>
-                  <td>75%</td>
-                  <td>Mountain retreats, hill stations</td>
-                </tr>
-                <tr>
-                  <td>Nyanza</td>
-                  <td>$20-50/sqm</td>
-                  <td>13-17%</td>
-                  <td>72%</td>
-                  <td>Cultural tourism, gateway location</td>
-                </tr>
-              </tbody>
-            </table>
+        <section className="bg-brand-white py-16 md:py-24">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {areaMeta.map((area) => {
+                const metrics = metricsData.find((m) => m.key === area.key);
+                return (
+                  <div key={area.key}>
+                    <Link href={area.href} className="group block">
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                        <Image
+                          src={area.image}
+                          alt={`${area.name}, Rwanda - property investment guide`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                        <div className="absolute left-4 top-4">
+                          <span className="bg-brand-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-black">
+                            {area.badge}
+                          </span>
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-5">
+                          <h2 className="text-2xl font-semibold uppercase tracking-wide text-white">{area.name}</h2>
+                          <p className="mt-1 text-sm text-brand-gray-200">
+                            {areaItems[area.key].description}
+                          </p>
+                        </div>
+                      </div>
+                      {metrics && (
+                        <div className="flex items-center justify-between border-b border-brand-gray-100 pb-2 pt-4">
+                          <span className="text-xs uppercase tracking-wider text-brand-gray-500">
+                            {ap.tableAvgYield}: <span className="font-semibold text-black">{metrics.yield}</span>
+                          </span>
+                          <span className="text-sm text-brand-gray-500 transition-colors group-hover:text-black">
+                            {t.relatedAreasSection.viewLabel} →
+                          </span>
+                        </div>
+                      )}
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <InvestmentMarket />
+        <section className="bg-brand-off-white py-16 md:py-24">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+            <div className="mx-auto max-w-4xl">
+              <p className="text-xs uppercase tracking-[0.3em] text-brand-gray-500">{ap.metricsHeading}</p>
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-700">{ap.metricsParagraph}</p>
+              <div className="mt-8 border-t border-brand-gray-200">
+                {metricsData.map((row) => {
+                  const meta = areaMeta.find((a) => a.key === row.key)!;
+                  return (
+                    <div
+                      key={row.key}
+                      className="flex flex-col gap-2 border-b border-brand-gray-200 py-4 sm:flex-row sm:items-baseline sm:justify-between"
+                    >
+                      <div className="flex-1">
+                        <p className="text-sm font-semibold uppercase tracking-wide text-black">{meta.name}</p>
+                        <p className="mt-1 text-xs text-brand-gray-500">{ap[meta.bestForKey]}</p>
+                      </div>
+                      <div className="flex shrink-0 gap-6 text-sm sm:text-right">
+                        <span>
+                          <span className="text-brand-gray-500">{ap.tableLandPrice}: </span>
+                          <span className="font-semibold text-black tabular-nums">{row.landPrice}</span>
+                        </span>
+                        <span>
+                          <span className="text-brand-gray-500">{ap.tableAvgYield}: </span>
+                          <span className="font-semibold text-black tabular-nums">{row.yield}</span>
+                        </span>
+                        <span>
+                          <span className="text-brand-gray-500">{ap.tableOccupancy}: </span>
+                          <span className="font-semibold text-black tabular-nums">{row.occupancy}</span>
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <InterestedInInvesting />
-    </PageLayout>
+        <InvestmentMarket />
+
+        <InvestmentGuides />
+
+        <InterestedInInvesting />
+      </main>
+      <FinalCTA />
+      <Footer />
+    </>
   );
 }

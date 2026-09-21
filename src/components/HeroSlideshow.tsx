@@ -3,33 +3,37 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import type { TranslationShape } from "@/lib/i18n/translations";
 
-const developments = [
-  {
-    id: "nara-villas",
-    name: "Kivu Villas",
-    tag: "Rubavu / 2-3 Bed",
-    badge: "3 of 6 Remaining",
-    price: "From $269K USD",
-    image: "/images/developments/nara-exterior-1.webp",
-    href: "/developments/nara-villas",
-    description:
-      "Premium 2-3 bedroom lakeside villas in Rubavu with private pools and saunas, designed for both living and rental returns.",
-    features: ["Lake Kivu", "15-20% Yield", "Private Pools"],
-  },
-  {
-    id: "suku-residences",
-    name: "Virunga Villas",
-    tag: "Musanze / 2-4 Bed",
-    badge: "3 of 9 Remaining",
-    price: "From $239K USD",
-    image: "/images/developments/suku-4br/suku-4br-1.webp",
-    href: "/developments/suku-residences",
-    description:
-      "A boutique community of 4-bed wellness villas in Musanze, blending modern design with mountain living.",
-    features: ["Wellness Villas", "Musanze Location", "Mountain Views"],
-  },
-];
+const SLIDE_COUNT = 2;
+
+function buildDevelopments(t: TranslationShape) {
+  return [
+    {
+      id: "nara-villas",
+      name: "B&P Ever Retreat Villa",
+      tag: "Rubavu",
+      badge: t.developmentsSection.badges.prototype,
+      price: t.developmentsSection.notForSale,
+      image: "/images/developments/villa-photos.jpeg",
+      href: "/developments/nara-villas",
+      description: t.developmentsSection.items["nara-villas"].description,
+      features: t.developmentsSection.items["nara-villas"].features,
+    },
+    {
+      id: "suku-residences",
+      name: "Virunga Villas",
+      tag: "Musanze",
+      badge: t.developmentsSection.badges.comingSoon,
+      price: "",
+      image: "/images/developments/suku-4br/suku-4br-1.webp",
+      href: "/developments/suku-residences",
+      description: t.developmentsSection.items["suku-residences"].description,
+      features: t.developmentsSection.items["suku-residences"].features,
+    },
+  ];
+}
 
 function ChevronLeft() {
   return (
@@ -48,6 +52,8 @@ function ChevronRight() {
 }
 
 export function HeroSlideshow() {
+  const { t } = useLanguage();
+  const developments = buildDevelopments(t);
   const [current, setCurrent] = useState(0);
   const [isFading, setIsFading] = useState(false);
 
@@ -61,18 +67,18 @@ export function HeroSlideshow() {
   };
 
   const goNext = () => {
-    goTo((current + 1) % developments.length);
+    goTo((current + 1) % SLIDE_COUNT);
   };
 
   const goPrev = () => {
-    goTo((current - 1 + developments.length) % developments.length);
+    goTo((current - 1 + SLIDE_COUNT) % SLIDE_COUNT);
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsFading(true);
       setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % developments.length);
+        setCurrent((prev) => (prev + 1) % SLIDE_COUNT);
         setIsFading(false);
       }, 300);
     }, 5000);
@@ -100,11 +106,11 @@ export function HeroSlideshow() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-brand-teal/50" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
       <div className="relative z-20 flex h-full flex-col items-center justify-center px-4 sm:px-6 text-center">
         <p className="mb-4 text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
-          Featured Developments
+          {t.heroSlideshow.label}
         </p>
         <h1 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl lg:text-7xl tracking-tight">
           {dev.name}
@@ -131,9 +137,9 @@ export function HeroSlideshow() {
         <div className="mt-4 sm:mt-6">
           <Link
             href={dev.href}
-            className="inline-flex items-center gap-2 rounded bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.15em] text-black transition-all hover:bg-white/90 sm:px-8 sm:py-4 sm:text-sm"
+            className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:bg-brand-gray-200 sm:px-8 sm:py-4 sm:text-sm"
           >
-            Explore {dev.name}
+            {t.heroSlideshow.explorePrefix} {dev.name}
             <span className="text-lg">→</span>
           </Link>
         </div>
@@ -162,7 +168,7 @@ export function HeroSlideshow() {
             href="/developments"
             className="hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white hover:underline"
           >
-            View All Developments
+            {t.developmentsSection.viewAll}
             <span className="text-sm">→</span>
           </Link>
           <div className="flex gap-1.5 sm:gap-2">

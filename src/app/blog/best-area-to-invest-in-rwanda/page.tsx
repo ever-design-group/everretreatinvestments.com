@@ -1,115 +1,97 @@
-import { PageLayout } from "@/components/PageLayout";
-import { InvestmentGuides } from "@/components/InvestmentGuides";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "Best Area to Invest in Rwanda (2026) | Ever Retreat",
-  description:
-    "Comparing Kigali, Musanze, Rubavu, Nyungwe, and Akagera. Real yield data and land prices from our team that builds across all five areas.",
-};
+import { PageLayout } from "@/components/PageLayout";
+import { BlogPostHero } from "@/components/BlogPostHero";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { KeepReading } from "@/components/KeepReading";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { estimateReadingTime } from "@/lib/readingTime";
 
 export default function BestAreaToInvestPage() {
+  const { t } = useLanguage();
+  const p = t.blogBestAreaPage;
+  const readingMinutes = estimateReadingTime(p);
+
   return (
     <PageLayout
       hero={
-        <section className="relative h-[600px] w-full overflow-hidden">
-          <Image
-            src="/images/areas/lake-kivu-area.webp"
-            alt="Lake Kivu investment area"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-brand-teal/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
-            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
-              Ever Retreat Blog
-            </p>
-            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
-              Best Area to Invest in Rwanda (2026)
-            </h1>
-            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg">
-              Comparing land prices, yields, and lifestyle factors across Rwanda&apos;s top investment areas.
-            </p>
-          </div>
-        </section>
+        <BlogPostHero
+          image="/images/areas/lake-kivu-area.webp"
+          imageAlt="Lake Kivu investment area"
+          category="location"
+          date="April 2026"
+          title={p.heroTitle}
+          subtitle={p.heroSubtitle}
+        />
       }
     >
+      <Breadcrumb
+        items={[
+          { label: t.nav.blog, href: "/blog" },
+          { label: t.blogCategories.location },
+          { label: p.heroTitle },
+        ]}
+        readingMinutes={readingMinutes}
+      />
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Kigali</h2>
+          <div className="article-body mx-auto max-w-3xl">
+            <h2>{p.kigaliHeading}</h2>
             <p>
-              <strong>Land price:</strong> $300-500/sqm<br />
-              <strong>Gross yield:</strong> 8-12%<br />
-              <strong>Occupancy:</strong> 75%
+              <strong>{p.statsLandPriceLabel}</strong> $50-120/sqm<br />
+              <strong>{p.statsGrossYieldLabel}</strong> 8-12%<br />
+              <strong>{p.statsOccupancyLabel}</strong> 75%
             </p>
-            <p>
-              Rwanda&apos;s capital and business hub. Best for stable, consistent
-              returns with minimal management effort. Highest resale liquidity.
-            </p>
+            <p>{p.kigaliParagraph}</p>
 
-            <h2>Musanze</h2>
+            <h2>{p.musanzeHeading}</h2>
             <p>
-              <strong>Land price:</strong> $200-400/sqm<br />
-              <strong>Gross yield:</strong> 15-20%<br />
-              <strong>Occupancy:</strong> 80%
+              <strong>{p.statsLandPriceLabel}</strong> $30-60/sqm<br />
+              <strong>{p.statsGrossYieldLabel}</strong> 12-18%<br />
+              <strong>{p.statsOccupancyLabel}</strong> 80%
             </p>
-            <p>
-              Northern highlands, gateway to Volcanoes National Park. Highest
-              yields in the country, growing expat community, and adventure
-              tourism demand.
-            </p>
+            <p>{p.musanzeParagraph}</p>
 
-            <h2>Rubavu</h2>
+            <h2>{p.rubavuHeading}</h2>
             <p>
-              <strong>Land price:</strong> $350-600/sqm<br />
-              <strong>Gross yield:</strong> 15-20%<br />
-              <strong>Occupancy:</strong> 85%
+              <strong>{p.statsLandPriceLabel}</strong> $40-80/sqm<br />
+              <strong>{p.statsGrossYieldLabel}</strong> 15-20%<br />
+              <strong>{p.statsOccupancyLabel}</strong> 85%
             </p>
-            <p>
-              Lake Kivu waterfront. Premium nightly rates, family-friendly
-              atmosphere, and strong long-stay demand. Limited supply keeps
-              entry costs high but potential is significant.
-            </p>
+            <p>{p.rubavuParagraph}</p>
 
-            <h2>Nyungwe</h2>
+            <h2>{p.nyungweHeading}</h2>
             <p>
-              <strong>Land price:</strong> $150-300/sqm<br />
-              <strong>Gross yield:</strong> 10-15%<br />
-              <strong>Occupancy:</strong> 70%
+              <strong>{p.statsLandPriceLabel}</strong> $15-30/sqm<br />
+              <strong>{p.statsGrossYieldLabel}</strong> 10-15%<br />
+              <strong>{p.statsOccupancyLabel}</strong> 70%
             </p>
-            <p>
-              Forest edge near Nyungwe National Park. Lower entry costs,
-              emerging market, and growing eco-tourism demand. Higher risk but
-              potential for early-stage appreciation.
-            </p>
+            <p>{p.nyungweParagraph}</p>
 
-            <h2>Akagera</h2>
+            <h2>{p.akageraHeading}</h2>
             <p>
-              <strong>Land price:</strong> $100-250/sqm<br />
-              <strong>Gross yield:</strong> 12-16%<br />
-              <strong>Occupancy:</strong> 65%
+              <strong>{p.statsLandPriceLabel}</strong> $10-25/sqm<br />
+              <strong>{p.statsGrossYieldLabel}</strong> 12-16%<br />
+              <strong>{p.statsOccupancyLabel}</strong> 65%
             </p>
-            <p>
-              Eastern province near Akagera National Park. Lowest entry cost,
-              safari lodge demand, and significant upside potential. Best for
-              patient investors willing to wait for infrastructure development.
-            </p>
+            <p>{p.akageraParagraph}</p>
 
-            <h2>Our Recommendation</h2>
+            <h2>{p.recommendationHeading}</h2>
             <p>
-              For <strong>balanced returns with lower risk</strong>, invest in
-              Rubavu or Kigili. For <strong>highest yield potential</strong>,
-              focus on Musanze. For <strong>early-stage entry</strong>,
-              consider Nyungwe or Akagera.
+              {p.recommendationPart1}
+              <strong>{p.recommendationStrong1}</strong>
+              {p.recommendationPart2}
+              <strong>{p.recommendationStrong2}</strong>
+              {p.recommendationPart3}
+              <strong>{p.recommendationStrong3}</strong>
+              {p.recommendationPart4}
             </p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <KeepReading currentHref="/blog/best-area-to-invest-in-rwanda" />
           </div>
         </div>
       </section>
-
-      <InvestmentGuides />
     </PageLayout>
   );
 }

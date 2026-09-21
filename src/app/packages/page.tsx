@@ -1,5 +1,4 @@
 import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
 import { StatsBar } from "@/components/StatsBar";
 import { PricingForm } from "@/components/PricingForm";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
@@ -98,38 +97,35 @@ const packagesList = [
 ];
 
 export default function PackagesPage() {
-  const heroSlides = [
-    {
-      image: "/images/portfolio/completed-villa-4.webp",
-      imageAlt: "Completed luxury villa in Rwanda",
-      title: "Ready-Made Villa Packages",
-      subtitle: "Fixed-price, end-to-end service from land to completion in Rwanda.",
-    },
-    {
-      image: "/images/areas/lake-kivu-area.webp",
-      imageAlt: "Lake Kivu development site",
-      title: "Prime Locations",
-      subtitle: "Build in Kigali, Musanze, Rubavu, Nyungwe, or Akagera.",
-    },
-    {
-      image: "/images/developments/dasa-ubud/dasa-ubud-banner.webp",
-      imageAlt: "Villa construction in Rwanda",
-      title: "From $220K",
-      subtitle: "Complete villa packages with everything included.",
-    },
-  ];
-
   return (
-    <PageLayout
+    <PageLayout showCta={false}
       hero={
-      <HeroAnimated
-        slides={heroSlides}
-        badge="Fixed-Price"
-        tag="Ever Retreat Packages"
-        ctaHref="/contact"
-         secondaryCtaHref="/how-to-buy-property-in-rwanda"
-      />
-    }
+        <section className="relative flex min-h-[70vh] w-full flex-col justify-end overflow-hidden bg-brand-teal">
+          <Image
+            src="/images/portfolio/completed-villa-4.webp"
+            alt="Completed luxury villa in Rwanda"
+            fill
+            priority
+            className="object-cover opacity-40"
+            sizes="100vw"
+          />
+          <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/60 to-transparent" />
+          <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 pb-16 pt-32 md:px-12 md:pb-24">
+            <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
+              Fixed-Price Villa Designs
+            </p>
+            <h1 className="text-4xl uppercase leading-[0.95] tracking-wide text-white md:text-7xl lg:text-8xl">
+              <span className="font-light">Villa</span>
+              <br />
+              <span className="font-bold">Packages</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60 md:text-lg">
+              Our most popular villa designs at fixed prices, from $220K. Every package
+              is customisable to your site and preferences.
+            </p>
+          </div>
+        </section>
+      }
     >
 
       <section className="bg-brand-teal py-8 md:py-12">
@@ -175,8 +171,9 @@ export default function PackagesPage() {
             <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
               Villa Packages
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              Four Sizes. One Process.
+            <h2 className="mt-4 text-3xl font-bold uppercase tracking-wide text-black md:text-5xl">
+              <span className="font-light">Four Sizes.</span>{" "}
+              <span className="font-bold">One Process.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
               All packages include architecture, permits, construction, interior
@@ -230,7 +227,7 @@ export default function PackagesPage() {
                   </ul>
                   <Link
                     href="/contact"
-                    className="mt-6 block w-full rounded bg-brand-teal px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
+                    className="mt-6 block w-full rounded-sm bg-brand-teal px-6 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-brand-teal/90"
                   >
                     Enquire Now
                   </Link>
@@ -243,7 +240,7 @@ export default function PackagesPage() {
 
       <section className="bg-brand-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
+          <div className="article-body mx-auto max-w-3xl">
             <h2>What&apos;s Included</h2>
             <p>
               Every villa package includes everything from design to

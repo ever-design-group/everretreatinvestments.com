@@ -1,97 +1,66 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function InvestmentMarket() {
+  const { t } = useLanguage();
+  const m = t.investmentMarket;
+
+  const stats = [
+    { value: "15-20%", label: m.sideStat1Label },
+    { value: "85%+", label: m.sideStat2Label },
+    { value: "120", label: m.sideStat3Label },
+    { value: "10+", label: m.sideStat4Label },
+  ];
+
   return (
     <section className="bg-brand-teal py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <Image
+              src="/images/hero/aerial-rwanda.webp"
+              alt="Aerial view of Rwanda's landscape"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-              A Proven Investment Market
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-white/50">
+              {m.eyebrow}
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl">
-              Invest in Rwanda Property
+            <h2 className="text-3xl uppercase leading-tight tracking-wide text-white md:text-4xl lg:text-5xl">
+              {m.heading}
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-white/70">
-              Rwanda property investment means buying or building villas in
-              Rwanda for rental income and capital growth. With consistent
-              15-20% gross rental yields, high occupancy rates, and strong
-              capital appreciation, our 160-strong team handles everything from
-              land sourcing to rental income.
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/70 md:text-base">
+              {m.paragraph}
             </p>
-            <div className="mt-8 flex gap-6">
-              <div>
-                <p className="text-2xl font-bold text-white">15-20%</p>
-                <p className="text-xs text-white/60">Gross Yield</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-white">160+</p>
-                <p className="text-xs text-white/60">Team Members</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-white">Full</p>
-                <p className="text-xs text-white/60">Management</p>
-              </div>
+            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5">
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-2xl font-bold tabular-nums text-white md:text-3xl">
+                    {stat.value}
+                  </div>
+                  <p className="mt-0.5 text-xs uppercase tracking-wider text-white/50">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
             <Link
               href="/invest-in-rwanda"
-              className="mt-6 inline-block text-sm font-semibold text-white underline underline-offset-4"
+              className="group/link mt-8 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-white"
             >
-              LEARN ABOUT INVESTING IN RWANDA &rarr;
+              <span>{m.cta}</span>
+              <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
             </Link>
-          </div>
-          <div className="flex justify-end">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-3xl font-bold text-white">12-18%</p>
-                <p className="mt-1 text-xs text-white/60">Average Gross Yield</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-white">85%+</p>
-                <p className="mt-1 text-xs text-white/60">Avg Occupancy</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-white">200+</p>
-                <p className="mt-1 text-xs text-white/60">Projects Built</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-white">10+</p>
-                <p className="mt-1 text-xs text-white/60">Years in Rwanda</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-export const InvestmentGuide = () => (
-  <section className="bg-brand-off-white py-16 md:py-28">
-    <div className="mx-auto max-w-[1440px] px-6">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-          Free 2026 Edition
-        </p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-black md:text-5xl">
-            The Ever Retreat Guide to Investing in Rwanda
-          </h2>
-          <p className="mt-6 text-base leading-relaxed text-brand-gray-600">
-            Everything you need to know before investing in Rwanda property - legal
-            structures, area-by-area yield tables, build costs, and tax treatment.
-            80 pages, updated for 2026.
-          </p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row justify-center">
-          <Link
-            href="https://wa.me/250787524298"
-            className="rounded bg-brand-green px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-green/90"
-          >
-            Download the Guide
-          </Link>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
 

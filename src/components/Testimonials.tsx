@@ -2,27 +2,38 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
-const testimonials = [
-  {
-    quote:
-      "They made the process extremely easy and take care of absolutely everything. We loved the weekly updates with photos during construction. Seeing those renders come to life was awesome. Highly recommend Ever Retreat and their management team to work with.",
-    author: "Virginia B.",
-  },
-  {
-    quote:
-      "Investing abroad may be scary but the Ever Retreat team has made this very easy and safe, making me feel comfortable that my money is secured. James in particular has been very supportive and understanding since day 1.",
-    author: "Joseph D.",
-  },
-  {
-    quote:
-      "The process was smooth on every stage. The whole team is professional and responsive, everyone we interacted with was so nice. The result is better than we could imagine. Special thanks to Susi and Dedi for the best communication.",
-    author: "Dmitry D.",
-  },
-];
+interface TestimonialsProps {
+  variant?: "carousel" | "grid";
+}
 
-export function Testimonials() {
+export function Testimonials({ variant = "carousel" }: TestimonialsProps) {
+  const { t } = useLanguage();
+  const testimonials = t.testimonials.quotes;
   const [activeIndex, setActiveIndex] = useState(0);
+
+  if (variant === "grid") {
+    return (
+      <section className="bg-brand-teal py-16 md:py-28">
+        <div className="mx-auto max-w-[1440px] px-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {testimonials.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col justify-between rounded-sm border border-white/20 bg-white/5 p-8"
+              >
+                <blockquote className="text-base leading-relaxed text-white">
+                  &ldquo;{item.quote}&rdquo;
+                </blockquote>
+                <p className="mt-6 text-sm font-semibold text-white/70">{item.author}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="relative overflow-hidden bg-brand-teal py-20 md:py-32">
@@ -54,11 +65,10 @@ export function Testimonials() {
             href="/testimonials"
             className="text-sm font-semibold text-white/70 underline underline-offset-4 hover:text-white"
           >
-            Read All Reviews &rarr;
+            {t.testimonials.readAll} &rarr;
           </Link>
         </div>
       </div>
     </section>
   );
 }
-

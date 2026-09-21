@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export function BuildCalculator() {
+  const { t } = useLanguage();
+  const c = t.buildCalculatorSection;
   const [size, setSize] = useState(150);
   const [finishLevel, setFinishLevel] = useState("premium");
   const [bedrooms, setBedrooms] = useState("3");
@@ -25,6 +28,12 @@ export function BuildCalculator() {
     premium: 300,
     luxury: 450,
   };
+
+  const finishOptions = [
+    { value: "standard", label: c.standardLabel, price: "$1,000/sqm" },
+    { value: "premium", label: c.premiumLabel, price: "$1,500/sqm" },
+    { value: "luxury", label: c.luxuryLabel, price: "$2,200/sqm" },
+  ];
 
   const handleCalculate = () => {
     const rate = finishRates[finishLevel as keyof typeof finishRates];
@@ -59,21 +68,20 @@ export function BuildCalculator() {
         <div className="mx-auto max-w-2xl">
           <div className="mb-12 text-center">
             <p className="text-xs font-medium uppercase tracking-wider text-brand-gray-500">
-              Free Calculator
+              {c.eyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-              Calculate Your Build Cost
+              {c.heading}
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-brand-gray-600">
-              Input your villa size and preferred finish level to get an
-              instant estimate of construction costs in Rwanda.
+              {c.paragraph}
             </p>
           </div>
 
           <div className="grid gap-6 pb-8">
             <div>
               <label className="block text-sm font-medium text-black">
-                Villa Size (sqm)
+                {c.villaSizeLabel}
               </label>
               <input
                 type="range"
@@ -85,38 +93,22 @@ export function BuildCalculator() {
               />
               <div className="mt-2 flex justify-between text-xs text-brand-gray-500">
                 <span>40</span>
-                <span>{size} sqm</span>
+                <span>{size} {c.sqmSuffix}</span>
                 <span>500</span>
               </div>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-black">
-                Finish Level
+                {c.finishLevelLabel}
               </label>
               <div className="mt-2 grid grid-cols-3 gap-2">
-                {[
-                  {
-                    value: "standard",
-                    label: "Standard",
-                    price: "$1,000/sqm",
-                  },
-                  {
-                    value: "premium",
-                    label: "Premium",
-                    price: "$1,500/sqm",
-                  },
-                  {
-                    value: "luxury",
-                    label: "Luxury",
-                    price: "$2,200/sqm",
-                  },
-                ].map((opt) => (
+                {finishOptions.map((opt) => (
                   <button
                     key={opt.value}
                     type="button"
                     onClick={() => setFinishLevel(opt.value)}
-                    className={`rounded border px-4 py-3 text-center text-sm font-semibold ${
+                    className={`rounded-sm border px-4 py-3 text-center text-sm font-semibold ${
                       finishLevel === opt.value
                         ? "border-brand-teal bg-brand-teal text-white"
                         : "border-brand-gray-100 text-brand-gray-600 hover:border-brand-teal"
@@ -131,38 +123,38 @@ export function BuildCalculator() {
 
             <div>
               <label className="block text-sm font-medium text-black">
-                Number of Bedrooms
+                {c.bedroomsLabel}
               </label>
               <select
                 value={bedrooms}
                 onChange={(e) => setBedrooms(e.target.value)}
-                className="mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
+                className="mt-2 w-full rounded-sm border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none"
               >
-                <option value="2">2 Bedrooms</option>
-                <option value="3">3 Bedrooms</option>
-                <option value="4">4 Bedrooms</option>
-                <option value="5">5+ Bedrooms</option>
+                <option value="2">{c.bedroomOption2}</option>
+                <option value="3">{c.bedroomOption3}</option>
+                <option value="4">{c.bedroomOption4}</option>
+                <option value="5">{c.bedroomOption5Plus}</option>
               </select>
             </div>
 
             <button
               type="button"
               onClick={handleCalculate}
-              className="rounded bg-brand-teal px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-teal/80"
+              className="rounded-sm bg-brand-teal px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-brand-teal/80"
             >
-              Calculate Estimate
+              {c.calculateButton}
             </button>
           </div>
 
           {result && (
-            <div className="mt-12 rounded bg-brand-off-white p-8 shadow-lg">
+            <div className="mt-12 rounded-sm border border-brand-gray-100 bg-brand-off-white p-8">
               <h3 className="text-center text-xl font-bold text-black">
-                Your Estimated Costs
+                {c.resultsHeading}
               </h3>
               <div className="mt-6 space-y-3">
                 <div className="flex justify-between border-b border-brand-gray-100 pb-2">
                   <span className="text-sm text-brand-gray-600">
-                    Base Construction ({size} sqm x $
+                    {c.baseConstructionLabel} ({size} {c.sqmSuffix} x $
                     {finishRates[finishLevel as keyof typeof finishRates]})
                   </span>
                   <span className="font-semibold text-black">
@@ -171,7 +163,7 @@ export function BuildCalculator() {
                 </div>
                 <div className="flex justify-between border-b border-brand-gray-100 pb-2">
                   <span className="text-sm text-brand-gray-600">
-                    Land Cost (~
+                    {c.landCostLabel} (~
                     {formatCurrency(
                       size * landRates[finishLevel as keyof typeof landRates],
                     )}
@@ -183,13 +175,13 @@ export function BuildCalculator() {
                 </div>
                 <div className="flex justify-between border-b border-brand-gray-100 pb-2">
                   <span className="text-sm text-brand-gray-600">
-                    Permits & Design
+                    {c.permitsLabel}
                   </span>
                   <span className="font-semibold text-black">$15K</span>
                 </div>
                 <div className="flex justify-between pt-4">
                   <span className="font-bold text-black">
-                    Total Estimated Cost
+                    {c.totalLabel}
                   </span>
                   <span className="text-2xl font-bold text-brand-green">
                     {formatCurrency(result.totalCost)}
@@ -197,37 +189,36 @@ export function BuildCalculator() {
                 </div>
               </div>
 
-              <div className="mt-8 rounded bg-brand-teal/5 p-6">
+              <div className="mt-8 rounded-sm bg-brand-teal/5 p-6">
                 <h4 className="text-center text-sm font-semibold text-black">
-                  Projected Rental Returns (based on {bedrooms}BR villa)
+                  {c.rentalReturnsHeading} ({bedrooms}BR)
                 </h4>
                 <div className="mt-4 space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-brand-gray-600">
-                      Annual Rental Yield
+                      {c.annualYieldLabel}
                     </span>
                     <span className="font-semibold text-black">
-                      {formatCurrency(result.annualYield)}/year
+                      {formatCurrency(result.annualYield)}{c.perYearSuffix}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-brand-gray-600">
-                      ROI Timeline (cost recovery)
+                      {c.roiTimelineLabel}
                     </span>
                     <span className="font-semibold text-black">
-                      {result.paybackYears.toFixed(1)} years
+                      {result.paybackYears.toFixed(1)} {c.yearsSuffix}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-brand-gray-600">Daily Rate (est.)</span>
+                    <span className="text-brand-gray-600">{c.dailyRateLabel}</span>
                     <span className="font-semibold text-black">
-                      ${Math.round(result.annualYield / 250)}/night
+                      ${Math.round(result.annualYield / 250)}{c.perNightSuffix}
                     </span>
                   </div>
                 </div>
                 <p className="mt-4 text-center text-xs text-brand-gray-500">
-                  Projections based on historical data. Actual results may
-                  vary. Consult our team for a detailed feasibility study.
+                  {c.disclaimerText}
                 </p>
               </div>
             </div>

@@ -1,106 +1,140 @@
+"use client";
+
 import { PageLayout } from "@/components/PageLayout";
-import { HeroAnimated } from "@/components/HeroAnimated";
+import { AreaHero } from "@/components/AreaHero";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
-import { StatsBar } from "@/components/StatsBar";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ALL_AREAS } from "@/lib/areasList";
+import Link from "next/link";
 
-export const metadata = {
-  title: "Huye Property Investment | Ever Retreat",
-  description:
-    "Huye property investment guide. Southern province near Nyungwe and Lake Kivu. Cultural and educational hub with affordable land and growing tourism demand.",
-};
+const AREA_KEY = "huye";
 
 export default function HuyeAreaPage() {
-  const heroSlides = [
-    {
-      image: "/images/areas/huye-area.webp",
-      imageAlt: "Huye city skyline",
-      title: "Huye",
-      subtitle: "Southern province cultural hub — near Nyungwe National Park and Lake Kivu.",
-    },
-    {
-      image: "/images/areas/nyungwe-area.webp",
-      imageAlt: "Huye highlands landscape",
-      title: "Educational Center",
-      subtitle: "Home to the University of Rwanda, with steady rental demand from students and staff.",
-    },
+  const { t } = useLanguage();
+  const p = t.areaHuyePage;
+  const m = t.areaMetricLabels;
+  const areaItems = t.areasSection.items;
+  const otherAreas = ALL_AREAS.filter((a) => a.key !== AREA_KEY);
+
+  const metrics = [
+    { value: "$15-35/sqm", label: m.landPrice },
+    { value: "10-15%", label: m.grossYield },
+    { value: "70%", label: m.avgOccupancy },
+    { value: "5-10%", label: m.appreciation },
   ];
 
   return (
     <PageLayout
       hero={
-        <HeroAnimated
-          slides={heroSlides}
-          badge="Southern Province"
-          tag="Ever Retreat Areas"
-          ctaHref="/contact"
-          secondaryCtaHref="/areas"
+        <AreaHero
+          name="Huye"
+          subtitle={areaItems.huye.description}
+          image="/images/areas/huye-area.webp"
+          imageAlt="Huye, Southern Province - Ever Retreat area guide"
         />
       }
     >
-
-      <section className="bg-brand-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1440px] px-6">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Huye Property Market</h2>
-            <p>
-              Huye (formerly Butare) is a city in Rwanda&apos;s southern
-              province, located between Kigali and Lake Kivu. It serves as a
-              cultural and educational hub, home to the University of Rwanda
-              College of Arts and Social Sciences and the National Museum of
-              Rwanda. The area is also a gateway to Nyungwe National Park and
-              Lake Kivu, attracting tourists and researchers year-round.
-            </p>
-            <p>
-              Land prices here offer strong value compared to Kigali and
-              Rubavu, making it attractive for mid-range residential developments
-              and eco-lodges serving the growing tourism corridor.
-            </p>
-            <h3>Investment Metrics</h3>
-            <div className="mt-6 grid grid-cols-2 gap-6 md:grid-cols-4">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">$15-35/sqm</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Land Price</p>
+      <section className="bg-brand-teal">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
+            {metrics.map((stat) => (
+              <div key={stat.label} className="bg-brand-teal px-4 py-6 md:px-6">
+                <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                <p className="mt-1 text-sm font-semibold text-white md:text-base">{stat.value}</p>
               </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">10-15%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Gross Yield</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">70%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Avg Occupancy</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl font-bold text-black">5-10%</p>
-                <p className="mt-1 text-xs text-brand-gray-500">Appreciation</p>
-              </div>
-            </div>
-            <h3>Why Invest in Huye</h3>
-            <ul>
-              <li>
-                <strong>Affordable entry</strong> — Lower land prices than Kigali
-                or Rubavu with growing demand.
-              </li>
-              <li>
-                <strong>Educational demand</strong> — Steady rental demand from
-                university students and staff.
-              </li>
-              <li>
-                <strong>Tourism access</strong> — Gateway to Nyungwe National
-                Park and Lake Kivu attractions.
-              </li>
-              <li>
-                <strong>Developing infrastructure</strong> — Government
-                investment in roads and utilities improving accessibility.
-              </li>
-            </ul>
+            ))}
           </div>
         </div>
       </section>
 
-      <StatsBar />
+      <section className="bg-brand-white py-16 md:py-24">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <div className="space-y-10 lg:col-span-2">
+              <div>
+                <h2 className="text-2xl font-bold uppercase tracking-wide text-black md:text-4xl">
+                  {p.marketHeading}
+                </h2>
+                <div className="mt-4 space-y-4 text-base leading-relaxed text-brand-gray-700 md:text-lg">
+                  <p>{p.marketParagraph1}</p>
+                  <p>{p.marketParagraph2}</p>
+                </div>
+              </div>
+              <div>
+                <h3 className="mb-4 text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+                  {p.whyInvestHeading}
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    [p.whyInvestItem1Title, p.whyInvestItem1Description],
+                    [p.whyInvestItem2Title, p.whyInvestItem2Description],
+                    [p.whyInvestItem3Title, p.whyInvestItem3Description],
+                    [p.whyInvestItem4Title, p.whyInvestItem4Description],
+                  ].map(([title, desc]) => (
+                    <li key={title} className="flex items-start gap-3 text-sm leading-relaxed text-brand-gray-700 md:text-base">
+                      <span className="mt-0.5 flex-shrink-0 text-xs font-bold text-black">✓</span>
+                      <span>
+                        <strong className="text-black">{title}</strong> — {desc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-5 bg-brand-teal p-8 text-white">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+                  {m.heading}
+                </h3>
+                <div className="space-y-4 divide-y divide-white/10">
+                  {metrics.map((stat, index) => (
+                    <div key={stat.label} className={index === 0 ? "pt-0" : "pt-4"}>
+                      <p className="text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                      <p className="mt-1 text-sm font-semibold">{stat.value}</p>
+                    </div>
+                  ))}
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Best For</p>
+                    <p className="mt-1 text-sm font-semibold">{areaItems.huye.description}</p>
+                  </div>
+                  <div className="pt-4">
+                    <p className="text-xs uppercase tracking-wider text-white/50">Status</p>
+                    <p className="mt-1 text-sm font-semibold">Investment Opportunity</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <InvestmentMarket />
+
+      <section className="bg-brand-off-white py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-5 md:px-6">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-lg font-semibold uppercase tracking-wide text-black md:text-xl">
+              {t.relatedAreasSection.heading}
+            </h2>
+            <Link href="/areas" className="text-sm text-brand-gray-500 transition-colors hover:text-black">
+              {t.areasSection.viewAll} →
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {otherAreas.map((area) => (
+              <Link
+                key={area.key}
+                href={`/areas/${area.key}`}
+                className="rounded-sm border border-brand-gray-200 bg-brand-white px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-black transition-colors hover:border-brand-teal hover:bg-brand-teal hover:text-white"
+              >
+                {area.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <InterestedInInvesting />
     </PageLayout>

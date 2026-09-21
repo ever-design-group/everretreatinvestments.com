@@ -1,124 +1,108 @@
-import { PageLayout } from "@/components/PageLayout";
-import { InvestmentGuides } from "@/components/InvestmentGuides";
-import Image from "next/image";
+"use client";
 
-export const metadata = {
-  title: "What Does It Cost to Build a Villa in Rwanda? | Ever Retreat",
-  description:
-    "Real construction costs from $1,000 per sqm. Budget examples for 1-3 bedroom villas in Kigali, Musanze, and Rubavu.",
-};
+import { PageLayout } from "@/components/PageLayout";
+import { BlogPostHero } from "@/components/BlogPostHero";
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { KeepReading } from "@/components/KeepReading";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { estimateReadingTime } from "@/lib/readingTime";
 
 export default function CostToBuildVillaInRwandaPage() {
+  const { t } = useLanguage();
+  const p = t.blogCostToBuildPage;
+  const readingMinutes = estimateReadingTime(p);
+
   return (
     <PageLayout
       hero={
-        <section className="relative h-[600px] w-full overflow-hidden">
-          <Image
-            src="/images/services/villa-exterior.webp"
-            alt="Villa construction in Rwanda"
-            fill
-            priority
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-brand-teal/50" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
-            <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 sm:tracking-[0.25em]">
-              Ever Retreat Blog
-            </p>
-            <h1 className="mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight">
-              What Does It Cost to Build a Villa in Rwanda?
-            </h1>
-            <p className="mt-4 max-w-2xl text-sm text-white/90 sm:text-base md:text-lg">
-              Real construction costs from $1,000 per sqm.
-            </p>
-          </div>
-        </section>
+        <BlogPostHero
+          image="/images/services/villa-exterior.webp"
+          imageAlt="Villa construction in Rwanda"
+          category="building"
+          date="February 2026"
+          title={p.heroTitle}
+          subtitle={p.heroSubtitle}
+        />
       }
     >
+      <Breadcrumb
+        items={[
+          { label: t.nav.blog, href: "/blog" },
+          { label: t.blogCategories.building },
+          { label: p.heroTitle },
+        ]}
+        readingMinutes={readingMinutes}
+      />
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <h2>Construction Cost Breakdown</h2>
-            <p>
-              In Rwanda, villa construction costs range from $1,000 to $2,500
-              per square metre depending on design complexity, finishes, and
-              location. Here&apos;s what you need to know when budgeting.
-            </p>
+          <div className="article-body mx-auto max-w-3xl">
+            <h2>{p.breakdownHeading}</h2>
+            <p>{p.breakdownParagraph}</p>
 
-            <h3>Cost by Villa Size</h3>
+            <h3>{p.costBySizeHeading}</h3>
             <table>
               <thead>
                 <tr>
-                  <th>Villa Type</th>
-                  <th>Built Area</th>
-                  <th>Cost Range</th>
+                  <th>{p.tableVillaType}</th>
+                  <th>{p.tableBuiltArea}</th>
+                  <th>{p.tableCostRange}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>2-Bedroom Starter</td>
+                  <td>{p.row1Type}</td>
                   <td>80 sqm</td>
                   <td>$80K - $120K</td>
                 </tr>
                 <tr>
-                  <td>3-Bedroom Mid-Range</td>
+                  <td>{p.row2Type}</td>
                   <td>120 sqm</td>
                   <td>$120K - $180K</td>
                 </tr>
                 <tr>
-                  <td>4-Bedroom Luxury</td>
+                  <td>{p.row3Type}</td>
                   <td>180 sqm</td>
                   <td>$180K - $270K</td>
                 </tr>
                 <tr>
-                  <td>5-Bedroom Premium</td>
+                  <td>{p.row4Type}</td>
                   <td>250 sqm</td>
                   <td>$250K - $375K</td>
                 </tr>
               </tbody>
             </table>
 
-            <h2>Land Costs by Area</h2>
-            <p>
-              Land prices vary significantly by location and proximity to
-              tourism infrastructure.
-            </p>
+            <h2>{p.landCostsHeading}</h2>
+            <p>{p.landCostsParagraph}</p>
 
-            <h3>Land Price Ranges</h3>
+            <h3>{p.landPriceRangesHeading}</h3>
             <ul>
               <li>
-                <strong>Kigali</strong> — $300-500/sqm in prime residential areas
+                <strong>Kigali</strong> — $50-120/sqm {p.landPriceKigaliDesc}
               </li>
               <li>
-                <strong>Rubavu (Lake Kivu)</strong> — $350-600/sqm for waterfront plots
+                <strong>Rubavu (Lake Kivu)</strong> — $40-80/sqm {p.landPriceRubavuDesc}
               </li>
               <li>
-                <strong>Musanze</strong> — $200-400/sqm in the highlands
+                <strong>Musanze</strong> — $30-60/sqm {p.landPriceMusanzeDesc}
               </li>
               <li>
-                <strong>Nyungwe Area</strong> — $150-300/sqm near forest reserves
+                <strong>Nyungwe Area</strong> — $15-30/sqm {p.landPriceNyungweDesc}
               </li>
               <li>
-                <strong>Akagera Area</strong> — $100-250/sqm near national park
+                <strong>Akagera Area</strong> — $10-25/sqm {p.landPriceAkageraDesc}
               </li>
             </ul>
 
-            <h2>Total Project Budget</h2>
-            <p>
-              Our fixed-price packages start at $220K and include everything
-              from land sourcing to rental setup. This covers architecture,
-              permits, construction, interior design, and project management.
-            </p>
-            <p>
-              Most investors budget 10-15% above the base package for custom
-              upgrades, premium finishes, or land acquisition in prime areas.
-            </p>
+            <h2>{p.totalBudgetHeading}</h2>
+            <p>{p.totalBudgetParagraph1}</p>
+            <p>{p.totalBudgetParagraph2}</p>
+          </div>
+          <div className="mx-auto max-w-3xl">
+            <KeepReading currentHref="/blog/cost-to-build-villa-in-rwanda" />
           </div>
         </div>
       </section>
-
-      <InvestmentGuides />
     </PageLayout>
   );
 }

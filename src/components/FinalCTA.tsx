@@ -1,28 +1,26 @@
-import Link from "next/link";
+"use client";
 
-const benefits = [
-  "Honest advice on locations, budgets, and returns",
-  "Clear answers on foreign ownership and legal structures",
-  "No sales pressure - we answer questions, you decide",
-  "Respond within 24 hours, Mon-Fri 8am-5pm CAT",
-];
+import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { EnquiryForm } from "@/components/EnquiryForm";
 
 export function FinalCTA() {
+  const { t } = useLanguage();
+  const benefits = t.finalCta.benefits;
+
   return (
     <section className="relative overflow-hidden bg-brand-teal py-20 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="text-xs font-medium uppercase tracking-widest text-white/70">
-              Free Consultation
+              {t.finalCta.eyebrow}
             </p>
             <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl md:leading-tight">
-              Ready to Build in Rwanda?
+              {t.finalCta.heading}
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/70">
-              Whether you have a plot or are still exploring options, our team
-              gives you straight answers. No obligation, no pressure - just real
-              advice from people who have done this 200+ times.
+              {t.finalCta.paragraph}
             </p>
             <ul className="mt-8 space-y-3">
               {benefits.map((benefit) => (
@@ -45,7 +43,7 @@ export function FinalCTA() {
             <Link
               href="https://wa.me/250787524298"
               aria-label="Chat on WhatsApp"
-              className="mt-6 inline-flex items-center justify-center rounded bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
+              className="mt-6 inline-flex items-center justify-center rounded-sm bg-white px-4 py-3.5 text-black transition-colors hover:bg-white/90"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,58 +57,7 @@ export function FinalCTA() {
             </Link>
           </div>
 
-          <div className="rounded-lg bg-white/5 p-8">
-            <div className="space-y-4">
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Full Name *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="Email Address *"
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  WhatsApp number
-                </label>
-                <div className="flex gap-2">
-                  <button className="rounded border border-white/20 px-3 text-sm text-white/70">
-                    +250
-                  </button>
-                  <input
-                    type="tel"
-                    placeholder="WhatsApp number *"
-                    className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="mb-1 block text-xs font-medium text-white/70">
-                  Tell us more
-                </label>
-                <textarea
-                  placeholder="Tell us more"
-                  rows={3}
-                  className="w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none"
-                />
-              </div>
-              <button className="w-full rounded bg-white px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90">
-                Send Enquiry
-              </button>
-            </div>
-          </div>
+          <EnquiryForm context={`${t.finalCta.heading} — Ever Retreat`} className="rounded-sm bg-white/5 p-8" />
         </div>
       </div>
     </section>

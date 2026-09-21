@@ -1,94 +1,68 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
 
-const blogPosts = [
-  {
-    title: "How to Build a Villa in Rwanda: Step by Step",
-    date: "April 2026",
-    excerpt:
-      "The full process from land to first guest - legal structure, design, permits, construction, and management.",
-    image: "/images/hero/hero-1-full.webp",
-    href: "/blog/how-to-build-a-villa-in-rwanda",
-  },
-  {
-    title: "What Does It Cost to Build a Villa in Rwanda?",
-    date: "April 2026",
-    excerpt:
-      "Real construction costs from $1,000 per sqm. Budget examples for 1-3 bedroom villas.",
-    image: "/images/hero/hero-2-full.webp",
-    href: "/blog/cost-to-build-villa-in-rwanda",
-  },
-  {
-    title: "How Much Rental Income Does a Rwanda Villa Generate?",
-    date: "March 2026",
-    excerpt:
-      "The return case for building to rent. Real yield data and case studies.",
-    image: "/images/blog/rwanda-villa-rental-income-blog-hero.webp",
-    href: "/blog/rwanda-villa-rental-income",
-  },
-  {
-    title: "Can Foreigners Buy Property in Rwanda?",
-    date: "March 2026",
-    excerpt:
-      "Ownership structures before construction - leasehold vs company structures.",
-    image: "/images/blog/can-foreigners-buy-property-in-rwanda-blog-hero.webp",
-    href: "/blog/can-foreigners-buy-property-in-rwanda",
-  },
+import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+
+// Matches Blog.tsx's real post set exactly — same 6 real blog pages, same
+// title/excerpt translations, so this section and the homepage Blog section
+// never show mismatched content. Only the first 4 show here (matches
+// balitecture.com's own "Before You Buy" section, which picks 4 too) — the
+// rest stay reachable via "View All Posts".
+const blogMeta = [
+  { href: "/blog/rwanda-villa-rental-income" },
+  { href: "/blog/best-area-to-invest-in-rwanda" },
+  { href: "/blog/can-foreigners-buy-property-in-rwanda" },
+  { href: "/blog/lake-kivu-vs-musanze-investment" },
 ];
 
 export function InvestmentGuides() {
+  const { t } = useLanguage();
+  const g = t.investmentGuidesSection;
+  const blogPosts = blogMeta.map((meta, i) => ({
+    ...t.blogSection.posts[i],
+    ...meta,
+  }));
+
   return (
-    <section className="bg-brand-gray-300 py-16 md:py-28">
+    <section className="bg-brand-off-white py-16 md:py-20">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="mb-12 text-center">
-          <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-            From the Blog
+        <div className="mb-8">
+          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-brand-gray-500">
+            {g.eyebrow}
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-            Investment Guides
+          <h2 className="text-2xl uppercase tracking-wide text-black md:text-3xl">
+            <span className="font-light">{g.headingLight}</span>{" "}
+            <span className="font-bold">{g.headingBold}</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {blogPosts.map((post) => (
             <Link
-              key={post.title}
+              key={post.href}
               href={post.href}
-              className="group block"
+              className="group block bg-brand-white p-6 transition-colors duration-300 hover:bg-black"
             >
-              <div className="mb-4 overflow-hidden rounded-lg">
-                <div className="relative aspect-[16/10]">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-              </div>
-              <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-                {post.date}
-              </p>
-              <h3 className="mt-2 text-lg font-bold text-black group-hover:underline">
+              <h3 className="mb-2 text-sm font-bold uppercase tracking-wide text-black transition-colors group-hover:text-white">
                 {post.title}
               </h3>
-              <p className="mt-2 text-sm text-brand-gray-600">
+              <p className="text-sm leading-relaxed text-brand-gray-700 transition-colors group-hover:text-brand-gray-300">
                 {post.excerpt}
               </p>
-              <div className="mt-3 text-sm font-semibold text-black">
-                Read More &rarr;
-              </div>
+              <span className="mt-4 inline-block text-xs font-semibold uppercase tracking-wide text-black transition-colors group-hover:text-white">
+                {g.readMore} →
+              </span>
             </Link>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8">
           <Link
             href="/blog"
-            className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
+            className="group/link inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-black"
           >
-            View All Posts &rarr;
+            <span>{g.viewAll}</span>
+            <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
           </Link>
         </div>
       </div>

@@ -1,101 +1,139 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import type { TranslationShape } from "@/lib/i18n/translations";
 
-const blogPosts = [
+export const blogMeta = [
   {
-    title: "How Much Rental Income Does a Rwanda Villa Actually Earn?",
     date: "April 2026",
-    excerpt:
-      "Real nightly rates, occupancy data, and net yield breakdowns by area. Two worked case studies showing what investors actually take home after all costs.",
     image: "/images/blog/rwanda-villa-rental-income-blog-hero.webp",
-    imageAlt: "How Much Rental Income Does a Rwanda Villa Actually Earn?",
     href: "/blog/rwanda-villa-rental-income",
+    category: "investment" as const,
   },
   {
-    title: "Best Area to Invest in Rwanda (2026)",
     date: "April 2026",
-    excerpt:
-      "Comparing Rubavu, Musanze, Kigali, Nyungwe, and Huye. Real yield data and land prices from a team that builds across all five areas.",
     image: "/images/blog/best-area-to-invest-in-rwanda-blog-hero.webp",
-    imageAlt: "Best Area to Invest in Rwanda (2026)",
     href: "/blog/best-area-to-invest-in-rwanda",
+    category: "location" as const,
   },
   {
-    title: "Can Foreigners Buy Property in Rwanda?",
     date: "March 2026",
-    excerpt:
-      "Yes, through leasehold or company structures. Complete guide to legal ownership structures, costs, common mistakes, and a step-by-step buying process.",
     image: "/images/blog/can-foreigners-buy-property-in-rwanda-blog-hero.webp",
-    imageAlt: "Can Foreigners Buy Property in Rwanda?",
     href: "/blog/can-foreigners-buy-property-in-rwanda",
+    category: "legal" as const,
   },
   {
-    title: "Lake Kivu vs Musanze Investment Comparison",
     date: "March 2026",
-    excerpt:
-      "Comparing land prices, yields, and lifestyle factors between Rwanda's two premier villa investment destinations.",
     image: "/images/blog/lake-kivu-vs-musanze-investment-blog-hero.webp",
-    imageAlt: "Lake Kivu vs Musanze Investment Comparison",
     href: "/blog/lake-kivu-vs-musanze-investment",
+    category: "location" as const,
+  },
+  {
+    date: "February 2026",
+    image: "/images/services/villa-exterior.webp",
+    href: "/blog/cost-to-build-villa-in-rwanda",
+    category: "building" as const,
+  },
+  {
+    date: "February 2026",
+    image: "/images/hero/aerial-rwanda.webp",
+    href: "/blog/how-to-build-a-villa-in-rwanda",
+    category: "building" as const,
   },
 ];
 
+export function buildBlogPosts(t: TranslationShape, limit = 3) {
+  // Homepage teaser shows only the 3 most recent posts — matches
+  // balitecture.com's actual "From the Blog" section (a 3-up grid, not the
+  // full list). The /blog hub page passes a higher limit to show all of them.
+  return t.blogSection.posts.slice(0, limit).map((post, index) => ({
+    ...post,
+    ...blogMeta[index],
+    imageAlt: post.title,
+  }));
+}
+
+export type BlogPostCard = ReturnType<typeof buildBlogPosts>[number];
+
+// Shared card used by both the homepage teaser and the /blog hub's full grid
+// — the real balitecture.com "Recent Posts" card: image with a category tag,
+// date, uppercase bold title, excerpt, and an underlined "Read More" link.
+export function BlogCard({ post }: { post: BlogPostCard }) {
+  const { t } = useLanguage();
+
+  return (
+    <Link href={post.href} className="group block">
+      <div className="relative aspect-[16/9] overflow-hidden bg-brand-gray-100">
+        <Image
+          src={post.image}
+          alt={post.imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute left-4 top-4 bg-brand-black px-3 py-1.5">
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand-white">
+            {t.blogCategories[post.category]}
+          </span>
+        </div>
+      </div>
+      <p className="mb-3 mt-6 text-xs uppercase tracking-wider text-brand-gray-500">
+        {post.date}
+      </p>
+      <h3 className="text-xl font-bold uppercase leading-snug tracking-wide text-brand-black transition-colors group-hover:text-brand-gray-700 md:text-2xl">
+        {post.title}
+      </h3>
+      <p className="mt-3 text-base leading-relaxed text-brand-gray-700">
+        {post.excerpt}
+      </p>
+      <span className="mt-5 inline-block border-b border-brand-black pb-0.5 text-xs font-semibold uppercase tracking-wide text-brand-black transition-colors group-hover:border-brand-gray-500 group-hover:text-brand-gray-500">
+        {t.blogSection.readMore}
+      </span>
+    </Link>
+  );
+}
+
 export function Blog() {
+  const { t } = useLanguage();
+  const blogPosts = buildBlogPosts(t);
+
   return (
     <section className="bg-brand-white py-16 md:py-28">
       <div className="mx-auto max-w-[1440px] px-6">
-        <div className="mb-12 text-center">
-          <p className="text-xs font-medium uppercase tracking-widest text-brand-gray-500">
-            From the Blog
-          </p>
-          <h2 className="mt-4 text-3xl font-bold text-black md:text-5xl">
-            Latest Insights
-          </h2>
+        <div className="mb-14 flex items-end justify-between">
+          <div>
+            <p className="mb-4 text-xs uppercase tracking-[0.4em] text-brand-gray-500">
+              {t.blogSection.eyebrow}
+            </p>
+            <h2 className="text-3xl uppercase tracking-wide text-black md:text-5xl">
+              <span className="font-light">{t.blogSection.headingLight}</span>{" "}
+              <span className="font-bold">{t.blogSection.headingBold}</span>
+            </h2>
+          </div>
+          <Link
+            href="/blog"
+            className="group/link hidden items-center gap-2 text-sm uppercase tracking-[0.15em] text-brand-gray-500 transition-colors duration-300 hover:text-black md:inline-flex"
+          >
+            <span>{t.blogSection.viewAll}</span>
+            <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {blogPosts.map((post) => (
-            <Link
-              key={post.title}
-              href={post.href}
-              className="group overflow-hidden rounded-lg bg-white"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-xs text-brand-gray-400">{post.date}</p>
-                <h3 className="mt-2 text-base font-semibold leading-snug text-black">
-                  {post.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-gray-600">
-                  {post.excerpt}
-                </p>
-                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-black">
-                  Read More
-                  <span className="transition-transform group-hover:translate-x-1">
-                    →
-                  </span>
-                </div>
-              </div>
-            </Link>
+            <BlogCard key={post.href} post={post} />
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600"
-          >
-            View All Posts &rarr;
-          </Link>
-        </div>
+        <Link
+          href="/blog"
+          className="group/link mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-brand-gray-500 transition-colors duration-300 hover:text-black md:hidden"
+        >
+          <span>{t.blogSection.viewAll}</span>
+          <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
+        </Link>
       </div>
     </section>
   );
