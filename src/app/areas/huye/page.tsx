@@ -26,6 +26,7 @@ export default function HuyeAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Huye"

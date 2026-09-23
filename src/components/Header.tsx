@@ -34,7 +34,7 @@ function buildNavItems(t: TranslationShape): NavItem[] {
       children: [
         { label: t.nav.developmentsMenu.bp, href: "/developments/nara-villas" },
         { label: t.nav.developmentsMenu.virunga, href: "/developments/suku-residences" },
-        { label: t.nav.developmentsMenu.cottage, href: "/developments/solas-uluwatu" },
+        { label: t.nav.developmentsMenu.cottage, href: "/developments/solas-kivu" },
         { label: t.nav.developmentsMenu.kigaliRetreat, href: "/areas/kigali" },
         { label: t.nav.developmentsMenu.nyungweRetreat, href: "/areas/nyungwe" },
         { label: t.nav.developmentsMenu.huyeVillas, href: "/areas/huye" },
@@ -109,16 +109,36 @@ export function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${
-        scrolled ? "bg-brand-teal/95 backdrop-blur-sm border-b border-white/10" : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex h-20 items-center justify-between px-4 xl:px-6 max-w-[1440px] md:h-24">
-        {/* Logo */}
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Background/blur lives on its own layer, never on <header> itself.
+          <header> is the direct ancestor of the fixed-position mobile menu
+          overlay below — a `backdrop-filter` (Tailwind's backdrop-blur-*)
+          anywhere on that ancestor chain creates a new containing block for
+          `position: fixed` descendants, so the overlay would stop sizing
+          itself to the viewport and collapse to this bar's own ~80px height
+          instead. That was the real bug: the full-screen mobile menu only
+          worked at scrollY 0 (bg-transparent, no filter) and collapsed into
+          a thin strip the moment the header went solid+blurred on scroll. */}
+      <div
+        className={`absolute inset-0 -z-10 transition-[background-color,backdrop-filter] duration-500 ${
+          scrolled ? "bg-brand-teal/95 backdrop-blur-sm border-b border-white/10" : "bg-transparent"
+        }`}
+      />
+      {/* Own scrim so the logo/nav/hamburger stay legible against ANY hero
+          image, instead of depending on each page's hero to darken its top —
+          the hamburger in particular is just 1px lines with no fill, so it
+          was going fully invisible over light sky/cloud photos. Dropped once
+          scrolled, since the solid teal bar above already gives full contrast. */}
+      {!scrolled && (
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/50 via-black/15 to-transparent" />
+      )}
+      <nav className="relative mx-auto flex h-20 items-center justify-between px-4 xl:px-6 max-w-[1440px] md:h-24">
+        {/* Logo — smaller base size than before so it can never crowd the
+            hamburger button on the narrowest phones (down to ~280px wide);
+            scales back up to the original size from sm: onward. */}
         <Link
           href="/"
-          className="relative h-[50px] w-[250px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px] flex-shrink-0"
+          className="relative h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px] flex-shrink-0"
         >
           <Image
             src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
@@ -131,7 +151,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden xl:flex items-center gap-4">
+        <ul className="hidden lg:flex items-center gap-4">
           {navItems.map((item) => (
             <li
               key={item.href}
@@ -181,7 +201,7 @@ export function Header() {
         {/* Right side - Language, Currency & Contact — ml-4 is a guaranteed floor so
             this can never touch the last nav link, even if justify-between's own
             distributed gap collapses to zero on a long-language row (e.g. French) */}
-        <div className="hidden xl:flex items-center gap-4 ml-4 flex-shrink-0">
+        <div className="hidden lg:flex items-center gap-4 ml-4 flex-shrink-0">
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
@@ -217,7 +237,7 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
-          className="relative z-[70] flex h-11 w-11 flex-col items-center justify-center gap-1.5 xl:hidden"
+          className="relative z-[70] flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
         >
           <span
             className={`block h-px w-6 origin-center bg-white transition-all duration-300 ${
@@ -241,151 +261,167 @@ export function Header() {
           logo + close row, centered nav, language/currency pill rows, bordered
           WhatsApp CTA pinned near the bottom. */}
       {menuOpen && (
-        <div
-          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-brand-teal xl:hidden"
-          style={{ WebkitOverflowScrolling: "touch" }}
-        >
-          {/* Logo — the header's own hamburger button (already animated into an
-              X, fixed above this overlay at z-[70]) is the only close control;
-              a second close icon here would just duplicate it. */}
-          <div className="flex items-center px-6 pb-4 pt-6">
-            <Link href="/" className="relative h-9 w-44 flex-shrink-0">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-brand-teal lg:hidden">
+          {/* Logo — pinned outside the scrollable area below (flex-shrink-0,
+              not part of the overflow-y-auto wrapper), so a tall nav list
+              scrolls underneath it instead of carrying it away. This row
+              mirrors the closed header's own box exactly — same height
+              (h-20/md:h-24), same items-center, same px-4 — not just the
+              same logo size classes, so the logo sits at the identical x/y
+              position in both states and never visibly jumps when the menu
+              opens or closes. The header's own hamburger button (already
+              animated into an X, fixed above this overlay at z-[70]) is the
+              only close control — a second close icon here would just
+              duplicate it. */}
+          <div className="flex h-20 flex-shrink-0 items-center px-4 md:h-24">
+            <Link
+              href="/"
+              className="relative h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px] flex-shrink-0"
+            >
               <Image
                 src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
                 alt="Ever Retreat"
                 fill
-                sizes="176px"
+                sizes="(max-width: 640px) 170px, (max-width: 768px) 210px, (max-width: 1536px) 265px, 297px"
                 className="object-contain object-left"
               />
             </Link>
           </div>
 
-          {/* Centered nav */}
-          <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-6">
-            {navItems.map((item) =>
-              item.children ? (
-                <div key={item.href} className="flex flex-col items-center">
-                  <div className="flex items-center gap-2">
-                    <Link
-                      href={item.href}
-                      className={`text-lg font-bold uppercase tracking-wide ${
-                        isActive(item.href) ? "text-white" : "text-white/70"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setMobileExpanded(mobileExpanded === item.label ? null : item.label)
-                      }
-                      aria-label={`${mobileExpanded === item.label ? "Collapse" : "Expand"} ${item.label} submenu`}
-                      aria-expanded={mobileExpanded === item.label}
-                      className="p-1 text-white/70"
-                    >
-                      <svg
-                        className={`h-3.5 w-3.5 transition-transform duration-200 ${
-                          mobileExpanded === item.label ? "rotate-180" : ""
+          {/* Scrollable body — nav + language/currency/WhatsApp — independent
+              of the logo row above so scrolling this never carries the logo
+              off-screen. */}
+          <div
+            className="flex flex-1 flex-col overflow-y-auto"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
+            {/* Centered nav */}
+            <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 py-6">
+              {navItems.map((item) =>
+                item.children ? (
+                  <div key={item.href} className="flex flex-col items-center">
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={item.href}
+                        className={`text-lg font-bold uppercase tracking-wide ${
+                          isActive(item.href) ? "text-white" : "text-white/70"
                         }`}
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
                       >
-                        <path d="M3 5l3 3 3-3" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
-                  </div>
-                  {mobileExpanded === item.label && (
-                    <div className="mt-3 flex flex-col items-center gap-2">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className="text-xs font-semibold uppercase tracking-[0.1em] text-white/50 hover:text-white"
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileExpanded(mobileExpanded === item.label ? null : item.label)
+                        }
+                        aria-label={`${mobileExpanded === item.label ? "Collapse" : "Expand"} ${item.label} submenu`}
+                        aria-expanded={mobileExpanded === item.label}
+                        className="p-1 text-white/70"
+                      >
+                        <svg
+                          className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                            mobileExpanded === item.label ? "rotate-180" : ""
+                          }`}
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
                         >
-                          {child.label}
-                        </Link>
-                      ))}
+                          <path d="M3 5l3 3 3-3" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
                     </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`text-lg font-bold uppercase tracking-wide ${
-                    isActive(item.href) ? "text-white" : "text-white/70"
+                    {mobileExpanded === item.label && (
+                      <div className="mt-3 flex flex-col items-center gap-2">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className="text-xs font-semibold uppercase tracking-[0.1em] text-white/50 hover:text-white"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`text-lg font-bold uppercase tracking-wide ${
+                      isActive(item.href) ? "text-white" : "text-white/70"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </div>
+
+            {/* Language, currency, and WhatsApp CTA */}
+            <div className="border-t border-white/10 px-6 pb-8 pt-6">
+              <p className="text-center text-xs uppercase tracking-widest text-white/40">
+                {t.nav.languageLabel}
+              </p>
+              <div className="mt-3 flex justify-center gap-2">
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                    language === "en"
+                      ? "border-white bg-white text-black"
+                      : "border-white/25 text-white/60 hover:text-white"
                   }`}
                 >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </div>
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage("fr")}
+                  className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                    language === "fr"
+                      ? "border-white bg-white text-black"
+                      : "border-white/25 text-white/60 hover:text-white"
+                  }`}
+                >
+                  FR
+                </button>
+              </div>
 
-          {/* Language, currency, and WhatsApp CTA */}
-          <div className="border-t border-white/10 px-6 pb-8 pt-6">
-            <p className="text-center text-xs uppercase tracking-widest text-white/40">
-              {t.nav.languageLabel}
-            </p>
-            <div className="mt-3 flex justify-center gap-2">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                  language === "en"
-                    ? "border-white bg-white text-black"
-                    : "border-white/25 text-white/60 hover:text-white"
-                }`}
+              <p className="mt-6 text-center text-xs uppercase tracking-widest text-white/40">
+                {t.nav.currencyLabel}
+              </p>
+              <div className="mt-3 flex justify-center gap-2">
+                <button
+                  onClick={() => setCurrency("usd")}
+                  className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                    currency === "usd"
+                      ? "border-white bg-white text-black"
+                      : "border-white/25 text-white/60 hover:text-white"
+                  }`}
+                >
+                  USD
+                </button>
+                <button
+                  onClick={() => setCurrency("rwf")}
+                  className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+                    currency === "rwf"
+                      ? "border-white bg-white text-black"
+                      : "border-white/25 text-white/60 hover:text-white"
+                  }`}
+                >
+                  RWF
+                </button>
+              </div>
+
+              <Link
+                href="https://wa.me/250787524298"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 block w-full border border-white/30 py-4 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10"
               >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage("fr")}
-                className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                  language === "fr"
-                    ? "border-white bg-white text-black"
-                    : "border-white/25 text-white/60 hover:text-white"
-                }`}
-              >
-                FR
-              </button>
+                {t.nav.whatsappUs}
+              </Link>
             </div>
-
-            <p className="mt-6 text-center text-xs uppercase tracking-widest text-white/40">
-              {t.nav.currencyLabel}
-            </p>
-            <div className="mt-3 flex justify-center gap-2">
-              <button
-                onClick={() => setCurrency("usd")}
-                className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                  currency === "usd"
-                    ? "border-white bg-white text-black"
-                    : "border-white/25 text-white/60 hover:text-white"
-                }`}
-              >
-                USD
-              </button>
-              <button
-                onClick={() => setCurrency("rwf")}
-                className={`rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                  currency === "rwf"
-                    ? "border-white bg-white text-black"
-                    : "border-white/25 text-white/60 hover:text-white"
-                }`}
-              >
-                RWF
-              </button>
-            </div>
-
-            <Link
-              href="https://wa.me/250787524298"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 block w-full border border-white py-4 text-center text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
-            >
-              {t.nav.whatsappUs}
-            </Link>
           </div>
         </div>
       )}

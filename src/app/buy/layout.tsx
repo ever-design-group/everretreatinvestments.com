@@ -1,4 +1,7 @@
 export const metadata = {
+  alternates: {
+    canonical: "/buy",
+  },
   title: "Buy a Ready-Made Villa | Ever Retreat Rwanda",
   description:
     "Browse Ever Retreat's developments across Rwanda, from completed showcase villas to developments in design.",

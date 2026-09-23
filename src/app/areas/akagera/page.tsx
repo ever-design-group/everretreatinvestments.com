@@ -26,6 +26,7 @@ export default function AkageraAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Akagera"

@@ -16,9 +16,9 @@ const relatedDevelopments = [
   { id: "suku-residences", name: "Virunga Villas", tag: "Musanze", image: "/images/developments/suku-4br/suku-4br-1.webp", href: "/developments/suku-residences" },
 ];
 
-export default function SolasUluwatuPage() {
+export default function SolasKivuPage() {
   const { t } = useLanguage();
-  const p = t.solasUluwatuPage;
+  const p = t.solasKivuPage;
   const dx = t.devDetailExtras;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 

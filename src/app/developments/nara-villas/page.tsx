@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const relatedDevelopments = [
-  { id: "solas-uluwatu", name: "Cottage", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-uluwatu" },
+  { id: "solas-kivu", name: "Cottage", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-kivu" },
   { id: "suku-residences", name: "Virunga Villas", tag: "Musanze", image: "/images/developments/suku-4br/suku-4br-1.webp", href: "/developments/suku-residences" },
 ];
 

@@ -34,3 +34,20 @@ export async function verifyTurnstileToken(token: string): Promise<boolean> {
     return false;
   }
 }
+
+// Every form used to call `window.open(url, ...)` and immediately mark
+// itself "success" regardless of what window.open actually returned — a
+// popup blocked by the browser (or the user's own settings) still showed
+// "message sent" even though nothing was sent. window.open reliably returns
+// null (or, in some browsers, a window that's already closed) when it's
+// blocked, which is what this checks so every form can show a real fallback
+// (a manual link to the same WhatsApp URL) instead of a false success state.
+export type WhatsAppOpenResult = "opened" | "blocked";
+
+export function openWhatsApp(url: string): WhatsAppOpenResult {
+  const win = window.open(url, "_blank", "noopener,noreferrer");
+  if (!win || win.closed) {
+    return "blocked";
+  }
+  return "opened";
+}

@@ -21,8 +21,8 @@ function buildProjects(t: TranslationShape) {
     {
       name: "Cottage",
       image: "/images/developments/villa-photos.jpeg",
-      href: "/developments/solas-uluwatu",
-      description: items["solas-uluwatu"].description,
+      href: "/developments/solas-kivu",
+      description: items["solas-kivu"].description,
     },
   ];
 }

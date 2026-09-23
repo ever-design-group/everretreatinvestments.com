@@ -1,4 +1,7 @@
 export const metadata = {
+  alternates: {
+    canonical: "/blog/rwanda-villa-rental-income",
+  },
   title: "How Much Rental Income Does a Rwanda Villa Actually Earn? | Ever Retreat",
   description:
     "Nightly rates, occupancy data, and net yield breakdowns by area, and what's included in full rental management.",

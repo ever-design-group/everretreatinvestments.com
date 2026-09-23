@@ -26,6 +26,7 @@ export default function MusanzeAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Musanze"

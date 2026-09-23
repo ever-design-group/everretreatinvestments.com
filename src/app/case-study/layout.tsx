@@ -1,4 +1,7 @@
 export const metadata = {
+  alternates: {
+    canonical: "/case-study",
+  },
   title: "Case Study: B&P Ever Retreat Villa | Ever Retreat Rwanda",
   description:
     "How we designed and built B&P Ever Retreat Villa, our completed showcase villa at Lake Kivu.",

@@ -83,7 +83,7 @@ export default function ChoosingDeveloperPage() {
       name: "Cottage",
       tag: "Rubavu",
       image: "/images/developments/villa-photos.jpeg",
-      href: "/developments/solas-uluwatu",
+      href: "/developments/solas-kivu",
     },
     {
       name: "Virunga Villas",

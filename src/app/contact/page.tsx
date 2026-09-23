@@ -12,11 +12,11 @@ import Link from "next/link";
 // Same real, already-published social links used in Footer.tsx — reused here
 // rather than invented, so the handles stay consistent sitewide.
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/everretreatrw" },
+  { label: "Instagram", href: "https://www.instagram.com/bp_beachvilla_everretreat/" },
   { label: "Facebook", href: "https://facebook.com/everretreatrw" },
-  { label: "LinkedIn", href: "https://linkedin.com/company/everretreat" },
-  { label: "YouTube", href: "https://youtube.com/@everretreat" },
-  { label: "TikTok", href: "https://tiktok.com/@everretreat" },
+  { label: "X", href: "https://x.com/EverRetreat" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/ever-retreat/posts/?feedView=all" },
+  { label: "TikTok", href: "https://www.tiktok.com/@bp_beach_villa" },
 ];
 
 export default function ContactPage() {

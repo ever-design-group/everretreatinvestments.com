@@ -26,6 +26,7 @@ export default function KigaliAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Kigali"

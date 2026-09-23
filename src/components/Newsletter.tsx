@@ -3,13 +3,14 @@
 import { useState, type FormEvent } from "react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp } from "@/lib/forms";
 
 export function Newsletter() {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [status, setStatus] = useState<"idle" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "blocked">("idle");
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -21,8 +22,8 @@ export function Newsletter() {
     const url = buildWhatsAppUrl(t.newsletter.heading, {
       [t.forms.emailAddress]: email,
     });
-    window.open(url, "_blank", "noopener,noreferrer");
-    setStatus("success");
+    setWhatsappUrl(url);
+    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
 
   return (
@@ -39,9 +40,28 @@ export function Newsletter() {
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/40">
             {t.newsletter.paragraph}
           </p>
-          {status === "success" ? (
+          {status === "success" || status === "blocked" ? (
             <div className="mt-8">
-              <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+              {status === "success" ? (
+                <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+              ) : (
+                <FormSuccess
+                  theme="dark"
+                  variant="blocked"
+                  title={t.forms.popupBlockedTitle}
+                  body={t.forms.popupBlockedBody}
+                  action={
+                    <a
+                      href={whatsappUrl ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
+                    >
+                      {t.forms.openWhatsAppManually}
+                    </a>
+                  }
+                />
+              )}
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="mx-auto mt-8 flex w-full max-w-lg flex-col gap-3 md:flex-row">

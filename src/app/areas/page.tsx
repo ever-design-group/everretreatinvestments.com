@@ -1,7 +1,6 @@
 "use client";
 
 import { Footer } from "@/components/Footer";
-import { FinalCTA } from "@/components/FinalCTA";
 import { InvestmentMarket } from "@/components/InvestmentMarket";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
 import { InvestmentGuides } from "@/components/InvestmentGuides";
@@ -174,7 +173,6 @@ export default function AreasPage() {
 
         <InterestedInInvesting />
       </main>
-      <FinalCTA />
       <Footer />
     </>
   );

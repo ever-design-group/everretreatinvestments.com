@@ -53,7 +53,7 @@ const portfolioItems: {
     title: "Cottage",
     image: "/images/portfolio/completed-villa-4.webp",
     imageAlt: "Completed Ever Retreat villa",
-    href: "/developments/solas-uluwatu",
+    href: "/developments/solas-kivu",
     category: "exteriors",
   },
 ];

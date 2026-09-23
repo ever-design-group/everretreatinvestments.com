@@ -6,11 +6,11 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import type { TranslationShape } from "@/lib/i18n/translations";
 
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/everretreatrw" },
+  { label: "Instagram", href: "https://www.instagram.com/bp_beachvilla_everretreat/" },
   { label: "Facebook", href: "https://facebook.com/everretreatrw" },
-  { label: "LinkedIn", href: "https://linkedin.com/company/everretreat" },
-  { label: "YouTube", href: "https://youtube.com/@everretreat" },
-  { label: "TikTok", href: "https://tiktok.com/@everretreat" },
+  { label: "X", href: "https://x.com/EverRetreat" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/ever-retreat/posts/?feedView=all" },
+  { label: "TikTok", href: "https://www.tiktok.com/@bp_beach_villa" },
 ];
 
 function buildFooterLinks(t: TranslationShape) {
@@ -58,15 +58,24 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-teal text-white">
-      <div className="mx-auto max-w-[1440px] px-5 pb-12 pt-16 md:px-6">
+      {/* pb-24 (not pb-12) — the fixed WhatsApp button sits ~80px tall in
+          the bottom-right corner (bottom-6 + h-14) and was overlapping/
+          clipping the legal links row when scrolled to the very bottom. */}
+      <div className="mx-auto max-w-[1440px] px-5 pb-24 pt-16 md:px-6">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link href="/" className="relative block h-20 w-64 md:h-24 md:w-72">
+            {/* Sized to match the header logo exactly (same breakpoints) so
+                it doesn't visually jump in scale between the top and bottom
+                of the page. */}
+            <Link
+              href="/"
+              className="relative block h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px]"
+            >
               <Image
                 src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
                 alt="Ever Retreat - Rwanda Property, Architecture & Construction"
                 fill
-                sizes="(max-width: 768px) 256px, 288px"
+                sizes="(max-width: 640px) 170px, (max-width: 768px) 210px, (max-width: 1536px) 265px, 297px"
                 className="object-contain object-left"
               />
             </Link>

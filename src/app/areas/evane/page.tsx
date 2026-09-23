@@ -26,6 +26,7 @@ export default function EvaneAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Evane"

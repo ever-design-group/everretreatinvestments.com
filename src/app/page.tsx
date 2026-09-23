@@ -59,7 +59,13 @@ export default function Home() {
           <BringVillaToLifeCTA />
         </AnimatedSection>
 
-        <AnimatedSection animation="fadeInUp" delay={100}>
+        {/* fadeIn, not fadeInUp: fadeInUp drives its wrapper's CSS transform
+            (translateY) via Framer Motion, and a transform on any ancestor
+            breaks position:sticky for elements inside it — WhyEverRetreat's
+            left column (md:sticky md:top-28) was never actually sticking,
+            it just scrolled normally with the page. fadeIn only animates
+            opacity, so it doesn't create that containing block. */}
+        <AnimatedSection animation="fadeIn">
           <WhyEverRetreat />
         </AnimatedSection>
 

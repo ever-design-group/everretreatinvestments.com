@@ -35,7 +35,7 @@ export default function PortfolioPage() {
   // page's "Projects" list) — genuine facts, not invented.
   const notableProjects = [
     { name: "B&P Ever Retreat Villa", description: p.notableBpDescription, href: "/developments/nara-villas" },
-    { name: "Cottage", description: p.notableCottageDescription, href: "/developments/solas-uluwatu" },
+    { name: "Cottage", description: p.notableCottageDescription, href: "/developments/solas-kivu" },
     { name: "Virunga Villas", description: p.notableVirungaDescription, href: "/developments/suku-residences" },
   ];
 

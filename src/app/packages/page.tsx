@@ -8,6 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
+  alternates: {
+    canonical: "/packages",
+  },
   title: "Villa Packages | Fixed-Price Villa Builds in Rwanda | Ever Retreat",
   description:
     "Browse our popular villa packages from $220K. Fixed-price, end-to-end service from land to completion, built for Rwanda's climate.",

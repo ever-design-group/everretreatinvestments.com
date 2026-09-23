@@ -5,6 +5,9 @@ import Link from "next/link";
 import { ChevronRight, MapPin, Building2, Trees, Hotel, ShoppingBag, LandPlot, ShieldCheck, AlertCircle } from "lucide-react";
 
 export const metadata = {
+  alternates: {
+    canonical: "/rwanda-land-zoning",
+  },
   title: "Rwanda Land Zoning Guide | Ever Retreat",
   description:
     "Complete guide to Rwanda land zoning regulations. Understand the different land use zones, zoning classifications, and what you can build in each area.",

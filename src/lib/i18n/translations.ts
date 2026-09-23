@@ -195,7 +195,7 @@ export interface TranslationShape {
     viewAll: string;
     explorePrefix: string;
     items: Record<
-      "nara-villas" | "suku-residences" | "solas-uluwatu" | "nyungwe-retreat" | "huye-villas" | "nyanza-villas" | "akagera-retreat" | "kigali-retreat",
+      "nara-villas" | "suku-residences" | "solas-kivu" | "nyungwe-retreat" | "huye-villas" | "nyanza-villas" | "akagera-retreat" | "kigali-retreat",
       { description: string; features: string[] }
     >;
     badges: {
@@ -234,6 +234,9 @@ export interface TranslationShape {
     sending: string;
     successTitle: string;
     successBody: string;
+    popupBlockedTitle: string;
+    popupBlockedBody: string;
+    openWhatsAppManually: string;
     errorRequired: string;
     errorEmail: string;
     errorPhone: string;
@@ -313,6 +316,11 @@ export interface TranslationShape {
   howItWorks: {
     eyebrow: string;
     heading: string;
+    /** Two-line light+bold split of `heading`, matching balitecture.com's
+     *  own treatment for this section (font-light first line, bold second
+     *  line) — same pattern already used by whyEverRetreatSection. */
+    headingLine1: string;
+    headingLine2: string;
     paragraph: string;
     steps: { timeline: string; title: string; description: string }[];
     ctaPrimary: string;
@@ -2347,7 +2355,7 @@ export interface TranslationShape {
     ctaEnquireLabel: string;
     ctaViewAllLabel: string;
   };
-  solasUluwatuPage: {
+  solasKivuPage: {
     heroName: string;
     heroTagline: string;
     heroSubtitle: string;
@@ -2705,7 +2713,7 @@ export const translations: Record<Language, TranslationShape> = {
           description: "A boutique community of wellness villas in Musanze, blending modern design with mountain living.",
           features: ["Wellness Villas", "Musanze Location", "Mountain Views"],
         },
-        "solas-uluwatu": {
+        "solas-kivu": {
           description: "Our completed showcase villa in Rubavu with panoramic lake views.",
           features: ["Lake View", "Showcase Villa", "Rubavu"],
         },
@@ -2767,6 +2775,9 @@ export const translations: Record<Language, TranslationShape> = {
       sending: "Sending...",
       successTitle: "Thanks — almost done!",
       successBody: "We've opened WhatsApp with your message ready to send. Just hit send there to reach our team.",
+      popupBlockedTitle: "Almost there",
+      popupBlockedBody: "Your browser blocked the WhatsApp pop-up before it could open. Tap below to send your message.",
+      openWhatsAppManually: "Open WhatsApp to send your message",
       errorRequired: "This field is required.",
       errorEmail: "Enter a valid email address.",
       errorPhone: "Enter a valid phone number.",
@@ -2898,6 +2909,8 @@ export const translations: Record<Language, TranslationShape> = {
     howItWorks: {
       eyebrow: "How It Works",
       heading: "How Does Investing In An Ever Retreat Villa Work?",
+      headingLine1: "How Does Investing",
+      headingLine2: "In An Ever Retreat Villa Work?",
       paragraph:
         "From first enquiry to rental income in four straightforward steps. No hidden stages, no complexity.",
       steps: [
@@ -5814,7 +5827,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEnquireLabel: "Enquire Now",
       ctaViewAllLabel: "View All Developments",
     },
-    solasUluwatuPage: {
+    solasKivuPage: {
       heroName: "Cottage",
       heroTagline: "Prototype | Rubavu, Rwanda",
       heroSubtitle: "Showcase Villa | Panoramic Views | Lakeside Living",
@@ -6295,7 +6308,7 @@ export const translations: Record<Language, TranslationShape> = {
           description: "Une communauté de villas bien-être à Musanze, alliant design moderne et vie en montagne.",
           features: ["Villas bien-être", "Musanze", "Vue sur la montagne"],
         },
-        "solas-uluwatu": {
+        "solas-kivu": {
           description: "Notre villa modèle achevée à Rubavu, avec vue panoramique sur le lac.",
           features: ["Vue sur le lac", "Villa modèle", "Rubavu"],
         },
@@ -6357,6 +6370,9 @@ export const translations: Record<Language, TranslationShape> = {
       sending: "Envoi en cours...",
       successTitle: "Merci — presque terminé !",
       successBody: "Nous avons ouvert WhatsApp avec votre message prêt à envoyer. Il ne vous reste qu'à l'envoyer pour joindre notre équipe.",
+      popupBlockedTitle: "Presque terminé",
+      popupBlockedBody: "Votre navigateur a bloqué la fenêtre WhatsApp avant qu'elle ne s'ouvre. Appuyez ci-dessous pour envoyer votre message.",
+      openWhatsAppManually: "Ouvrir WhatsApp pour envoyer votre message",
       errorRequired: "Ce champ est obligatoire.",
       errorEmail: "Saisissez une adresse e-mail valide.",
       errorPhone: "Saisissez un numéro de téléphone valide.",
@@ -6488,6 +6504,8 @@ export const translations: Record<Language, TranslationShape> = {
     howItWorks: {
       eyebrow: "Comment ça marche",
       heading: "Comment fonctionne l'investissement dans une villa Ever Retreat ?",
+      headingLine1: "Comment fonctionne l'investissement",
+      headingLine2: "dans une villa Ever Retreat ?",
       paragraph:
         "De la première demande aux revenus locatifs, en quatre étapes simples. Aucune étape cachée, aucune complexité.",
       steps: [
@@ -9450,7 +9468,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEnquireLabel: "Nous Contacter",
       ctaViewAllLabel: "Voir Toutes Les Résidences",
     },
-    solasUluwatuPage: {
+    solasKivuPage: {
       heroName: "Cottage",
       heroTagline: "Prototype | Rubavu, Rwanda",
       heroSubtitle: "Villa Vitrine | Vue Panoramique | Vie au Bord du Lac",

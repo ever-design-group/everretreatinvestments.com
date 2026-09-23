@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
 
 export function FreeGuide() {
   const { t } = useLanguage();
@@ -12,7 +12,8 @@ export function FreeGuide() {
   const [email, setEmail] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "blocked">("idle");
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   function validate(): boolean {
     const next: Record<string, string> = {};
@@ -46,8 +47,8 @@ export function FreeGuide() {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,
     });
-    window.open(url, "_blank", "noopener,noreferrer");
-    setStatus("success");
+    setWhatsappUrl(url);
+    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
 
   return (
@@ -75,8 +76,27 @@ export function FreeGuide() {
           </div>
 
           <div className="rounded-sm bg-white/5 p-8">
-            {status === "success" ? (
-              <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+            {status === "success" || status === "blocked" ? (
+              status === "success" ? (
+                <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+              ) : (
+                <FormSuccess
+                  theme="dark"
+                  variant="blocked"
+                  title={t.forms.popupBlockedTitle}
+                  body={t.forms.popupBlockedBody}
+                  action={
+                    <a
+                      href={whatsappUrl ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
+                    >
+                      {t.forms.openWhatsAppManually}
+                    </a>
+                  }
+                />
+              )
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-4">
                 <div>

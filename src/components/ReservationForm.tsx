@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
 
 interface ReservationFormProps {
   context: string;
@@ -17,7 +17,7 @@ interface ReservationFormProps {
 // repeated here (not invented) since the dropdown needs plain id/name pairs.
 const developmentOptions = [
   { id: "nara-villas", name: "B&P Ever Retreat Villa" },
-  { id: "solas-uluwatu", name: "Cottage" },
+  { id: "solas-kivu", name: "Cottage" },
   { id: "suku-residences", name: "Virunga Villas" },
 ];
 
@@ -35,7 +35,8 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
   const [message, setMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "blocked">("idle");
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   const fieldClass =
     "w-full rounded border border-brand-gray-200 bg-white px-4 py-3 text-sm text-black placeholder:text-brand-gray-400 focus:border-black focus:outline-none";
@@ -82,14 +83,33 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
       [b.unitLabel]: unit,
       [t.forms.tellUsMore]: message,
     });
-    window.open(url, "_blank", "noopener,noreferrer");
-    setStatus("success");
+    setWhatsappUrl(url);
+    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
 
-  if (status === "success") {
+  if (status === "success" || status === "blocked") {
     return (
       <div className={className}>
-        <FormSuccess theme="light" title={t.forms.successTitle} body={t.forms.successBody} />
+        {status === "success" ? (
+          <FormSuccess theme="light" title={t.forms.successTitle} body={t.forms.successBody} />
+        ) : (
+          <FormSuccess
+            theme="light"
+            variant="blocked"
+            title={t.forms.popupBlockedTitle}
+            body={t.forms.popupBlockedBody}
+            action={
+              <a
+                href={whatsappUrl ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-sm bg-brand-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/90"
+              >
+                {t.forms.openWhatsAppManually}
+              </a>
+            }
+          />
+        )}
       </div>
     );
   }

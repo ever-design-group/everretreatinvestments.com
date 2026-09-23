@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const socialLinks = [
-  { platform: "Instagram", href: "https://instagram.com/everretreatrw" },
+  { platform: "Instagram", href: "https://www.instagram.com/bp_beachvilla_everretreat/" },
   { platform: "Facebook", href: "https://facebook.com/everretreatrw" },
-  { platform: "YouTube", href: "https://youtube.com/@everretreat" },
-  { platform: "TikTok", href: "https://tiktok.com/@everretreat" },
-  { platform: "LinkedIn", href: "https://linkedin.com/company/everretreat" },
+  { platform: "X", href: "https://x.com/EverRetreat" },
+  { platform: "TikTok", href: "https://www.tiktok.com/@bp_beach_villa" },
+  { platform: "LinkedIn", href: "https://www.linkedin.com/company/ever-retreat/posts/?feedView=all" },
 ];
 
 export function SocialFollowing() {

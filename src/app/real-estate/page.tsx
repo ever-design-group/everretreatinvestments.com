@@ -12,7 +12,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 // text can't carry non-text data like image paths or routes).
 const featuredMeta = [
   { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas", name: "B&P Ever Retreat Villa" },
-  { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-uluwatu", name: "Cottage" },
+  { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-kivu", name: "Cottage" },
   { propertyTypeKey: "villa", location: "Musanze", status: "comingSoon", price: "", image: "/images/developments/suku-4br/suku-4br-1.webp", href: "/developments/suku-residences", name: "Virunga Villas" },
   { propertyTypeKey: "villa", location: "Nyungwe", status: "comingSoon", price: "", image: "/images/areas/nyungwe-area.webp", href: "/areas/nyungwe", name: "Nyungwe Retreat" },
   { propertyTypeKey: "villa", location: "Huye", status: "comingSoon", price: "", image: "/images/areas/huye-area.webp", href: "/areas/huye", name: "Huye Villas" },
@@ -165,7 +165,7 @@ export default function RealEstatePage() {
               <div className="mt-6">
                 <Link
                   href="/developments"
-                  className="block w-full rounded-sm bg-black px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-brand-gray-700"
+                  className="block w-full rounded-sm bg-brand-teal px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-brand-teal/90"
                 >
                   {r.about.cta}
                 </Link>
@@ -226,13 +226,13 @@ export default function RealEstatePage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="rounded-sm bg-black px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-brand-gray-700"
+                className="rounded-sm bg-brand-teal px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-colors hover:bg-brand-teal/90"
               >
                 {r.advantage.ctaEnquire}
               </Link>
               <Link
                 href="/developments"
-                className="rounded-sm border border-black px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:bg-black hover:text-white"
+                className="rounded-sm border border-brand-teal px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.12em] text-brand-teal transition-colors hover:bg-brand-teal hover:text-white"
               >
                 {r.advantage.ctaViewAll}
               </Link>

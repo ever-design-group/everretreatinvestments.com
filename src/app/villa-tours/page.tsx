@@ -1,18 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import { PageLayout } from "@/components/PageLayout";
 import { InterestedInInvesting } from "@/components/InterestedInInvesting";
+import { FormSuccess } from "@/components/FormSuccess";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { buildWhatsAppUrl } from "@/lib/forms";
+import { buildWhatsAppUrl, openWhatsApp } from "@/lib/forms";
 import Image from "next/image";
 
 export default function VillaToursPage() {
   const { t } = useLanguage();
   const p = t.villaToursPage;
+  const [bookStatus, setBookStatus] = useState<"idle" | "success" | "blocked">("idle");
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   function handleBookTour() {
     const url = buildWhatsAppUrl(p.heroTitle, {});
-    window.open(url, "_blank", "noopener,noreferrer");
+    setWhatsappUrl(url);
+    setBookStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
 
   return (
@@ -71,12 +76,35 @@ export default function VillaToursPage() {
               </div>
             </div>
             <div className="mt-12 text-center">
-              <button
-                onClick={handleBookTour}
-                className="rounded-sm bg-brand-teal px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
-              >
-                {p.bookTourButton}
-              </button>
+              {bookStatus === "idle" && (
+                <button
+                  onClick={handleBookTour}
+                  className="rounded-sm bg-brand-teal px-10 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/80"
+                >
+                  {p.bookTourButton}
+                </button>
+              )}
+              {bookStatus === "success" && (
+                <FormSuccess theme="light" title={t.forms.successTitle} body={t.forms.successBody} />
+              )}
+              {bookStatus === "blocked" && (
+                <FormSuccess
+                  theme="light"
+                  variant="blocked"
+                  title={t.forms.popupBlockedTitle}
+                  body={t.forms.popupBlockedBody}
+                  action={
+                    <a
+                      href={whatsappUrl ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-sm bg-brand-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/90"
+                    >
+                      {t.forms.openWhatsAppManually}
+                    </a>
+                  }
+                />
+              )}
             </div>
           </div>
         </div>

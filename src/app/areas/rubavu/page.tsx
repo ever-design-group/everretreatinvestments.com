@@ -26,6 +26,7 @@ export default function RubavuAreaPage() {
 
   return (
     <PageLayout
+      showCta={false}
       hero={
         <AreaHero
           name="Rubavu"
@@ -64,7 +65,7 @@ export default function RubavuAreaPage() {
                     B&amp;P Ever Retreat Villa
                   </Link>
                   {p.marketParagraph1Mid}
-                  <Link href="/developments/solas-uluwatu" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
+                  <Link href="/developments/solas-kivu" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
                     Cottage
                   </Link>
                   {p.marketParagraph1Post}
@@ -114,7 +115,7 @@ export default function RubavuAreaPage() {
                       <Link href="/developments/nara-villas" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
                         B&amp;P Ever Retreat Villa →
                       </Link>
-                      <Link href="/developments/solas-uluwatu" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
+                      <Link href="/developments/solas-kivu" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
                         Cottage →
                       </Link>
                     </div>

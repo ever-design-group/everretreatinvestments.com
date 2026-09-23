@@ -117,7 +117,7 @@ export default function InvestInRwandaPage() {
       beds: "3 Bed",
       availability: "Prototype",
       price: "Not For Sale",
-      link: "/developments/solas-uluwatu",
+      link: "/developments/solas-kivu",
     },
     {
       title: "Virunga Villas",

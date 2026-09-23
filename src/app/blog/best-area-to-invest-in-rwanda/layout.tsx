@@ -1,4 +1,7 @@
 export const metadata = {
+  alternates: {
+    canonical: "/blog/best-area-to-invest-in-rwanda",
+  },
   title: "Best Area to Invest in Rwanda (2026) | Ever Retreat",
   description:
     "Comparing Kigali, Musanze, Rubavu, Nyungwe, and Akagera. Real yield data and land prices from our team that builds across all five areas.",

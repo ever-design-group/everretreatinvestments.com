@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
 
 interface EnquiryFormProps {
   /** Message header sent to WhatsApp, e.g. "Pricing Enquiry — Homepage". */
@@ -28,7 +28,8 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
   const [message, setMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "blocked">("idle");
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   const fieldClass =
     "w-full rounded border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/40 focus:border-white/50 focus:outline-none";
@@ -72,14 +73,33 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
       [t.forms.whatsappNumber]: phone,
       [t.forms.tellUsMore]: showMessage ? message : undefined,
     });
-    window.open(url, "_blank", "noopener,noreferrer");
-    setStatus("success");
+    setWhatsappUrl(url);
+    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
 
-  if (status === "success") {
+  if (status === "success" || status === "blocked") {
     return (
       <div className={className}>
-        <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+        {status === "success" ? (
+          <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
+        ) : (
+          <FormSuccess
+            theme="dark"
+            variant="blocked"
+            title={t.forms.popupBlockedTitle}
+            body={t.forms.popupBlockedBody}
+            action={
+              <a
+                href={whatsappUrl ?? "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
+              >
+                {t.forms.openWhatsAppManually}
+              </a>
+            }
+          />
+        )}
       </div>
     );
   }

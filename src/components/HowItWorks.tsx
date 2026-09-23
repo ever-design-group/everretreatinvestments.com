@@ -33,8 +33,14 @@ export function HowItWorks() {
           <p className="text-xs font-medium uppercase tracking-widest text-white/70">
             {t.howItWorks.eyebrow.toUpperCase()}
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-white md:text-5xl lg:text-6xl">
-            {t.howItWorks.heading}
+          {/* Two-line light+bold split, matching balitecture.com's own
+              heading treatment for this section (font-light first line,
+              bold second line) — previously this rendered as one uniform
+              bold line with no emphasis contrast at all. */}
+          <h2 className="mt-4 text-3xl leading-tight text-white md:text-5xl lg:text-6xl">
+            <span className="font-light">{t.howItWorks.headingLine1}</span>
+            <br />
+            <span className="font-bold">{t.howItWorks.headingLine2}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-white/70">
             {t.howItWorks.paragraph}
