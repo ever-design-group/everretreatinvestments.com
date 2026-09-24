@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 const VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -23,17 +23,22 @@ async function isHuman(token: unknown): Promise<boolean> {
   return outcome?.success === true;
 }
 
-// Sends every enquiry-form submission straight to a real inbox via Resend,
-// alongside the existing WhatsApp deep-link (which still depends on the
-// visitor manually hitting send there). This route is the one path that
-// guarantees Ever Retreat actually receives the message even if the visitor
-// never completes the WhatsApp step.
+// Sends every enquiry-form submission straight to a real inbox over SMTP
+// (the same mailbox that already exists on Ever Retreat's own domain — no
+// separate email-service signup or DNS changes needed), alongside the
+// existing WhatsApp deep-link (which still depends on the visitor manually
+// hitting send there). This route is the one path that guarantees Ever
+// Retreat actually receives the message even if the visitor never
+// completes the WhatsApp step.
 export async function POST(request: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPassword = process.env.SMTP_PASSWORD;
   const fromEmail = process.env.ENQUIRY_FROM_EMAIL;
   const toEmail = process.env.ENQUIRY_TO_EMAIL;
 
-  if (!apiKey || !fromEmail || !toEmail) {
+  if (!smtpHost || !smtpPort || !smtpUser || !smtpPassword || !fromEmail || !toEmail) {
     return NextResponse.json(
       { success: false, error: "Email delivery is not configured on the server." },
       { status: 500 }
@@ -69,17 +74,27 @@ export async function POST(request: Request) {
     )
     .join("");
 
-  const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: fromEmail,
-    to: toEmail,
-    replyTo: replyToEmail,
-    subject: context,
-    html: `<table style="font-family:sans-serif;font-size:14px;">${rows}</table>`,
+  // Port 465 is implicit TLS (secure: true); 587/others use STARTTLS
+  // (secure: false, then upgraded) — this matches what any "connect your
+  // mail client" page from a hosting control panel documents.
+  const transporter = nodemailer.createTransport({
+    host: smtpHost,
+    port: Number(smtpPort),
+    secure: Number(smtpPort) === 465,
+    auth: { user: smtpUser, pass: smtpPassword },
   });
 
-  if (error) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 502 });
+  try {
+    await transporter.sendMail({
+      from: fromEmail,
+      to: toEmail,
+      replyTo: replyToEmail,
+      subject: context,
+      html: `<table style="font-family:sans-serif;font-size:14px;">${rows}</table>`,
+    });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to send email.";
+    return NextResponse.json({ success: false, error: message }, { status: 502 });
   }
 
   return NextResponse.json({ success: true });

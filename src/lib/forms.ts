@@ -36,7 +36,7 @@ export async function verifyTurnstileToken(token: string): Promise<boolean> {
 }
 
 // Delivers an enquiry straight to a real inbox via the /api/send-enquiry
-// route (Resend), independent of the WhatsApp flow below — the WhatsApp
+// route (plain SMTP), independent of the WhatsApp flow below — the WhatsApp
 // message only actually reaches Ever Retreat once the visitor manually
 // hits send there, so this is the one path that guarantees delivery.
 // Best-effort: a failure here (e.g. email not configured yet) never blocks
