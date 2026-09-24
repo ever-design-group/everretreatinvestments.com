@@ -14,7 +14,7 @@ const labelClass = "block text-sm font-medium text-black";
 const errorClass = "mt-1 text-xs text-red-600";
 
 export function ReferralForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [yourName, setYourName] = useState("");
   const [yourEmail, setYourEmail] = useState("");
   const [yourPhone, setYourPhone] = useState<string | undefined>(undefined);
@@ -73,7 +73,7 @@ export function ReferralForm() {
       [t.forms.message]: message,
     };
     setWhatsappUrl(buildWhatsAppUrl(context, fields));
-    const sent = await sendEnquiryEmail(context, fields, yourEmail, turnstileToken);
+    const sent = await sendEnquiryEmail(context, fields, yourEmail, turnstileToken, language, yourName);
     setStatus(sent ? "success" : "failed");
   }
 

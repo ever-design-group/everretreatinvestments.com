@@ -25,7 +25,7 @@ const developmentOptions = [
 // for the reservation/deposit-request flow on /buy. Still forwards through the
 // same real WhatsApp deep-link mechanism in lib/forms.ts — no fake "Pay" button.
 export function ReservationForm({ context, className = "" }: ReservationFormProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const b = t.buyPage;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -84,7 +84,7 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
       [t.forms.tellUsMore]: message,
     };
     setWhatsappUrl(buildWhatsAppUrl(context, fields));
-    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken);
+    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken, language, name);
     setStatus(sent ? "success" : "failed");
   }
 

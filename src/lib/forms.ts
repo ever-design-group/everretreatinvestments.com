@@ -46,13 +46,15 @@ export async function sendEnquiryEmail(
   context: string,
   fields: Record<string, string | undefined>,
   replyToEmail: string | undefined,
-  turnstileToken: string | null
+  turnstileToken: string | null,
+  language: "en" | "fr",
+  visitorName?: string
 ): Promise<boolean> {
   try {
     const res = await fetch("/api/send-enquiry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ context, fields, replyToEmail, turnstileToken }),
+      body: JSON.stringify({ context, fields, replyToEmail, turnstileToken, language, visitorName }),
     });
     const data = await res.json();
     return data.success === true;

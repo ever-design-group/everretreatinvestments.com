@@ -655,6 +655,10 @@ export interface TranslationShape {
   contactPage: {
     heroEyebrow: string;
     heroHeading: string;
+    /** Two-line light+bold split of `heroHeading`, matching balitecture.com's
+     *  own contact-page hero treatment ("Get in" light / "Touch" bold). */
+    heroHeadingLine1: string;
+    heroHeadingLine2: string;
     heroParagraph: string;
     heroCta: string;
     officeRwandaHqLabel: string;
@@ -669,6 +673,19 @@ export interface TranslationShape {
     formHeadingLight: string;
     formHeadingBold: string;
     formParagraph: string;
+    /** Right-column panel next to the form, matching balitecture.com's
+     *  "Prefer a Call? / Schedule a Consultation" pattern — adapted to real
+     *  Ever Retreat contact options (office visit + WhatsApp) since there's
+     *  no real Calendly-style booking system to link to. */
+    consultationEyebrow: string;
+    consultationHeadingLight: string;
+    consultationHeadingBold: string;
+    consultationParagraph: string;
+    visitOfficeTitle: string;
+    visitOfficeDesc: string;
+    whatsappCardTitle: string;
+    whatsappCardDesc: string;
+    followUsLabel: string;
     faqEyebrow: string;
     faqHeading: string;
     faqHeadingLight: string;
@@ -3590,8 +3607,10 @@ export const translations: Record<Language, TranslationShape> = {
       viewAll: "View All Posts",
     },
     contactPage: {
-      heroEyebrow: "Contact Us",
+      heroEyebrow: "We Would Love to Hear From You",
       heroHeading: "Start Your Rwanda Villa Project",
+      heroHeadingLine1: "Get in",
+      heroHeadingLine2: "Touch",
       heroParagraph:
         "Whether you have a plot or are still exploring options, our team gives you straight answers. No obligation, no pressure.",
       heroCta: "Enquire Now",
@@ -3602,12 +3621,22 @@ export const translations: Record<Language, TranslationShape> = {
       emailLabel: "Email",
       hoursLabel: "Office Hours",
       hoursValue: "8:00 AM - 5:00 PM (CAT)",
-      formEyebrow: "Send Us a Message",
+      formEyebrow: "Send a Message",
       formHeading: "Tell Us About Your Project",
-      formHeadingLight: "Tell Us About",
-      formHeadingBold: "Your Project",
+      formHeadingLight: "Enquiry",
+      formHeadingBold: "Form",
       formParagraph:
-        "Whether it's a new villa build, land acquisition, or rental management inquiry, our team will respond within 24 hours.",
+        "Tell us about your project. We typically respond within 24 hours.",
+      consultationEyebrow: "Prefer to Talk?",
+      consultationHeadingLight: "Reach Us",
+      consultationHeadingBold: "Directly",
+      consultationParagraph:
+        "No forms, no waiting — visit our office or message us on WhatsApp for an instant reply during business hours.",
+      visitOfficeTitle: "Visit Our Office",
+      visitOfficeDesc: "42 KG 670 St, Kimihurura, Kigali, Rwanda — walk in and meet the team",
+      whatsappCardTitle: "WhatsApp Us Now",
+      whatsappCardDesc: "Instant reply during business hours",
+      followUsLabel: "Follow Us",
       faqEyebrow: "FAQ",
       faqHeading: "Need More Help?",
       faqHeadingLight: "Need More",
@@ -7188,8 +7217,10 @@ export const translations: Record<Language, TranslationShape> = {
       viewAll: "Voir Tous Les Articles",
     },
     contactPage: {
-      heroEyebrow: "Nous Contacter",
+      heroEyebrow: "Nous Aimerions Avoir De Vos Nouvelles",
       heroHeading: "Démarrez Votre Projet De Villa Au Rwanda",
+      heroHeadingLine1: "Entrons En",
+      heroHeadingLine2: "Contact",
       heroParagraph:
         "Que vous ayez déjà un terrain ou que vous exploriez encore vos options, notre équipe vous donne des réponses claires. Sans obligation, sans pression.",
       heroCta: "Nous Contacter",
@@ -7200,12 +7231,22 @@ export const translations: Record<Language, TranslationShape> = {
       emailLabel: "E-mail",
       hoursLabel: "Horaires D'Ouverture",
       hoursValue: "8h00 - 17h00 (CAT)",
-      formEyebrow: "Envoyez-Nous Un Message",
+      formEyebrow: "Envoyez Un Message",
       formHeading: "Parlez-Nous De Votre Projet",
-      formHeadingLight: "Parlez-Nous De",
-      formHeadingBold: "Votre Projet",
+      formHeadingLight: "Formulaire De",
+      formHeadingBold: "Demande",
       formParagraph:
-        "Qu'il s'agisse d'une nouvelle construction de villa, d'une acquisition de terrain ou d'une demande de gestion locative, notre équipe vous répondra sous 24 heures.",
+        "Parlez-nous de votre projet. Nous répondons généralement sous 24 heures.",
+      consultationEyebrow: "Vous Préférez Discuter ?",
+      consultationHeadingLight: "Contactez-Nous",
+      consultationHeadingBold: "Directement",
+      consultationParagraph:
+        "Pas de formulaire, pas d'attente — passez à notre bureau ou écrivez-nous sur WhatsApp pour une réponse instantanée pendant les heures d'ouverture.",
+      visitOfficeTitle: "Visitez Notre Bureau",
+      visitOfficeDesc: "42 KG 670 St, Kimihurura, Kigali, Rwanda — venez rencontrer l'équipe",
+      whatsappCardTitle: "Contactez-Nous Sur WhatsApp",
+      whatsappCardDesc: "Réponse instantanée pendant les heures d'ouverture",
+      followUsLabel: "Suivez-Nous",
       faqEyebrow: "FAQ",
       faqHeading: "Besoin D'Aide Supplémentaire ?",
       faqHeadingLight: "Besoin D'Aide",

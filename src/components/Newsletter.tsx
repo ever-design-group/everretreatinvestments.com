@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { EMAIL_REGEX, buildWhatsAppUrl, sendEnquiryEmail } from "@/lib/forms";
 
 export function Newsletter() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [status, setStatus] = useState<"idle" | "success" | "failed">("idle");
@@ -21,7 +21,7 @@ export function Newsletter() {
     setError("");
     const fields = { [t.forms.emailAddress]: email };
     setWhatsappUrl(buildWhatsAppUrl(t.newsletter.heading, fields));
-    const sent = await sendEnquiryEmail(t.newsletter.heading, fields, email, null);
+    const sent = await sendEnquiryEmail(t.newsletter.heading, fields, email, null, language);
     setStatus(sent ? "success" : "failed");
   }
 

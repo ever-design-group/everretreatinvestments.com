@@ -174,7 +174,7 @@ export function Footer() {
           <div>
             <p className="text-xs font-semibold text-white/70">{t.footer.rwandaHq}</p>
             <p className="mt-1 text-xs text-white/50">
-              KG 541 St, Kimihurura, Kigali
+              42 KG 670 St, Kimihurura, Kigali, Rwanda
             </p>
           </div>
           <div>

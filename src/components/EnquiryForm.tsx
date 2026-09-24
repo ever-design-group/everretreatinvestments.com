@@ -23,7 +23,7 @@ interface EnquiryFormProps {
 // something submitting this form triggers; it only appears as a manual
 // fallback link if the email send itself fails.
 export function EnquiryForm({ context, showMessage = true, className = "" }: EnquiryFormProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState<string | undefined>(undefined);
@@ -76,7 +76,7 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
       [t.forms.tellUsMore]: showMessage ? message : undefined,
     };
     setWhatsappUrl(buildWhatsAppUrl(context, fields));
-    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken);
+    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken, language, name);
     setStatus(sent ? "success" : "failed");
   }
 

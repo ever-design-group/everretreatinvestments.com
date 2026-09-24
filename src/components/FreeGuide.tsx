@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { EMAIL_REGEX, buildWhatsAppUrl, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 export function FreeGuide() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
@@ -48,7 +48,7 @@ export function FreeGuide() {
       [t.forms.emailAddress]: email,
     };
     setWhatsappUrl(buildWhatsAppUrl(t.freeGuide.heading, fields));
-    const sent = await sendEnquiryEmail(t.freeGuide.heading, fields, email, turnstileToken);
+    const sent = await sendEnquiryEmail(t.freeGuide.heading, fields, email, turnstileToken, language, name);
     setStatus(sent ? "success" : "failed");
   }
 

@@ -14,7 +14,7 @@ const labelClass = "block text-sm font-medium text-black";
 const errorClass = "mt-1 text-xs text-red-600";
 
 export function ContactForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const interestedInOptions = [
     t.forms.interestedInOptions.villaBuild,
     t.forms.interestedInOptions.landSourcing,
@@ -73,7 +73,7 @@ export function ContactForm() {
       [t.forms.message]: message,
     };
     setWhatsappUrl(buildWhatsAppUrl(context, fields));
-    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken);
+    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken, language, name);
     setStatus(sent ? "success" : "failed");
   }
 
