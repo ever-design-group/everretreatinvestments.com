@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail } from "@/lib/forms";
 
 export function Newsletter() {
   const { t } = useLanguage();
@@ -19,9 +19,9 @@ export function Newsletter() {
       return;
     }
     setError("");
-    const url = buildWhatsAppUrl(t.newsletter.heading, {
-      [t.forms.emailAddress]: email,
-    });
+    const fields = { [t.forms.emailAddress]: email };
+    void sendEnquiryEmail(t.newsletter.heading, fields, email, null);
+    const url = buildWhatsAppUrl(t.newsletter.heading, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }

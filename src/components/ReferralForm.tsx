@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 const fieldClass =
   "mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none";
@@ -62,7 +62,8 @@ export function ReferralForm() {
     }
 
     setStatus("submitting");
-    const url = buildWhatsAppUrl("Referral — Ever Retreat", {
+    const context = "Referral — Ever Retreat";
+    const fields = {
       [t.forms.yourName]: yourName,
       [t.forms.yourEmail]: yourEmail,
       [t.forms.yourPhone]: yourPhone,
@@ -70,7 +71,9 @@ export function ReferralForm() {
       [t.forms.friendsEmail]: friendsEmail,
       [t.forms.friendsWhatsapp]: friendsPhone,
       [t.forms.message]: message,
-    });
+    };
+    void sendEnquiryEmail(context, fields, yourEmail, turnstileToken);
+    const url = buildWhatsAppUrl(context, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }

@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 interface EnquiryFormProps {
   /** Message header sent to WhatsApp, e.g. "Pricing Enquiry — Homepage". */
@@ -67,12 +67,16 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
     }
 
     setStatus("submitting");
-    const url = buildWhatsAppUrl(context, {
+    const fields = {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,
       [t.forms.whatsappNumber]: phone,
       [t.forms.tellUsMore]: showMessage ? message : undefined,
-    });
+    };
+    // Fired in parallel, not awaited — email delivery is a best-effort
+    // addition, not a gate on the WhatsApp flow that already works.
+    void sendEnquiryEmail(context, fields, email, turnstileToken);
+    const url = buildWhatsAppUrl(context, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }

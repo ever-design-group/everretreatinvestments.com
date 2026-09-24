@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 interface ReservationFormProps {
   context: string;
@@ -75,14 +75,16 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
 
     setStatus("submitting");
     const developmentName = developmentOptions.find((d) => d.id === development)?.name ?? development;
-    const url = buildWhatsAppUrl(context, {
+    const fields = {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,
       [t.forms.whatsappNumber]: phone,
       [b.developmentLabel]: developmentName,
       [b.unitLabel]: unit,
       [t.forms.tellUsMore]: message,
-    });
+    };
+    void sendEnquiryEmail(context, fields, email, turnstileToken);
+    const url = buildWhatsAppUrl(context, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }

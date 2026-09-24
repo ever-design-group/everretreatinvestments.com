@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 export function FreeGuide() {
   const { t } = useLanguage();
@@ -43,10 +43,12 @@ export function FreeGuide() {
     }
 
     setStatus("submitting");
-    const url = buildWhatsAppUrl(t.freeGuide.heading, {
+    const fields = {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,
-    });
+    };
+    void sendEnquiryEmail(t.freeGuide.heading, fields, email, turnstileToken);
+    const url = buildWhatsAppUrl(t.freeGuide.heading, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }

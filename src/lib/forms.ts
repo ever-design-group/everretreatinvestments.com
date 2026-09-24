@@ -35,6 +35,29 @@ export async function verifyTurnstileToken(token: string): Promise<boolean> {
   }
 }
 
+// Delivers an enquiry straight to a real inbox via the /api/send-enquiry
+// route (Resend), independent of the WhatsApp flow below — the WhatsApp
+// message only actually reaches Ever Retreat once the visitor manually
+// hits send there, so this is the one path that guarantees delivery.
+// Best-effort: a failure here (e.g. email not configured yet) never blocks
+// the form, since WhatsApp remains the fallback delivery channel.
+export async function sendEnquiryEmail(
+  context: string,
+  fields: Record<string, string | undefined>,
+  replyToEmail: string | undefined,
+  turnstileToken: string | null
+): Promise<void> {
+  try {
+    await fetch("/api/send-enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ context, fields, replyToEmail, turnstileToken }),
+    });
+  } catch {
+    // Swallowed intentionally — see comment above.
+  }
+}
+
 // Every form used to call `window.open(url, ...)` and immediately mark
 // itself "success" regardless of what window.open actually returned — a
 // popup blocked by the browser (or the user's own settings) still showed

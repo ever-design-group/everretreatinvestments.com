@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 const fieldClass =
   "mt-2 w-full rounded border border-brand-gray-100 bg-white px-4 py-3 text-base text-black focus:border-brand-teal focus:outline-none";
@@ -64,13 +64,16 @@ export function ContactForm() {
     }
 
     setStatus("submitting");
-    const url = buildWhatsAppUrl("New Contact Form Enquiry — Ever Retreat", {
+    const context = "New Contact Form Enquiry — Ever Retreat";
+    const fields = {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,
       [t.forms.whatsappNumber]: phone,
       [t.forms.interestedIn]: interestedIn,
       [t.forms.message]: message,
-    });
+    };
+    void sendEnquiryEmail(context, fields, email, turnstileToken);
+    const url = buildWhatsAppUrl(context, fields);
     setWhatsappUrl(url);
     setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
   }
