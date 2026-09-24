@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 interface EnquiryFormProps {
   /** Message header sent to WhatsApp, e.g. "Pricing Enquiry — Homepage". */
@@ -18,8 +18,10 @@ interface EnquiryFormProps {
 // Shared enquiry form used by every dark/teal "Interested?" style CTA block
 // across the site (InterestedInInvesting, PricingForm, FinalCTA, GetPricesCTA).
 // Validates every field for real (including the phone number via
-// libphonenumber-js) and, on success, opens WhatsApp with a prefilled message
-// to Ever Retreat's real business number — no more decorative submit buttons.
+// libphonenumber-js) and, on success, emails the enquiry straight to Ever
+// Retreat's inbox — no more decorative submit buttons. WhatsApp is no longer
+// something submitting this form triggers; it only appears as a manual
+// fallback link if the email send itself fails.
 export function EnquiryForm({ context, showMessage = true, className = "" }: EnquiryFormProps) {
   const { t } = useLanguage();
   const [name, setName] = useState("");
@@ -28,7 +30,7 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
   const [message, setMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "blocked">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "failed">("idle");
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   const fieldClass =
@@ -73,15 +75,12 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
       [t.forms.whatsappNumber]: phone,
       [t.forms.tellUsMore]: showMessage ? message : undefined,
     };
-    // Fired in parallel, not awaited — email delivery is a best-effort
-    // addition, not a gate on the WhatsApp flow that already works.
-    void sendEnquiryEmail(context, fields, email, turnstileToken);
-    const url = buildWhatsAppUrl(context, fields);
-    setWhatsappUrl(url);
-    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
+    setWhatsappUrl(buildWhatsAppUrl(context, fields));
+    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken);
+    setStatus(sent ? "success" : "failed");
   }
 
-  if (status === "success" || status === "blocked") {
+  if (status === "success" || status === "failed") {
     return (
       <div className={className}>
         {status === "success" ? (
@@ -90,8 +89,8 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
           <FormSuccess
             theme="dark"
             variant="blocked"
-            title={t.forms.popupBlockedTitle}
-            body={t.forms.popupBlockedBody}
+            title={t.forms.sendFailedTitle}
+            body={t.forms.sendFailedBody}
             action={
               <a
                 href={whatsappUrl ?? "#"}
@@ -99,7 +98,7 @@ export function EnquiryForm({ context, showMessage = true, className = "" }: Enq
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
               >
-                {t.forms.openWhatsAppManually}
+                {t.forms.messageUsOnWhatsApp}
               </a>
             }
           />

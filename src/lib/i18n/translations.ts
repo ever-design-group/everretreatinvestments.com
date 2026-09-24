@@ -237,6 +237,12 @@ export interface TranslationShape {
     popupBlockedTitle: string;
     popupBlockedBody: string;
     openWhatsAppManually: string;
+    /** Shown when the email send itself fails server-side (SMTP down,
+     *  misconfigured, etc.) — forms no longer fall back to auto-opening
+     *  WhatsApp, so this points to it as a manual alternative instead. */
+    sendFailedTitle: string;
+    sendFailedBody: string;
+    messageUsOnWhatsApp: string;
     errorRequired: string;
     errorEmail: string;
     errorPhone: string;
@@ -2773,11 +2779,14 @@ export const translations: Record<Language, TranslationShape> = {
       tellUsMore: "Tell us more",
       sendEnquiry: "Send Enquiry",
       sending: "Sending...",
-      successTitle: "Thanks — almost done!",
-      successBody: "We've opened WhatsApp with your message ready to send. Just hit send there to reach our team.",
+      successTitle: "Thanks — message sent!",
+      successBody: "Your message has been sent to our team. We'll get back to you shortly.",
       popupBlockedTitle: "Almost there",
       popupBlockedBody: "Your browser blocked the WhatsApp pop-up before it could open. Tap below to send your message.",
       openWhatsAppManually: "Open WhatsApp to send your message",
+      sendFailedTitle: "Couldn't send your message",
+      sendFailedBody: "Something went wrong on our end. Please try again, or message us directly on WhatsApp.",
+      messageUsOnWhatsApp: "Message Us on WhatsApp",
       errorRequired: "This field is required.",
       errorEmail: "Enter a valid email address.",
       errorPhone: "Enter a valid phone number.",
@@ -6368,11 +6377,14 @@ export const translations: Record<Language, TranslationShape> = {
       tellUsMore: "Dites-nous en plus",
       sendEnquiry: "Envoyer la demande",
       sending: "Envoi en cours...",
-      successTitle: "Merci — presque terminé !",
-      successBody: "Nous avons ouvert WhatsApp avec votre message prêt à envoyer. Il ne vous reste qu'à l'envoyer pour joindre notre équipe.",
+      successTitle: "Merci — message envoyé !",
+      successBody: "Votre message a été envoyé à notre équipe. Nous vous répondrons sous peu.",
       popupBlockedTitle: "Presque terminé",
       popupBlockedBody: "Votre navigateur a bloqué la fenêtre WhatsApp avant qu'elle ne s'ouvre. Appuyez ci-dessous pour envoyer votre message.",
       openWhatsAppManually: "Ouvrir WhatsApp pour envoyer votre message",
+      sendFailedTitle: "Impossible d'envoyer votre message",
+      sendFailedBody: "Une erreur s'est produite de notre côté. Veuillez réessayer, ou contactez-nous directement sur WhatsApp.",
+      messageUsOnWhatsApp: "Contactez-nous sur WhatsApp",
       errorRequired: "Ce champ est obligatoire.",
       errorEmail: "Saisissez une adresse e-mail valide.",
       errorPhone: "Saisissez un numéro de téléphone valide.",

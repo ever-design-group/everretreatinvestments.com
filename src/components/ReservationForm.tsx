@@ -6,7 +6,7 @@ import { PhoneInput } from "@/components/PhoneInput";
 import { FormSuccess } from "@/components/FormSuccess";
 import { TurnstileWidget, TURNSTILE_SITE_KEY } from "@/components/TurnstileWidget";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, sendEnquiryEmail, verifyTurnstileToken } from "@/lib/forms";
 
 interface ReservationFormProps {
   context: string;
@@ -35,7 +35,7 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
   const [message, setMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "blocked">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "verifying" | "success" | "failed">("idle");
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
   const fieldClass =
@@ -83,13 +83,12 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
       [b.unitLabel]: unit,
       [t.forms.tellUsMore]: message,
     };
-    void sendEnquiryEmail(context, fields, email, turnstileToken);
-    const url = buildWhatsAppUrl(context, fields);
-    setWhatsappUrl(url);
-    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
+    setWhatsappUrl(buildWhatsAppUrl(context, fields));
+    const sent = await sendEnquiryEmail(context, fields, email, turnstileToken);
+    setStatus(sent ? "success" : "failed");
   }
 
-  if (status === "success" || status === "blocked") {
+  if (status === "success" || status === "failed") {
     return (
       <div className={className}>
         {status === "success" ? (
@@ -98,8 +97,8 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
           <FormSuccess
             theme="light"
             variant="blocked"
-            title={t.forms.popupBlockedTitle}
-            body={t.forms.popupBlockedBody}
+            title={t.forms.sendFailedTitle}
+            body={t.forms.sendFailedBody}
             action={
               <a
                 href={whatsappUrl ?? "#"}
@@ -107,7 +106,7 @@ export function ReservationForm({ context, className = "" }: ReservationFormProp
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-sm bg-brand-teal px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-teal/90"
               >
-                {t.forms.openWhatsAppManually}
+                {t.forms.messageUsOnWhatsApp}
               </a>
             }
           />

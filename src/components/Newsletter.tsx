@@ -3,16 +3,16 @@
 import { useState, type FormEvent } from "react";
 import { FormSuccess } from "@/components/FormSuccess";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { EMAIL_REGEX, buildWhatsAppUrl, openWhatsApp, sendEnquiryEmail } from "@/lib/forms";
+import { EMAIL_REGEX, buildWhatsAppUrl, sendEnquiryEmail } from "@/lib/forms";
 
 export function Newsletter() {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [status, setStatus] = useState<"idle" | "success" | "blocked">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "failed">("idle");
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!email.trim() || !EMAIL_REGEX.test(email)) {
       setError(t.forms.errorEmail);
@@ -20,10 +20,9 @@ export function Newsletter() {
     }
     setError("");
     const fields = { [t.forms.emailAddress]: email };
-    void sendEnquiryEmail(t.newsletter.heading, fields, email, null);
-    const url = buildWhatsAppUrl(t.newsletter.heading, fields);
-    setWhatsappUrl(url);
-    setStatus(openWhatsApp(url) === "blocked" ? "blocked" : "success");
+    setWhatsappUrl(buildWhatsAppUrl(t.newsletter.heading, fields));
+    const sent = await sendEnquiryEmail(t.newsletter.heading, fields, email, null);
+    setStatus(sent ? "success" : "failed");
   }
 
   return (
@@ -40,7 +39,7 @@ export function Newsletter() {
           <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/40">
             {t.newsletter.paragraph}
           </p>
-          {status === "success" || status === "blocked" ? (
+          {status === "success" || status === "failed" ? (
             <div className="mt-8">
               {status === "success" ? (
                 <FormSuccess theme="dark" title={t.forms.successTitle} body={t.forms.successBody} />
@@ -48,8 +47,8 @@ export function Newsletter() {
                 <FormSuccess
                   theme="dark"
                   variant="blocked"
-                  title={t.forms.popupBlockedTitle}
-                  body={t.forms.popupBlockedBody}
+                  title={t.forms.sendFailedTitle}
+                  body={t.forms.sendFailedBody}
                   action={
                     <a
                       href={whatsappUrl ?? "#"}
@@ -57,7 +56,7 @@ export function Newsletter() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-sm bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-brand-gray-200"
                     >
-                      {t.forms.openWhatsAppManually}
+                      {t.forms.messageUsOnWhatsApp}
                     </a>
                   }
                 />
