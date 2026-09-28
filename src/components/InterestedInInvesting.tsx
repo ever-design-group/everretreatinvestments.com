@@ -65,7 +65,7 @@ export function InterestedInInvesting() {
             </div>
           </div>
 
-          <EnquiryForm context="Interested in Investing — Ever Retreat" className="rounded-sm bg-white/5 p-8" />
+          <EnquiryForm context="Interested in Investing — Ever Design" className="rounded-sm bg-white/5 p-8" />
         </div>
       </div>
     </section>

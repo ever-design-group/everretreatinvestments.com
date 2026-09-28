@@ -97,7 +97,7 @@ export default function ServicesPage() {
         eyebrow={s.servicesEyebrow}
         subtitle={t.services.paragraph}
         image="/images/hero/aerial-rwanda.webp"
-        imageAlt="Ever Retreat Services - Rwanda"
+        imageAlt="Ever Design Services - Rwanda"
         minHeightClass="min-h-[70vh]"
         hideCta
         stats={trustStats}

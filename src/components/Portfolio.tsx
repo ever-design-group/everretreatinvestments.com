@@ -15,16 +15,16 @@ const portfolioItems: {
   category: PortfolioCategory;
 }[] = [
   {
-    title: "B&P Ever Retreat Villa",
+    title: "B&P Ever Design Villa",
     image: "/images/portfolio/nara-render.webp",
-    imageAlt: "B&P Ever Retreat Villa architectural render",
+    imageAlt: "B&P Ever Design Villa architectural render",
     href: "/developments/nara-villas",
     category: "exteriors",
   },
   {
     title: "Villa Interior",
     image: "/images/portfolio/gj-villa.webp",
-    imageAlt: "Ever Retreat villa interior",
+    imageAlt: "Ever Design villa interior",
     href: "/portfolio",
     category: "interiors",
   },
@@ -38,7 +38,7 @@ const portfolioItems: {
   {
     title: "Villa Terrace",
     image: "/images/portfolio/suku-terrace.webp",
-    imageAlt: "Ever Retreat villa terrace view",
+    imageAlt: "Ever Design villa terrace view",
     href: "/portfolio",
     category: "amenities",
   },
@@ -52,7 +52,7 @@ const portfolioItems: {
   {
     title: "Cottage",
     image: "/images/portfolio/completed-villa-4.webp",
-    imageAlt: "Completed Ever Retreat villa",
+    imageAlt: "Completed Ever Design villa",
     href: "/developments/solas-kivu",
     category: "exteriors",
   },

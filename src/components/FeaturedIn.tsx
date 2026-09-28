@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const pressLogos = [
-  { 
-    src: "/images/trust/EVER DESIGN GROUP-01.png", 
-    alt: "Ever Design Group",
+  {
+    src: "/images/trust/logo-retreat.png",
+    alt: "Ever Retreat",
     size: "large"  // ← Mark this one as large
   },
   { src: "/images/trust/rtta.png", alt: "Rwanda Tourism" },

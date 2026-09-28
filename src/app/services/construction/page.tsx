@@ -354,7 +354,7 @@ export default function ConstructionServicePage() {
           <div className="relative aspect-square md:aspect-[4/3]">
             <Image
               src="/images/portfolio/completed-villa-4.webp"
-              alt="Completed Ever Retreat villa in Rwanda"
+              alt="Completed Ever Design villa in Rwanda"
               fill
               sizes="(max-width: 768px) 33vw, 480px"
               className="object-cover"
@@ -363,7 +363,7 @@ export default function ConstructionServicePage() {
           <div className="relative aspect-square md:aspect-[4/3]">
             <Image
               src="/images/portfolio/villa-natural.webp"
-              alt="Ever Retreat villa built with natural materials"
+              alt="Ever Design villa built with natural materials"
               fill
               sizes="(max-width: 768px) 33vw, 480px"
               className="object-cover"
@@ -372,7 +372,7 @@ export default function ConstructionServicePage() {
           <div className="relative aspect-square md:aspect-[4/3]">
             <Image
               src="/images/portfolio/villa-pool-timber-deck.webp"
-              alt="Ever Retreat villa with pool and timber deck"
+              alt="Ever Design villa with pool and timber deck"
               fill
               sizes="(max-width: 768px) 33vw, 480px"
               className="object-cover"

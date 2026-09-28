@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/services/villa-management",
   },
-  title: "Villa Management Services - Rwanda Property Management | Ever Retreat",
+  title: "Villa Management Services - Rwanda Property Management | Ever Design",
   description:
     "Full-service villa and eco-lodge management across Rwanda. Listing, guest management, dynamic pricing, and maintenance - all handled by our expert team.",
 };

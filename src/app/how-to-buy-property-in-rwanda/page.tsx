@@ -158,7 +158,7 @@ export default function HowToBuyPage() {
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-brand-gray-100">
               <Image
                 src="/images/about/villa-lifestyle.webp"
-                alt="Ever Retreat villa lifestyle in Rwanda"
+                alt="Ever Design villa lifestyle in Rwanda"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

@@ -11,7 +11,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 // (index-matched to t.realEstatePage.featured / t.developmentsSection, since translated
 // text can't carry non-text data like image paths or routes).
 const featuredMeta = [
-  { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas", name: "B&P Ever Retreat Villa" },
+  { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas", name: "B&P Ever Design Villa" },
   { propertyTypeKey: "villa", location: "Rubavu", status: "prototype", price: "notForSale", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-kivu", name: "Cottage" },
   { propertyTypeKey: "villa", location: "Musanze", status: "comingSoon", price: "", image: "/images/developments/suku-4br/suku-4br-1.webp", href: "/developments/suku-residences", name: "Virunga Villas" },
   { propertyTypeKey: "villa", location: "Nyungwe", status: "comingSoon", price: "", image: "/images/areas/nyungwe-area.webp", href: "/areas/nyungwe", name: "Nyungwe Retreat" },
@@ -58,7 +58,7 @@ export default function RealEstatePage() {
       <section className="relative min-h-[85vh] w-full overflow-hidden bg-brand-teal">
         <Image
           src="/images/portfolio/completed-villa-4.webp"
-          alt="Ever Retreat property in Rwanda"
+          alt="Ever Design property in Rwanda"
           fill
           priority
           className="object-cover opacity-40 hero-bg-image"
@@ -412,7 +412,7 @@ export default function RealEstatePage() {
         </div>
       </section>
 
-      {/* 7. Why choose Ever Retreat */}
+      {/* 7. Why choose Ever Design */}
       <section className="bg-brand-white py-20 md:py-28">
         <div className="mx-auto max-w-[1440px] px-5 md:px-6">
           <p className="mb-4 text-center text-xs uppercase tracking-[0.3em] text-brand-gray-500">

@@ -89,7 +89,7 @@ export default function DevelopmentPartnershipsPage() {
   ];
 
   const projects = [
-    { name: "B&P Ever Retreat Villa", location: "Lake Kivu", units: p.projectUnitsShowcase, image: "/images/areas/lake-kivu-area.webp" },
+    { name: "B&P Ever Design Villa", location: "Lake Kivu", units: p.projectUnitsShowcase, image: "/images/areas/lake-kivu-area.webp" },
     { name: "Cottage", location: "Lake Kivu", units: p.projectUnitsShowcase, image: "/images/areas/rubavu-area.webp" },
     { name: "Virunga Villas", location: "Musanze", units: p.projectUnitsInDesign, image: "/images/areas/musanze-area.webp" },
   ];

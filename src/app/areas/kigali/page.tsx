@@ -32,7 +32,7 @@ export default function KigaliAreaPage() {
           name="Kigali"
           subtitle={areaItems.kigali.description}
           image="/images/areas/kigali-area.webp"
-          imageAlt="Kigali city skyline - Ever Retreat area guide"
+          imageAlt="Kigali city skyline - Ever Design area guide"
         />
       }
     >

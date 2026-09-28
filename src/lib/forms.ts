@@ -1,11 +1,11 @@
-// Ever Retreat's real, already-published WhatsApp business number (used sitewide
+// Ever Design's real, already-published WhatsApp business number (used sitewide
 // on every existing WhatsApp CTA button/link).
 export const WHATSAPP_NUMBER = "250787524298";
 
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Builds a wa.me deep link with a prefilled, readable message so submitting a
-// form actually reaches Ever Retreat through their real contact channel,
+// form actually reaches Ever Design through their real contact channel,
 // instead of a submit button that does nothing.
 export function buildWhatsAppUrl(context: string, fields: Record<string, string | undefined>): string {
   const lines = [

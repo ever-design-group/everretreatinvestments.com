@@ -13,37 +13,37 @@ function buildTeamMembers(t: TranslationShape) {
       name: "Theophile",
       role: roles.ceo,
       image: "/images/team/theophier.jpeg",
-      imageAlt: "Theophile - CEO at Ever Retreat",
+      imageAlt: "Theophile - CEO at Ever Design",
     },
     {
       name: "Yvette",
       role: roles.architectureManager,
       image: "/images/team/yvetter.jpeg",
-      imageAlt: "Yvette - Architecture Manager at Ever Retreat",
+      imageAlt: "Yvette - Architecture Manager at Ever Design",
     },
     {
       name: "Doris",
       role: roles.hospitalityManager,
       image: "/images/team/doris.jpeg",
-      imageAlt: "Doris - Hospitality Manager at Ever Retreat",
+      imageAlt: "Doris - Hospitality Manager at Ever Design",
     },
     {
       name: "Sophie",
       role: roles.accountant,
       image: "/images/team/sophie.jpeg",
-      imageAlt: "Sophie - Accountant at Ever Retreat",
+      imageAlt: "Sophie - Accountant at Ever Design",
     },
     {
       name: "Eric",
       role: roles.it,
       image: "/images/team/eric-passport.jpeg",
-      imageAlt: "Eric - IT at Ever Retreat",
+      imageAlt: "Eric - IT at Ever Design",
     },
     {
       name: "Rusagara",
       role: roles.procurementOfficer,
       image: "/images/team/rusagara.jpeg",
-      imageAlt: "Rusagara - Procurement Officer at Ever Retreat",
+      imageAlt: "Rusagara - Procurement Officer at Ever Design",
     },
   ];
 }

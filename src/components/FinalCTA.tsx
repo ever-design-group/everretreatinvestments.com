@@ -57,7 +57,7 @@ export function FinalCTA() {
             </Link>
           </div>
 
-          <EnquiryForm context={`${t.finalCta.heading} — Ever Retreat`} className="rounded-sm bg-white/5 p-8" />
+          <EnquiryForm context={`${t.finalCta.heading} — Ever Design`} className="rounded-sm bg-white/5 p-8" />
         </div>
       </div>
     </section>

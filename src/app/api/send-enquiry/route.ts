@@ -8,7 +8,7 @@ const VERIFY_URL = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 // client already controls the recipient address (replyToEmail), which is
 // inherent to any "we'll get back to you" auto-reply; letting it also
 // control the *content* would turn this endpoint into an open relay for
-// arbitrary email bodies sent from Ever Retreat's own mailbox. Only the
+// arbitrary email bodies sent from Ever Design's own mailbox. Only the
 // visitor's name and language selection come from the client, and both are
 // only ever inserted as escaped text, never as markup.
 const AUTO_REPLY_COPY: Record<
@@ -19,20 +19,20 @@ const AUTO_REPLY_COPY: Record<
     subject: "Thanks — we've received your enquiry",
     greeting: (name) => `Hi ${name},`,
     intro:
-      "Thanks for getting in touch. The Ever Retreat team has been notified and will get back to you within 24 hours. Below is a copy of what you submitted for your records.",
+      "Thanks for getting in touch. The Ever Design team has been notified and will get back to you within 24 hours. Below is a copy of what you submitted for your records.",
     enquiryLabel: "YOUR ENQUIRY",
     footerNote: "If anything looks off or you have an urgent question, just reply to this email or message us on WhatsApp.",
-    signoff: "The Ever Retreat Team",
+    signoff: "The Ever Design Team",
     tagline: "Rwandan-owned architecture, development, and villa management.",
   },
   fr: {
     subject: "Merci — nous avons bien reçu votre demande",
     greeting: (name) => `Bonjour ${name},`,
     intro:
-      "Merci de nous avoir contactés. L'équipe Ever Retreat a été notifiée et vous répondra sous 24 heures. Voici une copie de ce que vous avez soumis, pour vos dossiers.",
+      "Merci de nous avoir contactés. L'équipe Ever Design a été notifiée et vous répondra sous 24 heures. Voici une copie de ce que vous avez soumis, pour vos dossiers.",
     enquiryLabel: "VOTRE DEMANDE",
     footerNote: "Si quelque chose semble incorrect ou pour toute question urgente, répondez simplement à cet e-mail ou contactez-nous sur WhatsApp.",
-    signoff: "L'équipe Ever Retreat",
+    signoff: "L'équipe Ever Design",
     tagline: "Architecture, développement et gestion de villas, basés au Rwanda.",
   },
 };
@@ -50,8 +50,8 @@ function buildAutoReplyHtml(
     <div style="font-family:sans-serif;color:#1a1a1a;max-width:520px;margin:0 auto;">
       <div style="padding:20px 24px;background:#124341;">
         <img
-          src="https://everretreatinvestments-com.vercel.app/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
-          alt="Ever Retreat"
+          src="https://everretreatinvestments-com.vercel.app/images/logos/ever-design-group-logo-cropped.png"
+          alt="Ever Design Group"
           height="40"
           style="height:40px;width:auto;display:block;"
         />
@@ -69,9 +69,9 @@ function buildAutoReplyHtml(
       <p style="margin-top:24px;font-weight:700;">${copy.signoff}</p>
       <hr style="margin-top:24px;border:none;border-top:1px solid #ddd;" />
       <p style="margin-top:16px;font-size:12px;color:#777;">
-        everretreatinvestments.com &middot;
+        everdesigninvestments.com &middot;
         WhatsApp <a href="${whatsappUrl}" style="color:#777;">+${WHATSAPP_NUMBER}</a> &middot;
-        <a href="mailto:info@everretreatinvestments.com" style="color:#777;">info@everretreatinvestments.com</a>
+        <a href="mailto:info@everdesigninvestments.com" style="color:#777;">info@everdesigninvestments.com</a>
       </p>
       <p style="margin-top:4px;font-size:12px;color:#aaa;">${copy.tagline}</p>
     </div>
@@ -101,7 +101,7 @@ async function isHuman(token: unknown): Promise<boolean> {
 }
 
 // Sends every enquiry-form submission straight to a real inbox over SMTP
-// (the same mailbox that already exists on Ever Retreat's own domain — no
+// (the same mailbox that already exists on Ever Design's own domain — no
 // separate email-service signup or DNS changes needed), alongside the
 // existing WhatsApp deep-link (which still depends on the visitor manually
 // hitting send there). This route is the one path that guarantees Ever
@@ -134,7 +134,7 @@ export async function POST(request: Request) {
   const language = body?.language === "fr" ? "fr" : "en";
   // Friendly display name instead of the raw mailbox address — inboxes
   // otherwise show the sender as "admin" (the mailbox's own username).
-  const fromHeader = `"Ever Retreat" <${fromEmail}>`;
+  const fromHeader = `"Ever Design" <${fromEmail}>`;
 
   if (!fields || typeof fields !== "object") {
     return NextResponse.json({ success: false, error: "Missing form fields." }, { status: 400 });
@@ -179,7 +179,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: message }, { status: 502 });
   }
 
-  // Best-effort: the enquiry has already reached Ever Retreat at this point
+  // Best-effort: the enquiry has already reached Ever Design at this point
   // (the send above succeeded), so a failed auto-reply shouldn't turn the
   // whole request into a reported failure for the visitor.
   if (replyToEmail && EMAIL_REGEX.test(replyToEmail)) {

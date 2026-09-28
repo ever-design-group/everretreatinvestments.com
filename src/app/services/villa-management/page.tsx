@@ -287,7 +287,7 @@ export default function VillaManagementServicePage() {
       <section className="relative h-[50vh] w-full overflow-hidden">
         <Image
           src="/images/services/villa-kitchen-lived-in.webp"
-          alt="Interior of an Ever Retreat-managed villa in Rwanda"
+          alt="Interior of an Ever Design-managed villa in Rwanda"
           fill
           className="object-cover"
           sizes="100vw"

@@ -675,7 +675,7 @@ export interface TranslationShape {
     formParagraph: string;
     /** Right-column panel next to the form, matching balitecture.com's
      *  "Prefer a Call? / Schedule a Consultation" pattern — adapted to real
-     *  Ever Retreat contact options (office visit + WhatsApp) since there's
+     *  Ever Design contact options (office visit + WhatsApp) since there's
      *  no real Calendly-style booking system to link to. */
     consultationEyebrow: string;
     consultationHeadingLight: string;
@@ -2546,7 +2546,7 @@ export const translations: Record<Language, TranslationShape> = {
       currencyLabel: "Show Prices In",
       whatsappUs: "WhatsApp Us",
       developmentsMenu: {
-        bp: "B&P Ever Retreat Villa",
+        bp: "B&P Ever Design Villa",
         virunga: "Virunga Villas",
         cottage: "Cottage",
         kigaliRetreat: "Kigali Retreat",
@@ -2569,7 +2569,7 @@ export const translations: Record<Language, TranslationShape> = {
     hero: {
       label: "Rwanda-Based Property Developer",
       headlineBold: "Rwanda Eco-Retreats",
-      headlineLight: "Built by Ever Retreat",
+      headlineLight: "Built by Ever Design",
       subtext: "Luxury eco-retreats across Rubavu, Musanze, Kigali, and Nyungwe, with full rental management. From",
       ctaPrimary: "Explore Developments",
       ctaSecondary: "Enquire Now",
@@ -2598,8 +2598,8 @@ export const translations: Record<Language, TranslationShape> = {
       avgOccupancyLabel: "Avg Occupancy",
     },
     whyEverRetreatSection: {
-      eyebrow: "Why Ever Retreat",
-      heading: "Why Choose Ever Retreat Over Other Rwanda Developers?",
+      eyebrow: "Why Ever Design",
+      heading: "Why Choose Ever Design Over Other Rwanda Developers?",
       headingLight: "Investors Deserve",
       headingBold: "A Higher Standard",
       paragraph:
@@ -2655,7 +2655,7 @@ export const translations: Record<Language, TranslationShape> = {
     },
     servicesSubNavOverview: "Overview",
     footer: {
-      tagline: "Ever retreat company in Rwanda. Architecture, construction, villa management all under one roof.",
+      tagline: "Ever Design company in Rwanda. Architecture, construction, villa management all under one roof.",
       hours: "Mon-Fri 8am-5pm CAT",
       companyHeading: "Company",
       servicesHeading: "Services",
@@ -2693,19 +2693,19 @@ export const translations: Record<Language, TranslationShape> = {
         faq: "FAQ",
       },
       rwandaHq: "Rwanda HQ",
-      everRetreatOffice: "Ever retreat Office",
+      everRetreatOffice: "Ever Design Office",
       ourLocation: "Our Location",
-      copyright: "© 2026 Ever Retreat. All rights reserved.",
+      copyright: "© 2026 Ever Design. All rights reserved.",
       privacy: "Privacy",
       terms: "Terms",
       licensed: "Fully Licensed",
     },
     about: {
-      badge: "About Ever Retreat",
+      badge: "About Ever Design",
       headingLine1: "Rwanda-Based",
       headingLine2: "Property Developer",
       paragraph:
-        "Ever Retreat is an Rwandan-owned, Rwanda-based property company. 120 projects completed. 82 in-house professionals. Architecture, construction, villa management, and real estate - everything under one roof. The most complete property proposition in East Africa.",
+        "Ever Design is an Rwandan-owned, Rwanda-based property company. 120 projects completed. 82 in-house professionals. Architecture, construction, villa management, and real estate - everything under one roof. The most complete property proposition in East Africa.",
       stat1Label: "Projects Built",
       stat2Label: "Team Members",
       stat3Label: "Years in Rwanda",
@@ -2894,7 +2894,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Explore selected villas, architectural concepts, and development projects that showcase our approach to modern design, quality construction, and investment-focused property development in Rwanda.",
       items: {
         bp: {
-          title: "B&P Ever Retreat Villa",
+          title: "B&P Ever Design Villa",
           description: "Luxury villa architecture inspired by the landscape and lifestyle of Lake Kivu.",
           cta: "Explore project",
         },
@@ -2909,7 +2909,7 @@ export const translations: Record<Language, TranslationShape> = {
           cta: "Discover Ever Retreat",
         },
         everDesign: {
-          title: "Ever Design",
+          title: "Ever Design Studio",
           description: "Architecture and construction solutions for clients looking to create their own property in Rwanda.",
           cta: "Start your project",
         },
@@ -2934,9 +2934,9 @@ export const translations: Record<Language, TranslationShape> = {
     },
     howItWorks: {
       eyebrow: "How It Works",
-      heading: "How Does Investing In An Ever Retreat Villa Work?",
+      heading: "How Does Investing In An Ever Design Villa Work?",
       headingLine1: "How Does Investing",
-      headingLine2: "In An Ever Retreat Villa Work?",
+      headingLine2: "In An Ever Design Villa Work?",
       paragraph:
         "From first enquiry to rental income in four straightforward steps. No hidden stages, no complexity.",
       steps: [
@@ -2973,7 +2973,7 @@ export const translations: Record<Language, TranslationShape> = {
     },
     freeGuide: {
       eyebrow: "Free 2026 Edition",
-      heading: "The Ever Retreat Guide to Investing in Rwanda",
+      heading: "The Ever Design Guide to Investing in Rwanda",
       paragraph:
         "Eighty pages of what we wish every investor knew before they bought. Legal structures, area-by-area yield data, build costs, tax treatment, and the real risks. Updated for 2026.",
       points: [
@@ -3018,12 +3018,12 @@ export const translations: Record<Language, TranslationShape> = {
       quotes: [
         {
           quote:
-            "They made the process extremely easy and take care of absolutely everything. We loved the weekly updates with photos during construction. Seeing those renders come to life was awesome. Highly recommend Ever Retreat and their management team to work with.",
+            "They made the process extremely easy and take care of absolutely everything. We loved the weekly updates with photos during construction. Seeing those renders come to life was awesome. Highly recommend Ever Design and their management team to work with.",
           author: "Virginia B.",
         },
         {
           quote:
-            "Investing abroad may be scary but the Ever Retreat team has made this very easy and safe, making me feel comfortable that my money is secured. The team has been very supportive and understanding since day 1.",
+            "Investing abroad may be scary but the Ever Design team has made this very easy and safe, making me feel comfortable that my money is secured. The team has been very supportive and understanding since day 1.",
           author: "Joseph D.",
         },
         {
@@ -3042,7 +3042,7 @@ export const translations: Record<Language, TranslationShape> = {
       paragraph:
         "A hands-on team of 82 architects, engineers, project managers, legal advisors, and property managers based in Rwanda. You deal directly with the people doing the work.",
       meetTeam: "Meet the Full Team",
-      otherPeople: "Part of Ever Retreat's 82-person team",
+      otherPeople: "Part of Ever Design's 82-person team",
       roles: {
         ceo: "CEO",
         architectureManager: "Architecture Manager",
@@ -3054,8 +3054,8 @@ export const translations: Record<Language, TranslationShape> = {
         procurementOfficer: "Procurement Officer",
       },
       roleDescriptions: {
-        ceo: "Leads Ever Retreat's overall strategy, operations, and client relationships.",
-        architectureManager: "Leads architectural design and planning across all Ever Retreat developments.",
+        ceo: "Leads Ever Design's overall strategy, operations, and client relationships.",
+        architectureManager: "Leads architectural design and planning across all Ever Design developments.",
         hospitalityManager: "Oversees villa management, guest experience, and rental operations.",
         accountant: "Manages company finances, budgeting, and financial reporting.",
         operationsManager: "Coordinates daily operations across departments and active projects.",
@@ -3085,7 +3085,7 @@ export const translations: Record<Language, TranslationShape> = {
         {
           question: "What ROI can I expect from a Rwanda villa?",
           answer:
-            "Ever Retreat-managed villas typically achieve 15-20% gross rental yield annually, depending on location, villa size, and occupancy. Returns vary by area and management quality.",
+            "Ever Design-managed villas typically achieve 15-20% gross rental yield annually, depending on location, villa size, and occupancy. Returns vary by area and management quality.",
         },
         {
           question: "How long does it take to build a villa in Rwanda?",
@@ -3098,12 +3098,12 @@ export const translations: Record<Language, TranslationShape> = {
             "A deposit secures your reservation. The remaining balance is paid in stages tied to real construction milestones, not fixed calendar dates, so you only pay as work is actually completed.",
         },
         {
-          question: "Does Ever Retreat manage the property after handover?",
+          question: "Does Ever Design manage the property after handover?",
           answer:
             "Yes. Villa management is optional but available on every development, from 20% per booking. It covers listing, guest management, dynamic pricing, and maintenance, so ownership can be hands-off.",
         },
         {
-          question: "Which areas in Rwanda does Ever Retreat build in?",
+          question: "Which areas in Rwanda does Ever Design build in?",
           answer:
             "Our developments and land sourcing currently cover Kigali, Musanze, Rubavu, Nyungwe, Huye, and Nyanza. Each area is evaluated for tourism demand, access, and long-term land value before we commit to a project there.",
         },
@@ -3187,7 +3187,7 @@ export const translations: Record<Language, TranslationShape> = {
     realEstatePage: {
       hero: {
         eyebrow: "Real Estate",
-        headlineLight: "Ever Retreat",
+        headlineLight: "Ever Design",
         headlineBold: "Properties",
         subtext:
           "From completed showcase villas to developments in design, across Rwanda's most desirable areas.",
@@ -3202,7 +3202,7 @@ export const translations: Record<Language, TranslationShape> = {
         headingLight: "Built On Trust,",
         headingBold: "Backed By Experience",
         paragraphs: [
-          "Ever Retreat is a Rwandan-owned, Rwanda-based property company. Architecture, construction, villa management, and real estate — everything under one roof.",
+          "Ever Design is a Rwandan-owned, Rwanda-based property company. Architecture, construction, villa management, and real estate — everything under one roof.",
           "We handle every stage of the property lifecycle in-house, so you deal directly with the people doing the work, not a chain of subcontractors and middlemen.",
           "Our current developments range from completed showcase villas in Rubavu to new projects in design across Rwanda's most desirable areas.",
           "Whether you're buying a finished villa, reserving a unit off-plan, or developing land you already own, one team sees it through from first design sketch to first guest booking.",
@@ -3218,8 +3218,8 @@ export const translations: Record<Language, TranslationShape> = {
         cta: "View All Developments",
       },
       advantage: {
-        eyebrow: "Why Buy With Ever Retreat",
-        headingLight: "The Ever Retreat",
+        eyebrow: "Why Buy With Ever Design",
+        headingLight: "The Ever Design",
         headingBold: "Advantage",
         intro:
           "Rwanda real estate rewards buyers who work with a team that handles legal, design, construction, and management under one roof — not a patchwork of subcontractors.",
@@ -3293,7 +3293,7 @@ export const translations: Record<Language, TranslationShape> = {
         eyebrow: "Current Developments",
         heading: "Explore Our Developments",
         paragraph:
-          "From completed showcase villas to developments still in design — here is a selection of what Ever Retreat is building across Rwanda.",
+          "From completed showcase villas to developments still in design — here is a selection of what Ever Design is building across Rwanda.",
         viewDetails: "View Details",
         viewAll: "View All 8 Developments",
       },
@@ -3356,7 +3356,7 @@ export const translations: Record<Language, TranslationShape> = {
       },
       whyChoose: {
         eyebrow: "Why Choose Us",
-        heading: "Why Choose Ever Retreat",
+        heading: "Why Choose Ever Design",
         items: [
           {
             title: "Ethically-Owned & Managed",
@@ -3451,7 +3451,7 @@ export const translations: Record<Language, TranslationShape> = {
           description1:
             "Constructing villas in Rwanda requires understanding laterite soil, seasonal rainfall, and seismic considerations. Our 82-strong in-house team uses reinforced concrete structures with laterite-adapted foundations and climate-responsive design.",
           description2:
-            "From B&P Ever Retreat Villa at Lake Kivu to Virunga Villas near the volcanoes, every project is managed by certified engineers with local expertise, on fixed-price contracts from foundation to handover.",
+            "From B&P Ever Design Villa at Lake Kivu to Virunga Villas near the volcanoes, every project is managed by certified engineers with local expertise, on fixed-price contracts from foundation to handover.",
           feature1: "Certified materials meeting Rwandan building standards",
           feature2: "6-9 month average build timeline",
           feature3: "Fixed-price contracts, no surprise costs",
@@ -3495,7 +3495,7 @@ export const translations: Record<Language, TranslationShape> = {
         eyebrow: "Our Promise",
         heading: "Fixed-Price, No Surprises",
         paragraph1:
-          "Every Ever Retreat contract is fixed-price from the start. Payments are tied to real construction milestones, not calendar dates, so you only pay as work is actually completed.",
+          "Every Ever Design contract is fixed-price from the start. Payments are tied to real construction milestones, not calendar dates, so you only pay as work is actually completed.",
         paragraph2:
           "Architecture, construction, villa management, and land sourcing all sit under one roof, with one in-house team and one point of contact — no subcontractor handoffs, no scope creep, no surprise change orders.",
       },
@@ -3669,7 +3669,7 @@ export const translations: Record<Language, TranslationShape> = {
       closingCtaSecondary: "WhatsApp Us",
     },
     blogIndexPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Blog",
       heroSubtitle: "Insights & Guides",
       heroIntro:
@@ -3677,17 +3677,17 @@ export const translations: Record<Language, TranslationShape> = {
       postsEyebrow: "Latest Articles",
     },
     blogRentalIncomePage: {
-      heroEyebrow: "Ever Retreat Blog",
+      heroEyebrow: "Ever Design Blog",
       heroTitle: "How Much Rental Income Does a Rwanda Villa Actually Earn?",
       heroSubtitle: "Nightly rates, occupancy data, and net yield breakdowns by area.",
       yieldHeading: "Yield by Area",
-      yieldIntro: "Here's what Ever Retreat-managed villas achieve as of 2026:",
+      yieldIntro: "Here's what Ever Design-managed villas achieve as of 2026:",
       tableAreaHeader: "Area",
       tableNightlyRateHeader: "Avg Nightly Rate",
       tableOccupancyHeader: "Avg Occupancy",
       tableYieldHeader: "Gross Yield",
       managementHeading: "What We Include in Management",
-      managementIntro: "Ever Retreat's full rental management covers:",
+      managementIntro: "Ever Design's full rental management covers:",
       managementItems: [
         "Professional photography and listing creation",
         "Dynamic pricing optimization",
@@ -3698,7 +3698,7 @@ export const translations: Record<Language, TranslationShape> = {
       ],
     },
     blogBestAreaPage: {
-      heroEyebrow: "Ever Retreat Blog",
+      heroEyebrow: "Ever Design Blog",
       heroTitle: "Best Area to Invest in Rwanda (2026)",
       heroSubtitle:
         "Comparing land prices, yields, and lifestyle factors across Rwanda's top investment areas.",
@@ -3730,7 +3730,7 @@ export const translations: Record<Language, TranslationShape> = {
       recommendationPart4: ", consider Nyungwe or Akagera.",
     },
     blogForeignersPage: {
-      heroEyebrow: "Ever Retreat Blog",
+      heroEyebrow: "Ever Design Blog",
       heroTitle: "Can Foreigners Buy Property in Rwanda?",
       heroSubtitle: "Complete guide to legal ownership structures in Rwanda.",
       dateLabel: "March 2026",
@@ -3808,7 +3808,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Many investors diversify across both — allocating 60% to Lake Kivu for cash flow and 40% to Musanze for growth.",
     },
     blogCostToBuildPage: {
-      heroEyebrow: "Ever Retreat Blog",
+      heroEyebrow: "Ever Design Blog",
       heroTitle: "What Does It Cost to Build a Villa in Rwanda?",
       heroSubtitle: "Real construction costs from $1,000 per sqm.",
       breakdownHeading: "Construction Cost Breakdown",
@@ -3838,7 +3838,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Most investors budget 10-15% above the base package for custom upgrades, premium finishes, or land acquisition in prime areas.",
     },
     blogHowToBuildPage: {
-      heroEyebrow: "Ever Retreat Blog",
+      heroEyebrow: "Ever Design Blog",
       heroTitle: "How to Build a Villa in Rwanda",
       heroSubtitle: "The full process from land to first guest.",
       landSourcingHeading: "Land Sourcing & Due Diligence",
@@ -3998,7 +3998,7 @@ export const translations: Record<Language, TranslationShape> = {
       tiersCta: "Browse Current Developments",
       developmentsHeading: "Where We're Building",
       developmentsParagraph:
-        "Every Ever Retreat development is designed, built, and managed in-house — from completed showcase villas to developments in design across Rwanda.",
+        "Every Ever Design development is designed, built, and managed in-house — from completed showcase villas to developments in design across Rwanda.",
       developmentPrototype: "Prototype",
       developmentComingSoon: "Coming Soon",
       developmentNotForSale: "Not For Sale",
@@ -4016,7 +4016,7 @@ export const translations: Record<Language, TranslationShape> = {
         {
           title: "Regulatory Changes Can Happen",
           description:
-            "Rwanda property law has become more investor-friendly over the past decade, but regulations can change. Working with a licensed, locally established company like Ever Retreat reduces your exposure.",
+            "Rwanda property law has become more investor-friendly over the past decade, but regulations can change. Working with a licensed, locally established company like Ever Design reduces your exposure.",
         },
         {
           title: "Not All Areas Perform Equally",
@@ -4338,7 +4338,7 @@ export const translations: Record<Language, TranslationShape> = {
       heroSlide1Title: "Rubavu",
       heroSlide1Subtitle: "Lake Kivu waterfront — premium holiday rentals and luxury lakeside villas.",
       heroSlide2Title: "Lake Kivu Lifestyle",
-      heroSlide2Subtitle: "Home to B&P Ever Retreat Villa and Cottage — our completed showcase villas.",
+      heroSlide2Subtitle: "Home to B&P Ever Design Villa and Cottage — our completed showcase villas.",
       marketHeading: "Rubavu Property Market",
       marketParagraph1Pre:
         "Rubavu sits on the shores of Lake Kivu, one of Rwanda's most scenic and sought-after destinations. The area attracts high-spending tourists year-round for water sports, sunset cruises, and lakeside relaxation. Our ",
@@ -4461,13 +4461,13 @@ export const translations: Record<Language, TranslationShape> = {
       whyInvestItem4Description: "Lower competition with potential for early mover advantages.",
     },
     aboutPageExtra: {
-      heroEyebrow: "About Ever Retreat",
+      heroEyebrow: "About Ever Design",
       heroTitle: "We Design, Build & Manage",
       heroTitleLight: "We Design,",
       heroTitleLine2: "Build &",
       heroTitleBold: "Manage",
       heroSubtitle:
-        "Ever Retreat is an Rwandan-owned, Rwanda-based property company. 120 projects completed. 82 in-house professionals. Architecture, construction, villa management, and real estate - everything under one roof. The most complete property proposition in East Africa.",
+        "Ever Design is an Rwandan-owned, Rwanda-based property company. 120 projects completed. 82 in-house professionals. Architecture, construction, villa management, and real estate - everything under one roof. The most complete property proposition in East Africa.",
       villasHeading: "120 Villas. Still Counting.",
       villasParagraph:
         "Ten years building across Kigali, Musanze, Rubavu, Huye, and Nyanza. Each project a testament to quality, design, and investment performance.",
@@ -4476,11 +4476,11 @@ export const translations: Record<Language, TranslationShape> = {
       originHeadingLight: "Born From a",
       originHeadingBold: "Simple Idea",
       originParagraph1:
-        "Ever Retreat was built on one principle: property investment in Rwanda deserves the same standards investors expect anywhere else in the world. No cutting corners. No disappearing contractors. No surprise costs.",
+        "Ever Design was built on one principle: property investment in Rwanda deserves the same standards investors expect anywhere else in the world. No cutting corners. No disappearing contractors. No surprise costs.",
       originParagraph2:
         "What started as a small in-house team has grown into an 82-strong group of architects, engineers, project managers, interior designers, and property managers - all under one roof. From land sourcing to guest check-in, we handle architecture, construction, interior design, and villa management as a single integrated service, so clients deal directly with the people doing the work, not a chain of contractors and middlemen.",
       originParagraph3:
-        "With 120 completed projects across Kigali, Musanze, Rubavu, Huye, and Nyanza over more than 10 years, Ever Retreat has built a track record investors can see and verify firsthand - from showcase villas on Lake Kivu to developments now underway across the country.",
+        "With 120 completed projects across Kigali, Musanze, Rubavu, Huye, and Nyanza over more than 10 years, Ever Design has built a track record investors can see and verify firsthand - from showcase villas on Lake Kivu to developments now underway across the country.",
       visionHeading: "Our Vision",
       visionText:
         "The most complete property proposition in East Africa - a Rwanda where property investment is simple, transparent, and fully managed from land sourcing through to guest check-in.",
@@ -4490,7 +4490,7 @@ export const translations: Record<Language, TranslationShape> = {
       teamStatsEyebrow: "Our Team",
       teamStatsHeading: "82 In-House Professionals",
       teamStatsParagraph:
-        "Ever Retreat's in-house team spans leadership, architecture, hospitality and villa management, finance, site engineering, procurement, IT, and operations - all coordinated from Rwanda.",
+        "Ever Design's in-house team spans leadership, architecture, hospitality and villa management, finance, site engineering, procurement, IT, and operations - all coordinated from Rwanda.",
     },
     buildCalculatorPage: {
       heroSlide1Title: "Build Cost Calculator",
@@ -4532,7 +4532,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Ask for copies of building permits (RDC), zoning clearance, and title verification. A reputable developer provides these upfront. Our in-house legal team handles all permit acquisition.",
       flag3Title: "3. No References or Completed Projects",
       flag3Desc:
-        "Look for completed projects you can visit. Our showcase villas, B&P Ever Retreat Villa and Cottage at Lake Kivu, are completed projects you can see in person.",
+        "Look for completed projects you can visit. Our showcase villas, B&P Ever Design Villa and Cottage at Lake Kivu, are completed projects you can see in person.",
       flag4Title: "4. Unrealistic Timelines or Prices",
       flag4Desc:
         "If a quote is significantly below market rate, they're likely cutting corners. Our fixed-price contracts guarantee no surprises, with payments tied to real construction milestones.",
@@ -4575,10 +4575,10 @@ export const translations: Record<Language, TranslationShape> = {
       roleComparisonIntro:
         "In Rwanda these are often four different companies, and that's where the cracks appear. Each one can point at the others when something goes wrong.",
       roleComparisonClosing:
-        "Ever Retreat is all four roles in one company. We design, build, sell, and manage the villa ourselves, so there's no one else to point at but us.",
-      whyChooseHeading: "Why Choose Ever Retreat?",
+        "Ever Design is all four roles in one company. We design, build, sell, and manage the villa ourselves, so there's no one else to point at but us.",
+      whyChooseHeading: "Why Choose Ever Design?",
       whyChooseParagraph1:
-        "We built B&P Ever Retreat Villa and Cottage, our showcase villas at Lake Kivu, and have Virunga Villas underway in Musanze. See our developments for the current status of each.",
+        "We built B&P Ever Design Villa and Cottage, our showcase villas at Lake Kivu, and have Virunga Villas underway in Musanze. See our developments for the current status of each.",
       whyChooseParagraph2:
         "Unlike solo operators, we handle everything in-house: architecture, construction, legal, permits, and rental management. One company, one point of contact.",
       stakesEyebrow: "Why This Decision Carries Real Risk",
@@ -4602,14 +4602,14 @@ export const translations: Record<Language, TranslationShape> = {
       paymentParagraph1:
         "Buying off-plan means paying for a villa that doesn't exist yet. The real protection isn't a promise, it's the payment structure: your instalments should be tied to real construction milestones you can verify, not to fixed calendar dates.",
       paymentParagraph2:
-        "Every Ever Retreat contract is fixed-price from the start. The figure you sign is the figure you pay, payments release against work you can see with weekly progress photo updates, and the same team that builds your villa also manages it afterwards — so a defect gets fixed rather than argued over.",
+        "Every Ever Design contract is fixed-price from the start. The figure you sign is the figure you pay, payments release against work you can see with weekly progress photo updates, and the same team that builds your villa also manages it afterwards — so a defect gets fixed rather than argued over.",
       whyItMattersEyebrow: "Why It Matters",
       whyItMattersHeadingLight: "One Team Beats a",
       whyItMattersHeadingBold: "Fragmented Chain",
       whyItMattersParagraph1:
         "Every handoff in a build is a place where something can break. A separate agent, architect, builder, and manager means four contracts and four parties who can blame each other when the villa is late, over budget, or built wrong.",
       whyItMattersParagraph2:
-        "Ever Retreat removes those seams. The same in-house team of 82+ professionals that designs your villa also builds it, sells it, and manages it afterwards, with our own project managers overseeing every trade on site. One company, one point of contact, for the whole project.",
+        "Ever Design removes those seams. The same in-house team of 82+ professionals that designs your villa also builds it, sells it, and manages it afterwards, with our own project managers overseeing every trade on site. One company, one point of contact, for the whole project.",
       proofEyebrow: "How We De-Risk Your Build",
       proofHeadingLight: "Proof, Not",
       proofHeadingBold: "Promises",
@@ -4639,13 +4639,13 @@ export const translations: Record<Language, TranslationShape> = {
       faq1Question: "What if I already own land in Rwanda?",
       faq1Answer:
         "We offer development partnerships for landowners: our team designs, builds, and can manage a villa development on land you already own, under the same fixed-price, in-house model we use for our own projects.",
-      faq2Question: "Which areas does Ever Retreat build in?",
+      faq2Question: "Which areas does Ever Design build in?",
       faq2Answer:
         "Our developments and land sourcing currently cover Kigali, Musanze, Rubavu, Nyungwe, Huye, and Nyanza. Each area is evaluated for tourism demand, access, and long-term land value before we commit to a project there.",
       faq3Question: "What happens if my developer disappears mid-project?",
       faq3Answer:
-        "That risk is exactly why the checklist above matters: a registered company with a physical office, completed projects you can visit, and fixed-price contracts with milestone payments means you're never paying in full for work that hasn't happened. Every Ever Retreat contract ties payment to verified progress, and our in-house team has completed 120 projects over 10+ years without handing a build off to a third party.",
-      closingEyebrow: "Talk to Ever Retreat",
+        "That risk is exactly why the checklist above matters: a registered company with a physical office, completed projects you can visit, and fixed-price contracts with milestone payments means you're never paying in full for work that hasn't happened. Every Ever Design contract ties payment to verified progress, and our in-house team has completed 120 projects over 10+ years without handing a build off to a third party.",
+      closingEyebrow: "Talk to Ever Design",
       closingHeadingLight: "Vet Us the",
       closingHeadingBold: "Same Way",
       closingParagraph:
@@ -4741,7 +4741,7 @@ export const translations: Record<Language, TranslationShape> = {
         { feature: "Usage", fractional: "Set weeks per year, scheduled in advance", full: "Unlimited, year-round access" },
         { feature: "Rental Income", fractional: "Shared income during your off-weeks", full: "Optional, if you self-manage or list it yourself" },
         { feature: "Maintenance & Costs", fractional: "Split proportionally among co-owners", full: "Fully the owner's responsibility" },
-        { feature: "Management", fractional: "Included, handled by Ever Retreat", full: "Owner arranges their own management" },
+        { feature: "Management", fractional: "Included, handled by Ever Design", full: "Owner arranges their own management" },
         { feature: "Exit", fractional: "Sell or transfer your share after a 12-24 month hold", full: "Sell the property outright at any time" },
       ],
       fitEyebrow: "Is This Right for You?",
@@ -4766,19 +4766,19 @@ export const translations: Record<Language, TranslationShape> = {
       meetTeamLabel: "Meet Our Team",
     },
     referAFriendPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Refer a Friend",
-      heroSubtitle: "Share the Ever Retreat experience and both benefit.",
+      heroSubtitle: "Share the Ever Design experience and both benefit.",
       contentHeading: "Refer a Friend, Get Rewarded",
       contentParagraph:
-        "When your friend builds a villa with Ever Retreat and you refer them, both of you benefit. As a thank you, you receive a USD $5,000 credit towards your construction costs, and your friend receives priority scheduling and a complimentary design consultation.",
+        "When your friend builds a villa with Ever Design and you refer them, both of you benefit. As a thank you, you receive a USD $5,000 credit towards your construction costs, and your friend receives priority scheduling and a complimentary design consultation.",
       howItWorksHeading: "How It Works",
       step1: "Submit your friend's details via the form below or contact us directly.",
       step2: "Your friend mentions your referral when they enquire about their project.",
       step3: "Both credits are applied once your friend's project commences construction.",
       termsHeading: "Terms",
-      term1: "The referrer must have an active or completed project with Ever Retreat",
-      term2: "The referred friend must be new to Ever Retreat",
+      term1: "The referrer must have an active or completed project with Ever Design",
+      term2: "The referred friend must be new to Ever Design",
       term3: "Credits are applied at the start of construction phase",
       term4: "Program closes when either party reaches final payment",
       faqHeading: "Referral Program FAQ",
@@ -4788,8 +4788,8 @@ export const translations: Record<Language, TranslationShape> = {
           answer: "You receive a USD $5,000 credit towards your construction costs once your friend's project commences construction, and your friend receives priority scheduling and a complimentary design consultation.",
         },
         {
-          question: "Does my friend need to be new to Ever Retreat?",
-          answer: "Yes. The referred friend must be new to Ever Retreat, and the referrer must have an active or completed project with us.",
+          question: "Does my friend need to be new to Ever Design?",
+          answer: "Yes. The referred friend must be new to Ever Design, and the referrer must have an active or completed project with us.",
         },
         {
           question: "When is the credit applied?",
@@ -4798,7 +4798,7 @@ export const translations: Record<Language, TranslationShape> = {
       ],
     },
     villaToursPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Villa Tours",
       heroSubtitle: "Schedule a private viewing of our completed developments and off-plan projects across Rwanda.",
       scheduleEyebrow: "Schedule a Tour",
@@ -4842,7 +4842,7 @@ export const translations: Record<Language, TranslationShape> = {
       stage5Desc: "Full working drawings and permit set ready for build.",
       philosophyHeading: "Our Design Philosophy",
       philosophyParagraph:
-        "We design villas that work year-round. B&P Ever Retreat Villa at Lake Kivu uses natural ventilation to combat humidity, and Virunga Villas near the volcanoes incorporates stone from local quarries.",
+        "We design villas that work year-round. B&P Ever Design Villa at Lake Kivu uses natural ventilation to combat humidity, and Virunga Villas near the volcanoes incorporates stone from local quarries.",
       projectsHeading: "Projects",
       projectBpDescription: "showcase villa at Lake Kivu",
       projectCottageDescription: "showcase villa at Lake Kivu",
@@ -4857,7 +4857,7 @@ export const translations: Record<Language, TranslationShape> = {
       pricingRow1Label: "Design Only",
       pricingRow1Note: "Full 5-stage architectural design package for a single villa.",
       pricingRow2Label: "Design + Build",
-      pricingRow2Note: "50% off design fees when you build the villa with Ever Retreat.",
+      pricingRow2Note: "50% off design fees when you build the villa with Ever Design.",
       pricingNote:
         "Design pricing above is per villa. Construction is quoted separately — see our Construction pricing.",
       galleryEyebrow: "Our Work",
@@ -4904,7 +4904,7 @@ export const translations: Record<Language, TranslationShape> = {
       oneTeamHeadingLight: "From Design",
       oneTeamHeadingBold: "to Build",
       oneTeamParagraph1:
-        "The biggest risk in any villa project is the gap between architect and builder — a design that looks beautiful on paper but is expensive or impractical to actually build. Ever Retreat closes that gap by keeping design and construction under one roof.",
+        "The biggest risk in any villa project is the gap between architect and builder — a design that looks beautiful on paper but is expensive or impractical to actually build. Ever Design closes that gap by keeping design and construction under one roof.",
       oneTeamParagraph2:
         "The same in-house team that draws your villa also builds it, so every design decision is made with real Rwanda construction costs, materials, and timelines in mind from day one — not discovered after you've already paid for permits.",
       closingEyebrow: "Start Your Design",
@@ -4937,7 +4937,7 @@ export const translations: Record<Language, TranslationShape> = {
       approachParagraph1:
         "Constructing villas in Rwanda requires understanding of laterite soil, seasonal rainfall patterns, and seismic considerations. Our 82-strong in-house team uses reinforced concrete structures with laterite-adapted foundations, proper drainage, and climate-responsive design — all included in our fixed-price contracts.",
       approachParagraph2:
-        "From B&P Ever Retreat Villa at Lake Kivu to Virunga Villas near the volcanoes, every project is managed by certified engineers with local expertise.",
+        "From B&P Ever Design Villa at Lake Kivu to Virunga Villas near the volcanoes, every project is managed by certified engineers with local expertise.",
       introChecklistItem1: "Fixed-price contracts, payments tied to milestones",
       introChecklistItem2: "Weekly photo progress reports",
       introChecklistItem3: "One point of contact throughout your build",
@@ -5034,14 +5034,14 @@ export const translations: Record<Language, TranslationShape> = {
       materialsEyebrow: "Build Quality",
       materialsHeading: "Premium Materials. No Shortcuts.",
       materialsIntro:
-        "We do not cut corners on structure or foundation. Every Ever Retreat build follows the same standard, regardless of finish tier.",
+        "We do not cut corners on structure or foundation. Every Ever Design build follows the same standard, regardless of finish tier.",
       materialsCategoryTitle: "Structure & Foundation",
       materialsCategoryDesc:
-        "Reinforced concrete structures on laterite-adapted foundations with proper drainage, waterproofed for Rwanda's seasonal rainfall, and finished with locally-sourced stone and hardwood — the same standard used from B&P Ever Retreat Villa to Virunga Villas.",
+        "Reinforced concrete structures on laterite-adapted foundations with proper drainage, waterproofed for Rwanda's seasonal rainfall, and finished with locally-sourced stone and hardwood — the same standard used from B&P Ever Design Villa to Virunga Villas.",
       caseStudyEyebrow: "Real Results",
       caseStudyHeading: "See a Real Build from Start to Finish",
       caseStudyParagraph:
-        "B&P Ever Retreat Villa at Lake Kivu was built and is managed entirely by our in-house team, from land acquisition through to handover and rental income.",
+        "B&P Ever Design Villa at Lake Kivu was built and is managed entirely by our in-house team, from land acquisition through to handover and rental income.",
       caseStudyCta: "Read the Case Study",
       faq1Question: "How much does it cost to build a villa in Rwanda?",
       faq1Answer:
@@ -5106,7 +5106,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Figures are indicative estimates based on our land and investment market data, not guarantees. Get a projection for your own villa with our Build Calculator.",
       yieldCta: "Try the Build Calculator",
       includedEyebrow: "Full-Service Management",
-      includedHeadingLight: "What Ever Retreat",
+      includedHeadingLight: "What Ever Design",
       includedHeadingBold: "Management Includes",
       includedIntro:
         "Our management fee starts from 20% per booking and covers every part of your villa's rental operation, from listing to reporting.",
@@ -5149,7 +5149,7 @@ export const translations: Record<Language, TranslationShape> = {
       comparisonHeadingBold: "Professionally Managed",
       comparisonIntro: "Many villa owners start by managing their own rental. Here is what changes with professional management.",
       selfManagedLabel: "Self-Managed",
-      managedLabel: "Ever Retreat Managed",
+      managedLabel: "Ever Design Managed",
       selfManagedItem1: "Guest messages at all hours, including your own timezone",
       selfManagedItem2: "Finding reliable cleaners and maintenance help yourself",
       selfManagedItem3: "Static pricing that can leave money on the table",
@@ -5179,7 +5179,7 @@ export const translations: Record<Language, TranslationShape> = {
       builtManagedHeadingLight: "Built and",
       builtManagedHeadingBold: "Managed",
       builtManagedParagraph1:
-        "Ever Retreat is one of the few companies in Rwanda that can take a villa from an empty plot to a fully managed, income-generating property, with architecture, construction, and management all under one roof.",
+        "Ever Design is one of the few companies in Rwanda that can take a villa from an empty plot to a fully managed, income-generating property, with architecture, construction, and management all under one roof.",
       builtManagedParagraph2:
         "When our management team takes over a villa our own construction team built, they already know the layout, the materials, and the systems, so maintenance is faster and more effective because nothing is a mystery.",
       builtManagedItem1: "We know the villa inside out because we built it",
@@ -5286,14 +5286,14 @@ export const translations: Record<Language, TranslationShape> = {
         "Rwanda land is one of the strongest real estate investment plays in East Africa. Here is why our clients are buying land now.",
       whyBuyItem1Title: "15-20% Rental Yield",
       whyBuyItem1Desc:
-        "Ever Retreat-managed villas typically achieve 15-20% gross rental yield annually, depending on location, villa size, and occupancy.",
+        "Ever Design-managed villas typically achieve 15-20% gross rental yield annually, depending on location, villa size, and occupancy.",
       whyBuyItem2Title: "7-15% Annual Appreciation",
       whyBuyItem2Desc:
         "Land in Rwanda's prime areas has been appreciating 7-15% annually, driven by consistent tourism growth and limited developable land in prime zones.",
       whyBuyItem3Title: "1.5M+ Annual Visitors",
       whyBuyItem3Desc:
         "Rwanda welcomes over 1.5 million visitors a year, driving consistent tourism demand for land near Volcanoes National Park, Lake Kivu, and Akagera.",
-      whyBuyItem4Title: "Complete Package With Ever Retreat",
+      whyBuyItem4Title: "Complete Package With Ever Design",
       whyBuyItem4Desc:
         "Buy land with us and unlock our full pipeline: design your villa with our architecture team at 50% off, build it with our construction team, and earn rental income through our management division.",
       whyBuyItem5Title: "Affordable Entry Point",
@@ -5355,9 +5355,9 @@ export const translations: Record<Language, TranslationShape> = {
       crossSellHeadingLight: "From Land to",
       crossSellHeadingBold: "Income-Generating Villa",
       crossSellParagraph1:
-        "Buying land is step one. With Ever Retreat, that single purchase unlocks a complete pipeline - from bare plot to designed villa, finished construction, and managed rental income, all under one in-house team.",
+        "Buying land is step one. With Ever Design, that single purchase unlocks a complete pipeline - from bare plot to designed villa, finished construction, and managed rental income, all under one in-house team.",
       crossSellParagraph2:
-        "Clients who purchase land with us and proceed to build receive a 50% discount on architectural design fees, making Ever Retreat the most cost-effective route from bare land to a completed, income-generating villa.",
+        "Clients who purchase land with us and proceed to build receive a 50% discount on architectural design fees, making Ever Design the most cost-effective route from bare land to a completed, income-generating villa.",
       crossSellChecklistItem1: "Design your villa at 50% off with our in-house architecture team",
       crossSellChecklistItem2: "Fixed-price construction from foundation to handover",
       crossSellChecklistItem3: "Villa management from 20% per booking once complete",
@@ -5379,7 +5379,7 @@ export const translations: Record<Language, TranslationShape> = {
       introParagraph1:
         "Developing property in Rwanda is complex. Zoning, permits, construction quality, and ongoing management all need to work together. Most landowners lack the local team and track record to execute at the standard the market demands.",
       introParagraph2:
-        "That's where Ever Retreat comes in. With 120 villas completed and 82 in-house professionals spanning architecture, construction, legal, and villa management, we bring everything needed to turn land you already own into a finished, income-generating development — under a profit-share partnership rather than a standard client contract.",
+        "That's where Ever Design comes in. With 120 villas completed and 82 in-house professionals spanning architecture, construction, legal, and villa management, we bring everything needed to turn land you already own into a finished, income-generating development — under a profit-share partnership rather than a standard client contract.",
       introChecklistItem1: "In-house architecture, construction, and legal teams under one roof",
       introChecklistItem2: "Fixed-price construction contracts, the same standard we use on our own developments",
       introChecklistItem3: "Optional villa management after handover, from 20% per booking",
@@ -5398,7 +5398,7 @@ export const translations: Record<Language, TranslationShape> = {
       landownerOurRole: "Design, permits, construction, and optional management",
       investorTitle: "Investor Partnership",
       investorDesc:
-        "Prefer to contribute capital instead of land? We can structure a joint venture around funding a development, with Ever Retreat sourcing the land and handling design, construction, sales, and management. Profit share is agreed based on your contribution — talk to us about structuring terms for your situation.",
+        "Prefer to contribute capital instead of land? We can structure a joint venture around funding a development, with Ever Design sourcing the land and handling design, construction, sales, and management. Profit share is agreed based on your contribution — talk to us about structuring terms for your situation.",
       investorYourRole: "Capital investment, financial oversight",
       investorOurRole: "Land sourcing, design, construction, reporting",
       customTitle: "Custom Development",
@@ -5438,7 +5438,7 @@ export const translations: Record<Language, TranslationShape> = {
       financeFeeLabel: "Management fee",
       financeFeeValue: "From 20% per booking, if you opt into ongoing villa management",
       financeShareLabel: "Profit share",
-      financeShareValue: "Typically 50/50 or 60/40 between landowner and Ever Retreat, based on each party's contribution",
+      financeShareValue: "Typically 50/50 or 60/40 between landowner and Ever Design, based on each party's contribution",
       financeNote:
         "We present a full, project-specific financial model — build cost, timeline, and proposed profit split — before any partnership agreement is signed.",
       processEyebrow: "From Land to Rental Income",
@@ -5455,11 +5455,11 @@ export const translations: Record<Language, TranslationShape> = {
       step4Desc: "Launch campaign, listings, and buyer outreach.",
       step5Title: "Rental management",
       step5Desc: "Optional ongoing management for retained units.",
-      oneTeamEyebrow: "Why Partner With Ever Retreat",
+      oneTeamEyebrow: "Why Partner With Ever Design",
       oneTeamHeadingLight: "One Team.",
       oneTeamHeadingBold: "Every Discipline.",
       oneTeamParagraph1:
-        "Most development partnerships involve cobbling together separate companies for design, construction, and management. Each handoff introduces delay and cost. At Ever Retreat, every discipline sits under one roof.",
+        "Most development partnerships involve cobbling together separate companies for design, construction, and management. Each handoff introduces delay and cost. At Ever Design, every discipline sits under one roof.",
       oneTeamParagraph2:
         "Our architects design what our own builders know how to build efficiently, under the same fixed-price standard we use on every project. And if you choose ongoing villa management, the same company that built your villa can manage it for rental income afterward.",
       oneTeamItem1: "120 villas designed and built across Rwanda",
@@ -5479,7 +5479,7 @@ export const translations: Record<Language, TranslationShape> = {
       faq2Question: "What partnership structures are available?",
       faq2Answer:
         "Our main structure is a profit-share partnership: you contribute the land, we handle design, construction, and optional management, and profits are split based on contribution, typically 50/50 or 60/40. If you'd rather contribute capital instead of land, or your situation doesn't fit either structure, get in touch and we'll work out terms case-by-case.",
-      faq3Question: "Does Ever Retreat handle permits and legal work?",
+      faq3Question: "Does Ever Design handle permits and legal work?",
       faq3Answer:
         "Yes. Our in-house legal team handles building permits, title verification, and compliance documentation for every partnership, so you don't need to hire outside counsel.",
       closingEyebrow: "Start a Conversation",
@@ -5605,7 +5605,7 @@ export const translations: Record<Language, TranslationShape> = {
       unitPlaceholder: "e.g. 3 Bedroom, 4 Bedroom",
     },
     caseStudyPage: {
-      pageTitle: "Case Study: B&P Ever Retreat Villa",
+      pageTitle: "Case Study: B&P Ever Design Villa",
       pageSubtitle: "How we designed and built our showcase villa at Lake Kivu.",
       challengeHeading: "The Challenge",
       challengeParagraph:
@@ -5615,7 +5615,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Our team designed a single showcase villa positioned for maximum lake views, with a private plunge pool. We used reinforced concrete foundations and cantilevered terraces.",
       resultsHeading: "Results",
       resultsParagraph:
-        "The completed villa now serves as a live showcase of Ever Retreat's design and construction standard — a hands-on reference our clients and partners can visit in person.",
+        "The completed villa now serves as a live showcase of Ever Design's design and construction standard — a hands-on reference our clients and partners can visit in person.",
       timelineEyebrow: "How It Came Together",
       timelineHeading: "Project Timeline",
       timelineHeadingLight: "Project",
@@ -5639,13 +5639,13 @@ export const translations: Record<Language, TranslationShape> = {
       statsHeadingBold: "Behind the Reviews",
     },
     termsPage: {
-      heroSubtitle: "Terms and conditions for using the Ever Retreat website and services.",
+      heroSubtitle: "Terms and conditions for using the Ever Design website and services.",
       lastUpdatedLabel: "Last Updated:",
       lastUpdatedValue: "January 2026",
       questionsLabel: "Questions?",
       section1Heading: "Acceptance of Terms",
       section1Body:
-        "By accessing or using the Ever Retreat website, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our website.",
+        "By accessing or using the Ever Design website, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our website.",
       section2Heading: "Property Listings",
       section2Body:
         "Property listings, pricing, and availability on this website are subject to change without notice. We make no warranties regarding the accuracy or completeness of any listing information.",
@@ -5657,10 +5657,10 @@ export const translations: Record<Language, TranslationShape> = {
         "You are responsible for any content you submit through our website. By submitting content, you grant us a non-exclusive right to use, modify, and display it.",
       section5Heading: "Intellectual Property",
       section5Body:
-        "All content on this website, including text, images, logos, and trademarks, is the property of Ever Retreat or its licensors. You may not reproduce or distribute our content without permission.",
+        "All content on this website, including text, images, logos, and trademarks, is the property of Ever Design or its licensors. You may not reproduce or distribute our content without permission.",
       section6Heading: "Limitation of Liability",
       section6Body:
-        "To the fullest extent permitted by law, Ever Retreat shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services.",
+        "To the fullest extent permitted by law, Ever Design shall not be liable for any indirect, incidental, or consequential damages arising from your use of our website or services.",
       section7Heading: "Governing Law",
       section7Body:
         "These terms are governed by the laws of Rwanda. Any disputes shall be subject to the exclusive jurisdiction of the courts in Kigali, Rwanda.",
@@ -5788,10 +5788,10 @@ export const translations: Record<Language, TranslationShape> = {
       notSureCta: "Ask Us",
     },
     naraVillasPage: {
-      heroName: "B&P Ever Retreat Villa",
+      heroName: "B&P Ever Design Villa",
       heroTagline: "Prototype | Rubavu, Rwanda",
       heroSubtitle: "Showcase Villa | Lake Views | Private Pool | Lake Kivu",
-      heroImageAlt: "B&P Ever Retreat Villa - Rubavu Lake Kivu",
+      heroImageAlt: "B&P Ever Design Villa - Rubavu Lake Kivu",
       heroSecondaryCtaLabel: "Learn More",
       heroStatusBadge: "Prototype — Not For Sale",
       developmentEyebrow: "The Development",
@@ -5799,9 +5799,9 @@ export const translations: Record<Language, TranslationShape> = {
       developmentParagraph1:
         "Steps from Lake Kivu's western shore, with a private pool throughout. Designed with a modern tropical approach, the architecture centres on wellness living from the very start. Clean lines, open layouts, and natural light work together with greenery and fresh airflow.",
       developmentParagraph2:
-        "B&P Ever Retreat Villa sits on the shores of Lake Kivu — moments from Rubavu town and Gisenyi. The location attracts visitors for sunset cruises, water sports, and lakeside relaxation, with consistent weekend and holiday demand from regional and international visitors.",
+        "B&P Ever Design Villa sits on the shores of Lake Kivu — moments from Rubavu town and Gisenyi. The location attracts visitors for sunset cruises, water sports, and lakeside relaxation, with consistent weekend and holiday demand from regional and international visitors.",
       developmentParagraph3:
-        "B&P Ever Retreat Villa is our completed showcase villa, built to the same design and construction standard as every Ever Retreat development. It is not currently for sale.",
+        "B&P Ever Design Villa is our completed showcase villa, built to the same design and construction standard as every Ever Design development. It is not currently for sale.",
       locationLabel: "Location",
       locationValue: "Rubavu, Lake Kivu, Rwanda",
       totalVillasLabel: "Total Villas",
@@ -5812,9 +5812,9 @@ export const translations: Record<Language, TranslationShape> = {
       buildStatusValue: "Completed",
       glanceEyebrow: "At a Glance",
       glanceDevelopmentLabel: "Development",
-      glanceDevelopmentValue: "B&P Ever Retreat Villa",
+      glanceDevelopmentValue: "B&P Ever Design Villa",
       glanceDeveloperLabel: "Developer",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Location",
       glanceLocationValue: "Rubavu, Lake Kivu, Rwanda",
       glanceZoneLabel: "Zone",
@@ -5826,8 +5826,8 @@ export const translations: Record<Language, TranslationShape> = {
       glanceStatusLabel: "Status",
       glanceStatusValue: "Prototype — Not For Sale",
       longViewLabel: "The Long View",
-      longViewText: "A showcase of the design and craftsmanship behind every Ever Retreat villa.",
-      longViewImageAlt: "B&P Ever Retreat Villa long view",
+      longViewText: "A showcase of the design and craftsmanship behind every Ever Design villa.",
+      longViewImageAlt: "B&P Ever Design Villa long view",
       featuresEyebrow: "Included With The Villa",
       featuresHeading: "Designed for wellness.",
       feature1Title: "Private Pool",
@@ -5861,7 +5861,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEyebrow: "Our Rubavu Showcase Villa",
       ctaHeading: "Prototype — Not For Sale",
       ctaParagraph:
-        "B&P Ever Retreat Villa is our completed showcase villa on Lake Kivu, built to demonstrate the design and construction standard behind every Ever Retreat development. Get in touch to learn more.",
+        "B&P Ever Design Villa is our completed showcase villa on Lake Kivu, built to demonstrate the design and construction standard behind every Ever Design development. Get in touch to learn more.",
       ctaEnquireLabel: "Enquire Now",
       ctaViewAllLabel: "View All Developments",
     },
@@ -5879,7 +5879,7 @@ export const translations: Record<Language, TranslationShape> = {
       developmentParagraph2:
         "The villa features floor-to-ceiling windows, a private plunge pool, and a design that maximises indoor-outdoor living. The architecture combines modern tropical elements with local stone and timber craftsmanship.",
       developmentParagraph3:
-        "Cottage is our completed showcase villa in a tourism-designated zone in Rubavu — built to the same design and construction standard as every Ever Retreat development. It is not currently for sale.",
+        "Cottage is our completed showcase villa in a tourism-designated zone in Rubavu — built to the same design and construction standard as every Ever Design development. It is not currently for sale.",
       locationLabel: "Location",
       locationValue: "Rubavu, Lake Kivu, Rwanda",
       bedroomsLabel: "Bedrooms",
@@ -5892,7 +5892,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceDevelopmentLabel: "Development",
       glanceDevelopmentValue: "Cottage",
       glanceDeveloperLabel: "Developer",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Location",
       glanceLocationValue: "Rubavu, Lake Kivu, Rwanda",
       glanceZoneLabel: "Zone",
@@ -5908,7 +5908,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceStatusLabel: "Status",
       glanceStatusValue: "Prototype — Not For Sale",
       longViewLabel: "The Long View",
-      longViewText: "A showcase of the design and craftsmanship behind every Ever Retreat villa.",
+      longViewText: "A showcase of the design and craftsmanship behind every Ever Design villa.",
       longViewImageAlt: "Cottage lake view",
       featuresEyebrow: "Included With The Villa",
       featuresHeading: "Designed for wellness.",
@@ -5934,7 +5934,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEyebrow: "Our Rubavu Showcase Villa",
       ctaHeading: "Prototype — Not For Sale",
       ctaParagraph:
-        "Cottage is our completed showcase villa in Rubavu, built to demonstrate the design and construction standard behind every Ever Retreat development. Get in touch to learn more.",
+        "Cottage is our completed showcase villa in Rubavu, built to demonstrate the design and construction standard behind every Ever Design development. Get in touch to learn more.",
       ctaEnquireLabel: "Enquire Now",
       ctaViewAllLabel: "View All Developments",
     },
@@ -5964,7 +5964,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceDevelopmentLabel: "Development",
       glanceDevelopmentValue: "Virunga Villas",
       glanceDeveloperLabel: "Developer",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Location",
       glanceLocationValue: "Musanze, Volcanoes Region, Rwanda",
       glanceZoneLabel: "Zone",
@@ -6055,12 +6055,12 @@ export const translations: Record<Language, TranslationShape> = {
       faqHeading: "Frequently Asked Questions",
       naraFaq: [
         {
-          question: "Where is B&P Ever Retreat Villa located?",
+          question: "Where is B&P Ever Design Villa located?",
           answer: "The development is in Rubavu, on the shores of Lake Kivu.",
         },
         {
           question: "Is the villa available for sale?",
-          answer: "B&P Ever Retreat Villa is our prototype build and is not currently for sale. Register your interest to be notified about future availability.",
+          answer: "B&P Ever Design Villa is our prototype build and is not currently for sale. Register your interest to be notified about future availability.",
         },
         {
           question: "What is the current build status?",
@@ -6107,7 +6107,7 @@ export const translations: Record<Language, TranslationShape> = {
       solasRoiYieldValue: "15-20%",
       solasRoiOccupancyLabel: "Average Occupancy (Rubavu)",
       solasRoiOccupancyValue: "85%",
-      solasRoiNote: "Source: Ever Retreat area market data for Rubavu. Actual returns depend on unit, pricing, and management terms agreed at reservation.",
+      solasRoiNote: "Source: Ever Design area market data for Rubavu. Actual returns depend on unit, pricing, and management terms agreed at reservation.",
       sukuRoiEyebrow: "Investment Snapshot",
       sukuRoiHeading: "Why Musanze Works for This Villa",
       sukuRoiParagraph:
@@ -6116,7 +6116,7 @@ export const translations: Record<Language, TranslationShape> = {
       sukuRoiYieldValue: "12-18%",
       sukuRoiOccupancyLabel: "Average Occupancy (Musanze)",
       sukuRoiOccupancyValue: "80%",
-      sukuRoiNote: "Source: Ever Retreat area market data for Musanze. Actual returns depend on unit, pricing, and management terms agreed at reservation.",
+      sukuRoiNote: "Source: Ever Design area market data for Musanze. Actual returns depend on unit, pricing, and management terms agreed at reservation.",
     },
     areasHubExtras: {
       statAreasLabel: "Areas Covered",
@@ -6148,15 +6148,15 @@ export const translations: Record<Language, TranslationShape> = {
       developments: "Résidences",
       services: "Services",
       realEstate: "Immobilier",
-      portfolio: "Portefeuille",
+      portfolio: "Portfolio",
       areas: "Régions",
-      blog: "Blog",
+      blog: "Actus",
       contact: "Contact",
       languageLabel: "Langue",
       currencyLabel: "Afficher Les Prix En",
       whatsappUs: "WhatsApp",
       developmentsMenu: {
-        bp: "Villa B&P Ever Retreat",
+        bp: "Villa B&P Ever Design",
         virunga: "Villas Virunga",
         cottage: "Cottage",
         kigaliRetreat: "Kigali Retreat",
@@ -6179,7 +6179,7 @@ export const translations: Record<Language, TranslationShape> = {
     hero: {
       label: "Promoteur immobilier basé au Rwanda",
       headlineBold: "Écoretraites Rwandaises",
-      headlineLight: "Construites par Ever Retreat",
+      headlineLight: "Construites par Ever Design",
       subtext: "Des écoretraites de luxe à Rubavu, Musanze, Kigali et Nyungwe, avec gestion locative complète. À partir de",
       ctaPrimary: "Découvrir les résidences",
       ctaSecondary: "Nous contacter",
@@ -6208,8 +6208,8 @@ export const translations: Record<Language, TranslationShape> = {
       avgOccupancyLabel: "Taux d'Occupation Moyen",
     },
     whyEverRetreatSection: {
-      eyebrow: "Pourquoi Ever Retreat",
-      heading: "Pourquoi Choisir Ever Retreat Plutôt Qu'un Autre Promoteur au Rwanda ?",
+      eyebrow: "Pourquoi Ever Design",
+      heading: "Pourquoi Choisir Ever Design Plutôt Qu'un Autre Promoteur au Rwanda ?",
       headingLight: "Les Investisseurs Méritent",
       headingBold: "Un Standard Plus Élevé",
       paragraph:
@@ -6265,7 +6265,7 @@ export const translations: Record<Language, TranslationShape> = {
     },
     servicesSubNavOverview: "Aperçu",
     footer: {
-      tagline: "Ever Retreat, une entreprise basée au Rwanda. Architecture, construction et gestion de villas, tout sous un même toit.",
+      tagline: "Ever Design, une entreprise basée au Rwanda. Architecture, construction et gestion de villas, tout sous un même toit.",
       hours: "Lun-Ven 8h-17h CAT",
       companyHeading: "Entreprise",
       servicesHeading: "Services",
@@ -6273,10 +6273,10 @@ export const translations: Record<Language, TranslationShape> = {
       company: {
         about: "À propos",
         howWeWork: "Comment nous travaillons",
-        portfolio: "Portefeuille",
+        portfolio: "Portfolio",
         villaTours: "Visites de villas",
         testimonials: "Témoignages",
-        blog: "Blog",
+        blog: "Actualités",
         caseStudy: "Étude de cas",
         clientForms: "Formulaires clients",
         payDeposit: "Payer un acompte",
@@ -6303,19 +6303,19 @@ export const translations: Record<Language, TranslationShape> = {
         faq: "FAQ",
       },
       rwandaHq: "Siège Rwanda",
-      everRetreatOffice: "Bureau Ever Retreat",
+      everRetreatOffice: "Bureau Ever Design",
       ourLocation: "Notre emplacement",
-      copyright: "© 2026 Ever Retreat. Tous droits réservés.",
+      copyright: "© 2026 Ever Design. Tous droits réservés.",
       privacy: "Confidentialité",
       terms: "Conditions",
       licensed: "Entièrement agréé",
     },
     about: {
-      badge: "À propos d'Ever Retreat",
+      badge: "À propos d'Ever Design",
       headingLine1: "Promoteur immobilier",
       headingLine2: "basé au Rwanda",
       paragraph:
-        "Ever Retreat est une entreprise immobilière rwandaise, basée au Rwanda. 120 projets réalisés. 82 professionnels internes. Architecture, construction, gestion de villas et immobilier - tout sous un même toit. L'offre immobilière la plus complète d'Afrique de l'Est.",
+        "Ever Design est une entreprise immobilière rwandaise, basée au Rwanda. 120 projets réalisés. 82 professionnels internes. Architecture, construction, gestion de villas et immobilier - tout sous un même toit. L'offre immobilière la plus complète d'Afrique de l'Est.",
       stat1Label: "Projets réalisés",
       stat2Label: "Membres de l'équipe",
       stat3Label: "Années au Rwanda",
@@ -6504,7 +6504,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Découvrez une sélection de villas, de concepts architecturaux et de projets de développement qui illustrent notre approche du design moderne, de la construction de qualité et du développement immobilier axé sur l'investissement au Rwanda.",
       items: {
         bp: {
-          title: "Villa B&P Ever Retreat",
+          title: "Villa B&P Ever Design",
           description: "Architecture de villa de luxe inspirée du paysage et du style de vie du lac Kivu.",
           cta: "Découvrir le projet",
         },
@@ -6519,7 +6519,7 @@ export const translations: Record<Language, TranslationShape> = {
           cta: "Découvrir Ever Retreat",
         },
         everDesign: {
-          title: "Ever Design",
+          title: "Ever Design Studio",
           description: "Des solutions d'architecture et de construction pour les clients souhaitant créer leur propre propriété au Rwanda.",
           cta: "Démarrer votre projet",
         },
@@ -6544,9 +6544,9 @@ export const translations: Record<Language, TranslationShape> = {
     },
     howItWorks: {
       eyebrow: "Comment ça marche",
-      heading: "Comment fonctionne l'investissement dans une villa Ever Retreat ?",
+      heading: "Comment fonctionne l'investissement dans une villa Ever Design ?",
       headingLine1: "Comment fonctionne l'investissement",
-      headingLine2: "dans une villa Ever Retreat ?",
+      headingLine2: "dans une villa Ever Design ?",
       paragraph:
         "De la première demande aux revenus locatifs, en quatre étapes simples. Aucune étape cachée, aucune complexité.",
       steps: [
@@ -6583,7 +6583,7 @@ export const translations: Record<Language, TranslationShape> = {
     },
     freeGuide: {
       eyebrow: "Édition gratuite 2026",
-      heading: "Le guide Ever Retreat pour investir au Rwanda",
+      heading: "Le guide Ever Design pour investir au Rwanda",
       paragraph:
         "Quatre-vingts pages de tout ce que nous aurions aimé savoir avant d'acheter. Structures juridiques, données de rendement par région, coûts de construction, fiscalité et risques réels. Mis à jour pour 2026.",
       points: [
@@ -6628,12 +6628,12 @@ export const translations: Record<Language, TranslationShape> = {
       quotes: [
         {
           quote:
-            "Ils ont rendu le processus extrêmement simple et se sont occupés de absolument tout. Nous avons adoré les mises à jour hebdomadaires avec photos pendant la construction. Voir ces rendus prendre vie était formidable. Je recommande vivement Ever Retreat et son équipe de gestion.",
+            "Ils ont rendu le processus extrêmement simple et se sont occupés de absolument tout. Nous avons adoré les mises à jour hebdomadaires avec photos pendant la construction. Voir ces rendus prendre vie était formidable. Je recommande vivement Ever Design et son équipe de gestion.",
           author: "Virginia B.",
         },
         {
           quote:
-            "Investir à l'étranger peut faire peur, mais l'équipe d'Ever Retreat a rendu cela très simple et sûr, me donnant confiance que mon argent est en sécurité. L'équipe a été très présente et compréhensive dès le premier jour.",
+            "Investir à l'étranger peut faire peur, mais l'équipe d'Ever Design a rendu cela très simple et sûr, me donnant confiance que mon argent est en sécurité. L'équipe a été très présente et compréhensive dès le premier jour.",
           author: "Joseph D.",
         },
         {
@@ -6652,7 +6652,7 @@ export const translations: Record<Language, TranslationShape> = {
       paragraph:
         "Une équipe de terrain de 82 architectes, ingénieurs, chefs de projet, conseillers juridiques et gestionnaires immobiliers basés au Rwanda. Vous traitez directement avec les personnes qui font le travail.",
       meetTeam: "Rencontrer toute l'équipe",
-      otherPeople: "Une partie de l'équipe de 82 personnes d'Ever Retreat",
+      otherPeople: "Une partie de l'équipe de 82 personnes d'Ever Design",
       roles: {
         ceo: "PDG",
         architectureManager: "Responsable Architecture",
@@ -6664,8 +6664,8 @@ export const translations: Record<Language, TranslationShape> = {
         procurementOfficer: "Responsable des Achats",
       },
       roleDescriptions: {
-        ceo: "Dirige la stratégie globale, les opérations et les relations clients d'Ever Retreat.",
-        architectureManager: "Dirige la conception architecturale et la planification de tous les développements Ever Retreat.",
+        ceo: "Dirige la stratégie globale, les opérations et les relations clients d'Ever Design.",
+        architectureManager: "Dirige la conception architecturale et la planification de tous les développements Ever Design.",
         hospitalityManager: "Supervise la gestion des villas, l'expérience des clients et les opérations de location.",
         accountant: "Gère les finances de l'entreprise, le budget et les rapports financiers.",
         operationsManager: "Coordonne les opérations quotidiennes entre les départements et les projets en cours.",
@@ -6695,7 +6695,7 @@ export const translations: Record<Language, TranslationShape> = {
         {
           question: "Quel retour sur investissement puis-je attendre d'une villa au Rwanda ?",
           answer:
-            "Les villas gérées par Ever Retreat atteignent généralement un rendement locatif brut de 15 à 20 % par an, selon l'emplacement, la taille de la villa et l'occupation. Les rendements varient selon la région et la qualité de la gestion.",
+            "Les villas gérées par Ever Design atteignent généralement un rendement locatif brut de 15 à 20 % par an, selon l'emplacement, la taille de la villa et l'occupation. Les rendements varient selon la région et la qualité de la gestion.",
         },
         {
           question: "Combien de temps faut-il pour construire une villa au Rwanda ?",
@@ -6708,12 +6708,12 @@ export const translations: Record<Language, TranslationShape> = {
             "Un acompte sécurise votre réservation. Le solde restant est payé par étapes liées à l'avancement réel de la construction, et non à des dates fixes, afin que vous ne payiez qu'à mesure que les travaux sont réellement réalisés.",
         },
         {
-          question: "Ever Retreat gère-t-il le bien après la remise des clés ?",
+          question: "Ever Design gère-t-il le bien après la remise des clés ?",
           answer:
             "Oui. La gestion de la villa est optionnelle mais disponible sur chaque développement, à partir de 20 % par réservation. Elle couvre la mise en ligne, la gestion des voyageurs, la tarification dynamique et l'entretien, pour une propriété sans contrainte.",
         },
         {
-          question: "Dans quelles régions du Rwanda Ever Retreat construit-il ?",
+          question: "Dans quelles régions du Rwanda Ever Design construit-il ?",
           answer:
             "Nos développements et la recherche de terrains couvrent actuellement Kigali, Musanze, Rubavu, Nyungwe, Huye et Nyanza. Chaque région est évaluée selon la demande touristique, l'accès et la valeur foncière à long terme avant tout engagement.",
         },
@@ -6797,7 +6797,7 @@ export const translations: Record<Language, TranslationShape> = {
     realEstatePage: {
       hero: {
         eyebrow: "Immobilier",
-        headlineLight: "Ever Retreat",
+        headlineLight: "Ever Design",
         headlineBold: "Propriétés",
         subtext:
           "Des villas vitrines achevées aux résidences en cours de conception, dans les régions les plus recherchées du Rwanda.",
@@ -6812,7 +6812,7 @@ export const translations: Record<Language, TranslationShape> = {
         headingLight: "Fondé Sur La Confiance,",
         headingBold: "Porté Par L'Expérience",
         paragraphs: [
-          "Ever Retreat est une société immobilière rwandaise, basée au Rwanda et détenue par des Rwandais. Architecture, construction, gestion de villas et immobilier — tout sous un même toit.",
+          "Ever Design est une société immobilière rwandaise, basée au Rwanda et détenue par des Rwandais. Architecture, construction, gestion de villas et immobilier — tout sous un même toit.",
           "Nous gérons chaque étape du cycle de vie du bien en interne, afin que vous traitiez directement avec les personnes qui font le travail, et non avec une chaîne de sous-traitants et d'intermédiaires.",
           "Nos résidences actuelles vont de villas vitrines achevées à Rubavu à de nouveaux projets en conception dans les régions les plus recherchées du Rwanda.",
           "Que vous achetiez une villa terminée, réserviez une unité sur plan, ou développiez un terrain que vous possédez déjà, une seule équipe vous accompagne du premier croquis à la première réservation d'invité.",
@@ -6828,9 +6828,9 @@ export const translations: Record<Language, TranslationShape> = {
         cta: "Voir Toutes Les Résidences",
       },
       advantage: {
-        eyebrow: "Pourquoi Acheter Avec Ever Retreat",
+        eyebrow: "Pourquoi Acheter Avec Ever Design",
         headingLight: "L'Avantage",
-        headingBold: "Ever Retreat",
+        headingBold: "Ever Design",
         intro:
           "L'immobilier rwandais récompense les acheteurs qui travaillent avec une équipe qui gère le juridique, la conception, la construction et la gestion sous un même toit — pas une mosaïque de sous-traitants.",
         highlights: [
@@ -6903,7 +6903,7 @@ export const translations: Record<Language, TranslationShape> = {
         eyebrow: "Résidences Actuelles",
         heading: "Découvrez Nos Résidences",
         paragraph:
-          "Des villas vitrines achevées aux résidences encore en conception — voici une sélection de ce qu'Ever Retreat construit à travers le Rwanda.",
+          "Des villas vitrines achevées aux résidences encore en conception — voici une sélection de ce qu'Ever Design construit à travers le Rwanda.",
         viewDetails: "Voir Les Détails",
         viewAll: "Voir Les 8 Résidences",
       },
@@ -6966,7 +6966,7 @@ export const translations: Record<Language, TranslationShape> = {
       },
       whyChoose: {
         eyebrow: "Pourquoi Nous Choisir",
-        heading: "Pourquoi Choisir Ever Retreat",
+        heading: "Pourquoi Choisir Ever Design",
         items: [
           {
             title: "Détenu Et Géré De Façon Éthique",
@@ -7061,7 +7061,7 @@ export const translations: Record<Language, TranslationShape> = {
           description1:
             "Construire des villas au Rwanda exige une bonne compréhension des sols latéritiques, des pluies saisonnières et des considérations sismiques. Notre équipe interne de 82 personnes utilise des structures en béton armé avec des fondations adaptées à la latérite et une conception adaptée au climat.",
           description2:
-            "De la Villa B&P Ever Retreat au lac Kivu aux Villas Virunga près des volcans, chaque projet est géré par des ingénieurs certifiés ayant une expertise locale, avec des contrats à prix fixe des fondations à la remise des clés.",
+            "De la Villa B&P Ever Design au lac Kivu aux Villas Virunga près des volcans, chaque projet est géré par des ingénieurs certifiés ayant une expertise locale, avec des contrats à prix fixe des fondations à la remise des clés.",
           feature1: "Matériaux certifiés conformes aux normes de construction rwandaises",
           feature2: "Délai de construction moyen de 6 à 9 mois",
           feature3: "Contrats à prix fixe, sans coûts surprises",
@@ -7105,7 +7105,7 @@ export const translations: Record<Language, TranslationShape> = {
         eyebrow: "Notre Engagement",
         heading: "Prix Fixe, Sans Surprises",
         paragraph1:
-          "Chaque contrat Ever Retreat est à prix fixe dès le départ. Les paiements sont liés à l'avancement réel de la construction, et non à des dates fixes, afin que vous ne payiez qu'à mesure que les travaux sont réellement réalisés.",
+          "Chaque contrat Ever Design est à prix fixe dès le départ. Les paiements sont liés à l'avancement réel de la construction, et non à des dates fixes, afin que vous ne payiez qu'à mesure que les travaux sont réellement réalisés.",
         paragraph2:
           "Architecture, construction, gestion de villas et recherche de terrain sont tous réunis sous un même toit, avec une seule équipe interne et un seul interlocuteur — sans transferts de sous-traitants, sans dérive de périmètre, sans avenants surprises.",
       },
@@ -7279,7 +7279,7 @@ export const translations: Record<Language, TranslationShape> = {
       closingCtaSecondary: "Discuter Sur WhatsApp",
     },
     blogIndexPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Blog",
       heroSubtitle: "Conseils et Ressources",
       heroIntro:
@@ -7287,18 +7287,18 @@ export const translations: Record<Language, TranslationShape> = {
       postsEyebrow: "Derniers Articles",
     },
     blogRentalIncomePage: {
-      heroEyebrow: "Blog Ever Retreat",
+      heroEyebrow: "Blog Ever Design",
       heroTitle: "Combien Une Villa Au Rwanda Rapporte-t-elle Réellement En Revenus Locatifs ?",
       heroSubtitle:
         "Tarifs nocturnes, données d'occupation et répartition des rendements nets par région.",
       yieldHeading: "Rendement Par Région",
-      yieldIntro: "Voici ce qu'obtiennent les villas gérées par Ever Retreat en 2026 :",
+      yieldIntro: "Voici ce qu'obtiennent les villas gérées par Ever Design en 2026 :",
       tableAreaHeader: "Région",
       tableNightlyRateHeader: "Tarif Nocturne Moyen",
       tableOccupancyHeader: "Occupation Moyenne",
       tableYieldHeader: "Rendement Brut",
       managementHeading: "Ce Que Comprend Notre Gestion",
-      managementIntro: "La gestion locative complète d'Ever Retreat comprend :",
+      managementIntro: "La gestion locative complète d'Ever Design comprend :",
       managementItems: [
         "Photographie professionnelle et création d'annonces",
         "Optimisation tarifaire dynamique",
@@ -7309,7 +7309,7 @@ export const translations: Record<Language, TranslationShape> = {
       ],
     },
     blogBestAreaPage: {
-      heroEyebrow: "Blog Ever Retreat",
+      heroEyebrow: "Blog Ever Design",
       heroTitle: "Meilleure Région Où Investir Au Rwanda (2026)",
       heroSubtitle:
         "Comparaison des prix des terrains, des rendements et des facteurs de style de vie dans les meilleures régions d'investissement du Rwanda.",
@@ -7341,7 +7341,7 @@ export const translations: Record<Language, TranslationShape> = {
       recommendationPart4: ", envisagez Nyungwe ou Akagera.",
     },
     blogForeignersPage: {
-      heroEyebrow: "Blog Ever Retreat",
+      heroEyebrow: "Blog Ever Design",
       heroTitle: "Les Étrangers Peuvent-ils Acheter Une Propriété Au Rwanda ?",
       heroSubtitle: "Guide complet des structures de propriété légale au Rwanda.",
       dateLabel: "Mars 2026",
@@ -7422,7 +7422,7 @@ export const translations: Record<Language, TranslationShape> = {
         "De nombreux investisseurs diversifient entre les deux — en allouant 60 % au lac Kivu pour les liquidités et 40 % à Musanze pour la croissance.",
     },
     blogCostToBuildPage: {
-      heroEyebrow: "Blog Ever Retreat",
+      heroEyebrow: "Blog Ever Design",
       heroTitle: "Combien Coûte La Construction D'Une Villa Au Rwanda ?",
       heroSubtitle: "Coûts de construction réels à partir de 1 000 $ par m².",
       breakdownHeading: "Répartition Des Coûts De Construction",
@@ -7452,7 +7452,7 @@ export const translations: Record<Language, TranslationShape> = {
         "La plupart des investisseurs prévoient un budget supplémentaire de 10 à 15 % au-dessus du forfait de base pour des améliorations personnalisées, des finitions haut de gamme ou l'acquisition de terrains dans des zones de premier choix.",
     },
     blogHowToBuildPage: {
-      heroEyebrow: "Blog Ever Retreat",
+      heroEyebrow: "Blog Ever Design",
       heroTitle: "Comment Construire Une Villa Au Rwanda",
       heroSubtitle: "Le processus complet, du terrain au premier client.",
       landSourcingHeading: "Recherche De Terrain Et Diligence Raisonnable",
@@ -7615,7 +7615,7 @@ export const translations: Record<Language, TranslationShape> = {
       tiersCta: "Parcourir Les Résidences Actuelles",
       developmentsHeading: "Là Où Nous Construisons",
       developmentsParagraph:
-        "Chaque résidence Ever Retreat est conçue, construite et gérée en interne — des villas vitrines achevées aux résidences en cours de conception partout au Rwanda.",
+        "Chaque résidence Ever Design est conçue, construite et gérée en interne — des villas vitrines achevées aux résidences en cours de conception partout au Rwanda.",
       developmentPrototype: "Prototype",
       developmentComingSoon: "Bientôt Disponible",
       developmentNotForSale: "Pas À Vendre",
@@ -7633,7 +7633,7 @@ export const translations: Record<Language, TranslationShape> = {
         {
           title: "Des Changements Réglementaires Peuvent Survenir",
           description:
-            "La législation immobilière rwandaise est devenue plus favorable aux investisseurs au cours de la dernière décennie, mais la réglementation peut évoluer. Travailler avec une entreprise agréée et établie localement comme Ever Retreat réduit votre exposition.",
+            "La législation immobilière rwandaise est devenue plus favorable aux investisseurs au cours de la dernière décennie, mais la réglementation peut évoluer. Travailler avec une entreprise agréée et établie localement comme Ever Design réduit votre exposition.",
         },
         {
           title: "Toutes Les Régions Ne Performent Pas De La Même Façon",
@@ -7966,7 +7966,7 @@ export const translations: Record<Language, TranslationShape> = {
       heroSlide1Subtitle:
         "Bord du lac Kivu — locations de vacances haut de gamme et villas de luxe au bord du lac.",
       heroSlide2Title: "L'Art De Vivre Du Lac Kivu",
-      heroSlide2Subtitle: "Site de B&P Ever Retreat Villa et Cottage — nos villas vitrines achevées.",
+      heroSlide2Subtitle: "Site de B&P Ever Design Villa et Cottage — nos villas vitrines achevées.",
       marketHeading: "Marché Immobilier De Rubavu",
       marketParagraph1Pre:
         "Rubavu se situe au bord du lac Kivu, l'une des destinations les plus pittoresques et prisées du Rwanda. La région attire toute l'année des touristes à fort pouvoir d'achat pour les sports nautiques, les croisières au coucher du soleil et la détente en bord de lac. Nos villas vitrines ",
@@ -8105,13 +8105,13 @@ export const translations: Record<Language, TranslationShape> = {
         "Une concurrence plus faible offrant un potentiel d'avantage aux premiers investisseurs.",
     },
     aboutPageExtra: {
-      heroEyebrow: "À Propos d'Ever Retreat",
+      heroEyebrow: "À Propos d'Ever Design",
       heroTitle: "Nous Concevons, Construisons et Gérons",
       heroTitleLight: "Nous Concevons,",
       heroTitleLine2: "Construisons et",
       heroTitleBold: "Gérons",
       heroSubtitle:
-        "Ever Retreat est une entreprise immobilière rwandaise, basée au Rwanda et détenue par des Rwandais. 120 projets réalisés. 82 professionnels internes. Architecture, construction, gestion de villas et immobilier - tout sous un même toit. La proposition immobilière la plus complète d'Afrique de l'Est.",
+        "Ever Design est une entreprise immobilière rwandaise, basée au Rwanda et détenue par des Rwandais. 120 projets réalisés. 82 professionnels internes. Architecture, construction, gestion de villas et immobilier - tout sous un même toit. La proposition immobilière la plus complète d'Afrique de l'Est.",
       villasHeading: "120 Villas. Et Ça Continue.",
       villasParagraph:
         "Dix ans de construction à Kigali, Musanze, Rubavu, Huye et Nyanza. Chaque projet témoigne de notre qualité, de notre design et de la performance de nos investissements.",
@@ -8120,11 +8120,11 @@ export const translations: Record<Language, TranslationShape> = {
       originHeadingLight: "Née D'Une",
       originHeadingBold: "Idée Simple",
       originParagraph1:
-        "Ever Retreat repose sur un principe simple : l'investissement immobilier au Rwanda mérite les mêmes standards que partout ailleurs dans le monde. Pas de raccourcis. Pas d'entrepreneurs qui disparaissent. Pas de coûts surprises.",
+        "Ever Design repose sur un principe simple : l'investissement immobilier au Rwanda mérite les mêmes standards que partout ailleurs dans le monde. Pas de raccourcis. Pas d'entrepreneurs qui disparaissent. Pas de coûts surprises.",
       originParagraph2:
         "Ce qui a commencé comme une petite équipe interne est devenu un groupe de 82 architectes, ingénieurs, chefs de projet, designers d'intérieur et gestionnaires immobiliers - tous sous un même toit. De la recherche de terrain jusqu'à l'arrivée des voyageurs, nous assurons l'architecture, la construction, le design d'intérieur et la gestion de villas comme un service unique et intégré, afin que les clients traitent directement avec les personnes qui font le travail, et non avec une chaîne de sous-traitants et d'intermédiaires.",
       originParagraph3:
-        "Avec 120 projets achevés à Kigali, Musanze, Rubavu, Huye et Nyanza en plus de 10 ans, Ever Retreat a bâti un historique que les investisseurs peuvent voir et vérifier eux-mêmes - des villas vitrines au bord du lac Kivu aux développements aujourd'hui en cours à travers le pays.",
+        "Avec 120 projets achevés à Kigali, Musanze, Rubavu, Huye et Nyanza en plus de 10 ans, Ever Design a bâti un historique que les investisseurs peuvent voir et vérifier eux-mêmes - des villas vitrines au bord du lac Kivu aux développements aujourd'hui en cours à travers le pays.",
       visionHeading: "Notre Vision",
       visionText:
         "La proposition immobilière la plus complète d'Afrique de l'Est - un Rwanda où investir dans l'immobilier est simple, transparent et entièrement géré, de la recherche de terrain jusqu'à l'arrivée des voyageurs.",
@@ -8134,7 +8134,7 @@ export const translations: Record<Language, TranslationShape> = {
       teamStatsEyebrow: "Notre Équipe",
       teamStatsHeading: "82 Professionnels Internes",
       teamStatsParagraph:
-        "L'équipe interne d'Ever Retreat couvre la direction, l'architecture, l'hôtellerie et la gestion de villas, la finance, l'ingénierie de chantier, les achats, l'informatique et les opérations - le tout coordonné depuis le Rwanda.",
+        "L'équipe interne d'Ever Design couvre la direction, l'architecture, l'hôtellerie et la gestion de villas, la finance, l'ingénierie de chantier, les achats, l'informatique et les opérations - le tout coordonné depuis le Rwanda.",
     },
     buildCalculatorPage: {
       heroSlide1Title: "Calculateur de Coût de Construction",
@@ -8177,7 +8177,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Demandez des copies des permis de construire (RDC), de l'autorisation de zonage et de la vérification du titre. Un développeur réputé les fournit d'emblée. Notre équipe juridique interne gère l'obtention de tous les permis.",
       flag3Title: "3. Aucune Référence ou Projet Achevé",
       flag3Desc:
-        "Recherchez des projets achevés que vous pouvez visiter. Nos villas vitrines, B&P Ever Retreat Villa et Cottage au lac Kivu, sont des projets achevés que vous pouvez voir en personne.",
+        "Recherchez des projets achevés que vous pouvez visiter. Nos villas vitrines, B&P Ever Design Villa et Cottage au lac Kivu, sont des projets achevés que vous pouvez voir en personne.",
       flag4Title: "4. Délais ou Prix Irréalistes",
       flag4Desc:
         "Si un devis est nettement inférieur au prix du marché, il est probable que des raccourcis soient pris. Nos contrats à prix fixe garantissent l'absence de surprises, avec des paiements liés à de véritables étapes de construction.",
@@ -8220,10 +8220,10 @@ export const translations: Record<Language, TranslationShape> = {
       roleComparisonIntro:
         "Au Rwanda, il s'agit souvent de quatre entreprises différentes, et c'est là que les failles apparaissent. Chacune peut rejeter la faute sur les autres quand quelque chose tourne mal.",
       roleComparisonClosing:
-        "Ever Retreat réunit ces quatre rôles au sein d'une seule entreprise. Nous concevons, construisons, vendons et gérons la villa nous-mêmes, il n'y a donc personne d'autre à blâmer que nous.",
-      whyChooseHeading: "Pourquoi Choisir Ever Retreat ?",
+        "Ever Design réunit ces quatre rôles au sein d'une seule entreprise. Nous concevons, construisons, vendons et gérons la villa nous-mêmes, il n'y a donc personne d'autre à blâmer que nous.",
+      whyChooseHeading: "Pourquoi Choisir Ever Design ?",
       whyChooseParagraph1:
-        "Nous avons construit B&P Ever Retreat Villa et Cottage, nos villas vitrines au lac Kivu, et Virunga Villas est actuellement en cours à Musanze. Consultez nos développements pour connaître le statut actuel de chacun.",
+        "Nous avons construit B&P Ever Design Villa et Cottage, nos villas vitrines au lac Kivu, et Virunga Villas est actuellement en cours à Musanze. Consultez nos développements pour connaître le statut actuel de chacun.",
       whyChooseParagraph2:
         "Contrairement aux opérateurs indépendants, nous gérons tout en interne : architecture, construction, juridique, permis et gestion locative. Une seule entreprise, un seul point de contact.",
       stakesEyebrow: "Pourquoi Cette Décision Comporte un Risque Réel",
@@ -8247,14 +8247,14 @@ export const translations: Record<Language, TranslationShape> = {
       paymentParagraph1:
         "Acheter sur plan signifie payer pour une villa qui n'existe pas encore. La véritable protection n'est pas une promesse, c'est la structure de paiement : vos versements doivent être liés à de véritables étapes de construction que vous pouvez vérifier, et non à des dates fixes du calendrier.",
       paymentParagraph2:
-        "Chaque contrat Ever Retreat est à prix fixe dès le départ. Le montant signé est le montant payé, les paiements sont libérés en fonction de travaux visibles grâce à des mises à jour photo hebdomadaires, et la même équipe qui construit votre villa la gère ensuite — un défaut est donc corrigé plutôt que contesté.",
+        "Chaque contrat Ever Design est à prix fixe dès le départ. Le montant signé est le montant payé, les paiements sont libérés en fonction de travaux visibles grâce à des mises à jour photo hebdomadaires, et la même équipe qui construit votre villa la gère ensuite — un défaut est donc corrigé plutôt que contesté.",
       whyItMattersEyebrow: "Pourquoi C'est Important",
       whyItMattersHeadingLight: "Une Seule Équipe Bat Une",
       whyItMattersHeadingBold: "Chaîne Fragmentée",
       whyItMattersParagraph1:
         "Chaque transmission dans une construction est un endroit où quelque chose peut mal tourner. Un agent, un architecte, un constructeur et un gestionnaire séparés signifient quatre contrats et quatre parties qui peuvent se rejeter la faute quand la villa est en retard, dépasse le budget ou est mal construite.",
       whyItMattersParagraph2:
-        "Ever Retreat élimine ces failles. La même équipe interne de plus de 82 professionnels qui conçoit votre villa la construit, la vend et la gère ensuite, avec nos propres chefs de projet supervisant chaque corps de métier sur site. Une seule entreprise, un seul point de contact, pour l'ensemble du projet.",
+        "Ever Design élimine ces failles. La même équipe interne de plus de 82 professionnels qui conçoit votre villa la construit, la vend et la gère ensuite, avec nos propres chefs de projet supervisant chaque corps de métier sur site. Une seule entreprise, un seul point de contact, pour l'ensemble du projet.",
       proofEyebrow: "Comment Nous Réduisons Les Risques",
       proofHeadingLight: "Des Preuves, Pas",
       proofHeadingBold: "Des Promesses",
@@ -8284,13 +8284,13 @@ export const translations: Record<Language, TranslationShape> = {
       faq1Question: "Que se passe-t-il si je possède déjà un terrain au Rwanda ?",
       faq1Answer:
         "Nous proposons des partenariats de développement pour les propriétaires fonciers : notre équipe conçoit, construit et peut gérer un développement de villas sur un terrain que vous possédez déjà, selon le même modèle interne à prix fixe que nous utilisons pour nos propres projets.",
-      faq2Question: "Dans quelles régions Ever Retreat construit-il ?",
+      faq2Question: "Dans quelles régions Ever Design construit-il ?",
       faq2Answer:
         "Nos développements et notre recherche de terrains couvrent actuellement Kigali, Musanze, Rubavu, Nyungwe, Huye et Nyanza. Chaque zone est évaluée en fonction de la demande touristique, de l'accès et de la valeur foncière à long terme avant tout engagement.",
       faq3Question: "Que se passe-t-il si mon développeur disparaît en cours de projet ?",
       faq3Answer:
-        "C'est exactement pour ce risque que la liste de vérification ci-dessus est importante : une entreprise enregistrée avec un bureau physique, des projets achevés que vous pouvez visiter et des contrats à prix fixe avec paiements par étapes signifient que vous ne payez jamais intégralement un travail qui n'a pas été réalisé. Chaque contrat Ever Retreat lie le paiement à une progression vérifiée, et notre équipe interne a achevé 120 projets en plus de 10 ans sans jamais confier une construction à un tiers.",
-      closingEyebrow: "Parlez à Ever Retreat",
+        "C'est exactement pour ce risque que la liste de vérification ci-dessus est importante : une entreprise enregistrée avec un bureau physique, des projets achevés que vous pouvez visiter et des contrats à prix fixe avec paiements par étapes signifient que vous ne payez jamais intégralement un travail qui n'a pas été réalisé. Chaque contrat Ever Design lie le paiement à une progression vérifiée, et notre équipe interne a achevé 120 projets en plus de 10 ans sans jamais confier une construction à un tiers.",
+      closingEyebrow: "Parlez à Ever Design",
       closingHeadingLight: "Vérifiez-Nous de la",
       closingHeadingBold: "Même Façon",
       closingParagraph:
@@ -8387,7 +8387,7 @@ export const translations: Record<Language, TranslationShape> = {
         { feature: "Utilisation", fractional: "Semaines fixes par an, programmées à l'avance", full: "Accès illimité toute l'année" },
         { feature: "Revenus Locatifs", fractional: "Revenus partagés pendant vos semaines non utilisées", full: "Facultatif, si vous gérez ou louez vous-même" },
         { feature: "Entretien et Coûts", fractional: "Répartis proportionnellement entre copropriétaires", full: "Entièrement à la charge du propriétaire" },
-        { feature: "Gestion", fractional: "Incluse, assurée par Ever Retreat", full: "Le propriétaire organise sa propre gestion" },
+        { feature: "Gestion", fractional: "Incluse, assurée par Ever Design", full: "Le propriétaire organise sa propre gestion" },
         { feature: "Sortie", fractional: "Vendez ou transférez votre part après 12 à 24 mois de détention", full: "Vendez le bien directement à tout moment" },
       ],
       fitEyebrow: "Est-ce Fait Pour Vous ?",
@@ -8412,19 +8412,19 @@ export const translations: Record<Language, TranslationShape> = {
       meetTeamLabel: "Rencontrer Notre Équipe",
     },
     referAFriendPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Parrainer un Ami",
-      heroSubtitle: "Partagez l'expérience Ever Retreat et profitez-en tous les deux.",
+      heroSubtitle: "Partagez l'expérience Ever Design et profitez-en tous les deux.",
       contentHeading: "Parrainez un Ami, Soyez Récompensé",
       contentParagraph:
-        "Lorsque votre ami construit une villa avec Ever Retreat et que vous le parrainez, vous en profitez tous les deux. En guise de remerciement, vous recevez un crédit de 5 000 USD sur vos coûts de construction, et votre ami bénéficie d'une planification prioritaire et d'une consultation de conception gratuite.",
+        "Lorsque votre ami construit une villa avec Ever Design et que vous le parrainez, vous en profitez tous les deux. En guise de remerciement, vous recevez un crédit de 5 000 USD sur vos coûts de construction, et votre ami bénéficie d'une planification prioritaire et d'une consultation de conception gratuite.",
       howItWorksHeading: "Comment Ça Marche",
       step1: "Soumettez les coordonnées de votre ami via le formulaire ci-dessous ou contactez-nous directement.",
       step2: "Votre ami mentionne votre parrainage lorsqu'il se renseigne sur son projet.",
       step3: "Les deux crédits sont appliqués une fois que le projet de votre ami démarre sa construction.",
       termsHeading: "Conditions",
-      term1: "Le parrain doit avoir un projet actif ou achevé avec Ever Retreat",
-      term2: "L'ami parrainé doit être nouveau chez Ever Retreat",
+      term1: "Le parrain doit avoir un projet actif ou achevé avec Ever Design",
+      term2: "L'ami parrainé doit être nouveau chez Ever Design",
       term3: "Les crédits sont appliqués au début de la phase de construction",
       term4: "Le programme se termine lorsque l'une des parties atteint le paiement final",
       faqHeading: "FAQ du Programme de Parrainage",
@@ -8434,8 +8434,8 @@ export const translations: Record<Language, TranslationShape> = {
           answer: "Vous recevez un crédit de 5 000 USD sur vos coûts de construction une fois que le projet de votre ami démarre sa construction, et votre ami bénéficie d'une planification prioritaire et d'une consultation de conception gratuite.",
         },
         {
-          question: "Mon ami doit-il être nouveau chez Ever Retreat ?",
-          answer: "Oui. L'ami parrainé doit être nouveau chez Ever Retreat, et le parrain doit avoir un projet actif ou achevé avec nous.",
+          question: "Mon ami doit-il être nouveau chez Ever Design ?",
+          answer: "Oui. L'ami parrainé doit être nouveau chez Ever Design, et le parrain doit avoir un projet actif ou achevé avec nous.",
         },
         {
           question: "Quand le crédit est-il appliqué ?",
@@ -8444,7 +8444,7 @@ export const translations: Record<Language, TranslationShape> = {
       ],
     },
     villaToursPage: {
-      heroEyebrow: "Ever Retreat Rwanda",
+      heroEyebrow: "Ever Design Rwanda",
       heroTitle: "Visites de Villas",
       heroSubtitle:
         "Planifiez une visite privée de nos développements achevés et de nos projets sur plan à travers le Rwanda.",
@@ -8492,7 +8492,7 @@ export const translations: Record<Language, TranslationShape> = {
       stage5Desc: "Plans d'exécution complets et dossier de permis prêt pour la construction.",
       philosophyHeading: "Notre Philosophie De Design",
       philosophyParagraph:
-        "Nous concevons des villas qui fonctionnent toute l'année. La Villa B&P Ever Retreat au lac Kivu utilise une ventilation naturelle pour lutter contre l'humidité, et les Virunga Villas près des volcans intègrent de la pierre provenant de carrières locales.",
+        "Nous concevons des villas qui fonctionnent toute l'année. La Villa B&P Ever Design au lac Kivu utilise une ventilation naturelle pour lutter contre l'humidité, et les Virunga Villas près des volcans intègrent de la pierre provenant de carrières locales.",
       projectsHeading: "Projets",
       projectBpDescription: "villa vitrine au lac Kivu",
       projectCottageDescription: "villa vitrine au lac Kivu",
@@ -8507,7 +8507,7 @@ export const translations: Record<Language, TranslationShape> = {
       pricingRow1Label: "Design Seul",
       pricingRow1Note: "Forfait complet de design architectural en 5 étapes pour une villa.",
       pricingRow2Label: "Design + Construction",
-      pricingRow2Note: "50 % de réduction sur les honoraires de design lorsque vous construisez la villa avec Ever Retreat.",
+      pricingRow2Note: "50 % de réduction sur les honoraires de design lorsque vous construisez la villa avec Ever Design.",
       pricingNote:
         "Le tarif ci-dessus concerne le design par villa. La construction est facturée séparément — voir nos tarifs de Construction.",
       galleryEyebrow: "Nos Réalisations",
@@ -8554,7 +8554,7 @@ export const translations: Record<Language, TranslationShape> = {
       oneTeamHeadingLight: "Du Design",
       oneTeamHeadingBold: "À La Construction",
       oneTeamParagraph1:
-        "Le plus grand risque dans un projet de villa est l'écart entre l'architecte et le constructeur — un design magnifique sur papier mais coûteux ou impossible à construire. Ever Retreat élimine cet écart en gardant le design et la construction sous un même toit.",
+        "Le plus grand risque dans un projet de villa est l'écart entre l'architecte et le constructeur — un design magnifique sur papier mais coûteux ou impossible à construire. Ever Design élimine cet écart en gardant le design et la construction sous un même toit.",
       oneTeamParagraph2:
         "La même équipe interne qui dessine votre villa la construit aussi, si bien que chaque décision de design tient compte des coûts, matériaux et délais réels de construction au Rwanda dès le premier jour — et non après avoir déjà payé les permis.",
       closingEyebrow: "Démarrez Votre Design",
@@ -8588,7 +8588,7 @@ export const translations: Record<Language, TranslationShape> = {
       approachParagraph1:
         "Construire des villas au Rwanda exige une bonne compréhension du sol latéritique, du régime des pluies saisonnier et des considérations sismiques. Notre équipe interne de 82 personnes utilise des structures en béton armé avec des fondations adaptées à la latérite, un drainage adéquat et une conception adaptée au climat — le tout inclus dans nos contrats à prix fixe.",
       approachParagraph2:
-        "De la Villa B&P Ever Retreat au lac Kivu aux Virunga Villas près des volcans, chaque projet est géré par des ingénieurs certifiés disposant d'une expertise locale.",
+        "De la Villa B&P Ever Design au lac Kivu aux Virunga Villas près des volcans, chaque projet est géré par des ingénieurs certifiés disposant d'une expertise locale.",
       introChecklistItem1: "Contrats à prix fixe, paiements liés aux étapes du chantier",
       introChecklistItem2: "Rapports photo hebdomadaires sur l'avancement",
       introChecklistItem3: "Un seul point de contact tout au long de votre projet",
@@ -8685,14 +8685,14 @@ export const translations: Record<Language, TranslationShape> = {
       materialsEyebrow: "Qualité De Construction",
       materialsHeading: "Des Matériaux Premium. Sans Compromis.",
       materialsIntro:
-        "Nous ne faisons aucun compromis sur la structure ou les fondations. Chaque construction Ever Retreat suit la même norme, quel que soit le niveau de finition.",
+        "Nous ne faisons aucun compromis sur la structure ou les fondations. Chaque construction Ever Design suit la même norme, quel que soit le niveau de finition.",
       materialsCategoryTitle: "Structure Et Fondations",
       materialsCategoryDesc:
-        "Structures en béton armé sur des fondations adaptées à la latérite avec un drainage adéquat, étanchéifiées pour les pluies saisonnières du Rwanda, et finies avec de la pierre et du bois dur d'origine locale — la même norme utilisée de la Villa B&P Ever Retreat aux Virunga Villas.",
+        "Structures en béton armé sur des fondations adaptées à la latérite avec un drainage adéquat, étanchéifiées pour les pluies saisonnières du Rwanda, et finies avec de la pierre et du bois dur d'origine locale — la même norme utilisée de la Villa B&P Ever Design aux Virunga Villas.",
       caseStudyEyebrow: "Résultats Concrets",
       caseStudyHeading: "Découvrez Une Construction Réelle De A À Z",
       caseStudyParagraph:
-        "La Villa B&P Ever Retreat au lac Kivu a été construite et est gérée entièrement par notre équipe interne, de l'acquisition du terrain jusqu'à la remise des clés et aux revenus locatifs.",
+        "La Villa B&P Ever Design au lac Kivu a été construite et est gérée entièrement par notre équipe interne, de l'acquisition du terrain jusqu'à la remise des clés et aux revenus locatifs.",
       caseStudyCta: "Lire L'Étude De Cas",
       faq1Question: "Combien coûte la construction d'une villa au Rwanda ?",
       faq1Answer:
@@ -8759,7 +8759,7 @@ export const translations: Record<Language, TranslationShape> = {
       yieldCta: "Essayer Le Calculateur De Construction",
       includedEyebrow: "Gestion Complète",
       includedHeadingLight: "Ce Que La Gestion",
-      includedHeadingBold: "Ever Retreat Inclut",
+      includedHeadingBold: "Ever Design Inclut",
       includedIntro:
         "Nos frais de gestion démarrent à 20 % par réservation et couvrent chaque aspect de l'exploitation locative de votre villa, des annonces aux rapports.",
       included1Title: "Annonces & Photographie",
@@ -8803,7 +8803,7 @@ export const translations: Record<Language, TranslationShape> = {
       comparisonIntro:
         "De nombreux propriétaires commencent par gérer eux-mêmes leur location. Voici ce qui change avec une gestion professionnelle.",
       selfManagedLabel: "Autogéré",
-      managedLabel: "Géré Par Ever Retreat",
+      managedLabel: "Géré Par Ever Design",
       selfManagedItem1: "Messages des voyageurs à toute heure, y compris dans votre propre fuseau horaire",
       selfManagedItem2: "Trouver soi-même des agents de ménage et de maintenance fiables",
       selfManagedItem3: "Tarification statique qui peut laisser des revenus de côté",
@@ -8833,7 +8833,7 @@ export const translations: Record<Language, TranslationShape> = {
       builtManagedHeadingLight: "Construite Et",
       builtManagedHeadingBold: "Gérée",
       builtManagedParagraph1:
-        "Ever Retreat est l'une des rares entreprises au Rwanda capables d'accompagner une villa d'un terrain vide jusqu'à une propriété entièrement gérée et génératrice de revenus, avec l'architecture, la construction et la gestion sous un même toit.",
+        "Ever Design est l'une des rares entreprises au Rwanda capables d'accompagner une villa d'un terrain vide jusqu'à une propriété entièrement gérée et génératrice de revenus, avec l'architecture, la construction et la gestion sous un même toit.",
       builtManagedParagraph2:
         "Lorsque notre équipe de gestion prend en charge une villa construite par notre propre équipe de construction, elle en connaît déjà l'agencement, les matériaux et les systèmes, ce qui rend la maintenance plus rapide et plus efficace car rien n'est un mystère.",
       builtManagedItem1: "Nous connaissons la villa dans ses moindres détails car nous l'avons construite",
@@ -8941,14 +8941,14 @@ export const translations: Record<Language, TranslationShape> = {
         "Le terrain au Rwanda est l'un des placements immobiliers les plus solides d'Afrique de l'Est. Voici pourquoi nos clients achètent dès maintenant.",
       whyBuyItem1Title: "15-20% De Rendement Locatif",
       whyBuyItem1Desc:
-        "Les villas gérées par Ever Retreat atteignent généralement un rendement locatif brut de 15 à 20% par an, selon l'emplacement, la taille de la villa et le taux d'occupation.",
+        "Les villas gérées par Ever Design atteignent généralement un rendement locatif brut de 15 à 20% par an, selon l'emplacement, la taille de la villa et le taux d'occupation.",
       whyBuyItem2Title: "7-15% D'Appréciation Annuelle",
       whyBuyItem2Desc:
         "Le terrain dans les zones privilégiées du Rwanda s'apprécie de 7 à 15% par an, porté par une croissance touristique constante et une offre limitée de terrains constructibles dans les zones prisées.",
       whyBuyItem3Title: "Plus D'1,5M De Visiteurs Par An",
       whyBuyItem3Desc:
         "Le Rwanda accueille plus de 1,5 million de visiteurs par an, soutenant une demande touristique constante pour les terrains près du Parc National des Volcans, du lac Kivu et d'Akagera.",
-      whyBuyItem4Title: "L'Offre Complète Ever Retreat",
+      whyBuyItem4Title: "L'Offre Complète Ever Design",
       whyBuyItem4Desc:
         "Achetez un terrain avec nous et accédez à notre chaîne complète : concevez votre villa avec notre équipe d'architecture à 50% de réduction, construisez-la avec notre équipe de construction, et générez des revenus locatifs grâce à notre division gestion.",
       whyBuyItem5Title: "Le Point D'Entrée Le Plus Abordable",
@@ -9010,9 +9010,9 @@ export const translations: Record<Language, TranslationShape> = {
       crossSellHeadingLight: "Du Terrain À La",
       crossSellHeadingBold: "Villa Génératrice De Revenus",
       crossSellParagraph1:
-        "Acheter un terrain n'est que la première étape. Avec Ever Retreat, cet achat unique débloque une chaîne complète - du terrain nu à la villa conçue, construite et gérée en location, le tout sous une seule équipe interne.",
+        "Acheter un terrain n'est que la première étape. Avec Ever Design, cet achat unique débloque une chaîne complète - du terrain nu à la villa conçue, construite et gérée en location, le tout sous une seule équipe interne.",
       crossSellParagraph2:
-        "Les clients qui achètent un terrain avec nous et poursuivent avec la construction bénéficient d'une remise de 50% sur les frais de conception architecturale, faisant d'Ever Retreat la voie la plus rentable du terrain nu à la villa génératrice de revenus.",
+        "Les clients qui achètent un terrain avec nous et poursuivent avec la construction bénéficient d'une remise de 50% sur les frais de conception architecturale, faisant d'Ever Design la voie la plus rentable du terrain nu à la villa génératrice de revenus.",
       crossSellChecklistItem1: "Concevez votre villa à 50% de réduction avec notre équipe d'architecture interne",
       crossSellChecklistItem2: "Construction à prix fixe, de la fondation à la livraison",
       crossSellChecklistItem3: "Gestion de villa à partir de 20% par réservation une fois terminée",
@@ -9034,7 +9034,7 @@ export const translations: Record<Language, TranslationShape> = {
       introParagraph1:
         "Développer un terrain au Rwanda est complexe. Zonage, permis, qualité de construction et gestion continue doivent tous fonctionner ensemble. La plupart des propriétaires fonciers n'ont pas l'équipe locale ni l'expérience nécessaires pour exécuter au niveau exigé par le marché.",
       introParagraph2:
-        "C'est là qu'Ever Retreat intervient. Avec 120 villas achevées et 82 professionnels internes couvrant l'architecture, la construction, le juridique et la gestion locative, nous apportons tout ce qu'il faut pour transformer un terrain que vous possédez déjà en un développement achevé et générateur de revenus — dans le cadre d'un partenariat à partage de bénéfices plutôt qu'un contrat client standard.",
+        "C'est là qu'Ever Design intervient. Avec 120 villas achevées et 82 professionnels internes couvrant l'architecture, la construction, le juridique et la gestion locative, nous apportons tout ce qu'il faut pour transformer un terrain que vous possédez déjà en un développement achevé et générateur de revenus — dans le cadre d'un partenariat à partage de bénéfices plutôt qu'un contrat client standard.",
       introChecklistItem1: "Équipes internes d'architecture, de construction et juridique sous un même toit",
       introChecklistItem2: "Contrats de construction à prix fixe, le même standard que sur nos propres développements",
       introChecklistItem3: "Gestion locative optionnelle après livraison, à partir de 20 % par réservation",
@@ -9053,7 +9053,7 @@ export const translations: Record<Language, TranslationShape> = {
       landownerOurRole: "Design, permis, construction et gestion optionnelle",
       investorTitle: "Partenariat Investisseur",
       investorDesc:
-        "Vous préférez apporter des capitaux plutôt qu'un terrain ? Nous pouvons structurer une coentreprise autour du financement d'un développement, Ever Retreat se chargeant de trouver le terrain et de gérer le design, la construction, la vente et la gestion. Le partage des bénéfices est convenu selon votre contribution — contactez-nous pour structurer les modalités adaptées à votre situation.",
+        "Vous préférez apporter des capitaux plutôt qu'un terrain ? Nous pouvons structurer une coentreprise autour du financement d'un développement, Ever Design se chargeant de trouver le terrain et de gérer le design, la construction, la vente et la gestion. Le partage des bénéfices est convenu selon votre contribution — contactez-nous pour structurer les modalités adaptées à votre situation.",
       investorYourRole: "Apport de capitaux, supervision financière",
       investorOurRole: "Recherche de terrain, design, construction, reporting",
       customTitle: "Développement Sur Mesure",
@@ -9093,7 +9093,7 @@ export const translations: Record<Language, TranslationShape> = {
       financeFeeLabel: "Frais de gestion",
       financeFeeValue: "À partir de 20 % par réservation, si vous optez pour la gestion locative continue",
       financeShareLabel: "Partage des bénéfices",
-      financeShareValue: "Généralement 50/50 ou 60/40 entre le propriétaire foncier et Ever Retreat, selon la contribution de chacun",
+      financeShareValue: "Généralement 50/50 ou 60/40 entre le propriétaire foncier et Ever Design, selon la contribution de chacun",
       financeNote:
         "Nous présentons un modèle financier complet et propre au projet — coût de construction, calendrier et répartition des bénéfices proposée — avant la signature de tout accord de partenariat.",
       processEyebrow: "Du Terrain Aux Revenus Locatifs",
@@ -9110,11 +9110,11 @@ export const translations: Record<Language, TranslationShape> = {
       step4Desc: "Campagne de lancement, annonces et prospection d'acheteurs.",
       step5Title: "Gestion locative",
       step5Desc: "Gestion continue optionnelle pour les unités conservées.",
-      oneTeamEyebrow: "Pourquoi S'Associer À Ever Retreat",
+      oneTeamEyebrow: "Pourquoi S'Associer À Ever Design",
       oneTeamHeadingLight: "Une Équipe.",
       oneTeamHeadingBold: "Toutes Les Disciplines.",
       oneTeamParagraph1:
-        "La plupart des partenariats de développement impliquent d'assembler des entreprises séparées pour le design, la construction et la gestion. Chaque transition ajoute des délais et des coûts. Chez Ever Retreat, chaque discipline est réunie sous un même toit.",
+        "La plupart des partenariats de développement impliquent d'assembler des entreprises séparées pour le design, la construction et la gestion. Chaque transition ajoute des délais et des coûts. Chez Ever Design, chaque discipline est réunie sous un même toit.",
       oneTeamParagraph2:
         "Nos architectes conçoivent ce que nos propres constructeurs savent bâtir efficacement, selon le même standard à prix fixe que nous utilisons sur chaque projet. Et si vous choisissez la gestion locative continue, la même entreprise qui a construit votre villa peut ensuite la gérer pour générer des revenus.",
       oneTeamItem1: "120 villas conçues et construites à travers le Rwanda",
@@ -9134,7 +9134,7 @@ export const translations: Record<Language, TranslationShape> = {
       faq2Question: "Quelles structures de partenariat sont disponibles ?",
       faq2Answer:
         "Notre structure principale est un partenariat à partage de bénéfices : vous apportez le terrain, nous gérons le design, la construction et la gestion optionnelle, et les bénéfices sont répartis selon la contribution, généralement 50/50 ou 60/40. Si vous préférez apporter des capitaux plutôt qu'un terrain, ou si votre situation ne correspond à aucune des deux structures, contactez-nous et nous établirons les conditions au cas par cas.",
-      faq3Question: "Ever Retreat gère-t-il les permis et le juridique ?",
+      faq3Question: "Ever Design gère-t-il les permis et le juridique ?",
       faq3Answer:
         "Oui. Notre équipe juridique interne gère les permis de construire, la vérification des titres et les documents de conformité pour chaque partenariat, afin que vous n'ayez pas besoin de recourir à un conseil externe.",
       closingEyebrow: "Entamons La Discussion",
@@ -9261,7 +9261,7 @@ export const translations: Record<Language, TranslationShape> = {
       unitPlaceholder: "ex. 3 Chambres, 4 Chambres",
     },
     caseStudyPage: {
-      pageTitle: "Étude de Cas : Villa B&P Ever Retreat",
+      pageTitle: "Étude de Cas : Villa B&P Ever Design",
       pageSubtitle: "Comment nous avons conçu et construit notre villa vitrine au Lac Kivu.",
       challengeHeading: "Le Défi",
       challengeParagraph:
@@ -9271,7 +9271,7 @@ export const translations: Record<Language, TranslationShape> = {
         "Notre équipe a conçu une villa vitrine unique, positionnée pour une vue maximale sur le lac, avec une piscine à débordement privée. Nous avons utilisé des fondations en béton armé et des terrasses en porte-à-faux.",
       resultsHeading: "Résultats",
       resultsParagraph:
-        "La villa achevée sert désormais de vitrine vivante des standards de conception et de construction d'Ever Retreat — une référence concrète que nos clients et partenaires peuvent visiter en personne.",
+        "La villa achevée sert désormais de vitrine vivante des standards de conception et de construction d'Ever Design — une référence concrète que nos clients et partenaires peuvent visiter en personne.",
       timelineEyebrow: "Comment Tout S'est Construit",
       timelineHeading: "Calendrier du Projet",
       timelineHeadingLight: "Calendrier du",
@@ -9295,13 +9295,13 @@ export const translations: Record<Language, TranslationShape> = {
       statsHeadingBold: "Derrière Les Avis",
     },
     termsPage: {
-      heroSubtitle: "Conditions générales d'utilisation du site web et des services d'Ever Retreat.",
+      heroSubtitle: "Conditions générales d'utilisation du site web et des services d'Ever Design.",
       lastUpdatedLabel: "Dernière Mise à Jour :",
       lastUpdatedValue: "Janvier 2026",
       questionsLabel: "Des Questions ?",
       section1Heading: "Acceptation des Conditions",
       section1Body:
-        "En accédant au site web d'Ever Retreat ou en l'utilisant, vous acceptez d'être lié par ces Conditions Générales. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site.",
+        "En accédant au site web d'Ever Design ou en l'utilisant, vous acceptez d'être lié par ces Conditions Générales. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser notre site.",
       section2Heading: "Annonces Immobilières",
       section2Body:
         "Les annonces, les prix et la disponibilité des biens sur ce site peuvent changer sans préavis. Nous ne garantissons pas l'exactitude ou l'exhaustivité des informations des annonces.",
@@ -9313,10 +9313,10 @@ export const translations: Record<Language, TranslationShape> = {
         "Vous êtes responsable de tout contenu que vous soumettez via notre site. En soumettant du contenu, vous nous accordez un droit non exclusif de l'utiliser, le modifier et l'afficher.",
       section5Heading: "Propriété Intellectuelle",
       section5Body:
-        "Tout le contenu de ce site, y compris les textes, images, logos et marques, est la propriété d'Ever Retreat ou de ses concédants. Vous ne pouvez pas reproduire ou distribuer notre contenu sans autorisation.",
+        "Tout le contenu de ce site, y compris les textes, images, logos et marques, est la propriété d'Ever Design ou de ses concédants. Vous ne pouvez pas reproduire ou distribuer notre contenu sans autorisation.",
       section6Heading: "Limitation de Responsabilité",
       section6Body:
-        "Dans toute la mesure permise par la loi, Ever Retreat ne pourra être tenu responsable de tout dommage indirect, accessoire ou consécutif résultant de l'utilisation de notre site ou de nos services.",
+        "Dans toute la mesure permise par la loi, Ever Design ne pourra être tenu responsable de tout dommage indirect, accessoire ou consécutif résultant de l'utilisation de notre site ou de nos services.",
       section7Heading: "Droit Applicable",
       section7Body:
         "Ces conditions sont régies par les lois du Rwanda. Tout litige relèvera de la compétence exclusive des tribunaux de Kigali, Rwanda.",
@@ -9444,10 +9444,10 @@ export const translations: Record<Language, TranslationShape> = {
       notSureCta: "Nous Demander",
     },
     naraVillasPage: {
-      heroName: "B&P Ever Retreat Villa",
+      heroName: "B&P Ever Design Villa",
       heroTagline: "Prototype | Rubavu, Rwanda",
       heroSubtitle: "Villa Vitrine | Vue sur le Lac | Piscine Privée | Lake Kivu",
-      heroImageAlt: "B&P Ever Retreat Villa - Rubavu Lake Kivu",
+      heroImageAlt: "B&P Ever Design Villa - Rubavu Lake Kivu",
       heroSecondaryCtaLabel: "En Savoir Plus",
       heroStatusBadge: "Prototype — Pas À Vendre",
       developmentEyebrow: "Le Projet",
@@ -9455,9 +9455,9 @@ export const translations: Record<Language, TranslationShape> = {
       developmentParagraph1:
         "À quelques pas de la rive occidentale du Lake Kivu, avec une piscine privée sur toute la propriété. Conçue selon une approche tropicale moderne, l'architecture place le bien-être au cœur de la conception dès le départ. Des lignes épurées, des espaces ouverts et une lumière naturelle abondante se conjuguent à la végétation et à une circulation d'air fraîche.",
       developmentParagraph2:
-        "B&P Ever Retreat Villa se trouve sur les rives du Lake Kivu, à quelques instants de la ville de Rubavu et de Gisenyi. Le site attire les visiteurs pour les croisières au coucher du soleil, les sports nautiques et la détente au bord du lac, avec une demande constante des visiteurs régionaux et internationaux les week-ends et jours fériés.",
+        "B&P Ever Design Villa se trouve sur les rives du Lake Kivu, à quelques instants de la ville de Rubavu et de Gisenyi. Le site attire les visiteurs pour les croisières au coucher du soleil, les sports nautiques et la détente au bord du lac, avec une demande constante des visiteurs régionaux et internationaux les week-ends et jours fériés.",
       developmentParagraph3:
-        "B&P Ever Retreat Villa est notre villa vitrine achevée, construite selon les mêmes normes de conception et de construction que chaque projet Ever Retreat. Elle n'est actuellement pas à vendre.",
+        "B&P Ever Design Villa est notre villa vitrine achevée, construite selon les mêmes normes de conception et de construction que chaque projet Ever Design. Elle n'est actuellement pas à vendre.",
       locationLabel: "Emplacement",
       locationValue: "Rubavu, Lake Kivu, Rwanda",
       totalVillasLabel: "Total des Villas",
@@ -9468,9 +9468,9 @@ export const translations: Record<Language, TranslationShape> = {
       buildStatusValue: "Achevée",
       glanceEyebrow: "En Bref",
       glanceDevelopmentLabel: "Projet",
-      glanceDevelopmentValue: "B&P Ever Retreat Villa",
+      glanceDevelopmentValue: "B&P Ever Design Villa",
       glanceDeveloperLabel: "Promoteur",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Emplacement",
       glanceLocationValue: "Rubavu, Lake Kivu, Rwanda",
       glanceZoneLabel: "Zone",
@@ -9482,8 +9482,8 @@ export const translations: Record<Language, TranslationShape> = {
       glanceStatusLabel: "Statut",
       glanceStatusValue: "Prototype — Pas À Vendre",
       longViewLabel: "La Vue d'Ensemble",
-      longViewText: "Une vitrine du design et du savoir-faire qui caractérisent chaque villa Ever Retreat.",
-      longViewImageAlt: "B&P Ever Retreat Villa vue d'ensemble",
+      longViewText: "Une vitrine du design et du savoir-faire qui caractérisent chaque villa Ever Design.",
+      longViewImageAlt: "B&P Ever Design Villa vue d'ensemble",
       featuresEyebrow: "Inclus Avec la Villa",
       featuresHeading: "Conçue pour le bien-être.",
       feature1Title: "Piscine Privée",
@@ -9517,7 +9517,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEyebrow: "Notre Villa Vitrine à Rubavu",
       ctaHeading: "Prototype — Pas À Vendre",
       ctaParagraph:
-        "B&P Ever Retreat Villa est notre villa vitrine achevée sur le Lake Kivu, construite pour démontrer les normes de conception et de construction de chaque projet Ever Retreat. Contactez-nous pour en savoir plus.",
+        "B&P Ever Design Villa est notre villa vitrine achevée sur le Lake Kivu, construite pour démontrer les normes de conception et de construction de chaque projet Ever Design. Contactez-nous pour en savoir plus.",
       ctaEnquireLabel: "Nous Contacter",
       ctaViewAllLabel: "Voir Toutes Les Résidences",
     },
@@ -9535,7 +9535,7 @@ export const translations: Record<Language, TranslationShape> = {
       developmentParagraph2:
         "La villa dispose de baies vitrées du sol au plafond, d'une piscine à débordement privée, et d'une conception qui maximise la vie intérieure-extérieure. L'architecture combine des éléments tropicaux modernes avec la pierre locale et le savoir-faire artisanal du bois.",
       developmentParagraph3:
-        "Cottage est notre villa vitrine achevée dans une zone désignée tourisme à Rubavu — construite selon les mêmes normes de conception et de construction que chaque projet Ever Retreat. Elle n'est actuellement pas à vendre.",
+        "Cottage est notre villa vitrine achevée dans une zone désignée tourisme à Rubavu — construite selon les mêmes normes de conception et de construction que chaque projet Ever Design. Elle n'est actuellement pas à vendre.",
       locationLabel: "Emplacement",
       locationValue: "Rubavu, Lake Kivu, Rwanda",
       bedroomsLabel: "Chambres",
@@ -9548,7 +9548,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceDevelopmentLabel: "Projet",
       glanceDevelopmentValue: "Cottage",
       glanceDeveloperLabel: "Promoteur",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Emplacement",
       glanceLocationValue: "Rubavu, Lake Kivu, Rwanda",
       glanceZoneLabel: "Zone",
@@ -9564,7 +9564,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceStatusLabel: "Statut",
       glanceStatusValue: "Prototype — Pas À Vendre",
       longViewLabel: "La Vue d'Ensemble",
-      longViewText: "Une vitrine du design et du savoir-faire qui caractérisent chaque villa Ever Retreat.",
+      longViewText: "Une vitrine du design et du savoir-faire qui caractérisent chaque villa Ever Design.",
       longViewImageAlt: "Cottage vue sur le lac",
       featuresEyebrow: "Inclus Avec la Villa",
       featuresHeading: "Conçue pour le bien-être.",
@@ -9590,7 +9590,7 @@ export const translations: Record<Language, TranslationShape> = {
       ctaEyebrow: "Notre Villa Vitrine à Rubavu",
       ctaHeading: "Prototype — Pas À Vendre",
       ctaParagraph:
-        "Cottage est notre villa vitrine achevée à Rubavu, construite pour démontrer les normes de conception et de construction de chaque projet Ever Retreat. Contactez-nous pour en savoir plus.",
+        "Cottage est notre villa vitrine achevée à Rubavu, construite pour démontrer les normes de conception et de construction de chaque projet Ever Design. Contactez-nous pour en savoir plus.",
       ctaEnquireLabel: "Nous Contacter",
       ctaViewAllLabel: "Voir Toutes Les Résidences",
     },
@@ -9620,7 +9620,7 @@ export const translations: Record<Language, TranslationShape> = {
       glanceDevelopmentLabel: "Projet",
       glanceDevelopmentValue: "Virunga Villas",
       glanceDeveloperLabel: "Promoteur",
-      glanceDeveloperValue: "Ever Retreat",
+      glanceDeveloperValue: "Ever Design",
       glanceLocationLabel: "Emplacement",
       glanceLocationValue: "Musanze, Région des Volcans, Rwanda",
       glanceZoneLabel: "Zone",
@@ -9711,12 +9711,12 @@ export const translations: Record<Language, TranslationShape> = {
       faqHeading: "Questions Fréquemment Posées",
       naraFaq: [
         {
-          question: "Où se trouve la Villa B&P Ever Retreat ?",
+          question: "Où se trouve la Villa B&P Ever Design ?",
           answer: "La résidence se trouve à Rubavu, sur les rives du lac Kivu.",
         },
         {
           question: "La villa est-elle disponible à la vente ?",
-          answer: "La Villa B&P Ever Retreat est notre construction prototype et n'est actuellement pas à vendre. Inscrivez votre intérêt pour être informé de sa disponibilité future.",
+          answer: "La Villa B&P Ever Design est notre construction prototype et n'est actuellement pas à vendre. Inscrivez votre intérêt pour être informé de sa disponibilité future.",
         },
         {
           question: "Quel est l'état actuel de la construction ?",
@@ -9763,7 +9763,7 @@ export const translations: Record<Language, TranslationShape> = {
       solasRoiYieldValue: "15-20%",
       solasRoiOccupancyLabel: "Taux d'Occupation Moyen (Rubavu)",
       solasRoiOccupancyValue: "85%",
-      solasRoiNote: "Source : données de marché Ever Retreat pour la région de Rubavu. Les rendements réels dépendent de l'unité, du prix et des conditions de gestion convenues lors de la réservation.",
+      solasRoiNote: "Source : données de marché Ever Design pour la région de Rubavu. Les rendements réels dépendent de l'unité, du prix et des conditions de gestion convenues lors de la réservation.",
       sukuRoiEyebrow: "Aperçu de l'Investissement",
       sukuRoiHeading: "Pourquoi Musanze Fonctionne pour Cette Villa",
       sukuRoiParagraph:
@@ -9772,7 +9772,7 @@ export const translations: Record<Language, TranslationShape> = {
       sukuRoiYieldValue: "12-18%",
       sukuRoiOccupancyLabel: "Taux d'Occupation Moyen (Musanze)",
       sukuRoiOccupancyValue: "80%",
-      sukuRoiNote: "Source : données de marché Ever Retreat pour la région de Musanze. Les rendements réels dépendent de l'unité, du prix et des conditions de gestion convenues lors de la réservation.",
+      sukuRoiNote: "Source : données de marché Ever Design pour la région de Musanze. Les rendements réels dépendent de l'unité, du prix et des conditions de gestion convenues lors de la réservation.",
     },
     areasHubExtras: {
       statAreasLabel: "Régions Couvertes",

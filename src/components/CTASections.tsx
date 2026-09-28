@@ -45,7 +45,7 @@ export function GetPricesCTA() {
             </Link>
           </div>
           <EnquiryForm
-            context={`${t.ctaSections.getPrices.heading} — Ever Retreat`}
+            context={`${t.ctaSections.getPrices.heading} — Ever Design`}
             showMessage={false}
             className="rounded-sm bg-white/5 p-8"
           />

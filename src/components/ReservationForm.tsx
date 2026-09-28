@@ -16,7 +16,7 @@ interface ReservationFormProps {
 // Same 3 real, active developments listed in src/components/Developments.tsx —
 // repeated here (not invented) since the dropdown needs plain id/name pairs.
 const developmentOptions = [
-  { id: "nara-villas", name: "B&P Ever Retreat Villa" },
+  { id: "nara-villas", name: "B&P Ever Design Villa" },
   { id: "solas-kivu", name: "Cottage" },
   { id: "suku-residences", name: "Virunga Villas" },
 ];

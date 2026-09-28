@@ -2,9 +2,9 @@ export const metadata = {
   alternates: {
     canonical: "/services/development-partnerships",
   },
-  title: "Development Partnerships - Villa Development in Rwanda | Ever Retreat",
+  title: "Development Partnerships - Villa Development in Rwanda | Ever Design",
   description:
-    "Partner with Ever Retreat for villa developments in Rwanda. We design, build, sell, and manage full villa developments for landowners and investors.",
+    "Partner with Ever Design for villa developments in Rwanda. We design, build, sell, and manage full villa developments for landowners and investors.",
 };
 
 export default function DevelopmentPartnershipsLayout({ children }: { children: React.ReactNode }) {

@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/about",
   },
-  title: "About Ever Retreat - Rwanda Property Investment | Ever Retreat",
+  title: "About Ever Design - Rwanda Property Investment | Ever Design",
   description:
     "Rwandan-owned, Rwanda-based property company with 82 in-house professionals. Architecture, construction, villa management, and real estate - all under one roof.",
 };

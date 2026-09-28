@@ -50,7 +50,7 @@ export default function FAQPage() {
       <section className="relative min-h-[85vh] w-full overflow-hidden">
         <Image
           src="/images/hero/hero-2-full.webp"
-          alt="Rwanda hillside landscape with Ever Retreat villas"
+          alt="Rwanda hillside landscape with Ever Design villas"
           fill
           priority
           className="object-cover hero-bg-image"
@@ -60,7 +60,7 @@ export default function FAQPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
         <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 md:px-12 md:pb-24">
           <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
-            Ever Retreat Rwanda
+            Ever Design Rwanda
           </p>
           <h1 className="max-w-3xl text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white md:text-6xl lg:text-7xl">
             <span className="font-light">Frequently Asked</span> <span className="font-bold">Questions</span>

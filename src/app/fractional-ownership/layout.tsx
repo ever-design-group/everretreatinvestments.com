@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/fractional-ownership",
   },
-  title: "Fractional Ownership - Shared Rwanda Villa Ownership | Ever Retreat",
+  title: "Fractional Ownership - Shared Rwanda Villa Ownership | Ever Design",
   description:
     "Explore fractional ownership opportunities in Rwanda. Own a share of premium villa properties with full usage rights, rental income potential, and hassle-free management.",
 };

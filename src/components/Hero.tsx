@@ -14,7 +14,7 @@ export function Hero() {
       {/* Background image - slow ambient zoom/breathing loop */}
       <Image
         src="/images/hero/everretreat.jpeg"
-        alt="Luxury eco-retreat development by Ever Retreat in Rwanda"
+        alt="Luxury eco-retreat development by Ever Design in Rwanda"
         fill
         priority
         sizes="100vw"

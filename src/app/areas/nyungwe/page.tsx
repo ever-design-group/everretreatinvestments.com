@@ -32,7 +32,7 @@ export default function NyungweAreaPage() {
           name="Nyungwe"
           subtitle={areaItems.nyungwe.description}
           image="/images/areas/nyungwe-area.webp"
-          imageAlt="Nyungwe forest canopy - Ever Retreat area guide"
+          imageAlt="Nyungwe forest canopy - Ever Design area guide"
         />
       }
     >

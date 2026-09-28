@@ -26,7 +26,7 @@ export default function VillaToursPage() {
         <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image
             src="/images/portfolio/completed-villa-4.webp"
-            alt="Completed Ever Retreat villa with pool"
+            alt="Completed Ever Design villa with pool"
             fill
             priority
             className="object-cover hero-bg-image"

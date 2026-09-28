@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/akagera",
   },
-  title: "Akagera Property Investment | Ever Retreat",
+  title: "Akagera Property Investment | Ever Design",
   description:
     "Akagera property investment guide. National park proximity with safari lodge opportunities and luxury tourism demand.",
 };

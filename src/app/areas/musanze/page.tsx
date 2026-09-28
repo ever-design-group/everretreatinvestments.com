@@ -32,7 +32,7 @@ export default function MusanzeAreaPage() {
           name="Musanze"
           subtitle={areaItems.musanze.description}
           image="/images/areas/musanze-area.webp"
-          imageAlt="Musanze, Volcanoes region - Ever Retreat area guide"
+          imageAlt="Musanze, Volcanoes region - Ever Design area guide"
         />
       }
     >

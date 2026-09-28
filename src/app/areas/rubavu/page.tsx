@@ -32,7 +32,7 @@ export default function RubavuAreaPage() {
           name="Rubavu"
           subtitle={areaItems.rubavu.description}
           image="/images/areas/rubavu-area.webp"
-          imageAlt="Rubavu, Lake Kivu waterfront - Ever Retreat area guide"
+          imageAlt="Rubavu, Lake Kivu waterfront - Ever Design area guide"
         />
       }
     >
@@ -62,7 +62,7 @@ export default function RubavuAreaPage() {
                 <p className="mt-4 text-base leading-relaxed text-brand-gray-700 md:text-lg">
                   {p.marketParagraph1Pre}
                   <Link href="/developments/nara-villas" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
-                    B&amp;P Ever Retreat Villa
+                    B&amp;P Ever Design Villa
                   </Link>
                   {p.marketParagraph1Mid}
                   <Link href="/developments/solas-kivu" className="font-semibold text-black underline underline-offset-4 hover:text-brand-gray-600">
@@ -113,7 +113,7 @@ export default function RubavuAreaPage() {
                     <p className="text-xs uppercase tracking-wider text-white/50">Our Developments</p>
                     <div className="mt-2 space-y-1">
                       <Link href="/developments/nara-villas" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
-                        B&amp;P Ever Retreat Villa →
+                        B&amp;P Ever Design Villa →
                       </Link>
                       <Link href="/developments/solas-kivu" className="block text-sm font-semibold text-white transition-colors hover:text-white/70">
                         Cottage →

@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/faq",
   },
-  title: "FAQ - Building a Villa in Rwanda | Ever Retreat",
+  title: "FAQ - Building a Villa in Rwanda | Ever Design",
   description:
     "Frequently asked questions about building villas in Rwanda. Legal structures, build costs, timelines, yields, and more.",
 };

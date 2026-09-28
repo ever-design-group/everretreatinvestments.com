@@ -109,7 +109,7 @@ export default function LandServicePage() {
 
   // Real, page-specific Q&As already established sitewide in the shared
   // investment FAQ (foreigners buying, freehold vs leasehold, and which areas
-  // Ever Retreat covers) — reused here rather than inventing new questions,
+  // Ever Design covers) — reused here rather than inventing new questions,
   // matching the reference's page-specific "Land FAQs" accordion.
   const landFaqs = [t.faqSection.items[0], t.faqSection.items[1], t.faqSection.items[6]];
 

@@ -8,7 +8,7 @@ export const metadata = {
   alternates: {
     canonical: "/rwanda-land-zoning",
   },
-  title: "Rwanda Land Zoning Guide | Ever Retreat",
+  title: "Rwanda Land Zoning Guide | Ever Design",
   description:
     "Complete guide to Rwanda land zoning regulations. Understand the different land use zones, zoning classifications, and what you can build in each area.",
 };

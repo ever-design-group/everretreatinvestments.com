@@ -69,13 +69,13 @@ export function Footer() {
                 of the page. */}
             <Link
               href="/"
-              className="relative block h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px]"
+              className="relative block h-10 w-[82px] sm:h-11 sm:w-[90px] md:h-14 md:w-[114px] 2xl:h-16 2xl:w-[131px]"
             >
               <Image
-                src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
-                alt="Ever Retreat - Rwanda Property, Architecture & Construction"
+                src="/images/logos/ever-design-group-logo-cropped.png"
+                alt="Ever Design Group - Rwanda Property, Architecture & Construction"
                 fill
-                sizes="(max-width: 640px) 170px, (max-width: 768px) 210px, (max-width: 1536px) 265px, 297px"
+                sizes="(max-width: 768px) 90px, (max-width: 1536px) 114px, 131px"
                 className="object-contain object-left"
               />
             </Link>

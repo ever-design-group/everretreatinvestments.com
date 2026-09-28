@@ -1,4 +1,4 @@
-// Canonical list of the 8 Ever Retreat investment areas, shared between the
+// Canonical list of the 8 Ever Design investment areas, shared between the
 // areas hub and each area detail page (pill/link lists, "explore other
 // areas" sections). Keys match src/lib/i18n/translations.ts areasSection.items.
 export const ALL_AREAS = [

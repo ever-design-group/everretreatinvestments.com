@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/services/land",
   },
-  title: "Land Sourcing Services - Find Land in Rwanda | Ever Retreat",
+  title: "Land Sourcing Services - Find Land in Rwanda | Ever Design",
   description:
     "We source and evaluate land across Rwanda's prime investment zones. Legal due diligence, zoning checks, and negotiation - all before you commit. Freehold & leasehold options available.",
 };

@@ -18,7 +18,7 @@ export default function BlogPage() {
         <section className="relative overflow-hidden bg-brand-teal pt-32 pb-20 md:pt-40 md:pb-24">
           <Image
             src="/images/hero/hero-1-full.webp"
-            alt="Ever Retreat villa interior"
+            alt="Ever Design villa interior"
             fill
             priority
             className="object-cover opacity-25"

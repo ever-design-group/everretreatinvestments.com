@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/kigali",
   },
-  title: "Kigali Property Investment | Ever Retreat",
+  title: "Kigali Property Investment | Ever Design",
   description:
     "Kigali property investment guide. Capital city with consistent rental demand and strong capital appreciation. From $50-120/sqm land prices.",
 };

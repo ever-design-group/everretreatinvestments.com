@@ -15,7 +15,7 @@ export default function CaseStudyPage() {
         <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image
             src="/images/portfolio/completed-villa-4.webp"
-            alt="B&P Ever Retreat Villa waterfront pool"
+            alt="B&P Ever Design Villa waterfront pool"
             fill
             priority
             className="object-cover hero-bg-image"
@@ -25,7 +25,7 @@ export default function CaseStudyPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
           <div className="relative z-10 mx-auto flex min-h-[85vh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 md:px-12 md:pb-24">
             <p className="mb-6 text-xs uppercase tracking-[0.3em] text-white/50 md:text-sm">
-              Ever Retreat Rwanda
+              Ever Design Rwanda
             </p>
             <h1 className="max-w-3xl text-4xl uppercase leading-[0.95] tracking-[0.05em] text-white md:text-6xl lg:text-7xl">
               {p.pageTitle}
@@ -109,28 +109,28 @@ export default function CaseStudyPage() {
           <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4">
             <Image
               src="/images/portfolio/gj-villa.webp"
-              alt="B&P Ever Retreat Villa interior"
+              alt="B&P Ever Design Villa interior"
               width={500}
               height={300}
               className="rounded-sm object-cover"
             />
             <Image
               src="/images/portfolio/suku-terrace.webp"
-              alt="B&P Ever Retreat Villa exterior"
+              alt="B&P Ever Design Villa exterior"
               width={500}
               height={300}
               className="rounded-sm object-cover"
             />
             <Image
               src="/images/portfolio/villa-natural.webp"
-              alt="B&P Ever Retreat Villa pool"
+              alt="B&P Ever Design Villa pool"
               width={500}
               height={300}
               className="rounded-sm object-cover"
             />
             <Image
               src="/images/portfolio/completed-villa-4.webp"
-              alt="B&P Ever Retreat Villa sauna"
+              alt="B&P Ever Design Villa sauna"
               width={500}
               height={300}
               className="rounded-sm object-cover"

@@ -15,14 +15,6 @@ interface NavItem {
   children?: { label: string; href: string }[];
 }
 
-// Keeps the nav visually consistent regardless of which language produced the
-// label — a longer translated word (e.g. French) shrinks slightly instead of
-// pushing the layout wider or wrapping.
-function navLabelSizeClass(label: string): string {
-  if (label.length > 14) return "text-[11px]";
-  if (label.length > 9) return "text-[12px]";
-  return "text-[13px]";
-}
 
 function buildNavItems(t: TranslationShape): NavItem[] {
   return [
@@ -132,112 +124,147 @@ export function Header() {
       {!scrolled && (
         <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-black/50 via-black/15 to-transparent" />
       )}
-      <nav className="relative mx-auto flex h-20 items-center justify-between px-4 xl:px-6 max-w-[1440px] md:h-24">
-        {/* Logo — smaller base size than before so it can never crowd the
-            hamburger button on the narrowest phones (down to ~280px wide);
-            scales back up to the original size from sm: onward. */}
-        <Link
-          href="/"
-          className="relative h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px] flex-shrink-0"
-        >
-          <Image
-            src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
-            alt="Ever Retreat"
-            fill
-            sizes="(max-width: 768px) 250px, (max-width: 1536px) 265px, 297px"
-            className="object-contain object-left"
-            priority
-          />
-        </Link>
+      <nav className="relative mx-auto flex h-20 items-center px-5 md:px-6 max-w-[1440px] md:h-24">
+        {/* Logo + nav + controls travel together as ONE group so leftover
+            width on very wide screens splits evenly on both sides (xl:mx-auto
+            centers this whole group within the 1440px row) instead of
+            piling up on just one edge — the user specifically asked for the
+            left-of-logo and right-of-Contact gaps to match. Internal
+            spacing (logo-to-nav, nav-to-controls) stays fixed regardless,
+            so this doesn't reintroduce the old elastic gap between Blog and
+            the language toggle; only the space *outside* the group grows,
+            and it grows symmetrically. This is a deliberate improvement
+            over balitecture.com's own reference behavior, which actually
+            left-anchors this same cluster and dumps all leftover width on
+            the right (confirmed by screenshotting their live site at
+            1920px) — matching that exactly would mean asymmetric margins,
+            which is the opposite of what was asked for here. */}
+        {/* Left-anchored, not centered — the logo must sit at the exact
+            same x-position as the Footer's own logo, which only has ONE
+            level of centering (the outer <div className="mx-auto
+            max-w-[1440px]"> shared by both header and footer). Centering
+            this inner group too (an earlier xl:mx-auto attempt) added a
+            SECOND, independent centering step here that the footer never
+            had, which is exactly what was pushing the header logo to the
+            right of the footer logo at every width above 1280px — confirmed
+            by measuring both simultaneously via getBoundingClientRect. */}
+        <div className="flex items-center gap-6 xl:gap-8">
+          {/* Logo — Ever Design Group's mark is ~2:1 (wide icon + wordmark),
+              much less elongated than the old Ever Retreat logo (~4.5:1), so
+              box dimensions are sized by height (to fit the h-20/h-24 header
+              comfortably) with width following the real aspect ratio, rather
+              than reusing the old logo's width-driven box. */}
+          <Link
+            href="/"
+            className="relative h-10 w-[82px] sm:h-11 sm:w-[90px] md:h-14 md:w-[114px] 2xl:h-16 2xl:w-[131px] flex-shrink-0"
+          >
+            <Image
+              src="/images/logos/ever-design-group-logo-cropped.png"
+              alt="Ever Design Group"
+              fill
+              sizes="(max-width: 768px) 90px, (max-width: 1536px) 114px, 131px"
+              className="object-contain object-left"
+              priority
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center gap-4">
-          {navItems.map((item) => (
-            <li
-              key={item.href}
-              className="relative"
-              onMouseEnter={() => setOpenDropdown(item.children ? item.label : null)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <Link
-                href={item.href}
-                className={`inline-flex items-center gap-1 ${navLabelSizeClass(item.label)} font-semibold uppercase tracking-[0.1em] whitespace-nowrap transition-colors hover:text-white ${
-                  isActive(item.href) ? "text-white" : "text-white/70"
-                }`}
+          {/* Desktop nav + right-side controls: fixed gap between them
+              (not stretchy). English keeps the larger text-sm/gap-8/gap-6;
+              French drops one size (text-[13px]) and tightens gaps
+              (gap-6/gap-4) purely as extra safety margin on top of the
+              shortened translations ("Portefeuille" -> "Portfolio") — belt
+              and suspenders, so French keeps comfortable room to spare
+              rather than sitting at the exact same edge as English. */}
+          <div className={`hidden items-center xl:flex ${language === "fr" ? "gap-6" : "gap-8"}`}>
+          <ul className={`flex items-center ${language === "fr" ? "gap-4" : "gap-6"}`}>
+            {navItems.map((item) => (
+              <li
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setOpenDropdown(item.children ? item.label : null)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {item.label}
-                {item.children && (
-                  <svg
-                    className="h-3 w-3 opacity-50"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                )}
-              </Link>
+                <Link
+                  href={item.href}
+                  className={`inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-[0.1em] whitespace-nowrap transition-colors hover:text-white ${
+                    isActive(item.href) ? "text-white" : "text-white/70"
+                  }`}
+                >
+                  {item.label}
+                  {item.children && (
+                    <svg
+                      className="h-3 w-3 opacity-50"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </Link>
 
-              {item.children && openDropdown === item.label && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
-                  <div className="min-w-[200px] overflow-hidden rounded-sm border border-white/10 bg-brand-teal/95 backdrop-blur-sm">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        className={`block px-4 py-2.5 ${navLabelSizeClass(child.label)} font-semibold uppercase tracking-[0.1em] text-white/70 transition-colors hover:bg-white/5 hover:text-white whitespace-nowrap`}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                {item.children && openDropdown === item.label && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3">
+                    <div className="min-w-[200px] overflow-hidden rounded-sm border border-white/10 bg-brand-teal/95 backdrop-blur-sm">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block whitespace-nowrap px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+                )}
+              </li>
+            ))}
+          </ul>
 
-        {/* Right side - Language, Currency & Contact — ml-4 is a guaranteed floor so
-            this can never touch the last nav link, even if justify-between's own
-            distributed gap collapses to zero on a long-language row (e.g. French) */}
-        <div className="hidden lg:flex items-center gap-4 ml-4 flex-shrink-0">
-          {/* Language Toggle */}
-          <button
-            onClick={toggleLanguage}
-            className="inline-flex items-center gap-1 rounded-sm border border-white/25 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white/70 transition-colors hover:text-white"
-            aria-label="Toggle language"
-          >
-            {language === "en" ? "EN" : "FR"}
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-4 flex-shrink-0">
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-1 rounded-sm border border-white/25 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-white/70 transition-colors hover:text-white"
+              aria-label="Toggle language"
+            >
+              {language === "en" ? "EN" : "FR"}
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
 
-          {/* Currency Toggle */}
-          <button
-            onClick={toggleCurrency}
-            className="flex items-center gap-1.5 border border-white/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-colors hover:text-white hover:border-white/40"
-            aria-label="Toggle currency"
-          >
-            {currency === "usd" ? "USD" : "RWF"}
-            <svg className="h-2.5 w-2.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+            {/* Currency Toggle */}
+            <button
+              onClick={toggleCurrency}
+              className="flex items-center gap-1.5 border border-white/20 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-colors hover:text-white hover:border-white/40"
+              aria-label="Toggle currency"
+            >
+              {currency === "usd" ? "USD" : "RWF"}
+              <svg className="h-2.5 w-2.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
 
-          {/* Contact Button */}
-          <Button href="/contact" variant="primary" size="sm">
-            {t.nav.contact}
-          </Button>
+            {/* Contact Button */}
+            <Button href="/contact" variant="primary" size="sm">
+              {t.nav.contact}
+            </Button>
+          </div>
+          </div>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu button — ml-auto pushes it to the far right on its
+            own now that <nav> no longer uses justify-between (that was only
+            there to split logo/hamburger on mobile; removing it is what
+            lets the desktop cluster above sit packed instead of stretched). */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
-          className="relative z-[70] flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="relative z-[70] ml-auto flex h-11 w-11 flex-col items-center justify-center gap-1.5 xl:hidden"
         >
           <span
             className={`block h-px w-6 origin-center bg-white transition-all duration-300 ${
@@ -261,7 +288,7 @@ export function Header() {
           logo + close row, centered nav, language/currency pill rows, bordered
           WhatsApp CTA pinned near the bottom. */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-brand-teal lg:hidden">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-brand-teal xl:hidden">
           {/* Logo — pinned outside the scrollable area below (flex-shrink-0,
               not part of the overflow-y-auto wrapper), so a tall nav list
               scrolls underneath it instead of carrying it away. This row
@@ -273,16 +300,16 @@ export function Header() {
               animated into an X, fixed above this overlay at z-[70]) is the
               only close control — a second close icon here would just
               duplicate it. */}
-          <div className="flex h-20 flex-shrink-0 items-center px-4 md:h-24">
+          <div className="flex h-20 flex-shrink-0 items-center px-5 md:h-24 md:px-6">
             <Link
               href="/"
-              className="relative h-9 w-[170px] sm:h-11 sm:w-[210px] md:h-[58px] md:w-[265px] 2xl:h-[66px] 2xl:w-[297px] flex-shrink-0"
+              className="relative h-10 w-[82px] sm:h-11 sm:w-[90px] md:h-14 md:w-[114px] 2xl:h-16 2xl:w-[131px] flex-shrink-0"
             >
               <Image
-                src="/images/logos/Ever_retreat_logo__2_-removebg-preview.png"
-                alt="Ever Retreat"
+                src="/images/logos/ever-design-group-logo-cropped.png"
+                alt="Ever Design Group"
                 fill
-                sizes="(max-width: 640px) 170px, (max-width: 768px) 210px, (max-width: 1536px) 265px, 297px"
+                sizes="(max-width: 768px) 90px, (max-width: 1536px) 114px, 131px"
                 className="object-contain object-left"
               />
             </Link>

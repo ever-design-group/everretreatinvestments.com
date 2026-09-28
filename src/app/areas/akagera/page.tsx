@@ -32,7 +32,7 @@ export default function AkageraAreaPage() {
           name="Akagera"
           subtitle={areaItems.akagera.description}
           image="/images/areas/huye-area.webp"
-          imageAlt="Akagera National Park - Ever Retreat area guide"
+          imageAlt="Akagera National Park - Ever Design area guide"
         />
       }
     >

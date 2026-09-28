@@ -32,7 +32,7 @@ export default function HuyeAreaPage() {
           name="Huye"
           subtitle={areaItems.huye.description}
           image="/images/areas/huye-area.webp"
-          imageAlt="Huye, Southern Province - Ever Retreat area guide"
+          imageAlt="Huye, Southern Province - Ever Design area guide"
         />
       }
     >

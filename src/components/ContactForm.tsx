@@ -64,7 +64,7 @@ export function ContactForm() {
     }
 
     setStatus("submitting");
-    const context = "New Contact Form Enquiry — Ever Retreat";
+    const context = "New Contact Form Enquiry — Ever Design";
     const fields = {
       [t.forms.fullName]: name,
       [t.forms.emailAddress]: email,

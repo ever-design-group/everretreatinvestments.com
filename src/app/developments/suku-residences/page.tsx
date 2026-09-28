@@ -10,7 +10,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const relatedDevelopments = [
-  { id: "nara-villas", name: "B&P Ever Retreat Villa", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas" },
+  { id: "nara-villas", name: "B&P Ever Design Villa", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/nara-villas" },
   { id: "solas-kivu", name: "Cottage", tag: "Rubavu", image: "/images/developments/villa-photos.jpeg", href: "/developments/solas-kivu" },
 ];
 

@@ -1,14 +1,14 @@
 {
-  "name": "everretreatinvestments",
+  "name": "everdesigninvestments",
   "version": "0.3.1",
   "private": true,
-  "description": "Ever Retreat Investments - Rwanda property investment and villa development website",
+  "description": "Ever Design Investments - Rwanda property investment and villa development website",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/ever-design-group/everretreatinvestments.com.git"
   },
-  "homepage": "https://everretreatinvestments.com",
+  "homepage": "https://everdesigninvestments.com",
   "engines": {
     "node": ">=24"
   },

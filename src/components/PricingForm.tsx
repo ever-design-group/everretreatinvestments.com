@@ -39,7 +39,7 @@ export function PricingForm() {
               ))}
             </div>
           </div>
-          <EnquiryForm context="Which One Fits You — Ever Retreat" className="rounded-sm bg-white/5 p-8" />
+          <EnquiryForm context="Which One Fits You — Ever Design" className="rounded-sm bg-white/5 p-8" />
         </div>
       </div>
     </section>

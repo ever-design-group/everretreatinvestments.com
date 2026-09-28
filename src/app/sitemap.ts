@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://everretreatinvestments.com";
+const SITE_URL = "https://everdesigninvestments.com";
 
 // Every real, public, static route in src/app (kept in sync by hand since
 // this is a small static site with no dynamic/CMS-driven routes) —

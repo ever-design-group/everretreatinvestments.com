@@ -14,7 +14,7 @@ function buildServices(t: TranslationShape, formatPrice: (usd: number) => string
       price: `${t.services.pricePrefix} ${formatPrice(7000)} ${items.architecture.priceSuffix}`,
       description: items.architecture.description,
       image: "/images/services/villa-design.webp",
-      imageAlt: "Architecture & Design - Ever Retreat",
+      imageAlt: "Architecture & Design - Ever Design",
       href: "/services/architecture",
     },
     {
@@ -22,7 +22,7 @@ function buildServices(t: TranslationShape, formatPrice: (usd: number) => string
       price: `${t.services.pricePrefix} ${formatPrice(1000)}${items.construction.priceSuffix}`,
       description: items.construction.description,
       image: "/images/services/villa-exterior.webp",
-      imageAlt: "Construction - Ever Retreat",
+      imageAlt: "Construction - Ever Design",
       href: "/services/construction",
     },
     {
@@ -30,7 +30,7 @@ function buildServices(t: TranslationShape, formatPrice: (usd: number) => string
       price: items.villaManagement.price,
       description: items.villaManagement.description,
       image: "/images/services/villa-kitchen-lived-in.webp",
-      imageAlt: "Villa Management - Ever Retreat",
+      imageAlt: "Villa Management - Ever Design",
       href: "/services/villa-management",
     },
     {
@@ -38,7 +38,7 @@ function buildServices(t: TranslationShape, formatPrice: (usd: number) => string
       price: items.landSourcing.price,
       description: items.landSourcing.description,
       image: "/images/services/land-aerial.webp",
-      imageAlt: "Land Sourcing - Ever Retreat",
+      imageAlt: "Land Sourcing - Ever Design",
       href: "/services/land",
     },
   ];
@@ -103,7 +103,7 @@ export function Services() {
             <div className="relative aspect-[16/10] overflow-hidden">
               <Image
                 src="/images/services/development-partner.webp"
-                alt="Completed multi-villa development by Ever Retreat"
+                alt="Completed multi-villa development by Ever Design"
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

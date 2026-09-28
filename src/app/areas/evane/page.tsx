@@ -32,7 +32,7 @@ export default function EvaneAreaPage() {
           name="Evane"
           subtitle={areaItems.evane.description}
           image="/images/areas/lake-kivu-area.webp"
-          imageAlt="Evane, northern highlands - Ever Retreat area guide"
+          imageAlt="Evane, northern highlands - Ever Design area guide"
         />
       }
     >

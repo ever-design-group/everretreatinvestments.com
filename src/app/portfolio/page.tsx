@@ -34,7 +34,7 @@ export default function PortfolioPage() {
   // Real, already-established projects (same three used in the architecture
   // page's "Projects" list) — genuine facts, not invented.
   const notableProjects = [
-    { name: "B&P Ever Retreat Villa", description: p.notableBpDescription, href: "/developments/nara-villas" },
+    { name: "B&P Ever Design Villa", description: p.notableBpDescription, href: "/developments/nara-villas" },
     { name: "Cottage", description: p.notableCottageDescription, href: "/developments/solas-kivu" },
     { name: "Virunga Villas", description: p.notableVirungaDescription, href: "/developments/suku-residences" },
   ];
@@ -48,7 +48,7 @@ export default function PortfolioPage() {
           boldSuffix={p.heroHeadingBold}
           subtitle={p.heroParagraph}
           image="/images/portfolio/completed-villa-4.webp"
-          imageAlt="Completed Ever Retreat villa"
+          imageAlt="Completed Ever Design villa"
           eyebrow={p.heroEyebrow}
           twoTone
           hideCta

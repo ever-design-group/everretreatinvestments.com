@@ -13,7 +13,7 @@ function buildDevelopments(t: TranslationShape) {
   return [
     {
       id: "nara-villas",
-      name: "B&P Ever Retreat Villa",
+      name: "B&P Ever Design Villa",
       propertyType,
       tag: "Rubavu",
       badge: badges.prototype,

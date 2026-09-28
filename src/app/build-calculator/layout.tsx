@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/build-calculator",
   },
-  title: "Villa Build Cost Calculator | Ever Retreat Rwanda",
+  title: "Villa Build Cost Calculator | Ever Design Rwanda",
   description:
     "Estimate the cost of building your villa in Rwanda with our interactive build calculator. Get instant estimates for construction, land, and projected returns.",
 };

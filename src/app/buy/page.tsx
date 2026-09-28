@@ -21,7 +21,7 @@ export default function BuyPage() {
         <section className="relative h-[600px] w-full overflow-hidden">
           <Image
             src="/images/hero/nara-hero-poster.webp"
-            alt="B&P Ever Retreat Villa lakeside development"
+            alt="B&P Ever Design Villa lakeside development"
             fill
             priority
             className="object-cover hero-bg-image"
@@ -70,7 +70,7 @@ export default function BuyPage() {
                 {p.formParagraph}
               </p>
             </div>
-            <ReservationForm context="Villa Reservation Request — Ever Retreat" className="rounded-sm bg-white p-8" />
+            <ReservationForm context="Villa Reservation Request — Ever Design" className="rounded-sm bg-white p-8" />
           </div>
         </div>
       </section>

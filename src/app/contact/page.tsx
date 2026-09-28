@@ -34,7 +34,7 @@ export default function ContactPage() {
         <section className="relative min-h-[50vh] w-full overflow-hidden bg-brand-teal">
           <Image
             src="/images/hero/aerial-rwanda.webp"
-            alt="Ever Retreat office in Rwanda"
+            alt="Ever Design office in Rwanda"
             fill
             priority
             className="object-cover opacity-30"
@@ -75,7 +75,7 @@ export default function ContactPage() {
                 </div>
               </a>
               <a
-                href="mailto:info@everretreatinvestments.com"
+                href="mailto:info@everdesigninvestments.com"
                 className="group flex items-center gap-4 py-6 md:px-8 md:py-8"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10">
@@ -91,7 +91,7 @@ export default function ContactPage() {
                 <div>
                   <p className="mb-0.5 text-xs uppercase tracking-wider text-white/40">{c.emailLabel}</p>
                   <p className="text-sm font-semibold text-white transition-colors group-hover:text-white/80">
-                    info@everretreatinvestments.com
+                    info@everdesigninvestments.com
                   </p>
                 </div>
               </a>

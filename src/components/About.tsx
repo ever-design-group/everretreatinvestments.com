@@ -23,7 +23,7 @@ export function About() {
           >
             <Image
               src="/images/about/Villa 1.jpeg"
-              alt="Ever Retreat architectural design in Rwanda"
+              alt="Ever Design architectural design in Rwanda"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

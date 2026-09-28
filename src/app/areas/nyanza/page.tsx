@@ -32,7 +32,7 @@ export default function NyanzaAreaPage() {
           name="Nyanza"
           subtitle={areaItems.nyanza.description}
           image="/images/areas/kigali-area.webp"
-          imageAlt="Nyanza, former royal capital - Ever Retreat area guide"
+          imageAlt="Nyanza, former royal capital - Ever Design area guide"
         />
       }
     >

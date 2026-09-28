@@ -263,7 +263,7 @@ export default function ArchitectureServicePage() {
             <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-[1.5fr_1fr]">
               <div>
                 <p className="text-xs uppercase tracking-widest text-brand-gray-500">
-                  Build With Ever Retreat
+                  Build With Ever Design
                 </p>
                 <h3 className="mt-2 text-2xl font-bold uppercase tracking-wide text-black md:text-3xl">
                   {p.pricingRow2Label}
@@ -322,7 +322,7 @@ export default function ArchitectureServicePage() {
       <section className="relative h-[50vh] w-full overflow-hidden">
         <Image
           src="/images/portfolio/nara-render.webp"
-          alt="Ever Retreat architectural design portfolio"
+          alt="Ever Design architectural design portfolio"
           fill
           className="object-cover"
           sizes="100vw"
@@ -350,7 +350,7 @@ export default function ArchitectureServicePage() {
               </p>
               <ul className="mt-4 space-y-4">
                 <li className="border-b border-brand-gray-100 pb-4">
-                  <span className="font-bold text-black">B&amp;P Ever Retreat Villa</span>
+                  <span className="font-bold text-black">B&amp;P Ever Design Villa</span>
                   <span className="text-brand-gray-600"> — {p.projectBpDescription}</span>
                 </li>
                 <li className="border-b border-brand-gray-100 pb-4">
@@ -389,7 +389,7 @@ export default function ArchitectureServicePage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
               <Image
                 src="/images/services/villa-exterior.webp"
-                alt="Ever Retreat in-house design and build team"
+                alt="Ever Design in-house design and build team"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

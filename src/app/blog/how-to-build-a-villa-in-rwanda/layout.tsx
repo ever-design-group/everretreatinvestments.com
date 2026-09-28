@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/blog/how-to-build-a-villa-in-rwanda",
   },
-  title: "How to Build a Villa in Rwanda: Step by Step | Ever Retreat",
+  title: "How to Build a Villa in Rwanda: Step by Step | Ever Design",
   description:
     "Complete guide to building a villa in Rwanda. Step-by-step process from land sourcing, design, permits, construction, to rental management.",
 };

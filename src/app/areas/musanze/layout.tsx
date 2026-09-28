@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/musanze",
   },
-  title: "Musanze Property Investment | Ever Retreat",
+  title: "Musanze Property Investment | Ever Design",
   description:
     "Musanze property investment guide. Volcanoes region with gorilla tourism and luxury mountain retreats. 12-18% gross yields.",
 };

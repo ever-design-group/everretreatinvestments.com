@@ -30,7 +30,7 @@ export default function AboutPage() {
         <section className="relative min-h-[85vh] w-full overflow-hidden">
           <Image
             src="/images/hero/aerial-rwanda.webp"
-            alt="Aerial view of Ever Retreat landscape in Rwanda"
+            alt="Aerial view of Ever Design landscape in Rwanda"
             fill
             priority
             className="object-cover hero-bg-image"
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 <div key={src} className="relative aspect-square overflow-hidden rounded-sm">
                   <Image
                     src={src}
-                    alt="Ever Retreat villa"
+                    alt="Ever Design villa"
                     fill
                     sizes="(max-width: 768px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 hover:scale-105"

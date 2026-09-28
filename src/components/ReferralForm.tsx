@@ -62,7 +62,7 @@ export function ReferralForm() {
     }
 
     setStatus("submitting");
-    const context = "Referral — Ever Retreat";
+    const context = "Referral — Ever Design";
     const fields = {
       [t.forms.yourName]: yourName,
       [t.forms.yourEmail]: yourEmail,

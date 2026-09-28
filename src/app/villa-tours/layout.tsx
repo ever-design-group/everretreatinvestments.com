@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/villa-tours",
   },
-  title: "Villa Tours | Ever Retreat Rwanda",
+  title: "Villa Tours | Ever Design Rwanda",
   description:
     "Schedule a private villa tour in Rwanda. See our completed developments and off-plan projects in Kigali, Musanze, Rubavu, and more.",
 };

@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/rubavu",
   },
-  title: "Rubavu Property Investment | Ever Retreat",
+  title: "Rubavu Property Investment | Ever Design",
   description:
     "Rubavu property investment guide. Lake Kivu waterfront with premium holiday rentals and high nightly rates. 15-20% gross yields.",
 };

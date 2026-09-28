@@ -74,7 +74,7 @@ export default function ChoosingDeveloperPage() {
   // actual named projects and their real routes/images, not fabricated ones.
   const developmentCards = [
     {
-      name: "B&P Ever Retreat Villa",
+      name: "B&P Ever Design Villa",
       tag: "Rubavu",
       image: "/images/developments/villa-photos.jpeg",
       href: "/developments/nara-villas",
@@ -321,7 +321,7 @@ export default function ChoosingDeveloperPage() {
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
               <Image
                 src="/images/about/villa-architecture.webp"
-                alt="Ever Retreat in-house architecture and construction team at work in Rwanda"
+                alt="Ever Design in-house architecture and construction team at work in Rwanda"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

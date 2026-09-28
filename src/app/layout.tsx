@@ -3,20 +3,20 @@ import { Providers } from "@/components/Providers";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import "./globals.css";
 
-const SITE_URL = "https://everretreatinvestments.com";
-const SITE_NAME = "Ever Retreat";
-const DEFAULT_TITLE = "Luxury Eco-Villa Retreats in Rwanda | Ever Retreat";
+const SITE_URL = "https://everdesigninvestments.com";
+const SITE_NAME = "Ever Design";
+const DEFAULT_TITLE = "Luxury Eco-Villa Retreats in Rwanda | Ever Design";
 const DEFAULT_DESCRIPTION =
     "Eco-luxury retreats in Rwanda. Architecture, construction, villa management, and property investment - all under one roof.";
 // Real, already-in-use hero photo — not one of the leftover Bali template
-// images — so the OG/Twitter preview shows an actual Ever Retreat property.
+// images — so the OG/Twitter preview shows an actual Ever Design property.
 const DEFAULT_OG_IMAGE = "/images/hero/everretreat.jpeg";
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     // No title template here on purpose: every page's own layout.tsx already
-    // hand-appends "| Ever Retreat" (or "| Ever Retreat Rwanda") to its
-    // title, so a template would double it up ("... | Ever Retreat | Ever
+    // hand-appends "| Ever Design" (or "| Ever Design Rwanda") to its
+    // title, so a template would double it up ("... | Ever Design | Ever
     // Retreat"). This is just the fallback for the couple of routes with no
     // metadata export of their own (e.g. the homepage).
     title: DEFAULT_TITLE,

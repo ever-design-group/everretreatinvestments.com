@@ -13,7 +13,7 @@ function buildProjects(t: TranslationShape) {
   const items = t.developmentsSection.items;
   return [
     {
-      name: "B&P Ever Retreat Villa",
+      name: "B&P Ever Design Villa",
       image: "/images/developments/villa-photos.jpeg",
       href: "/developments/nara-villas",
       description: items["nara-villas"].description,

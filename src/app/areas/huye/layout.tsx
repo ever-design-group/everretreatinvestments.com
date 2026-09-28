@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/huye",
   },
-  title: "Huye Property Investment | Ever Retreat",
+  title: "Huye Property Investment | Ever Design",
   description:
     "Huye property investment guide. Southern province near Nyungwe and Lake Kivu. Cultural and educational hub with affordable land and growing tourism demand.",
 };

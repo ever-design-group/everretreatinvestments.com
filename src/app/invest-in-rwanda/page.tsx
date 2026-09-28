@@ -104,7 +104,7 @@ export default function InvestInRwandaPage() {
   // Rwanda Developments Data - All using the same image
   const developments = [
     {
-      title: "B&P Ever Retreat Villa",
+      title: "B&P Ever Design Villa",
       location: "Rubavu, Lake Kivu",
       beds: "",
       availability: "Prototype",
@@ -423,7 +423,7 @@ export default function InvestInRwandaPage() {
                 Where We&apos;re Building
               </h2>
               <p className="mt-4 text-base text-gray-600 sm:text-lg">
-                Every Ever Retreat development is designed, built, and managed in-house — from
+                Every Ever Design development is designed, built, and managed in-house — from
                 completed showcase villas to developments in design across Rwanda.
               </p>
             </div>
@@ -507,7 +507,7 @@ export default function InvestInRwandaPage() {
                 },
                 {
                   title: "Regulatory Changes Can Happen",
-                  description: "Rwanda property law has become more investor-friendly over the past decade, but regulations can change. Working with a licensed, locally established company like Ever Retreat reduces your exposure."
+                  description: "Rwanda property law has become more investor-friendly over the past decade, but regulations can change. Working with a licensed, locally established company like Ever Design reduces your exposure."
                 },
                 {
                   title: "Not All Areas Perform Equally",

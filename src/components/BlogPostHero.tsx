@@ -45,7 +45,7 @@ export function BlogPostHero({ image, imageAlt, category, date, title, subtitle 
           {subtitle}
         </p>
         <p className="mt-4 text-xs uppercase tracking-wider text-white/40">
-          By the Ever Retreat Investments Team
+          By the Ever Design Investments Team
         </p>
       </div>
     </section>

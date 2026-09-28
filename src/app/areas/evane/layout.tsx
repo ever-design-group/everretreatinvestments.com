@@ -2,7 +2,7 @@ export const metadata = {
   alternates: {
     canonical: "/areas/evane",
   },
-  title: "Evane Property Investment | Ever Retreat",
+  title: "Evane Property Investment | Ever Design",
   description:
     "Evane property investment guide. Northern Rwanda hill station between Kigali and Musanze. Scenic landscapes with affordable land and strong rental potential.",
 };
